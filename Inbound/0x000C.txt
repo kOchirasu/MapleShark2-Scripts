@@ -1,0 +1,59 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    if (f > 1) {
+        return 0;
+    }
+    if (f == 0) {
+        charCount = AddByte("Count");
+    } else {
+        charCount = 1;
+    }
+    for (i = 0; i < charCount; i++) {
+        DecodePlayer();
+
+        AddUnicodeString("same char profile url");
+        AddLong("???");
+
+        // This is bugged for some equip types
+        count = AddByte("EQUIPMENT");
+        for (j = 0; j < count; j++) {
+            StartNode("Equip " + j);
+            id = AddInt("Id");
+            AddLong("uid?");
+            type = AddUnicodeString("Type");
+            AddInt("??? ^" + type);
+            DecodeItem(id);
+            EndNode(false);
+        }
+        
+        StartNode("Badges");
+        count = AddByte("count");
+        for (j = 0; j < count; j++) {
+            // sub_42EE30
+            StartNode("Badge " + j);
+            AddByte("???");
+            id = AddInt("ItemId"); // LOTS OF BRANCHING HERE
+            AddLong("Unknown");
+            AddInt("Unknown");
+            DecodeItem(id);
+            AddField("Unknown", 2);
+            EndNode(false);
+        }
+        EndNode(false);
+
+        b = AddBool("???");
+        if (b) {
+            AddLong("???");
+            AddLong("???");
+            b = AddBool("flag?");
+            if (b) {
+                AddInt("???");
+                AddLong("???");
+                AddUnicodeString("WStrA");
+                AddInt("???");
+            }
+        }
+
+        //AddField("CoordsS", 6);
+    }
+}

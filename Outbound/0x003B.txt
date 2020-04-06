@@ -1,0 +1,13 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    if (f == 2) {
+        count = AddInt("Count");
+        for (i = 0; i < count; i++) {
+            StartNode("Key " + i);
+            AddInt("Number");
+            AddField("Key " + i, 16);
+            AddByte("Unknown");
+            EndNode(false);
+        }
+    }
+}

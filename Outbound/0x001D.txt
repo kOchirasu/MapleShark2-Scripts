@@ -1,0 +1,7 @@
+// Request pickup for meso objects
+using (ScriptAPI) {
+    count = AddByte("Count");
+    for (i = 0; i < count; i++) {
+        AddInt("ObjectId");
+    }
+}

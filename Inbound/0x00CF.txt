@@ -1,0 +1,10 @@
+// Exp up
+using (ScriptAPI) {
+    f1 = AddByte("Function1");
+    if (f1 == 0) {
+        f2 = AddByte("Function2");
+        if (f2 == 1) {
+            AddLong("CurrentFishingMastery");
+        }
+    }
+}

@@ -1,0 +1,51 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    if (f == 1) {
+        StartNode("ChangeTitle");
+        AddInt("ObjectId");
+        AddInt("TitleIt");
+        EndNode(true);
+    } else if (f == 2 || f == 4) {
+        count = AddInt("Count");
+        for (i = 0; i < count; i++) {
+            AddInt("Unknown");
+        }
+    } else if (f == 3 || f == 9) {
+        count = AddInt("Count");
+        for (i = 0; i < count; i++) {
+            AddInt("Unknown");
+            AddByte("Unknown");
+        }
+    } else if (f == 8) {
+        count = AddInt("Count");
+        for (i = 0; i < count; i++) {
+            AddInt("Unknown");
+            AddInt("Unknown");
+        }
+        count = AddInt("Count");
+        for (i = 0; i < count; i++) {
+            AddInt("Unknown");
+            AddInt("Unknown");
+        }
+    } else if (f == 10) {
+        count = AddInt("Count");
+        for (i = 0; i < count; i++) {
+            AddShort("Unknown");
+            AddInt("Unknown");
+        }
+    } else if (f == 11) {
+        AddShort("Unknown");
+        AddInt("Unknown");
+    } else if (f == 12) {
+        count = AddInt("Count");
+        for (i = 0; i < count; i++) {
+            AddInt("Unknown");
+            AddLong("Unknown");
+        }
+    } else if (f == 13) {
+        AddInt("Unknown");
+        AddLong("Unknown");
+    } else {
+        AddInt("Unknown");
+    }
+}

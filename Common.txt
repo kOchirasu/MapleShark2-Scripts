@@ -1,0 +1,353 @@
+function DecodeCoordF(str) {
+    using (ScriptAPI) {
+        StartNode(str + "CoordF");
+        AddFloat("X");
+        AddFloat("Y");
+        AddFloat("Z");
+        EndNode(false);
+    }
+}
+
+function DecodeEquipColor() {
+    using (ScriptAPI) {
+        StartNode("EquipColor");
+        AddInt("Color1");
+        AddInt("Color2");
+        AddInt("Color3");
+        AddInt("ColorIndex");
+        EndNode(false);
+    }
+}
+
+function DecodeSkinColor() {
+   using (ScriptAPI) {
+        StartNode("SkinColor");
+        AddInt("Color1");
+        AddInt("Color2");
+        EndNode(false);
+    } 
+}
+
+function DecodeSyncState() {
+    using (ScriptAPI) {
+        StartNode("SyncState");
+        AddByte("Animation1");
+        AddByte("Animation2");
+        flag = AddByte("Flag");
+        if ((flag & 1) == 1) { // bit-1
+            AddInt("Unknown");
+            AddShort("Unknown");
+        }
+        StartNode("Coord");
+        AddShort("CoordSX");
+        AddShort("CoordSY");
+        AddShort("CoordSZ");
+        EndNode(false);
+        AddShort("CoordS / 10");
+        u = AddByte("Unknown");
+        // if u < 0???
+        if (u > 127) {
+            AddFloat("Unknown");
+            AddFloat("Unknown");
+        }
+        StartNode("Coord");
+        AddShort("CoordSX");
+        AddShort("CoordSY");
+        AddShort("CoordSZ");
+        EndNode(false);
+        AddByte("Unknown");
+        AddShort("CoordS / 10");
+        AddShort("CoordS / 1000");
+        if ((flag & 2) == 2) { // bit-2
+            DecodeCoordF("Unknown");
+            AddUnicodeString("UnknownStr");
+        }
+        if ((flag & 4) == 4) { // bit-3
+            AddInt("Unknown");
+            AddUnicodeString("UnknownStr");
+        }
+        if ((flag & 8) == 8) { // bit-4
+            AddUnicodeString("AnimationString?");
+        }
+        if ((flag & 16) == 16) { // bit-5
+            AddInt("Unknown");
+            AddUnicodeString("UnknownStr");
+        }
+        if ((flag & 32) == 32) { // bit-6
+            AddInt("Unknown");
+            AddInt("Unknown");
+            AddByte("Unknown");
+            DecodeCoordF("Unknown");
+            DecodeCoordF("Unknown");
+        }
+        AddInt("Unknown");
+        EndNode(false);
+    }
+}
+
+function DecodeItem(id) {
+    using (ScriptAPI) {
+        StartNode("Item: " + id);
+        AddInt("Amount");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddLong("CreationTime");
+        AddLong("ExpiryTime");
+        AddLong("Unknown");
+        AddInt("TimesChangedAttribute");
+        AddInt("Unknown");
+        AddByte("IsLocked");
+        AddLong("UnlockTime");
+        AddShort("GlamorForges");
+        AddBool("Unknown");
+        AddInt("Unknown");
+        DecodeEquipColor();
+        AddInt("Unknown");
+        // Item positioning
+        if (id / 100000 == 113) {
+            AddField("Cap Position", 13 * 4);
+        } else if (id / 100000 == 102) {
+            AddField("Back Hair Position", 4 * 7);
+            AddField("Front Hair Position", 4 * 7);
+        } else if (id / 100000 == 104) {
+            AddField("Cosmetic Position", 4 * 4);
+        }
+        AddByte("Unknown");
+        StartNode("Stats");
+        for (i = 0; i < 9; i++) {
+            StartNode("Iteration " + i);
+            count = AddShort("count");
+            for (j = 0; j < count; j++) {
+                AddShort("Unknown"); // stat type?
+                AddInt("Unknown"); // stat value?
+                AddFloat("Unknown"); // ??
+            }
+            count = AddShort("count");
+            for (j = 0; j < count; j++) {
+                AddShort("Unknown");
+                AddFloat("Unknown");
+                AddFloat("Unknown");
+            }
+            AddInt("Unknown");
+            EndNode(false);
+        }
+        EndNode(false);
+        // Sub
+        AddInt("TransferFlag");
+        AddInt("Unknown+186");
+        AddByte("Unknown+190");
+        AddLong("Unknown+191");
+        AddInt("Unknown+199");
+        AddInt("Unknown+203");
+        AddByte("Unknown+207");
+        AddInt("Unknown+208");
+        
+        StartNode("general stat diff");
+        count = AddByte("Count");
+        for (e = 0; e < count; e++) {
+            AddInt("stat index");
+            AddInt("int diff");
+            AddFloat("float diff");
+        }
+        EndNode(false);
+        // EndSub
+        //Sub
+        AddInt("???");
+        StartNode("stat diff");
+        count = AddInt("Count");
+        for (e = 0; e < count; e++) {
+            AddShort("stat index");
+            AddInt("diff");
+            AddFloat("diff");
+        }
+        EndNode(false);
+        StartNode("bonus stat diff");
+        count = AddInt("Count");
+        for (e = 0; e < count; e++) {
+            AddShort("stat index");
+            AddFloat("diff");
+            AddFloat("diff");
+        }
+        EndNode(false);
+        // EndSub
+
+        //Testing UGC
+        if (id == 11400608 || id == 11500523) {
+            StartNode("UGC");
+            AddField("Unknown", 8);
+            AddUnicodeString("UUID");
+            AddUnicodeString("ItemName");
+            AddByte("Unknown");
+            AddInt("Unknown");
+            AddLong("AccountId");
+            AddLong("CharacterId");
+            AddUnicodeString("CharacterName");
+            AddLong("CreationTime");
+            AddUnicodeString("UGC Url");
+            AddField("Unknown", 51);
+            EndNode(true);
+        }
+
+        AddInt("bound");
+        AddByte("???");
+        AddInt("remaining trades");
+        AddInt("???");
+        AddByte("???");
+        AddByte("???");
+        f = AddByte("IsBound");
+        if (f != 0) {
+            AddLong("BoundToCharId");
+            AddUnicodeString("BoundToName");
+        }
+        AddByte("total sockets");
+        count = AddByte("Count");
+        for (e = 0; e < count; e++) {
+            StartNode("Gemstone " + e);
+            isUnlocked = AddBool("unlocked socket");
+            if (isUnlocked) {
+                AddInt("SocketStats");
+                isBound = AddBool("Bound");
+                if (isBound) {
+                    AddLong("CharacterId");
+                    AddUnicodeString("Name");
+                }
+                b = AddBool("SocketStats");
+                if (b) {
+                    AddLong("Unknown");
+                }
+            }
+            EndNode(false);
+        }
+        b = AddLong("PairedCharacterId");
+        if (b != 0) {
+            AddUnicodeString("PairedName");
+            AddByte("Unknown");
+        }
+        AddLong("???");
+        AddUnicodeString("Unknown");
+        EndNode(false);
+    }
+}
+
+function DecodePlayer() {
+    using (ScriptAPI) {
+        StartNode("PlayerInfo");
+        AddLong("AccountId");
+        AddLong("CharacterId");
+        AddUnicodeString("Name");
+        AddByte("Gender"); // 0 = male, 1 = female
+        AddByte("Unknown");
+        AddLong("Unknown");
+
+        AddInt("Unknown");
+        AddInt("MapId");
+        AddInt("AnotherMapId"); // Sometimes 0
+        AddInt("Unknown");
+        AddShort("Level");
+        AddShort("Unknown");
+        AddInt("JobGroupId");
+        AddInt("JobId");
+        AddInt("CurrentHp");
+        AddInt("MaxHp");
+        AddShort("Unknown");
+
+        AddLong("Unknown");
+        AddLong("UnknownTimestamp");
+        AddLong("Unknown");
+        AddInt("OutsideMapId");
+        DecodeCoordF("OutsidePosition");
+        AddInt("Unknown");
+        DecodeSkinColor();
+        AddLong("CreationTime");
+        StartNode("Trophy");
+        for (i = 0; i < 3; i++) {
+            AddInt("Count");
+        }
+        EndNode(false);
+        AddLong("GuildUid");
+        AddUnicodeString("Guild");
+        AddUnicodeString("Motto");
+        AddUnicodeString("Profile URL");
+
+        // CharacterListClubParser
+        StartNode("Clubs");
+        count = AddByte("count");
+        for (i = 0; i < count; i++) {
+            b = AddByte("club");
+            if (b == 1) {
+                AddLong("club");
+                // variable packet call here
+                AddUnicodeString("Club Name");
+            }
+        }
+        EndNode(false);
+
+        AddByte("???");
+        StartNode("???");
+        for (i = 0; i < 12; i++) {
+            AddInt("???");
+        }
+        EndNode(false);
+
+        AddUnicodeString("UnknownStr");
+        AddLong("BypassKeyRelated");
+        AddLong("Unknown");
+        AddLong("Unknown");
+
+        StartNode("countA");
+        count = AddInt("countA");
+        for (i = 0; i < count; i++) {
+            AddLong("Unknown");
+        }
+        EndNode(false);
+
+        AddByte("Unknown");
+        AddBool("Unknown");
+        AddLong("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddLong("UnknownTimestamp");
+        AddInt("PrestigeLevel");
+        AddLong("UnknownTimestamp");
+        
+        count = AddInt("countB");
+        for (i = 0; i < count; i++) {
+            AddLong("Unknown");
+        }
+        count = AddInt("countC");
+        for (i = 0; i < count; i++) {
+            AddLong("Unknown");
+        }
+
+        AddShort("Unknown");
+        AddLong("Unknown");
+        EndNode(false);
+    }
+}
+
+function DecodeNpcStats() {
+    using (ScriptAPI) {
+        StartNode("NpcStats");
+        c = AddByte("Stats Flag?"); // 0x35
+        if (c == 1) {
+            v = AddByte("Value");
+            if (v == 4) {
+                AddLong("Unknown");
+                AddLong("Unknown");
+                AddLong("Unknown");
+            } else {
+                AddInt("Unknown");
+                AddInt("Unknown");
+                AddInt("Unknown");
+            }
+        } else {
+            AddLong("Unknown");
+            AddInt("Unknown");
+            AddLong("Unknown");
+            AddInt("Unknown");
+            AddLong("Unknown");
+            AddInt("Unknown");
+        }
+        EndNode(false);
+    }
+}

@@ -1,0 +1,15 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    if (f == 0) {
+        AddShort("Unknown+9");
+        AddInt("ObjectId");
+        AddLong("CharacterId");
+        DecodeCoordF("Unknown");
+        DecodeCoordF("Unknown");
+    } else if (f == 1) {
+        AddInt("ObjectId");
+        AddLong("CharacterId");
+    } else if (f == 2) {
+        AddInt("Unknown+9");
+    }
+}

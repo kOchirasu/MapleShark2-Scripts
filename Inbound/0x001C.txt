@@ -1,0 +1,9 @@
+using (ScriptAPI){
+    AddInt("ObjectId");    
+    count = AddByte("Count");
+    for (i = 0; i < count; i++) {
+        AddByte("Flag?");
+        AddByte("Flag?");
+        DecodeSyncState();
+    }
+}

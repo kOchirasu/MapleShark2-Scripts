@@ -1,0 +1,30 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    if (f == 0) { // Keyboard
+        isDefault = AddByte("IsDefault");
+        if (isDefault == 1) { // DefaultKey
+
+        } else {
+            count = AddInt("Count");
+            for (i = 0; i < count; i++) {
+                StartNode("Key " + i);
+                AddInt("Unknown");
+                AddInt("Unknown");
+                AddLong("Unknown");
+                AddInt("KeyCode");
+                AddByte("???");
+                AddInt("???");
+                AddShort("???");
+                EndNode(false);
+            }
+            AddShort("Unknown");
+            count = AddShort("Count");
+            for (i = 0; i < count; i++) {
+                AddInt("Unknown");
+                AddInt("Unknown");
+                AddInt("Unknown");
+                AddLong("Unknown");
+            }
+        }
+    }
+}

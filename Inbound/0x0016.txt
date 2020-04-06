@@ -1,0 +1,23 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    if (f == 0) {
+        AddInt("MapId");
+        AddByte("Unknown");
+        AddByte("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        // coords
+        StartNode("Coord");
+        AddFloat("CoordX?");
+        AddFloat("CoordY?");
+        AddFloat("CoordZ?");
+        EndNode(false);
+        // coords
+        StartNode("Coord");
+        AddFloat("CoordX?");
+        AddFloat("CoordY?");
+        AddFloat("CoordZ?");
+        EndNode(false);
+        AddInt("Unknown");
+    }
+}

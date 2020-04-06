@@ -1,0 +1,8 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    AddByte("State");
+    AddInt("SyncTime");
+    if (f == 0) {
+        DecodeCoordF("");
+    }
+}

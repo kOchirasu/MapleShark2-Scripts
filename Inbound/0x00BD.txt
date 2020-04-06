@@ -1,0 +1,34 @@
+using (ScriptAPI) {
+    type = AddByte("Header");
+    if (type == 0) {
+        AddPFR_Party("Created Party", false);
+    } else if (type == 1) {
+        AddLong("Party ID");	
+    } else if (type == 2) {
+        npt = AddUInt("Number of Parties");
+        for (i=0; i < npt; i=i+1) {
+            AddPFR_Party("Party " + i, true);
+        }
+    }
+}
+
+function AddPFR_Party(n, addAlive) {
+    using (ScriptAPI) {
+        StartNode(n);
+        if (addAlive) {
+            AddByte("Unknown - Possibly page number or whether the party is alive/full");	
+        }
+        AddLong("Party ID (likely, incremented every time a new party is created)");
+        AddLong("Another ID (Increments randomly)");
+        AddField("Reserved (?)", 4);
+        AddUnicodeString("Party Name");
+        AddByte("Is Public Party");
+        AddInt("Current # in Party");
+        AddInt("Maximum # in Party");
+        AddLong("Party Owner (Account ID)");
+        AddLong("Party Owner (Character ID)");
+        AddUnicodeString("Party Owner (Character Name)");
+        AddLong("Party Creation Timestamp");
+        EndNode(true);
+    }
+}

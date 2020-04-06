@@ -1,0 +1,32 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    if (f == 1) { // Load
+        count = AddInt("Count");
+        for (i = 0; i < count; i++) {
+            StartNode("Achievment " + i);
+            AddInt("Id");
+            AddInt("ss");
+            AddAchievementDetails();
+            EndNode(false);
+        }
+    } else if (f == 2) { // Update?
+        AddInt("Id");
+        AddAchievementDetails();
+    }
+}
+
+function AddAchievementDetails() {
+    using (ScriptAPI) {
+        AddByte("Type");
+        AddInt("FirstTier");
+        AddInt("CurrentTier");
+        AddInt("TotalTiers");
+        AddByte("Unknown");
+        AddLong("TrackerTotalCount");
+        count2 = AddInt("Count");
+        for (j = 0; j < count2; j++) {
+            AddInt("Tier " + (j + 1));
+            AddLong("DateAchieved");
+        }
+    }
+}

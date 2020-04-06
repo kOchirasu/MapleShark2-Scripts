@@ -1,0 +1,4 @@
+using (ScriptAPI) {
+    AddLong("Mesos");
+    AddInt("Unknown"); // 1001
+}

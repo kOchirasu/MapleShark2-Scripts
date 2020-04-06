@@ -1,0 +1,13 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    if (f == 0) {
+        for (i = 0; i < 8; i++) {
+            AddShort("Unknown");
+        }
+    } else if (f == 1) {
+        count = AddShort("Count");
+        for (i = 0; i < count; i++) {
+            AddShort("Unknown");
+        }
+    }
+}

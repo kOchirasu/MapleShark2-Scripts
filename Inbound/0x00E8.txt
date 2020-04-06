@@ -1,0 +1,5 @@
+// BypassKey
+using (ScriptAPI) {
+    AddInt("Unknown+8");
+    AddLong("Unknown+12");
+}

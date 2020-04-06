@@ -1,0 +1,29 @@
+using (ScriptAPI) {
+    AddInt("uid");
+    AddByte("Unknown");
+    f = AddByte("type");
+    if (f == 1) {
+        statType = AddByte("StatType");
+        if (statType == 4) {
+            StartNode("TotalHp");
+            AddInt("Unknown");
+            AddInt("Unknown");
+            AddInt("Unknown");
+            EndNode(false);
+            StartNode("CurrentHp");
+            AddInt("Unknown");
+            AddInt("Unknown");
+            AddInt("Unknown");
+            EndNode(false);
+        }
+    } else if (f == 35) {
+        for (i = 0; i < 6; i++) {
+            StartNode("Stat " + i);
+            AddInt("Unknown");
+            AddInt("Unknown");
+            AddInt("Unknown");
+            EndNode(false);
+        }
+    }
+    
+}

@@ -1,0 +1,12 @@
+using (ScriptAPI){
+    f = AddByte("Function");
+    switch(f) {
+        case 1:
+            AddInt("Player ObjectId");
+            AddLong("PetUid");
+        case 7:
+            AddInt("Unknown");
+            AddInt("PetId");
+            AddShort("Unknown");
+    }
+} 

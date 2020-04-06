@@ -1,0 +1,13 @@
+using (ScriptAPI) {
+    AddByte("Function");
+    AddInt("ServerTick");
+    AddInt("ClientTicks");
+    count = AddByte("segments");
+    for (i = 0; i < count; i++) {
+        StartNode("Segment " + i);
+        DecodeSyncState();
+        AddInt("ClientTicks");
+        AddInt("ServerTick");
+        EndNode(true);
+    }
+}

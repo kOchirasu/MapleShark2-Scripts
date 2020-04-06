@@ -1,0 +1,45 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    AddInt("PortalId");
+    if (f == 0) {
+        AddByte("Unknown");
+        AddByte("Unknown");
+        AddFloat("CoordX");
+        AddFloat("CoordY");
+        AddFloat("CoordZ");
+        AddFloat("UnknownCoordX");
+        AddFloat("UnknownCoordY");
+        AddFloat("UnknownCoordZ");
+        AddFloat("UnknownCoordX");
+        AddFloat("UnknownCoordY");
+        AddFloat("UnknownCoordZ");
+        AddUnicodeString("UnknownStr");
+        AddInt("UnknownId");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddByte("Unknown");
+        AddLong("UnknownLongId");
+        AddByte("Unknown");
+        AddInt("Unknown");
+        AddShort("Unknown");
+        AddInt("Unknown");
+        AddBool("Unknown");
+        AddUnicodeString("UnknownStr");
+        AddUnicodeString("UnknownStr");
+        AddUnicodeString("UnknownStr");
+    } else if (f == 1) {
+        // ??
+    } else if (f == 2) {
+        AddByte("Unknown");
+        AddByte("Unknown");
+        AddByte("Unknown");
+        AddShort("Unknown");
+    } else if (f == 3) {
+        AddFloat("CoordX");
+        AddFloat("CoordY");
+        AddFloat("CoordZ");
+        AddFloat("UnknownCoordX");
+        AddFloat("UnknownCoordY");
+        AddFloat("UnknownCoordZ");
+    }
+}

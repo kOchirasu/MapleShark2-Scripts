@@ -1,0 +1,39 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    if (f == 2) {
+        count = AddInt("count");
+        for (i = 0; i < count; i++) {
+            SameFunction();
+        }
+    } else if (f == 3) {
+        SameFunction();
+    } else if (f == 5) {
+        AddLong("Unknown");
+        AddUnicodeString("UnknownStr");
+        AddByte("Unknown");
+    } else if (f == 8) {
+        AddLong("Unknown");
+        AddUnicodeString("UnknownStr");
+        AddLong("Unknown");
+        AddInt("Unknown");
+    } else if (f == 9) {
+        AddLong("Unknown");
+        AddUnicodeString("UnknownStr");
+        AddLong("Unknown");
+    } else if (f == 10 || f == 11 || f == 13) {
+        AddLong("Unknown");
+        AddUnicodeString("UnknownStr");
+    } else if (f == 12) {
+        AddLong("Unknown");
+        AddUnicodeString("UnknownStr");
+        AddInt("Unknown");
+    }
+}
+
+function SameFunction() {
+    using (ScriptAPI) {
+        AddUnicodeString("UnknownStr");
+        AddInt("Unknown");
+        AddByte("Unknown");
+    }
+}

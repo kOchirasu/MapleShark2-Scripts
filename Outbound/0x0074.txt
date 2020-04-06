@@ -1,0 +1,11 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    if (f == 0) { // Start fishing
+        AddLong("RodItemUid");
+    } else if (f == 9) {
+        AddInt("Unknown");
+    } else if (f == 8) { // Success
+        AddBool("Auto"); //  0 = manual, 1 = auto
+    } else if (f == 10) { // Failed   
+    }
+}

@@ -1,0 +1,129 @@
+using (ScriptAPI) {
+    AddInt("CharId");
+    DecodePlayer();
+    AddInt("JobId");
+    AddByte("Unknown");
+    AddInt("JobGroupId");
+    StartNode("Skills");
+    for (i = 0; i < 2; i++) {
+        StartNode("Skillbook " + i);
+        count = AddByte("Count");
+        for (j = 0; j < count; j ++) {
+            StartNode("Skill " + j);
+            AddShort("Unknown...");
+            AddInt("SkillId");
+            AddByte("Skill Points");
+            AddInt("Unknown");
+            EndNode(false);
+        }
+        EndNode(true);
+    }
+    EndNode(false);
+    AddByte("Unknown+447");
+    AddByte("Unknown+448");
+    DecodeCoordF("");
+    DecodeCoordF("");
+    AddByte("Unknown+473");
+    StartNode("Unknown Node 1");
+    count = AddByte("Count");
+    for (i = 0; i < count; i+=2) {
+        AddInt("Unknown");
+    }
+    EndNode(false);
+    AddByte("Unknown+475");
+    AddByte("Unknown+476");
+    AddInt("Unknown+477");
+    AddLong("Unknown+481");
+    AddLong("Unknown+489");
+    StartNode("Unknown Node 2");
+    flag = AddBool("Flag");
+    if (flag) {
+        AddLong("Unknown");
+        AddUnicodeString("UnknownStr");
+        AddUnicodeString("UnknownStr");
+        AddByte("Unknown");
+        AddInt("Unknown");
+        AddLong("Unknown");
+        AddLong("Unknown");
+        AddUnicodeString("UnknownStr");
+        AddLong("Unknown");
+        AddUnicodeString("UnknownStr");
+        AddByte("Unknown");
+    }
+    EndNode(false);
+    AddInt("Unknown+498");
+    StartNode("SkinColor");
+    for (i = 1; i <= 2; i++) {
+        AddInt("Color " + i);
+    }
+    EndNode(false);
+    AddUnicodeString("Profile Url");
+    StartNode("Unknown Node 3");
+    flag = AddBool("Flag");
+    if (flag) {
+        AddByte("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddByte("Unknown");
+    }
+    EndNode(false);
+    AddInt("Unknown+513");
+    AddLong("Unknown+517");
+    AddInt("Unknown+525");
+    AddInt("Unknown+529");
+
+    flag = AddBool("Flag");
+    if (flag) {
+        StartNode("Buffer 1");
+        size = AddInt("BufferSize");
+        AddField("Buffer", size);
+        EndNode(false);
+        AddByte("Separator?");
+        StartNode("Buffer 2");
+        size = AddInt("BufferSize");
+        AddField("Buffer", size);
+        EndNode(false);
+        AddByte("Separator?");
+        StartNode("Buffer 3");
+        size = AddInt("BufferSize");
+        AddField("Buffer", size);
+        EndNode(false);
+
+        StartNode("Passive skills");
+        count = AddShort("Count");
+        for (i = 0; i < count; i++) {
+            StartNode("Passive skill " + i);
+            AddInt("SessionId");
+            AddInt("Unknown+778");
+            AddInt("SessionId");
+            AddInt("Unknown+786");
+            AddInt("Unknown+790");
+            AddInt("SkillId");
+            AddShort("Unknown+798");
+            AddInt("Unknown+800");
+            AddByte("Unknown+804");
+            AddLong("Unknown+805");
+            EndNode(true);
+        }
+        EndNode(false);
+        AddInt("Unknown+852");
+        AddInt("Unknown+856");
+        AddByte("Unknown+860");
+        AddInt("Unknown+861");
+        AddByte("Unknown+865");
+        AddByte("Unknown+866");
+        AddInt("Unknown+867");
+        AddShort("Unknown+871");
+        AddByte("Unknown+873");
+        AddInt("Unknown+874");
+        AddByte("Unknown+878");
+        AddLong("Unknown+879");
+        AddInt("Unknown+887");
+        AddByte("Unknown+891");
+        AddInt("Unknown+892");
+        AddInt("Unknown+896");
+        AddShort("Unknown+900");
+    } else {
+        AddInt("Unknown");
+    }
+}

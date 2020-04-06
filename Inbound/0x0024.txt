@@ -1,0 +1,18 @@
+
+using (ScriptAPI) {
+    count = AddByte("Unknown");
+	if (count == 0 || count == 4) {
+		// 0 == Start List
+		// 4 == End List
+	} else if (count == 1) {
+		AddInt("a");
+		AddLong("b");
+		AddLong("c");
+		AddBool("d");
+	} else if (count == 2) {
+		AddLong("a");
+	} else if (count = 3) {
+		AddLong("a");
+		AddInt("b");
+	}
+}

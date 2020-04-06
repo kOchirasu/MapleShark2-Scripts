@@ -1,0 +1,79 @@
+using (ScriptAPI) {
+    AddInt("ObjectId");
+    AddInt("NpcId");
+    AddFloat("CoordX");
+    AddFloat("CoordY");
+    AddFloat("CoordZ");
+    AddFloat("UnknownCoordX");
+    AddFloat("UnknownCoordY");
+    AddFloat("UnknownCoordZ");
+    // If valid NpcId
+    StartNode("Stats");
+    c = AddByte("Stats Flag?"); // 0x35
+    if (c == 1) {
+        v = AddByte("Value");
+        if (v == 4) {
+            AddLong("Unknown");
+            AddLong("Unknown");
+            AddLong("Unknown");
+        } else {
+            AddInt("Unknown");
+            AddInt("Unknown");
+            AddInt("Unknown");
+        }
+    } else {
+        AddLong("Unknown");
+        AddInt("Unknown");
+        AddLong("Unknown");
+        AddInt("Unknown");
+        AddLong("Unknown");
+        AddInt("Unknown");
+    }
+    EndNode(false);
+    AddByte("Unknown+77");
+    count = AddShort("Count");
+    for (i = 0; i < count; i++) {
+        StartNode("node " + i);
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddShort("Unknown");
+        AddInt("Unknown");
+        AddByte("Unknown");
+        AddLong("Unknown");
+        EndNode(false);
+    }
+    AddLong("uid");
+    AddByte("Unknown+88");
+    AddInt("Unknown+89");
+    AddInt("Unknown+93");
+    AddByte("Unknown+97");
+}
+
+/*
+
+// AddString("ConditionedStrA");
+// UnknownClassCall(packet)
+AddByte("Unknown");
+AddLong("Unknown");
+AddByte("Unknown");
+AddInt("Unknown");
+AddInt("Unknown");
+// Condition
+AddString("UnknownStr");
+count = AddInt("count");
+for (i = 0; i < count; i++) {
+    AddInt("Unknown");
+    AddShort("Unknown");
+}
+AddInt("Unknown");
+// EndCondition
+// Condition
+AddLong("Unknown");
+// EndCondition
+AddByte("Unknown");
+
+*/

@@ -1,0 +1,19 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    if (f == 2) { // opening furnishing box
+        AddInt("Unknown");
+    } else if (f == 3) {
+        AddInt("Unknown");
+        AddLong("Unknown");
+        AddByte("Unknown");
+        AddInt("Unknown");
+    } else if (f == 4) {
+        AddLong("Unknown");
+    } else if (f == 5) { // opening furnishing box
+        AddLong("uid");
+        AddInt("Count");
+    } else if (f == 7) { // opening furnishing box
+        AddLong("uid");
+        AddInt("Unknown");
+    }
+}

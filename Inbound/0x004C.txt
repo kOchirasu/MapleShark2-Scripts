@@ -1,0 +1,31 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    // f == 0: Cancel
+    if (f == 1) {
+        AddInt("ObjectId");
+        AddByte("Unknown"); // 2?
+        AddInt("ScriptId");
+        AddInt("Unknown");
+        AddInt("Unknown"); // Affects selections...
+    } else if (f == 2 ||  f == 8) {
+        AddByte("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+    } else if (f == 3) {
+        f = AddByte("Function");
+        // 0, 2, 3, 4, 5, 6, 7, 8, 9
+    } else if (f == 9) {
+        AddByte("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+    } else if (f == 10) {
+        AddInt("Unknown");
+        AddShort("Unknown");
+        AddUnicodeString("Unknown");
+        AddString("Unknown");
+        AddString("Unknown");
+    }
+}

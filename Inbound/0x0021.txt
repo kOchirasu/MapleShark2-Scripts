@@ -1,0 +1,39 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+    if (f == 13) { // Start inventory?
+        AddInt("???");
+    } else if (f == 0) {
+        StartNode("Equip");
+        id = AddInt("ItemId");
+        AddLong("uid");
+        AddShort("slot");
+        AddInt("rarity");
+        AddUnicodeString("???");
+        DecodeItem(id);
+        EndNode(false);
+    } else if (f == 8) {
+        AddLong("???");
+        AddInt("???");
+        AddUnicodeString("???");
+        // more...
+    } else if (f == 7 || f == 10) {
+        count = AddShort("count");
+        for (i = 0; i < count; i++) {
+            StartNode("Equip " + i);
+            id = AddInt("ItemId");
+            AddLong("uid");
+            AddShort("slot");
+            AddInt("rarity");
+            DecodeItem(id);
+            EndNode(false);
+        }
+    } else if (f == 1) {
+
+    } else if (f == 2) {
+
+    } else if (f == 3) {
+
+    } else if (f == 14) {
+
+    }
+}

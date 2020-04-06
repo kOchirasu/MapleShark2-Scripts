@@ -1,0 +1,4 @@
+using (ScriptAPI) {
+    AddInt("ObjectId"); // Of player leveling up
+    AddInt("Level");
+}

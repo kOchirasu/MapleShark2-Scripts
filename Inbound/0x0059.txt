@@ -1,0 +1,23 @@
+using (ScriptAPI) {
+    count = AddShort("Count");
+    for (i = 0; i < count; i++) {
+        size = AddShort("BufferSize");
+        AddInt("ObjectId");
+        AddByte("Unknown");
+        StartNode("Coord");
+        AddShort("CoordSX");
+        AddShort("CoordSY");
+        AddShort("CoordSZ");
+        EndNode(false);
+        StartNode("Movement");
+        AddShort("Direction");
+        AddShort("SpeedX");
+        AddShort("SpeedY");
+        AddShort("SpeedZ");
+        EndNode(false);
+        AddShort("Unknown");
+        AddByte("Unknown");
+        AddShort("Animation");
+        AddShort("Counter (per action)");
+    }
+}

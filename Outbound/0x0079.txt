@@ -1,0 +1,10 @@
+using (ScriptAPI){
+    f = AddByte("Function");
+    
+    switch(f) {
+        case 0: // Summon
+            AddLong("Pet uid");
+        case 1: // Remove Summon
+            AddLong("Pet uid");
+    }
+} 

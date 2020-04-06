@@ -1,0 +1,39 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    if (f == 0) {
+        AddInt("Unknown");
+    } else if (f == 1) {
+        AddInt("Unknown");
+        count = AddInt("Count");
+        for (i = 0; i < count; i++) {
+            AddInt("Unknown");
+        }
+    } else if (f == 2) {
+        AddInt("Unknown");
+        AddLong("Unknown");
+        AddByte("Unknown");
+    } else if (f == 21) {
+        AddInt("Unknown");
+        AddInt("Unknown");
+    } else if (f == 22) {
+        count = AddInt("Count");
+        for (i = 0; i < count; i++) {
+            StartNode("Quest " + i);
+            AddInt("QuestId");
+            AddInt("Unknown");
+            AddInt("Unknown");
+            AddLong("StartTime");
+            AddLong("EndTime");
+            AddByte("Unknown");
+            // Some condition on quest object...
+            //AddInt("Unknown");
+            //AddInt("Unknown");
+            EndNode(false);
+        }
+    } else if (f == 23) {
+        count = AddInt("Count");
+        for (i = 0; i < count; i++) {
+            AddInt("Unknown");
+        }
+    }
+}

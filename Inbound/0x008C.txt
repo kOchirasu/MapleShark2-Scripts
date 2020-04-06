@@ -1,0 +1,172 @@
+// Guild
+using (ScriptAPI) {
+    f = AddByte("Function");
+    if (f == 0) {
+        AddLong("Unknown+9");
+        AddUnicodeString("GuildName");
+        AddUnicodeString("GuildIconUrl");
+        AddByte("Unknown+21");
+        AddUnicodeString("UnknownStr+22");
+        AddUnicodeString("GuildMessage");
+        AddLong("AccountId");
+        AddLong("ChracterId");
+        AddUnicodeString("GuildLeaderName");
+        AddLong("CreationTimestamp");
+        AddByte("Unknown+52");
+        AddInt("Unknown+53");
+        AddInt("Unknown+57");
+        AddInt("Unknown+61");
+        AddInt("Unknown+65");
+        AddInt("Unknown+69");
+        AddInt("Unknown+73");
+        AddInt("Unknown+77");
+        AddInt("Unknown+81");
+        AddByte("Unknown+85");
+        AddInt("Unknown+86");
+        AddInt("Unknown+90");
+        AddInt("Unknown+94");
+        AddByte("Unknown+98");
+        AddInt("Unknown+99");
+        StartNode("Guild Members");
+        count = AddByte("MemberCount+103");
+        for (i = 0; i < count; i++) {
+            StartNode("Member " + i);
+            type = AddByte("Unknown+104");
+            AddByte("Unknown+105");
+            AddLong("Unknown+106");
+
+            if (type == 3) {
+                AddLong("AccountId");
+                AddLong("CharacterId");
+                AddUnicodeString("MemberName");
+                AddByte("Unknown+132");
+                AddInt("Unknown+133");
+                AddInt("Unknown+137");
+                AddShort("Unknown+141");
+                AddInt("Unknown+143");
+                AddInt("Unknown+147");
+                AddShort("Unknown+151");
+                AddUnicodeString("MemberProfileUrl");
+                AddInt("Unknown+155");
+                AddInt("Unknown+159");
+                AddInt("Unknown+163");
+                AddLong("Unknown+167");
+                AddInt("Unknown+175");
+                AddInt("Unknown+179");
+                AddInt("Unknown+183");
+
+                AddUnicodeString("UnknownStr+187");
+                AddLong("Unknown+189");
+                AddLong("Unknown+197");
+                AddLong("Unknown+205");
+                AddInt("Unknown+213");
+                AddInt("Unknown+217");
+                AddInt("Unknown+221");
+                AddInt("Unknown+225");
+                AddInt("Unknown+229");
+                AddLong("Unknown+233");
+                count2 = AddInt("Unknown+241");
+                for (j = 0; j < count2 - 1; j++) {
+                    AddInt("Unknown");
+                    AddInt("Unknown");
+                    AddInt("Unknown");
+                }
+                AddByte("Unknown+245");
+            } else {
+                AddUnicodeString("UnknownStr+114");
+                AddInt("Unknown+116");
+                AddInt("Unknown+120");
+                AddShort("Unknown+124");
+                AddUnicodeString("UnknownStr+126");
+            }
+            EndNode(false);
+        }
+        EndNode(false);
+
+        StartNode("GuildRanks");
+        count = AddByte("GuildRanksCount");
+        for (i = 0; i < count; i++) {
+            StartNode("Guild Rank " + i);
+            AddByte("Index");
+            AddUnicodeString("Name");
+            AddInt("Id??");
+            EndNode(false);
+        }
+        EndNode(false);
+        StartNode("GuildSkills");
+        count = AddByte("GuildSkillsCount");
+        for (i = 0; i < count; i++) {
+            StartNode("Guild Skill " + i);
+            AddInt("Unknown??");
+            AddInt("Unknown??");
+            AddLong("Unknown??");
+            EndNode(false);
+        }
+        EndNode(false);
+        StartNode("GuildEvents");
+        count = AddByte("GuildEventsCount");
+        for (i = 0; i < count; i++) {
+            StartNode("Guild Skill " + i);
+            AddInt("Unknown??");
+            AddInt("Unknown??");
+            EndNode(false);
+        }
+        EndNode(false);
+        StartNode("GuildPosters");
+        AddInt("Unknown+131");
+        AddInt("Unknown+135");
+        count = AddInt("Count");
+        for (i = 0; i < count; i++) {
+            AddInt("Index");
+            AddUnicodeString("PosterUrl");
+            AddLong("OwnerId??");
+            AddUnicodeString("OwnerName");
+        }
+        EndNode(false);
+        StartNode("GuildNpcs");
+        count = AddByte("Count");
+        for (i = 0; i < count; i++) {
+            AddInt("Unknown");
+            AddInt("Unknown");
+        }
+        EndNode(false);
+        StartNode("GuildNpcShopProducts");
+        if (AddBool("Flag")) {
+            count = AddShort("Count");
+            for (i = 0; i < count; i++) {
+                AddBool("Unknown");
+                AddShort("Unknown");
+                AddLong("Unknown");
+                count2 = AddShort("Unknown");
+                for (j = 0; j < count2; j++) {
+                    if (AddBool("Flag")) {
+                        AddInt("Unknown");
+                        AddByte("Unknown");
+                        AddInt("Unknown");
+                        AddInt("Unknown");
+                    }
+                }
+            }
+        }
+        EndNode(false);
+        StartNode("GuildUnknown");
+        count = AddInt("Condition");
+        for (i = 0; i < count; i++) {
+            AddInt("Unknown");
+            AddShort("Unknown");
+            AddInt("Unknown");
+            AddBool("Unknown");
+            AddBool("Unknown");
+            AddBool("Unknown");
+            AddBool("Unknown");
+        }
+        EndNode(false);
+        AddInt("Unknown+149");
+        AddUnicodeString("UnknownStr+153");
+        AddLong("Unknown+155");
+        AddLong("Unknown+163");
+        for (i = 0; i < 7; i ++) {
+            AddInt("Unknown");
+        }
+    }
+}

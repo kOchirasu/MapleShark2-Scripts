@@ -1,0 +1,16 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    if (f == 0) {
+        AddLong("PrestigeExp");
+        AddInt("PrestigeLevel");
+        AddLong("PrestigeExp");
+        count = AddInt("Count");
+        // 2, 4, 6, 8, 10, 12, 20, 30, 40, 50, 60, 70, 80, 90???
+        for (i = 0; i < count; i++) {
+            AddInt("Unknown");
+        }
+    } else if (f == 1) { // Gain Prestige
+        AddLong("CurrentPrestigeExp");
+        AddLong("GainedPrestigeExp");
+    }
+}

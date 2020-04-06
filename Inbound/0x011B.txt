@@ -1,0 +1,35 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    if (f == 22) {
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddLong("Unknown");
+        AddUnicodeString("UnknownStr");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+    } else if (f == 23) {
+        AddLong("Unknown");
+        AddInt("Unknown");
+        AddByte("Unknown");
+        AddLong("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddLong("Unknown");
+    } else if (f == 30) {
+        count = AddByte("Count");
+        for (i = 0; i < count; i++) {
+            AddInt("Unknown");
+            count2 = AddInt("Count");
+            for (j = 0; j < count2; j++) {
+                AddInt("Unknown");
+                AddLong("Unknown");
+            }
+        }
+    }
+}

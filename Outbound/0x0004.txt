@@ -1,0 +1,6 @@
+using (ScriptAPI) {
+    AddLong("AccountId");
+    AddInt("TokenA");
+    AddInt("TokenB");
+    AddField("Unknown (const?)", 16);
+}

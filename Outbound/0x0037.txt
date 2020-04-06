@@ -1,0 +1,4 @@
+using (ScriptAPI) {
+    AddFunction("???");
+    // 0x28 (40) = House Decoration Reward
+}

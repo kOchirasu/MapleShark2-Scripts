@@ -1,0 +1,13 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    if (f == 0) {
+        count = AddInt("Count");
+        for (i = 0; i < count; i++) {
+            StartNode("Emote " + i);
+            AddInt("Unk");
+            AddInt("Unk");
+            AddLong("Unk");
+            EndNode(false);
+        }
+    }
+}
