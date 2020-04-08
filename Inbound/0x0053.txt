@@ -2,11 +2,11 @@ using (ScriptAPI) {
     f = AddByte("Function");
     if (f == 0) {
         AddInt("Unknown");
-    } else if (f == 1) {
-        AddInt("Unknown");
+    } else if (f == 1) { // Talking to npc with quests
+        AddInt("NpcObjectId?");
         count = AddInt("Count");
         for (i = 0; i < count; i++) {
-            AddInt("Unknown");
+            AddInt("QuestId");
         }
     } else if (f == 2) {
         AddInt("Unknown");

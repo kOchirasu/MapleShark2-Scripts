@@ -1,4 +1,4 @@
-﻿<ArrayOfDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+﻿<ArrayOfDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Definition>
     <Build>12</Build>
     <Locale>0</Locale>
@@ -923,24 +923,8 @@
     <Build>12</Build>
     <Locale>0</Locale>
     <Outbound>false</Outbound>
-    <Opcode>122</Opcode>
-    <Name>SendPCInfo</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
     <Opcode>123</Opcode>
     <Name>ResponseRide</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
-    <Opcode>124</Opcode>
-    <Name>SendRideSync</Name>
     <Ignore>false</Ignore>
   </Definition>
   <Definition>
@@ -2011,14 +1995,6 @@
     <Build>12</Build>
     <Locale>0</Locale>
     <Outbound>true</Outbound>
-    <Opcode>6</Opcode>
-    <Name>Pong</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>true</Outbound>
     <Opcode>9</Opcode>
     <Name>CharacterManagement</Name>
     <Ignore>false</Ignore>
@@ -2141,14 +2117,6 @@
     <Outbound>true</Outbound>
     <Opcode>29</Opcode>
     <Name>RequestMoneyPickup</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>true</Outbound>
-    <Opcode>30</Opcode>
-    <Name>RequestPcInfo</Name>
     <Ignore>false</Ignore>
   </Definition>
   <Definition>
@@ -2421,14 +2389,6 @@
     <Outbound>true</Outbound>
     <Opcode>65</Opcode>
     <Name>RequestRide</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>true</Outbound>
-    <Opcode>66</Opcode>
-    <Name>SendRideSync</Name>
     <Ignore>false</Ignore>
   </Definition>
   <Definition>
@@ -3154,17 +3114,57 @@
   <Definition>
     <Build>12</Build>
     <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>28</Opcode>
+    <Name>UserSync</Name>
+    <Ignore>true</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>66</Opcode>
+    <Name>SendRideSync</Name>
+    <Ignore>true</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>6</Opcode>
+    <Name>Pong</Name>
+    <Ignore>true</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
     <Outbound>true</Outbound>
     <Opcode>18</Opcode>
     <Name>SendUserSync</Name>
+    <Ignore>true</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>122</Opcode>
+    <Name>SendCharacterInfo</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>30</Opcode>
+    <Name>RequestCharacterInfo</Name>
     <Ignore>false</Ignore>
   </Definition>
   <Definition>
     <Build>12</Build>
     <Locale>0</Locale>
     <Outbound>false</Outbound>
-    <Opcode>28</Opcode>
-    <Name>UserSync</Name>
-    <Ignore>false</Ignore>
+    <Opcode>124</Opcode>
+    <Name>SendRideSync</Name>
+    <Ignore>true</Ignore>
   </Definition>
 </ArrayOfDefinition>

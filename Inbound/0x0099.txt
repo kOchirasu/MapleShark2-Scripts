@@ -1,0 +1,86 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    if (f == 1) {
+        AddByte("EnchantType"); // 1 = Ophelia, 2 = Peachy
+        AddLong("ItemUid");
+        // Response
+        // 05 01 00 78 F7 4F 88 84 98 CB 27 02 00 00 00 00 65 00 00 00 1D 00 00 00 00 00 00 00 64 00 00 00 01 00 00 00 00 00 01 00 00 00 14 00 00 00 00 00 6F 12 83 3C 00 00 C8 42 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00
+        // 05 02 00 78 F7 4F 88 84 98 CB 27 02 00 00 00 00 65 00 00 00 1D 00 00 00 00 00 00 00 64 00 00 00 01 00 00 00 00 00 01 00 00 00 14 00 00 00 00 00 6F 12 83 3C 00 00 00 00 00 00 00 00 00 00
+    } else if (f == 5) {
+        // Start enchanting?
+        type = AddShort("Unknown"); // 1 = Ophelia, 2 = Peachy
+        // Some condition or else stop here
+        AddLong("Unknown");
+        count = AddByte("Count");
+        for (i = 0; i < count; i++) {
+            AddInt("Unknown");
+            AddInt("Unknown");
+            AddInt("Unknown");
+        }
+        AddShort("Unknown");
+
+        count = AddInt("Count");
+        for (i = 0; i < count; i++) {
+            DecodeStatOption(i);
+        }
+
+        if (type == 1) {
+            AddFloat("Unknown"); // 100
+            AddFloat("Unknown");
+            AddFloat("Unknown");
+            AddFloat("Unknown");
+            AddFloat("Unknown");
+            AddLong("Unknown");
+            AddLong("Unknown");
+            AddByte("Unknown");
+        }
+        if (type == 1 || type == 2) {
+            AddInt("ItemId");
+            AddShort("Unknown");
+            AddInt("Unknown");
+        }
+    } else if (f == 6) { // This is sent with peachy
+        AddLong("ItemUid");
+        AddInt("Unknown"); // progress related for peachy?
+    } else if (f == 7) {
+        AddInt("Unknown");
+        AddInt("Unknown");
+        count = AddInt("Count");    
+        for (i = 0; i < count; i++) {
+            AddLong("Unknown");
+        }
+        AddFloat("Unknown");
+        AddFloat("Unknown");
+        AddFloat("Unknown");
+        AddFloat("Unknown");
+        AddFloat("Unknown");
+    } else if (f == 8) {
+        AddInt("Unknown");
+        count = AddInt("Count");    
+        for (i = 0; i < count; i++) {
+            AddLong("Unknown");
+        }
+    } else if (f == 9) {
+        // Some AAErr
+    } else if (f == 10) {
+        AddLong("ItemUid");
+        DecodeItem(0); // Don't know ItemId
+        // Bonus from enchanting (e.g. 2% def)
+        count = AddInt("Count");
+        for (i = 0; i < count; i++) {
+            DecodeStatOption(i);
+        }
+    } else if (f == 11) {
+        AddLong("ItemUid");
+        DecodeItem(0); // Don't know ItemId
+    
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddLong("Unknown");
+        AddInt("Unknown");
+    } else if (f == 12) {
+        AddShort("Unknown");
+    } else if (f == 15) {
+        AddLong("ItemUid");
+    }
+}

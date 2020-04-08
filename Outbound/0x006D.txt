@@ -1,0 +1,8 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    if (f == 0) {
+        AddInt("CurrentMapId");
+        AddInt("PortalId?");
+        AddField("Unknown", 12);
+    }
+}

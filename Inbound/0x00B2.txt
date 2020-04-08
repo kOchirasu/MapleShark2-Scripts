@@ -1,0 +1,10 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    if (f == 0) {
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddShort("Unknown");
+        AddLong("Timestamp");
+        AddByte("Unknown"); // 1
+    }
+}

@@ -1,0 +1,49 @@
+using (ScriptAPI) {
+    AddLong("CharacterId");
+    b = AddBool("Bool");
+    if (b) {
+        AddLong("Unknown");
+        AddLong("CharacterId");
+        AddLong("CurrentTime");
+        
+        StartNode("Buffer 1");
+        size = AddInt("BufferSize");
+        AddLong("AccountId");
+        AddLong("CharacterId");
+        AddUnicodeString("Name");
+        AddShort("Level");
+        AddInt("JobGroupId");
+        AddInt("JobId");
+
+        AddByte("StatType?");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        StartNode("Stats1");
+        for (i = 0; i < 35; i++) {
+            AddLong("Stat");
+        }
+        EndNode(false);
+        StartNode("Stats2");
+        for (i = 0; i < 35; i++) {
+            AddLong("Stat");
+        }
+        EndNode(false);
+        StartNode("Stats3");
+        for (i = 0; i < 35; i++) {
+            AddLong("Stat");
+        }
+        EndNode(false);
+        //AddField("Buffer", size);
+        EndNode(true);
+
+        /*StartNode("Buffer 2");
+        size = AddInt("BufferSize");
+        AddField("Buffer", size);
+        EndNode(false);
+
+        StartNode("Buffer 3");
+        size = AddInt("BufferSize");
+        AddField("Buffer", size);
+        EndNode(false);*/
+    }
+}

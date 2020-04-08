@@ -27,12 +27,16 @@ using (ScriptAPI) {
             DecodeItem(id);
             EndNode(false);
         }
-    } else if (f == 1) {
-
-    } else if (f == 2) {
-
-    } else if (f == 3) {
-
+    } else if (f == 1) { // Remove all
+        AddLong("ItemUid");
+    } else if (f == 2) { // Updates amount of item in inventory
+        AddLong("ItemUid");
+        AddInt("Amount");
+    } else if (f == 3) { // Move item
+        AddLong("uid");
+        AddShort("srcSlot");
+        AddLong("uid");
+        AddShort("dstSlot");
     } else if (f == 14) {
 
     }

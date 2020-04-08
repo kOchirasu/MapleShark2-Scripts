@@ -28,6 +28,22 @@ function DecodeSkinColor() {
     } 
 }
 
+function DecodeUgcData() {
+    using (ScriptAPI) {
+        AddLong("Unknown");
+        AddUnicodeString("UUID");
+        AddUnicodeString("ItemName");
+        AddByte("Unknown");
+        AddInt("Unknown");
+        AddLong("AccountId");
+        AddLong("CharacterId");
+        AddUnicodeString("CharacterName");
+        AddLong("CreationTime");
+        AddUnicodeString("UGC Url");
+        AddByte("Unknown");
+    }
+}
+
 function DecodeSyncState() {
     using (ScriptAPI) {
         StartNode("SyncState");
@@ -118,15 +134,11 @@ function DecodeItem(id) {
             StartNode("Iteration " + i);
             count = AddShort("count");
             for (j = 0; j < count; j++) {
-                AddShort("Unknown"); // stat type?
-                AddInt("Unknown"); // stat value?
-                AddFloat("Unknown"); // ??
+                DecodeStatOption(j);
             }
             count = AddShort("count");
             for (j = 0; j < count; j++) {
-                AddShort("Unknown");
-                AddFloat("Unknown");
-                AddFloat("Unknown");
+                DecodeBonusOption(j);
             }
             AddInt("Unknown");
             EndNode(false);
@@ -155,18 +167,14 @@ function DecodeItem(id) {
         AddInt("???");
         StartNode("stat diff");
         count = AddInt("Count");
-        for (e = 0; e < count; e++) {
-            AddShort("stat index");
-            AddInt("diff");
-            AddFloat("diff");
+        for (i = 0; i < count; i++) {
+            DecodeStatOption(j);
         }
         EndNode(false);
         StartNode("bonus stat diff");
         count = AddInt("Count");
-        for (e = 0; e < count; e++) {
-            AddShort("stat index");
-            AddFloat("diff");
-            AddFloat("diff");
+        for (i = 0; i < count; i++) {
+            DecodeBonusOption(j);
         }
         EndNode(false);
         // EndSub
@@ -174,17 +182,8 @@ function DecodeItem(id) {
         //Testing UGC
         if (id == 11400608 || id == 11500523) {
             StartNode("UGC");
-            AddField("Unknown", 8);
-            AddUnicodeString("UUID");
-            AddUnicodeString("ItemName");
-            AddByte("Unknown");
-            AddInt("Unknown");
-            AddLong("AccountId");
-            AddLong("CharacterId");
-            AddUnicodeString("CharacterName");
-            AddLong("CreationTime");
-            AddUnicodeString("UGC Url");
-            AddField("Unknown", 51);
+            DecodeUgcData();
+            AddField("Unknown", 50);
             EndNode(true);
         }
 
@@ -225,6 +224,26 @@ function DecodeItem(id) {
         }
         AddLong("???");
         AddUnicodeString("Unknown");
+        EndNode(false);
+    }
+}
+
+function DecodeStatOption(index) {
+    using (ScriptAPI) {
+        StartNode("StatOption " + index);
+        AddShort("StatType");
+        AddInt("IntegerValue");
+        AddFloat("FloatValue");
+        EndNode(false);
+    }
+}
+
+function DecodeBonusOption(index) {
+    using (ScriptAPI) {
+        StartNode("BonusOption " + index);
+        AddShort("StatType");
+        AddFloat("FloatValue");
+        AddFloat("FloatValue");
         EndNode(false);
     }
 }

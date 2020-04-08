@@ -5,26 +5,47 @@ using (ScriptAPI) {
         if (isDefault == 1) { // DefaultKey
 
         } else {
-            count = AddInt("Count");
-            for (i = 0; i < count; i++) {
-                StartNode("Key " + i);
-                AddInt("Unknown");
-                AddInt("Unknown");
-                AddLong("Unknown");
-                AddInt("KeyCode");
-                AddByte("???");
-                AddInt("???");
-                AddShort("???");
+            DecodeKeyBinds();
+            DecodeHotbars();
+        }
+    } else if (f == 7) {
+        DecodeHotbars();
+    } else if (f == 9) {
+        // AskKeyboardOrMouse
+    }
+}
+
+function DecodeKeyBinds() {
+    using (ScriptAPI) {
+        count = AddInt("KeyBindCount");
+        for (i = 0; i < count; i++) {
+            StartNode("Key " + i);
+            AddInt("KeyCode");
+            AddInt("Type");
+            AddLong("uid");
+            AddInt("Unknown");
+            AddByte("Priority");
+            EndNode(false);
+        }
+    }
+}
+
+function DecodeHotbars() {
+    using (ScriptAPI) {
+        AddShort("ActiveHotbar");
+        hotbarCount = AddShort("HotbarCount");
+        for (i = 0; i < hotbarCount; i++) {
+            StartNode("HotBar " + i);
+            quickslotCount = AddInt("QuickSlotCount");
+            for (j = 0; j < quickslotCount; j++) {
+                StartNode("QuickSlot " + j);
+                AddInt("SlotId");
+                AddInt("SkillId");
+                AddInt("ItemId");
+                AddLong("ItemUid");
                 EndNode(false);
             }
-            AddShort("Unknown");
-            count = AddShort("Count");
-            for (i = 0; i < count; i++) {
-                AddInt("Unknown");
-                AddInt("Unknown");
-                AddInt("Unknown");
-                AddLong("Unknown");
-            }
+            EndNode(true);
         }
     }
 }

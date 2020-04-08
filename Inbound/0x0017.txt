@@ -24,10 +24,27 @@ using (ScriptAPI) {
     DecodeCoordF("");
     DecodeCoordF("");
     AddByte("Unknown+473");
-    StartNode("Unknown Node 1");
-    count = AddByte("Count");
-    for (i = 0; i < count; i+=2) {
-        AddInt("Unknown");
+    StartNode("Stats");
+    count = AddByte("StatsCount");
+    if (count == 35) {
+        for (i = 0; i < 3; i++) {
+            AddLong("Health");
+            AddInt("AttackSpeed");
+            AddInt("MovementSpeed");
+            AddInt("MountMovementSpeed");
+            AddInt("JumpHeight");
+        }
+    } else {
+        for (i = 0; i < count; i++) {
+            type = AddByte("StatType");
+            for (j = 0; j < 3; j++) {
+                if (type == 4) { // Use long for HP
+                    AddLong("HP");
+                } else {
+                    AddInt("StatType:" + type);
+                }
+            }
+        }
     }
     EndNode(false);
     AddByte("Unknown+475");
@@ -58,13 +75,13 @@ using (ScriptAPI) {
     }
     EndNode(false);
     AddUnicodeString("Profile Url");
-    StartNode("Unknown Node 3");
-    flag = AddBool("Flag");
+    StartNode("Mount");
+    flag = AddBool("IsOnMount");
     if (flag) {
-        AddByte("Unknown");
-        AddInt("Unknown");
-        AddInt("Unknown");
-        AddByte("Unknown");
+        AddByte("Unknown"); // 1
+        AddInt("MountId");
+        AddInt("MountObjectId");
+        AddByte("Unknown"); // ??
     }
     EndNode(false);
     AddInt("Unknown+513");
