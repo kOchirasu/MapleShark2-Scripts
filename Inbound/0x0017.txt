@@ -1,26 +1,7 @@
 using (ScriptAPI) {
     AddInt("CharId");
     DecodePlayer();
-    AddInt("JobId");
-    AddByte("Unknown");
-    AddInt("JobGroupId");
-    StartNode("Skills");
-    for (i = 0; i < 2; i++) {
-        StartNode("Skillbook " + i);
-        count = AddByte("Count");
-        for (j = 0; j < count; j ++) {
-            StartNode("Skill " + j);
-            AddShort("Unknown...");
-            AddInt("SkillId");
-            AddByte("Skill Points");
-            AddInt("Unknown");
-            EndNode(false);
-        }
-        EndNode(true);
-    }
-    EndNode(false);
-    AddByte("Unknown+447");
-    AddByte("Unknown+448");
+    DecodeSkillTree();
     DecodeCoordF("");
     DecodeCoordF("");
     AddByte("Unknown+473");

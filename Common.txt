@@ -145,14 +145,14 @@ function DecodeItem(id) {
         }
         EndNode(false);
         // Sub
-        AddInt("TransferFlag");
-        AddInt("Unknown+186");
-        AddByte("Unknown+190");
+        AddInt("Enchants");
+        AddInt("EnchantExp");
+        AddBool("EnchantBasedChargeExp");
         AddLong("Unknown+191");
         AddInt("Unknown+199");
         AddInt("Unknown+203");
-        AddByte("Unknown+207");
-        AddInt("Unknown+208");
+        AddBool("CanRepackage");
+        AddInt("EnchantCharges");
         
         StartNode("general stat diff");
         count = AddByte("Count");
@@ -187,7 +187,17 @@ function DecodeItem(id) {
             EndNode(true);
         }
 
-        AddInt("bound");
+        if (id / 100000 == 600 || id / 100000 == 610 || id / 100000 == 611 || id / 100000 == 629) {
+            StartNode("Pet");
+            AddUnicodeString("PetName");
+            AddLong("PetExp");
+            AddInt("Unknown");
+            AddInt("PetLevel");
+            AddByte("Unknown");
+            EndNode(true);
+        }
+
+        AddInt("TransferFlag");
         AddByte("???");
         AddInt("remaining trades");
         AddInt("???");
@@ -368,5 +378,30 @@ function DecodeNpcStats() {
             AddInt("Unknown");
         }
         EndNode(false);
+    }
+}
+
+function DecodeSkillTree() {
+    using (ScriptAPI) {
+        AddInt("JobId");
+        AddByte("Unknown");
+        AddInt("JobGroupId");
+        StartNode("Skills");
+        for (i = 0; i < 2; i++) {
+            StartNode("Skillbook " + i);
+            count = AddByte("Count");
+            for (j = 0; j < count; j++) {
+                StartNode("Skill " + j);
+                AddShort("Unknown...");
+                AddInt("SkillId");
+                AddByte("Skill Points");
+                AddInt("Unknown");
+                EndNode(false);
+            }
+            EndNode(true);
+        }
+        EndNode(false);
+        AddByte("Unknown");
+        AddByte("Unknown");
     }
 }

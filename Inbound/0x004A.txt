@@ -1,0 +1,7 @@
+// Request 0x0025 08 (SendJob)
+// Response This packet
+using (ScriptAPI) {
+    AddInt("ObjectId");
+    AddByte("Unknown"); // 2 for awakening?
+    DecodeSkillTree();
+}

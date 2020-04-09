@@ -1,0 +1,23 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+    if (f == 0) {
+        AddInt("SkillRank");
+        AddLong("ActiveSkillTabId");
+        count = AddInt("SkillTabsCount");
+        for (i = 0; i < count; i++) {
+            StartNode("SkillTab " + i);
+            AddLong("SkillTabId");
+            AddUnicodeString("SkillTabName");
+            skillCount = AddInt("count");
+            for (j = 0; j < skillCount; j++) {
+                AddInt("SkillId");
+                AddInt("SkillPoints");
+            }
+            EndNode(true);
+        }
+    } else if (f == 1) {
+        AddLong("ActiveSkillTabId");
+        AddLong("SavedSkillTabId?");
+        AddInt("SkillRank");
+    }
+}

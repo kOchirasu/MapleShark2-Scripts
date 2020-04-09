@@ -1,21 +1,17 @@
 using (ScriptAPI) {
     f = AddByte("Function");
-    if (f == 1) {
-        AddByte("EnchantType"); // 1 = Ophelia, 2 = Peachy
-        AddLong("ItemUid");
-        // Response
-        // 05 01 00 78 F7 4F 88 84 98 CB 27 02 00 00 00 00 65 00 00 00 1D 00 00 00 00 00 00 00 64 00 00 00 01 00 00 00 00 00 01 00 00 00 14 00 00 00 00 00 6F 12 83 3C 00 00 C8 42 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00
-        // 05 02 00 78 F7 4F 88 84 98 CB 27 02 00 00 00 00 65 00 00 00 1D 00 00 00 00 00 00 00 64 00 00 00 01 00 00 00 00 00 01 00 00 00 14 00 00 00 00 00 6F 12 83 3C 00 00 00 00 00 00 00 00 00 00
-    } else if (f == 5) {
+    if (f == 5) {
         // Start enchanting?
-        type = AddShort("Unknown"); // 1 = Ophelia, 2 = Peachy
+        type = AddShort("EnchantType"); // 1 = Ophelia, 2 = Peachy
         // Some condition or else stop here
-        AddLong("Unknown");
-        count = AddByte("Count");
+        AddLong("ItemUid");
+        count = AddByte("RequiredItemCount");
         for (i = 0; i < count; i++) {
+            StartNode("RequiredItem");
             AddInt("Unknown");
-            AddInt("Unknown");
-            AddInt("Unknown");
+            AddInt("RequiredItem (DiffId)"); // 100 = crytal frag, 101 = onyx, 102 = chaos
+            AddInt("Amount");
+            EndNode(false);
         }
         AddShort("Unknown");
 
@@ -25,7 +21,7 @@ using (ScriptAPI) {
         }
 
         if (type == 1) {
-            AddFloat("Unknown"); // 100
+            AddFloat("SuccessRate"); // 100
             AddFloat("Unknown");
             AddFloat("Unknown");
             AddFloat("Unknown");
@@ -34,10 +30,11 @@ using (ScriptAPI) {
             AddLong("Unknown");
             AddByte("Unknown");
         }
+        // Required item copies
         if (type == 1 || type == 2) {
             AddInt("ItemId");
-            AddShort("Unknown");
-            AddInt("Unknown");
+            AddShort("Rarity");
+            AddInt("Amount");
         }
     } else if (f == 6) { // This is sent with peachy
         AddLong("ItemUid");

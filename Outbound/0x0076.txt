@@ -1,0 +1,14 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+    if (f == 0) {
+        AddLong("ItemUid");
+        AddField("Unknown", 8);
+        b = AddBool("UseLock");
+        if (b) {
+            AddByte("Unknown");
+            AddShort("LockedIndex");
+        }
+    } else if (f == 2) { // Select new option
+        AddLong("ItemUid");
+    }
+}
