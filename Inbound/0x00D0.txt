@@ -1,0 +1,35 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+
+    if (f == 0) { // Store item
+        id = AddInt("Id");
+        AddLong("Uid");
+        AddShort("Slot");
+        AddInt("Rarity");
+        AddUnicodeString("UnknownStr");
+        DecodeItem(id);
+    } else if (f == 1) { // Remove item
+        AddLong("ItemUid");
+    } else if (f == 2) { // Update amount
+        AddLong("ItemUid");
+        AddInt("Amount");
+    } else if (f == 3) { // move item
+        AddLong("SrcItemUid");
+        AddShort("SrcSlot");
+        AddLong("DstItemUid");
+        AddShort("DstSlot");
+    } else if (f == 4) {
+        count = AddShort("Count");
+        for (i = 0; i < count; i++) {
+            StartNode("Item " + i);
+            id = AddInt("Id");
+            AddLong("Uid");
+            AddShort("Slot");
+            AddInt("Rarity");
+            DecodeItem(id);
+            EndNode(false);
+        }
+    } else if (f == 6) {
+        // Start item inventory list
+    }
+}

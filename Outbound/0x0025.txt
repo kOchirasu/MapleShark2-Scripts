@@ -9,8 +9,10 @@ using (ScriptAPI) {
             StartNode("Skill " + i);
             AddInt("SkillId");
             AddShort("Skill Points");
-            AddByte("Unknown");
+            AddBool("Enabled");
             EndNode(false);
         }
+    } else if (f == 10) { // Reset skillbook
+        AddInt("Unknown"); // 0 = basic, 1 = awakening, 2 = both
     }
 }

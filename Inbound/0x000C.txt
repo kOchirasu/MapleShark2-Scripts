@@ -17,9 +17,9 @@ using (ScriptAPI) {
         // This is bugged for some equip types
         count = AddByte("EQUIPMENT");
         for (j = 0; j < count; j++) {
-            StartNode("Equip " + j);
+            StartNode("Item " + j);
             id = AddInt("Id");
-            AddLong("uid?");
+            AddLong("Uid");
             type = AddUnicodeString("Type");
             AddInt("??? ^" + type);
             DecodeItem(id);

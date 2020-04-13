@@ -1,0 +1,8 @@
+using (ScriptAPI) {
+    count = AddByte("Count");
+    for (i = 0; i < count; i++) {
+        AddLong("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+    }
+}

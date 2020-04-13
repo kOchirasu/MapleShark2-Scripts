@@ -36,17 +36,7 @@ using (ScriptAPI) {
     StartNode("Unknown Node 2");
     flag = AddBool("Flag");
     if (flag) {
-        AddLong("Unknown");
-        AddUnicodeString("UnknownStr");
-        AddUnicodeString("UnknownStr");
-        AddByte("Unknown");
-        AddInt("Unknown");
-        AddLong("Unknown");
-        AddLong("Unknown");
-        AddUnicodeString("UnknownStr");
-        AddLong("Unknown");
-        AddUnicodeString("UnknownStr");
-        AddByte("Unknown");
+        DecodeUgcData();
     }
     EndNode(false);
     AddInt("Unknown+498");

@@ -16,8 +16,13 @@ using (ScriptAPI) {
             EndNode(true);
         }
     } else if (f == 1) {
-        AddLong("ActiveSkillTabId");
-        AddLong("SavedSkillTabId?");
+        AddLong("SavedSkillTabId");
+        AddLong("SavingTabId"); // TabId to save
         AddInt("SkillRank");
+    } else if (f == 2) {
+        // Change skill tab name response
+        AddLong("SkillTabId");
+        AddUnicodeString("SkillTabName");
+        AddByte("Unknown");
     }
 }

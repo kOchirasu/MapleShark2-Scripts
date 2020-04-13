@@ -1,0 +1,112 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+
+    switch ((int)f) {
+        case 0:
+            AddLong("SkillUseUid");
+            AddInt("ObjectId");
+            AddInt("SkillId");
+            AddShort("Unknown"); // 1?
+            AddByte("Unknown"); // 0?
+            AddByte("Unknown"); // 0?
+            DecodeCoordS("Position");
+            DecodeCoordF("Rotation??");
+            AddByte("Unknown");
+            AddInt("Unknown");
+            count = AddByte("count");
+            for (i = 0; i < count; i++) {
+                StartNode("Node " + i);
+                AddLong("Unknown");
+                AddLong("Unknown");
+                AddInt("Unknown");
+                AddByte("Unknown");
+                AddByte("Unknown");
+                EndNode(false);
+            }
+        case 1:
+            AddLong("Unknown");
+            AddLong("Unknown");
+            AddInt("Unknown");
+            AddInt("Unknown");
+            AddShort("Unknown");
+            AddByte("Unknown");
+            AddByte("Unknown");
+            DecodeCoordS("Unknown");
+            DecodeCoordS("Unknown");
+            count = AddByte("count");
+            for (i = 0; i < count; i++) {
+                StartNode("Node " + i);
+                AddInt("Unknown");
+                count2 = AddByte("Unknown");
+                for (j = 0; j < count2; j++) {
+                    AddByte("Unknown");
+                    AddLong("Unknown");
+                }
+                EndNode(false);
+            }
+        case 3:
+            AddInt("Unknown");
+            AddInt("Unknown");
+            AddInt("Unknown");
+            AddByte("Unknown");
+            AddInt("Unknown");
+        case 4:
+            AddInt("Unknown");
+            AddInt("Unknown");
+            AddInt("Unknown");
+            AddInt("Unknown");
+            AddInt("Unknown");
+            AddInt("Unknown");
+            AddByte("Unknown");
+        case 5:
+            AddLong("Unknown");
+            AddInt("Unknown");
+            AddInt("Unknown");
+            AddByte("Unknown");
+            count = AddByte("count");
+            for (i = 0; i < count; i++) {
+                StartNode("Node " + i);
+                AddInt("Unknown");
+                count2 = AddByte("Unknown");
+                DecodeCoordS("Unknown");
+                DecodeCoordF("Unknown");
+                for (j = 0; j < count2; j++) {
+                    AddByte("Unknown");
+                    AddLong("Unknown");
+                }
+                EndNode(false);
+            }
+        case 6:
+            AddLong("Unknown");
+            AddInt("Unknown");
+            AddShort("Unknown");
+            count = AddByte("count");
+            for (i = 0; i < count; i++) {
+                StartNode("Node " + i);
+                AddInt("Unknown");
+                count2 = AddByte("Unknown");
+                DecodeCoordS("Unknown");
+                DecodeCoordF("Unknown");
+                for (j = 0; j < count2; j++) {
+                    AddByte("Unknown");
+                    AddLong("Unknown");
+                }
+                EndNode(false);
+            }
+        case 7:
+            AddInt("Unknown");
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                AddInt("Unknown");
+            }
+        case 8:
+            AddLong("Unknown");
+            b = AddBool("Unknown");
+            if(b) {
+                AddInt("Unknown");
+                AddShort("Unknown");
+                AddInt("Unknown");
+                AddInt("Unknown");
+            }
+    }
+}

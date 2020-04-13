@@ -1,0 +1,13 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    if (f == 0) { // Store item
+        AddLong("ItemUid");
+        AddShort("Slot");
+        AddInt("Amount");
+    } else if (f == 3) { // Move item
+        AddLong("ItemUid");
+        AddShort("Slot");
+    } else if (f == 7) {
+        // load inventory
+    }
+}

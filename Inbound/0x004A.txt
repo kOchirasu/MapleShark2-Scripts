@@ -2,6 +2,8 @@
 // Response This packet
 using (ScriptAPI) {
     AddInt("ObjectId");
-    AddByte("Unknown"); // 2 for awakening?
-    DecodeSkillTree();
+    f = AddByte("function"); // 2 for awakening?
+    if (f != 0) {
+        DecodeSkillTree();
+    }
 }

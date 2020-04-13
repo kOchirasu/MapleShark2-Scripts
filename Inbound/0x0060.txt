@@ -1,0 +1,6 @@
+using (ScriptAPI) {
+    AddInt("ObjectId");
+    DecodeCoordF("Position");
+    DecodeCoordF("Rotation");
+    AddByte("Unknown"); // 0?
+}

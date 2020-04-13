@@ -1,7 +1,7 @@
-using (ScriptAPI){
+using (ScriptAPI) {
     f = AddByte("Function");
     
-    switch(f) {
+    switch((int)f) {
         case 0: // Summon
             AddLong("Pet uid");
         case 1: // Remove Summon

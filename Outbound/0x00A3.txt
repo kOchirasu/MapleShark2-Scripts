@@ -4,7 +4,7 @@ using (ScriptAPI) {
         // LoadSkills
     } else if (f == 1) { // SaveSkills
         AddLong("ActiveSkillTabId");
-        AddLong("ActiveSkillTabId");
+        AddLong("SavingTabId"); // 0 = not saving any tab
         AddInt("SkillRank");
         count = AddInt("SkillTabsCount");
         for (i = 0; i < count; i++) {
@@ -18,5 +18,9 @@ using (ScriptAPI) {
             }
             EndNode(true);
         }
+    } else if (f == 2) {
+        // Rename skill tab
+        AddLong("SkillTabId");
+        AddUnicodeString("SkillTabName");
     }
 }

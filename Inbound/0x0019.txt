@@ -1,3 +1,6 @@
+// dungeon title id
+// dungeon goal id
+// fame challenge dungeon...?
 using (ScriptAPI) {
     f = AddByte("Function");
     if (f == 1) {
@@ -15,7 +18,3 @@ using (ScriptAPI) {
         }
     }
 }
-
-// dungeon title id
-// dungeon goal id
-// fame challenge dungeon...?

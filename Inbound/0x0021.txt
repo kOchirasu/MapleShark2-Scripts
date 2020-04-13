@@ -3,7 +3,7 @@ using (ScriptAPI) {
     if (f == 13) { // Start inventory?
         AddInt("???");
     } else if (f == 0) {
-        StartNode("Equip");
+        StartNode("Item");
         id = AddInt("ItemId");
         AddLong("uid");
         AddShort("slot");
@@ -19,7 +19,7 @@ using (ScriptAPI) {
     } else if (f == 7 || f == 10) {
         count = AddShort("count");
         for (i = 0; i < count; i++) {
-            StartNode("Equip " + i);
+            StartNode("Item " + i);
             id = AddInt("ItemId");
             AddLong("uid");
             AddShort("slot");

@@ -1,0 +1,18 @@
+using (ScriptAPI) {
+    AddLong("SkillUseUid");
+    AddInt("Unknown"); // increments over time
+    AddInt("ObjectId");
+    AddInt("SkillId");
+    AddShort("Unknown"); // 1?
+    AddByte("Unknown"); // 0?
+    DecodeCoordS("Position");
+    DecodeCoordF("Unknown");
+    DecodeCoordF("Rotation??");
+    AddShort("CoordS / 10");
+    AddBool("Unknown");
+    b = AddBool("Unknown");
+    if (b) {
+        AddInt("Unknown");
+        AddUnicodeString("Unknown");
+    }
+}

@@ -1,12 +1,51 @@
-using (ScriptAPI){
+using (ScriptAPI) {
     f = AddByte("Function");
-    switch(f) {
-        case 1:
-            AddInt("Player ObjectId");
+    switch((int)f) {
+        case 0: // Add
+            // BROADCAST
+            AddInt("PlayerObjectId");
+            AddInt("PetObjectId");
+            b = AddBool("Bool");
+            if (b) {
+                id = AddInt("PetItemId");
+                AddLong("PetUid");
+                AddInt("PetLevel");
+                DecodeItem(id);
+                AddLong("PetUid");
+            }
+        case 1: // Remove
+            // BROADCAST
+            AddInt("PlayerObjectId");
             AddLong("PetUid");
         case 7:
+            count = AddInt("Count");
+            for (i = 0; i < count; i++) {
+                AddInt("PetId");
+                AddShort("Unknown");
+            }
+        case 9:
+            AddInt("PlayerObjectId");
+            AddUnicodeString("PetName");
+            AddLong("PetExp");
             AddInt("Unknown");
-            AddInt("PetId");
             AddShort("Unknown");
+            AddShort("Unknown");
+            AddShort("Unknown");
+            count = AddByte("Count");
+            for (i = 0; i < count; i++) {
+                AddInt("Unknown");
+                AddFloat("Unknown");
+                AddInt("Unknown");
+            }
+            AddByte("Unknown"); // 1
+            AddByte("Unknown"); // 1
+            AddByte("Unknown"); // 1
+            AddByte("Unknown"); // 1
+            AddByte("Unknown"); // 1
+            AddByte("Unknown"); // 1
+            AddByte("Unknown"); // 1
+            AddByte("Unknown"); // 0
+            AddInt("Unknown"); // 1
+            AddByte("Unknown"); // 1
     }
 } 

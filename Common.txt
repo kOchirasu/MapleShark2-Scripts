@@ -8,6 +8,16 @@ function DecodeCoordF(str) {
     }
 }
 
+function DecodeCoordS(str) {
+    using (ScriptAPI) {
+        StartNode(str + "CoordS");
+        AddShort("X");
+        AddShort("Y");
+        AddShort("Z");
+        EndNode(false);
+    }
+}
+
 function DecodeEquipColor() {
     using (ScriptAPI) {
         StartNode("EquipColor");
@@ -54,11 +64,7 @@ function DecodeSyncState() {
             AddInt("Unknown");
             AddShort("Unknown");
         }
-        StartNode("Coord");
-        AddShort("CoordSX");
-        AddShort("CoordSY");
-        AddShort("CoordSZ");
-        EndNode(false);
+        DecodeCoordS("");
         AddShort("CoordS / 10");
         u = AddByte("Unknown");
         // if u < 0???
@@ -66,11 +72,7 @@ function DecodeSyncState() {
             AddFloat("Unknown");
             AddFloat("Unknown");
         }
-        StartNode("Coord");
-        AddShort("CoordSX");
-        AddShort("CoordSY");
-        AddShort("CoordSZ");
-        EndNode(false);
+        DecodeCoordS("");
         AddByte("Unknown");
         AddShort("CoordS / 10");
         AddShort("CoordS / 1000");
@@ -111,7 +113,7 @@ function DecodeItem(id) {
         AddLong("ExpiryTime");
         AddLong("Unknown");
         AddInt("TimesChangedAttribute");
-        AddInt("Unknown");
+        AddInt("RemainingUses");
         AddByte("IsLocked");
         AddLong("UnlockTime");
         AddShort("GlamorForges");
@@ -187,6 +189,7 @@ function DecodeItem(id) {
             EndNode(true);
         }
 
+        // Pet
         if (id / 100000 == 600 || id / 100000 == 610 || id / 100000 == 611 || id / 100000 == 629) {
             StartNode("Pet");
             AddUnicodeString("PetName");
@@ -194,6 +197,28 @@ function DecodeItem(id) {
             AddInt("Unknown");
             AddInt("PetLevel");
             AddByte("Unknown");
+            EndNode(true);
+        }
+
+        // Music Score
+        if (id / 100000 == 351) {
+            StartNode("MusicScore");
+            AddInt("MusicId");
+            AddInt("Instrument");
+            AddUnicodeString("ScoreTitle");
+            AddUnicodeString("Author");
+            AddInt("Unknown (1)");
+            AddLong("AuthorCharacterId");
+            AddField("Unknown", 17);
+            EndNode(true);
+        }
+
+        // Badge
+        if (id / 1000000 == 70) {
+            StartNode("Badge");
+            AddByte("Unknown");
+            AddByte("Unknown");
+            AddUnicodeString("BadgeIdStr");
             EndNode(true);
         }
 
@@ -214,13 +239,13 @@ function DecodeItem(id) {
             StartNode("Gemstone " + e);
             isUnlocked = AddBool("unlocked socket");
             if (isUnlocked) {
-                AddInt("SocketStats");
+                AddInt("GemstoneItemId");
                 isBound = AddBool("Bound");
                 if (isBound) {
                     AddLong("CharacterId");
                     AddUnicodeString("Name");
                 }
-                b = AddBool("SocketStats");
+                b = AddBool("UnknownFlag");
                 if (b) {
                     AddLong("Unknown");
                 }
@@ -384,19 +409,24 @@ function DecodeNpcStats() {
 function DecodeSkillTree() {
     using (ScriptAPI) {
         AddInt("JobId");
-        AddByte("Unknown");
+        AddByte("Unknown (1)");
         AddInt("JobGroupId");
         StartNode("Skills");
         for (i = 0; i < 2; i++) {
-            StartNode("Skillbook " + i);
+            if (i == 0) {
+                StartNode("Active Skills");
+            } else {
+                StartNode("Passive Skills");
+            }
             count = AddByte("Count");
             for (j = 0; j < count; j++) {
                 StartNode("Skill " + j);
-                AddShort("Unknown...");
-                AddInt("SkillId");
-                AddByte("Skill Points");
-                AddInt("Unknown");
-                EndNode(false);
+                AddBool("NewlyEnabled");
+                AddBool("Enabled");
+                s = AddInt("SkillId");
+                p = AddInt("Skill Points");
+                AddBool("Unknown (0)");
+                EndNode(s == 10500021 || s == 10500022 || s == 10500023);
             }
             EndNode(true);
         }

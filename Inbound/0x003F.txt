@@ -1,0 +1,13 @@
+using (ScriptAPI) {
+    AddLong("Unknown");
+    AddInt("Unknown");
+    AddInt("Unknown");
+    AddShort("Unknown");
+    DecodeCoordF("Unknown");
+    DecodeCoordF("Unknown");
+    DecodeCoordF("Unknown");
+    DecodeCoordF("Unknown");
+    AddByte("Unknown");
+    AddByte("Unknown");
+    AddFloat("Unknown");
+}
