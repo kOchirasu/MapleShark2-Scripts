@@ -29,14 +29,12 @@ using (ScriptAPI) {
         StartNode("Badges");
         count = AddByte("count");
         for (j = 0; j < count; j++) {
-            // sub_42EE30
             StartNode("Badge " + j);
             AddByte("???");
-            id = AddInt("ItemId"); // LOTS OF BRANCHING HERE
+            id = AddInt("ItemId");
             AddLong("Unknown");
             AddInt("Unknown");
             DecodeItem(id);
-            AddField("Unknown", 2);
             EndNode(false);
         }
         EndNode(false);

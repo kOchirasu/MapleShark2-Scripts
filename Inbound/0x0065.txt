@@ -1,0 +1,61 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+
+    switch ((int)f) {
+        case 4:
+            AddString("Unknown");
+            AddByte("Unknown");
+            AddByte("Unknown");
+        case 5:
+            AddString("Unknown");
+            AddByte("Unknown");
+            // ...
+        case 6:
+            AddInt("Unknown");
+            AddByte("Unknown");
+        case 7:
+            AddByte("Unknown");
+        case 8:
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                StartNode("Interact " + i);
+                AddString("EntityId");
+                AddByte("Unknown");
+                b = AddByte("Unknown");
+                if (b == 6) {
+                    AddInt("Unknown");
+                }
+                EndNode(false);
+            }
+        case 9:
+            AddString("Name"); // EventCreate_982795
+            AddByte("Unknown");
+            AddByte("Unknown");
+            AddInt("InteractObjectId");
+            DecodeCoordF("Position");
+            DecodeCoordF("Rotation");
+            AddUnicodeString("UnknownStr"); // MS2InteractActor
+            AddUnicodeString("UnknownStr"); // interaction_chestA_02
+            AddUnicodeString("UnknownStr"); // Opened_A
+            AddUnicodeString("UnknownStr"); // Idle_A
+            AddFloat("Unknown");
+            AddBool("Unknown");
+            // Some other conditional cases
+        case 10:
+            AddString("Unknown");
+            AddUnicodeString("Unknown");
+        case 13:
+            AddByte("Unknown");
+            AddString("Unknown");
+            AddByte("Unknown");
+            // ...?
+        case 14:
+            AddShort("Unknown");
+            AddInt("Unknown");
+            AddInt("Unknown");
+            AddUnicodeString("Unknown");
+        case 15:
+            AddInt("Unknown");
+            AddInt("Unknown");
+    }
+}

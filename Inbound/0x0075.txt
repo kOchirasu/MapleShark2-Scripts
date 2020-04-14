@@ -1,0 +1,34 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+
+    switch ((int)f) {
+        case 0:
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                AddString("Unknown");
+                AddByte("Unknown");
+                AddInt("Unknown");
+                AddByte("Unknown");
+                AddUnicodeString("Unknown");
+                AddUnicodeString("Unknown");
+                AddUnicodeString("Unknown");
+                AddUnicodeString("Unknown");
+                AddBool("Unknown");
+            }
+        case 2:
+            AddString("Unknown");
+            AddByte("Unknown");
+            AddInt("Unknown");
+            AddByte("Unknown");
+        case 3:
+            AddString("Unknown");
+            AddInt("Unknown");
+            AddUnicodeString("Unknown");
+            AddUnicodeString("Unknown");
+            AddUnicodeString("Unknown");
+            AddUnicodeString("Unknown");
+            AddBool("Unknown");
+        case 4:
+            AddString("Unknown");
+    }
+}

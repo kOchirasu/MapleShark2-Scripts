@@ -1,13 +1,13 @@
 using (ScriptAPI) {
     AddLong("SkillUseUid");
-    AddInt("Unknown"); // increments over time
+    AddInt("ServerTick");
     AddInt("ObjectId");
     AddInt("SkillId");
-    AddShort("Unknown"); // 1?
+    AddShort("SkillLevel");
     AddByte("Unknown"); // 0?
     DecodeCoordS("Position");
-    DecodeCoordF("Unknown");
-    DecodeCoordF("Rotation??");
+    DecodeCoordF("Speed");
+    DecodeCoordF("Rotation");
     AddShort("CoordS / 10");
     AddBool("Unknown");
     b = AddBool("Unknown");

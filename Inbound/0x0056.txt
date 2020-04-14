@@ -1,12 +1,12 @@
 using (ScriptAPI) {
     AddInt("ObjectId");
     AddInt("NpcId");
-    AddFloat("CoordX");
-    AddFloat("CoordY");
-    AddFloat("CoordZ");
-    AddFloat("UnknownCoordX");
-    AddFloat("UnknownCoordY");
-    AddFloat("UnknownCoordZ");
+    DecodeCoordF("Position");
+    DecodeCoordF("Rotation");
+
+    // Dummy
+    //AddString("npcstring");
+
     // If valid NpcId
     StartNode("Stats");
     c = AddByte("Stats Flag?"); // 0x35
@@ -50,6 +50,16 @@ using (ScriptAPI) {
     AddByte("Unknown+88");
     AddInt("Unknown+89");
     AddInt("Unknown+93");
+
+    // Dummy
+    /*AddUnicodeString("UnknownStr");
+    count = AddInt("Count");
+    for (i = 0; i < count; i++) {
+        AddInt("Unknown");
+        AddShort("Unknown");
+    }
+    AddInt("Unknown");*/
+
     AddByte("Unknown+97");
 }
 

@@ -6,13 +6,13 @@ using (ScriptAPI) {
             AddLong("SkillUseUid");
             AddInt("ObjectId");
             AddInt("SkillId");
-            AddShort("Unknown"); // 1?
+            AddShort("SkillLevel");
             AddByte("Unknown"); // 0?
             AddByte("Unknown"); // 0?
             DecodeCoordS("Position");
-            DecodeCoordF("Rotation??");
+            DecodeCoordF("Speed?");
             AddByte("Unknown");
-            AddInt("Unknown");
+            AddInt("ServerTick");
             count = AddByte("count");
             for (i = 0; i < count; i++) {
                 StartNode("Node " + i);
@@ -24,23 +24,23 @@ using (ScriptAPI) {
                 EndNode(false);
             }
         case 1:
+            AddLong("SkillUseUid");
             AddLong("Unknown");
-            AddLong("Unknown");
-            AddInt("Unknown");
-            AddInt("Unknown");
-            AddShort("Unknown");
+            AddInt("UserObjectId");
+            AddInt("SkillId");
+            AddShort("SkillLevel");
             AddByte("Unknown");
             AddByte("Unknown");
-            DecodeCoordS("Unknown");
+            DecodeCoordS("Position?");
             DecodeCoordS("Unknown");
             count = AddByte("count");
             for (i = 0; i < count; i++) {
-                StartNode("Node " + i);
-                AddInt("Unknown");
+                StartNode("AttackedMonster " + i);
+                AddInt("MobObjectId");
                 count2 = AddByte("Unknown");
                 for (j = 0; j < count2; j++) {
                     AddByte("Unknown");
-                    AddLong("Unknown");
+                    AddLong("Damage (neg)"); // As negative
                 }
                 EndNode(false);
             }
@@ -51,17 +51,17 @@ using (ScriptAPI) {
             AddByte("Unknown");
             AddInt("Unknown");
         case 4:
-            AddInt("Unknown");
-            AddInt("Unknown");
-            AddInt("Unknown");
-            AddInt("Unknown");
+            AddInt("MobObjectId");
+            AddInt("MobObjectId");
+            AddInt("???");
+            AddInt("MobHealth");
             AddInt("Unknown");
             AddInt("Unknown");
             AddByte("Unknown");
         case 5:
             AddLong("Unknown");
-            AddInt("Unknown");
-            AddInt("Unknown");
+            AddInt("UserObjectId");
+            AddInt("SkillObjectId?"); // increments
             AddByte("Unknown");
             count = AddByte("count");
             for (i = 0; i < count; i++) {

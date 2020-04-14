@@ -1,28 +1,40 @@
 using (ScriptAPI) {
     AddInt("uid");
-    AddByte("Unknown");
-    f = AddByte("type");
-    if (f == 1) {
+    f = AddByte("Function");
+    t = AddByte("type");
+    if (t == 1) { // updating mob stats??
         statType = AddByte("StatType");
         if (statType == 4) {
             StartNode("TotalHp");
             AddInt("Unknown");
             AddInt("Unknown");
             AddInt("Unknown");
-            EndNode(false);
+            EndNode(true);
             StartNode("CurrentHp");
             AddInt("Unknown");
             AddInt("Unknown");
             AddInt("Unknown");
-            EndNode(false);
+            EndNode(true);
         }
-    } else if (f == 35) {
-        for (i = 0; i < 6; i++) {
-            StartNode("Stat " + i);
-            AddInt("Unknown");
-            AddInt("Unknown");
-            AddInt("Unknown");
-            EndNode(false);
+    } else if (t == 35) { // updating user stats
+        if (f == 0) {
+            for (i = 0; i < 36; i++) {
+                StartNode("Stat " + i);
+                AddInt("Unknown");
+                AddInt("Unknown");
+                AddInt("Unknown");
+                EndNode(false);
+            }
+        } else if (f == 1) {
+            for (i = 0; i < 3; i++) {
+                StartNode("Stats " + i);
+                AddLong("Health");
+                AddInt("AtkSpd");
+                AddInt("MoveSpd");
+                AddInt("MountSpd");
+                AddInt("JumpHeight");
+                EndNode(true);
+            }
         }
     }
     

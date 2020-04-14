@@ -1,0 +1,18 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+    if (f == 1) {
+        count = 1;
+    } else {
+        count = AddInt("count");
+    }
+
+    for (i = 0; i < count; i++) {
+        StartNode("Breakable " + i);
+        AddString("EntityId");
+        AddByte("Unknown"); // 2
+        AddByte("Unknown"); // 1
+        AddInt("Unknown");
+        AddInt("Unknown");
+        EndNode(true);
+    }
+}

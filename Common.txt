@@ -64,8 +64,8 @@ function DecodeSyncState() {
             AddInt("Unknown");
             AddShort("Unknown");
         }
-        DecodeCoordS("");
-        AddShort("CoordS / 10");
+        DecodeCoordS("Position");
+        AddShort("Rotation");
         u = AddByte("Unknown");
         // if u < 0???
         if (u > 127) {
@@ -182,7 +182,7 @@ function DecodeItem(id) {
         // EndSub
 
         //Testing UGC
-        if (id == 11400608 || id == 11500523) {
+        if (id == 11400608 || id == 11500523 || id == 11600035) {
             StartNode("UGC");
             DecodeUgcData();
             AddField("Unknown", 50);
@@ -219,6 +219,9 @@ function DecodeItem(id) {
             AddByte("Unknown");
             AddByte("Unknown");
             AddUnicodeString("BadgeIdStr");
+            if (id == 70100000) { // PetSkinBadge
+                AddInt("PetSkinId");
+            }
             EndNode(true);
         }
 

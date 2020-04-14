@@ -2,7 +2,7 @@ using (ScriptAPI) {
     f = AddByte("Function");
     if (f == 2) {
         DecodeKeyBinds();
-    } else if (f == 3) {
+    } else if (f == 3 || f == 4) {
         AddShort("HotbarId");
         AddInt("SkillId");
         AddInt("ItemId");

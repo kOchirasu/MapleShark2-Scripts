@@ -1,0 +1,16 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+    AddInt("SkillObjectId?");
+    if (f == 0) {
+        AddInt("UserObjectId"); // this incremented on arrow rain
+        AddInt("Unknown");
+        count = AddByte("Count");
+        for (i = 0; i < count; i++) {
+            DecodeCoordF("Position");
+        }
+        AddInt("SkillId");
+        AddShort("SkillLevel");
+        AddFloat("Unknown");
+        AddFloat("Unknown");
+    }
+}

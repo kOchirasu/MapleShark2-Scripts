@@ -1,8 +1,8 @@
 using (ScriptAPI) {
     f = AddByte("Function");
     AddByte("State");
-    AddInt("SyncTime");
+    AddInt("ServerTick");
     if (f == 0) {
-        DecodeCoordF("");
+        DecodeCoordF("Position");
     }
 }

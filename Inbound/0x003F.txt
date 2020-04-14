@@ -1,11 +1,11 @@
 using (ScriptAPI) {
-    AddLong("Unknown");
-    AddInt("Unknown");
-    AddInt("Unknown");
-    AddShort("Unknown");
+    AddLong("SkillCastUid");
+    AddInt("UserObjectId");
+    AddInt("SkillId");
+    AddShort("SkillLevel");
+    DecodeCoordF("Position");
     DecodeCoordF("Unknown");
-    DecodeCoordF("Unknown");
-    DecodeCoordF("Unknown");
+    DecodeCoordF("Rotation");
     DecodeCoordF("Unknown");
     AddByte("Unknown");
     AddByte("Unknown");

@@ -1,0 +1,74 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+
+    switch ((int)f) {
+        case 0: // StartSkill
+            AddLong("SkillUseUid");
+            AddInt("ServerTick");
+            AddInt("SkillId");
+            AddShort("SkillLevel"); // 1? Skill Level?
+            AddByte("Unknown"); // 0?
+            DecodeCoordF("Position");
+            DecodeCoordF("Speed"); // Movement/Speed?
+            DecodeCoordF("Rotation");
+            AddFloat("Unknown");
+            AddInt("ClientTick");
+            AddBool("Unknown");
+            AddLong("Unknown");
+            b = AddBool("flag");
+            if (b) {
+                AddInt("Unknown");
+                AddUnicodeString("Unknown");
+            }
+        case 1: // Attacking?
+            t = AddByte("AttackType");
+            AddLong("SkillUseUid");
+            if (t == 0) {
+                AddByte("Unknown");
+                DecodeCoordF("Position");
+                DecodeCoordF("Speed");
+                count = AddByte("Unknown");
+                AddInt("Unknown");
+                for (i = 0; i < count; i++) {
+                    StartNode("Segment " + i);
+                    AddInt("AttackCounter"); // increments by 1 per attack
+                    AddInt("UserObjectId");
+                    AddInt("NpcObjectId");
+                    AddShort("AnimationFrame?");
+                    EndNode(true);
+                }
+            } else if (t == 1) {
+                AddInt("AttackCounter");
+                AddInt("UserObjectId");
+                DecodeCoordF("Position");
+                DecodeCoordF("AnotherPosition");
+                DecodeCoordF("Rotation");
+                AddByte("Unknown"); // 1
+                AddByte("Unknown"); // 1
+                AddInt("Unknown");
+                AddInt("NpcObjectId");
+                AddByte("Unknown");
+            } else if (t == 2) {
+                AddField("Unknown", 9);
+                DecodeCoordF("Position");
+                DecodeCoordF("Rotation");
+            }
+        case 2: // charge skill
+            AddLong("SkillUseUid");
+            AddInt("SkillId");
+            AddShort("SkillLevel");
+            AddByte("Unknown");
+            DecodeCoordF("Position");
+            DecodeCoordF("Unknown");
+            DecodeCoordF("Rotation");
+            DecodeCoordF("Unknown");
+            AddByte("Unknown");
+            AddByte("Unknown");
+            AddInt("Unknown");
+        case 3: // charging skill
+            AddLong("SkillUseUid");
+            AddInt("ServerTick");
+        case 4: // Finish dash
+            AddLong("SkillUseUid");
+    }
+}

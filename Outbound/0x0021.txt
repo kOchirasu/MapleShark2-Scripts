@@ -1,14 +1,13 @@
 using (ScriptAPI) {
     f = AddByte("function");
     if (f == 0) {
-        AddInt("SkillCounter");
-        AddInt("ObjectId");
+        AddLong("SkillUseUid");
         AddInt("ServerTick");
         AddInt("SkillId");
         AddShort("Unknown");
         AddInt("Animation");
         AddInt("ClientTick");
-        AddLong("Unknown");
+        AddLong("ItemUid");
     } else {
 
     }
