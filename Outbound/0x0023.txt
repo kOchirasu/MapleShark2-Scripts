@@ -1,0 +1,58 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+
+    switch ((int)f) {
+        case 0:
+            AddInt("NpcId");
+            AddByte("Unknown");
+        case 3:
+            AddByte("Index?");
+            AddByte("UseVoucher"); // sub_821610
+            AddInt("Unknown");
+            // Might not be hair here
+            DecodeEquipColor();
+            AddInt("AppearanceFlag");
+            AddField("Back Hair Position", 4 * 7);
+            AddField("Front Hair Position", 4 * 7);
+        case 4:
+            AddLong("Unknown");
+        case 5: // change hair/eyes color
+            AddByte("Index?"); // Since it's hair color, no style here?
+            AddByte("UseVoucher"); // sub_821610
+            AddLong("HairUid");
+            DecodeEquipColor();
+            AddInt("AppearanceFlag");
+            AddField("Back Hair Position", 4 * 7);
+            AddField("Front Hair Position", 4 * 7);
+        case 6: // change skin color
+            AddByte("Index?");
+            DecodeSkinColor();
+            AddByte("UseVoucher"); // sub_821610
+        case 7: // randomize hair
+            AddInt("ShopId");
+            AddBool("UseVoucher");
+        case 10:
+            AddShort("Type");
+        case 12:
+            AddByte("Unknown");
+        case 16: // save hair
+            AddLong("HairUid");
+        case 18: // delete hair
+            AddLong("SaveUid");
+            AddBool("True");
+        case 22: // gear dye
+            count = AddByte("count");
+            for (i = 0; i < count; i++) {
+                StartNode("Item " + i);
+                AddByte("Unknown"); // 1
+                AddField("Unknown", 15);
+                AddLong("ItemUid");
+                AddInt("ItemId");
+                DecodeEquipColor();
+                AddInt("AppearanceFlag");
+                EndNode(false);
+            }
+        case 23:
+            AddLong("Unknown");
+    }
+}

@@ -1,0 +1,19 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+
+    switch ((int)f) {
+        case 1: // add item to ui
+            AddLong("ItemUid");
+            AddShort("slot");
+        case 2: // remove item from ui
+            AddLong("ItemUid");
+        case 3:
+            count = AddByte("count");
+            for (i = 0; i < count; i++) {
+                AddLong("ItemUid");
+                DecodeItem(0);
+            }
+        case 4:
+            AddInt("ErrorCode");
+    }
+}

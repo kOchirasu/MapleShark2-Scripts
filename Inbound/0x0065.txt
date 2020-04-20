@@ -6,10 +6,10 @@ using (ScriptAPI) {
             AddString("Unknown");
             AddByte("Unknown");
             AddByte("Unknown");
-        case 5:
-            AddString("Unknown");
-            AddByte("Unknown");
-            // ...
+        case 5: // after interacting, despawn?
+            AddString("EntityId");
+            AddByte("Unknown"); // 6 (index?)
+            // ... (00 00 01 00 00 00)
         case 6:
             AddInt("Unknown");
             AddByte("Unknown");
@@ -44,10 +44,10 @@ using (ScriptAPI) {
         case 10:
             AddString("Unknown");
             AddUnicodeString("Unknown");
-        case 13:
-            AddByte("Unknown");
-            AddString("Unknown");
-            AddByte("Unknown");
+        case 13: // respawn?
+            AddByte("Unknown"); // 0
+            AddString("EntityId");
+            AddByte("Unknown"); // index? (6)
             // ...?
         case 14:
             AddShort("Unknown");

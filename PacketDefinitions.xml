@@ -35,14 +35,6 @@
     <Build>12</Build>
     <Locale>0</Locale>
     <Outbound>false</Outbound>
-    <Opcode>5</Opcode>
-    <Name>Unknown5</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
     <Opcode>7</Opcode>
     <Name>Unknown7</Name>
     <Ignore>false</Ignore>
@@ -843,14 +835,6 @@
     <Build>12</Build>
     <Locale>0</Locale>
     <Outbound>false</Outbound>
-    <Opcode>112</Opcode>
-    <Name>SendGuideObject</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
     <Opcode>113</Opcode>
     <Name>SendKeyTable</Name>
     <Ignore>false</Ignore>
@@ -1109,14 +1093,6 @@
     <Outbound>false</Outbound>
     <Opcode>148</Opcode>
     <Name>SendAppendMessageFieldBossAssistBonus</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
-    <Opcode>149</Opcode>
-    <Name>AH</Name>
     <Ignore>false</Ignore>
   </Definition>
   <Definition>
@@ -1883,14 +1859,6 @@
     <Build>12</Build>
     <Locale>0</Locale>
     <Outbound>false</Outbound>
-    <Opcode>286</Opcode>
-    <Name>AdventureLevel</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
     <Opcode>289</Opcode>
     <Name>WorldChampion</Name>
     <Ignore>false</Ignore>
@@ -1950,14 +1918,6 @@
     <Opcode>89</Opcode>
     <Name>SendNpcControl</Name>
     <Ignore>true</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
-    <Opcode>261</Opcode>
-    <Name />
-    <Ignore>false</Ignore>
   </Definition>
   <Definition>
     <Build>12</Build>
@@ -2493,14 +2453,6 @@
     <Outbound>true</Outbound>
     <Opcode>79</Opcode>
     <Name>RequestHomeDoctor</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>true</Outbound>
-    <Opcode>80</Opcode>
-    <Name>AH</Name>
     <Ignore>false</Ignore>
   </Definition>
   <Definition>
@@ -3166,5 +3118,77 @@
     <Opcode>124</Opcode>
     <Name>SendRideSync</Name>
     <Ignore>true</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>112</Opcode>
+    <Name>SendGuideObject</Name>
+    <Ignore>true</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>261</Opcode>
+    <Name>ItemRelated (Picked up instanced item)</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>286</Opcode>
+    <Name>PrestigeLevel</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>5</Opcode>
+    <Name>ResponseKey</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>5</Opcode>
+    <Name>ReceiveKey</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>80</Opcode>
+    <Name>AH</Name>
+    <Ignore>true</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>149</Opcode>
+    <Name>AH</Name>
+    <Ignore>true</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>182</Opcode>
+    <Name>Wardrobe</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>293</Opcode>
+    <Name>Wardrobe</Name>
+    <Ignore>false</Ignore>
   </Definition>
 </ArrayOfDefinition>

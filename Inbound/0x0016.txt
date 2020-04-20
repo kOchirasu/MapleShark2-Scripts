@@ -6,18 +6,8 @@ using (ScriptAPI) {
         AddByte("Unknown");
         AddInt("Unknown");
         AddInt("Unknown");
-        // coords
-        StartNode("Coord");
-        AddFloat("CoordX?");
-        AddFloat("CoordY?");
-        AddFloat("CoordZ?");
-        EndNode(false);
-        // coords
-        StartNode("Coord");
-        AddFloat("CoordX?");
-        AddFloat("CoordY?");
-        AddFloat("CoordZ?");
-        EndNode(false);
+        DecodeCoordF("Position");
+        DecodeCoordF("Rotation");
         AddInt("Unknown");
     }
 }

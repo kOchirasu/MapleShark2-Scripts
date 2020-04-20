@@ -1,0 +1,31 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+
+    switch ((int)f) {
+        case 0: // EE 4C 75 5B 00 00 00 00 02 46 4E 75 5B 00 00 00 00 4F 4F 75 5B 00 00 00 00 
+            AddLong("ItemUid");
+            count = AddByte("count");
+            for (i = 0; i < count; i++) {
+                AddLong("FodderItemUid");
+            }
+        case 2: // put accessory into unlock socket ui
+            AddLong("Unknown");
+            AddByte("Unknown"); // FF
+            AddLong("EquipUid");
+        case 4: // Upgrade gem
+            AddLong("EquipUid"); // If gemstone is on an equip, else 0
+            AddByte("Unknown");
+            AddLong("GemstoneUid");
+        case 6: // Put gem in upgrade ui
+            AddLong("EquipUid"); // If gemstone is on an equip, else 0
+            AddByte("Equipped"); // 255 = not equipped, 1 = equipped?
+            AddLong("GemstoneUid");
+        case 8: // put gem on equip
+            AddLong("EquipUid");
+            AddLong("GemstoneUid");
+            AddByte("SocketSlot");
+        case 10: // remove gem
+            AddLong("EquipUid");
+            AddByte("SocketSlot");
+    }
+}

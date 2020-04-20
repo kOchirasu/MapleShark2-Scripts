@@ -1,0 +1,59 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+
+    switch ((int)f) {
+        case 0:
+            AddByte("Unknown");
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                StartNode("Cube " + i);
+                AddInt("ByteCoord"); // XX YY ZZ 00
+                AddLong("SomeUid");
+
+                AddInt("ItemId");
+                AddLong("SomeUid");
+                AddLong("Unknown");
+                AddByte("Unknown");
+
+                AddInt("Unknown");
+                AddInt("Unknown");
+                AddByte("Unknown");
+                AddFloat("Rotation");
+                AddInt("Unknown");
+                b = AddBool("Unknown");
+                if (b) {
+                    AddUnicodeString("UnknownStr");
+                    AddByte("Unknown");
+                }
+                EndNode(false);
+            }
+        case 1:
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                StartNode("Cube " + i);
+                AddInt("Unknown");
+                AddByte("Unknown");
+                EndNode(false);
+            }
+        case 2:
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                StartNode("Cube " + i);
+                AddInt("Unknown");
+                AddInt("Unknown");
+                AddUnicodeString("UnknownStr");
+                AddLong("CharacterId");
+                EndNode(false);
+            }
+        case 3:
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                StartNode("Cube " + i);
+                AddInt("Unknown");
+                AddInt("Unknown");
+                AddByte("Unknown");
+                AddLong("Unknown");
+                EndNode(false);
+            }
+    }
+}

@@ -1,0 +1,14 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    b = AddBool("Unknown");
+
+    count = AddInt("count");
+    for (i = 0; i < count; i++) {
+        StartNode("Entry " + i);
+        AddInt("a");
+        AddInt("a");
+        AddUnicodeString("a");
+        AddLong("Timestamp");
+        EndNode(false);
+    }
+}

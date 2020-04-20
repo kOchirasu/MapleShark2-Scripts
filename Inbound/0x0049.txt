@@ -7,7 +7,7 @@ using (ScriptAPI) {
         DecodeCoordF("Location");
         DecodeCoordF("Rotation");
         DecodeCoordF("Unknown");
-        AddUnicodeString("UnknownStr");
+        AddUnicodeString("UnknownStr"); // Eff_Com_Portal_E
         AddInt("TargetMapId");
         AddInt("Unknown");
         AddInt("Unknown");
@@ -17,8 +17,8 @@ using (ScriptAPI) {
         AddInt("Unknown");
         AddShort("Unknown");
         AddInt("Unknown");
-        AddBool("Unknown");
-        AddUnicodeString("UnknownStr");
+        AddBool("Unknown"); // locked?
+        AddUnicodeString("PortalOwnerName"); // minigame portal
         AddUnicodeString("UnknownStr");
         AddUnicodeString("UnknownStr");
     } else if (f == 1) {

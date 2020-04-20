@@ -1,0 +1,8 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+
+    if (f == 0) {
+        AddLong("AccountId?");
+        AddLong("Timestamp 2 days ago...?");
+    }
+}

@@ -1,9 +1,9 @@
 
 using (ScriptAPI) {
-    AddByte("a");
-    AddInt("b");
+    AddByte("Unknown (1)");
+    AddInt("Unknown (1)");
     AddUnicodeString("Server Name");
-    AddByte("c");
+    AddByte("Unknown (4)");
     count = AddShort("count");
     for (i = 0; i < count; i++) {
         AddUnicodeString("IPAddress");

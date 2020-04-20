@@ -3,6 +3,7 @@ using (ScriptAPI) {
     if (f == 0) {
         AddInt("CurrentMapId");
         AddInt("PortalId?");
-        AddField("Unknown", 12);
+        AddField("Unknown", 10);
+        AddUnicodeString("Password"); // For locked portals
     }
 }

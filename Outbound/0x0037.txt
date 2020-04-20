@@ -1,5 +1,9 @@
 using (ScriptAPI) {
-    AddFunction("???");
+    f = AddByte("function");
+    switch ((int)f) {
+        case 23:
+            AddInt("Unknown");
+    }
     // 0x28 (40) = House Decoration Reward
     // Send item inventory, response cube
     // 27 B2 79 72 04 3E 95 3C 26 4A E2 8C 5E 00 00 00 00 09 00 00 00 00 00 00 00 B0 04 00 00 00 00 00 00 02 00 00 00 06 00 00 00 07 00 00 00

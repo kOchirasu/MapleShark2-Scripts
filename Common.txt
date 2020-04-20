@@ -221,6 +221,17 @@ function DecodeItem(id) {
             AddUnicodeString("BadgeIdStr");
             if (id == 70100000) { // PetSkinBadge
                 AddInt("PetSkinId");
+            } else if (id == 70100001) { // Transparency
+                AddBool("Headgear");
+                AddBool("Eyewear");
+                AddBool("Top");
+                AddBool("Bottom");
+                AddBool("Cape");
+                AddBool("Earrings");
+                AddBool("Face");
+                AddBool("Gloves");
+                AddBool("Unknown");
+                AddBool("Shoes");
             }
             EndNode(true);
         }
@@ -236,25 +247,7 @@ function DecodeItem(id) {
             AddLong("BoundToCharId");
             AddUnicodeString("BoundToName");
         }
-        AddByte("total sockets");
-        count = AddByte("Count");
-        for (e = 0; e < count; e++) {
-            StartNode("Gemstone " + e);
-            isUnlocked = AddBool("unlocked socket");
-            if (isUnlocked) {
-                AddInt("GemstoneItemId");
-                isBound = AddBool("Bound");
-                if (isBound) {
-                    AddLong("CharacterId");
-                    AddUnicodeString("Name");
-                }
-                b = AddBool("UnknownFlag");
-                if (b) {
-                    AddLong("Unknown");
-                }
-            }
-            EndNode(false);
-        }
+        DecodeGemSockets();
         b = AddLong("PairedCharacterId");
         if (b != 0) {
             AddUnicodeString("PairedName");
@@ -437,4 +430,31 @@ function DecodeSkillTree() {
         AddByte("Unknown");
         AddByte("Unknown");
     }
+}
+
+function DecodeGemSockets() {
+    AddByte("MaxSockets");
+    count = AddByte("TotalSockets");
+    for (i = 0; i < count; i++) {
+        isUnlocked = AddBool("unlocked socket");
+        if (isUnlocked) {
+            DecodeGemstone();
+        }
+    }
+}
+
+function DecodeGemstone() {
+    StartNode("Gemstone");
+    AddInt("GemstoneItemId");
+    isBound = AddBool("Bound");
+    if (isBound) {
+        AddLong("CharacterId");
+        AddUnicodeString("Name");
+    }
+    b = AddBool("UnknownFlag");
+    if (b) {
+        AddByte("Unknown");
+        AddLong("Unknown");
+    }
+    EndNode(false);
 }

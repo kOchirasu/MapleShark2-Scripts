@@ -5,10 +5,10 @@ using (ScriptAPI) {
         AddInt("ObjectId");
         AddInt("TitleIt");
         EndNode(true);
-    } else if (f == 2 || f == 4) {
+    } else if (f == 2 || f == 4) { // List unlocked titles?
         count = AddInt("Count");
         for (i = 0; i < count; i++) {
-            AddInt("Unknown");
+            AddInt("TitleId");
         }
     } else if (f == 3 || f == 9) {
         count = AddInt("Count");
@@ -16,11 +16,11 @@ using (ScriptAPI) {
             AddInt("Unknown");
             AddByte("Unknown");
         }
-    } else if (f == 8) {
+    } else if (f == 8) { // life skills / recipes
         count = AddInt("Count");
         for (i = 0; i < count; i++) {
-            AddInt("Unknown");
-            AddInt("Unknown");
+            AddInt("MasteryRecipe");
+            AddInt("Mastery");
         }
         count = AddInt("Count");
         for (i = 0; i < count; i++) {
