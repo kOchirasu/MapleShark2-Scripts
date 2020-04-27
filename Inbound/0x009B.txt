@@ -1,0 +1,57 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+
+    switch ((int)f) {
+        case 0:
+            AddInt("ErrorCode");
+        case 1: // load market
+            AddFloat("UnknownF"); // 0
+            AddFloat("UnknownF"); // 0.2
+            AddLong("Cost");
+            AddInt("MaxListings?");
+            AddInt("MaxListings?");
+            AddInt("WeeklyLimit");
+            AddInt("Unknown"); // 2? (order by?)
+            AddInt("AveragePrice");
+            AddInt("MaxListingsShown");
+            AddInt("Unknown"); // 1000
+        case 2: // load stats
+            AddInt("daily listed");
+            AddInt("monthly purchased");
+        case 4: //  my listings
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                AddLong("ListingUid");
+                DecodeMesoMarketEntry();
+            }
+            // none
+        case 5: // list
+            DecodeMesoMarketEntry();
+            AddInt("Unknown");
+        case 6: // cancel
+            AddInt("Unknown"); // 0
+            AddLong("ListingUid");
+        case 7: // search results
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                DecodeMesoMarketEntry();
+            }
+        case 8:
+            AddInt("Unknown");
+            AddLong("Unknown");
+            AddInt("Unknown");
+    }
+}
+
+function DecodeMesoMarketEntry() {
+    using (ScriptAPI) {
+        StartNode("Entry");
+        AddLong("ListingUid");
+        AddLong("MesoAmount");
+        AddLong("Cost");
+        AddLong("TimeListed");
+        AddLong("TimeExpires");
+        AddBool("IsOwnListing"); // self?
+        EndNode(false);
+    }
+}

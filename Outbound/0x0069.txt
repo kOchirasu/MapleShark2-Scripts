@@ -1,0 +1,11 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+
+    switch ((int)f) {
+        case 4: // request maid craft item
+            AddInt("RecipeId");
+            AddLong("RecipeUid");
+        case 10: // cancel craft
+            AddLong("RecipeUid");
+    }
+}

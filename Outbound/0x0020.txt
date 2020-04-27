@@ -7,11 +7,11 @@ using (ScriptAPI) {
             AddInt("ServerTick");
             AddInt("SkillId");
             AddShort("SkillLevel"); // 1? Skill Level?
-            AddByte("Unknown"); // 0?
+            AddByte("AttackPoint"); // +1 for each part of an attack
             DecodeCoordF("Position");
             DecodeCoordF("Speed"); // Movement/Speed?
             DecodeCoordF("Rotation");
-            AddFloat("Unknown");
+            AddFloat("UnknownFloat");
             AddInt("ClientTick");
             AddBool("Unknown");
             AddLong("Unknown");
@@ -24,13 +24,13 @@ using (ScriptAPI) {
             t = AddByte("AttackType");
             AddLong("SkillUseUid");
             if (t == 0) {
-                AddByte("Unknown");
+                AddByte("AttackPoint");
                 DecodeCoordF("Position");
                 DecodeCoordF("Speed");
                 count = AddByte("Unknown");
                 AddInt("Unknown");
                 for (i = 0; i < count; i++) {
-                    StartNode("Segment " + i);
+                    StartNode("Npc " + i);
                     AddInt("AttackCounter"); // increments by 1 per attack
                     AddInt("UserObjectId");
                     AddInt("NpcObjectId");
@@ -43,13 +43,19 @@ using (ScriptAPI) {
                 DecodeCoordF("Position");
                 DecodeCoordF("AnotherPosition");
                 DecodeCoordF("Rotation");
-                AddByte("Unknown"); // 1
-                AddByte("Unknown"); // 1
+                AddByte("AttackPoint");
+                count = AddByte("count");
                 AddInt("Unknown");
-                AddInt("NpcObjectId");
-                AddByte("Unknown");
+                for (i = 0; i < count; i++) {
+                    StartNode("Npc " + i);
+                    AddInt("NpcObjectId");
+                    AddByte("Unknown");
+                    EndNode(true);
+                }
             } else if (t == 2) {
-                AddField("Unknown", 9);
+                AddByte("Unknown");
+                AddInt("Unknown");
+                AddInt("Unknown");
                 DecodeCoordF("Position");
                 DecodeCoordF("Rotation");
             }

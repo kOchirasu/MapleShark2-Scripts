@@ -1,0 +1,22 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+
+    switch ((int)f) {
+        case 0: // load maid info (loads all purchased maids?)
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                AddBool("Unknown"); // 1
+                DecodeMaid();
+            }
+        case 1: // add maid to map
+            AddBool("Unknown");  // 1
+            DecodeMaid();
+        case 2:
+            AddLong("Unknown");
+        case 3: // add maid to house
+            AddBool("Unknown");  // 1
+            DecodeMaid();
+        case 4:
+            AddInt("Unknown");
+    }
+}

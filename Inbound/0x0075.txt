@@ -5,6 +5,7 @@ using (ScriptAPI) {
         case 0:
             count = AddInt("count");
             for (i = 0; i < count; i++) {
+                StartNode("Liftable " + i);
                 AddString("Unknown");
                 AddByte("Unknown");
                 AddInt("Unknown");
@@ -14,6 +15,7 @@ using (ScriptAPI) {
                 AddUnicodeString("Unknown");
                 AddUnicodeString("Unknown");
                 AddBool("Unknown");
+                EndNode(true);
             }
         case 2:
             AddString("Unknown");

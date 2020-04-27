@@ -18,7 +18,8 @@ using (ScriptAPI) {
         }
     } else if (t == 35) { // updating user stats
         if (f == 0) {
-            for (i = 0; i < 36; i++) {
+            // Not parsing here because it differs between self and others
+            for (i = 0; i < 0; i++) {
                 StartNode("Stat " + i);
                 AddInt("Unknown");
                 AddInt("Unknown");

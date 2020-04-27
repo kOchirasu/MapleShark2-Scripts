@@ -1914,14 +1914,6 @@
   <Definition>
     <Build>12</Build>
     <Locale>0</Locale>
-    <Outbound>false</Outbound>
-    <Opcode>89</Opcode>
-    <Name>SendNpcControl</Name>
-    <Ignore>true</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
     <Outbound>true</Outbound>
     <Opcode>0</Opcode>
     <Name>Null</Name>
@@ -3190,5 +3182,13 @@
     <Opcode>293</Opcode>
     <Name>Wardrobe</Name>
     <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>89</Opcode>
+    <Name>SendNpcControl</Name>
+    <Ignore>true</Ignore>
   </Definition>
 </ArrayOfDefinition>

@@ -1,3 +1,5 @@
 using (ScriptAPI) {
-    AddFloat("Mesos"); // Fall height?
+    AddInt("UserObjectId");
+    AddInt("Unknown");
+    AddInt("Unknown");
 }

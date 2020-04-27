@@ -325,18 +325,26 @@ function DecodePlayer() {
         for (i = 0; i < count; i++) {
             b = AddByte("club");
             if (b == 1) {
-                AddLong("club");
-                // variable packet call here
+                AddLong("clubUid");
                 AddUnicodeString("Club Name");
             }
         }
         EndNode(false);
 
-        AddByte("???");
-        StartNode("???");
-        for (i = 0; i < 12; i++) {
-            AddInt("???");
-        }
+        AddByte("Unknown");
+        StartNode("LifeSkills");
+        AddInt("Fishing???");
+        AddInt("Fishing");
+        AddInt("Instrument");
+        AddInt("Mining");
+        AddInt("Foraging");
+        AddInt("Ranching");
+        AddInt("Farming");
+        AddInt("Smithing");
+        AddInt("Handicrafts");
+        AddInt("Alchemy");
+        AddInt("Cooking");
+        AddInt("PetTaming");
         EndNode(false);
 
         AddUnicodeString("UnknownStr");
@@ -457,4 +465,52 @@ function DecodeGemstone() {
         AddLong("Unknown");
     }
     EndNode(false);
+}
+
+function DecodeMaid() {
+    using (ScriptAPI) {
+        AddLong("MaidUid?");
+        AddLong("ItemUid");
+        AddLong("Timestamp");
+        AddLong("Timestamp");
+        AddLong("AccountId");
+        AddInt("MaidId"); // 50800017
+        AddInt("NpcId"); // 11000785
+        AddBool("IsDeployed");
+        AddInt("Mood");
+        AddInt("Level");
+        AddInt("Closeness");
+        AddLong("ExpirationTimestamp");
+        count2 = AddInt("count");
+        for (j = 0; j < count2; j++) {
+            AddLong("Unknown");
+        }
+        // Diff sub
+        AddUnicodeString("UnknownStr");
+        AddUnicodeString("UnknownStr");
+        AddUnicodeString("UnknownStr");
+        AddUnicodeString("UnknownStr");
+        AddUnicodeString("UnknownStr");
+        AddUnicodeString("UnknownStr");
+        AddUnicodeString("UnknownStr");
+        AddUnicodeString("UnknownStr");
+        AddUnicodeString("UnknownStr");
+        AddUnicodeString("UnknownStr");
+        AddUnicodeString("UnknownStr");
+        AddUnicodeString("UnknownStr");
+        AddUnicodeString("UnknownStr");
+    }
+}
+
+function DecodeAdditionalEffect() {
+    using (ScriptAPI) {
+        StartNode("AdditionalEffect");
+        AddInt("StartServerTick");
+        AddInt("EndServerTick");
+        AddInt("SkillId");
+        AddShort("SkillLevel");
+        AddInt("Unknown"); // 1
+        AddByte("Unknown"); // 1
+        EndNode(true);
+    }
 }

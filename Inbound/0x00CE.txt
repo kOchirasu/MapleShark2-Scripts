@@ -47,5 +47,7 @@ using (ScriptAPI) {
             AddByte("Unknown"); // 0
             AddInt("Unknown"); // 1
             AddByte("Unknown"); // 1
+        case 20: // use master snare
+            AddInt("ItemId"); // Lapis master snare
     }
 } 

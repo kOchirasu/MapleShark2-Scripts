@@ -1,0 +1,11 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+
+    switch ((int)f) {
+        case 0: // add maid
+            AddBool("Unknown"); // num here is kinda random
+            DecodeMaid();
+        case 1: // Remove maid
+            AddLong("ItemUid");
+    }
+}

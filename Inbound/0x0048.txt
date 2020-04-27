@@ -1,0 +1,17 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+
+    AddInt("UserObjectId");
+    AddInt("BuffObjectId");
+    AddInt("UserObjectId");
+    switch ((int)f) {
+        case 0: // additional effect
+            DecodeAdditionalEffect();
+            AddLong("Unknown"); // 0
+        case 1: // buff expired
+            // none
+        case 2: // skill buff effect (animation?)
+            AddInt("Unknown"); // 1
+            DecodeAdditionalEffect();
+    }
+}

@@ -1,0 +1,14 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+    
+    switch ((int)f) {
+        case 1: // open ui
+            //none
+        case 2: // claim reward
+            AddInt("RewardId?");
+        case 3: // open purchase
+            //none
+        case 4: // buy premium
+            AddInt("OptionId");
+    }
+}

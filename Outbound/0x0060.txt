@@ -1,0 +1,43 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+
+    switch ((int)f) {
+        case 1: // open market
+            // none
+        case 2: // list item
+            AddLong("ItemUid");
+            AddLong("CostPerItem");
+            AddInt("Amount");
+        case 3: // remove listing
+            AddLong("ListingUid");
+        case 4: // search market
+            AddInt("Type?");
+            AddInt("SubType?");
+            AddInt("MinLevel");
+            AddInt("MaxLevel");
+            AddInt("Job");
+            AddInt("MinRarity");
+            AddInt("MinEnchant");
+            AddInt("MaxEnchant");
+            AddByte("MinSocket");
+            AddByte("MaxSocket");
+            AddUnicodeString("Search Term");
+            AddInt("Unknown");
+            AddByte("OrderBy"); // Level(11 asc, 12 desc),Price(21 asc, 22 desc)
+            AddByte("Unknown");
+            AddInt("Unknown");
+            AddInt("Unknown");
+            AddByte("Unknown"); // Has bonus attributes
+            AddByte("Unknown"); // 1?
+            for (i = 0; i < 3; i++) {
+                AddInt("BonusAttrType");
+                AddInt("BonusAttrValue");
+            }
+        case 5: // buy item
+            AddLong("ListingUid");
+            AddInt("Amount");
+        case 8: // stage list item
+            AddInt("ItemId");
+            AddInt("Rarity");
+    }
+}

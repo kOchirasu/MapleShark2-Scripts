@@ -5,14 +5,14 @@ using (ScriptAPI) {
 		// 0 == Start List
 		// 4 == End List
 	} else if (count == 1) {
-		AddInt("a");
-		AddLong("b");
-		AddLong("c");
-		AddBool("d");
+		AddInt("ItemId");
+		AddLong("ItemUid");
+		AddLong("Unknown");
+		AddBool("Unknown");
 	} else if (count == 2) {
-		AddLong("a");
+		AddLong("Unknown");
 	} else if (count = 3) {
-		AddLong("a");
-		AddInt("b");
+		AddLong("Unknown");
+		AddInt("Unknown");
 	}
 }

@@ -1,0 +1,128 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+
+    switch ((int)f) {
+        case 0:
+            AddByte("Type");
+            AddUnicodeString("name");
+        case 2: // joined party #1
+            DecodePlayer();
+            DecodeUnknownInfo();
+        case 3: // left party (BROADCAST)
+            AddLong("CharacterId");
+            AddBool("Unknown");
+        case 4: // kicked from party
+            AddLong("CharacterId");
+        case 5:
+            DecodePlayer();
+        case 6:
+        case 7: // left party 2 (OTHERS)
+            // None
+        case 8: // become leader
+            AddLong("CharacterId");
+        case 9: // load party
+            AddBool("offline");
+            AddInt("partyId");
+            AddLong("LeaderUid");
+            count = AddByte("count");
+            for (i = 0; i < count; i++) {
+                StartNode("Member " + i);
+                AddBool("Unknown");
+                DecodePlayer();
+                DecodeUnknownInfo();
+                EndNode(false);
+            }
+            AddByte("Unknown");
+            b = AddBool("Unknown");
+            if (b) {
+                //sub_5B9350();
+            }
+            AddInt("DungeonId");
+        case 11: // party request
+            AddUnicodeString("name");
+            AddInt("partyId");
+        case 12:
+            AddLong("CharacterId");
+            DecodePlayer();
+            DecodeUnknownInfo();
+        case 13: // same 12 (updating party player)
+            AddLong("CharacterId");
+            DecodePlayer();
+            DecodeUnknownInfo();
+        case 14:
+            AddLong("CharacterId");
+            DecodeUnknownInfo();
+        case 15:
+        case 18:
+        case 19: // joined party #3
+            AddLong("CharacterId");
+            AddLong("AccountId");
+            AddInt("Hp");
+            AddInt("Hp");
+            AddShort("Unknown");
+        case 20: // notice
+            AddUnicodeString("str_const"); // s_party_vote_expired|s_field_enteracne_party_notify_reset_dungeon|s_party_vote_rejected_kick_user
+            AddUnicodeString("str_const"); // Field_Enterance_Reset_Dungeon
+            AddUnicodeString("Unknown");
+        case 21:
+        case 25: // dungeon reset
+            AddBool("startedDungeon");
+            AddInt("DungeonId?");
+        case 26:
+        case 30:
+        case 31:
+        case 35:
+        case 37:
+        case 40:
+        case 44: // IGN wants to join your party
+            AddUnicodeString("name");
+        case 47: // start ready check
+            AddBool("Unknown"); // vote kick = 1
+            AddInt("ReadyCheckConst(34)"); // 36 = vote kick
+            AddLong("timestamp now");
+            count = AddInt("PartyCount");
+            for (i = 0; i < count; i++) {
+                AddLong("CharacterId " + i);
+            }
+            count = AddInt("ReadyCount");
+            for (i = 0; i < count; i++) {
+                AddLong("CharacterId " + i);
+            }
+            count = AddInt("NotReadyCount");
+            for (i = 0; i < count; i++) {
+                AddLong("CharacterId " + i);
+            }
+        case 48: // not ready
+            AddLong("CharacterId");
+            AddBool("IsReady");
+        case 49: // ready check expired/completed
+            // none
+        case 54:
+    }
+}
+
+function sub_5B9350() {
+    using (ScriptAPI) {
+        AddLong("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddUnicodeString("UnknownStr");
+        AddByte("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddLong("Unknown");
+        AddUnicodeString("UnknownStr");
+        AddLong("Unknown");
+    }
+}
+
+function DecodeUnknownInfo() {
+    count = AddInt("Count");
+    for (j = 0; j < count; j++) {
+        StartNode("Entry " + j);
+        AddInt("Unknown");
+        AddByte("Unknown");
+        EndNode(false);
+    }
+}

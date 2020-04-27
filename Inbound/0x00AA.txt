@@ -3,35 +3,43 @@ using (ScriptAPI) {
     if (f == 1) {
         StartNode("ChangeTitle");
         AddInt("ObjectId");
-        AddInt("TitleIt");
+        AddInt("TitleId");
         EndNode(true);
     } else if (f == 2 || f == 4) { // List unlocked titles?
         count = AddInt("Count");
         for (i = 0; i < count; i++) {
-            AddInt("TitleId");
+            AddInt("TitleId " + i);
         }
     } else if (f == 3 || f == 9) {
         count = AddInt("Count");
         for (i = 0; i < count; i++) {
+            StartNode("Entry " + i);
             AddInt("Unknown");
             AddByte("Unknown");
+            EndNode(true);
         }
     } else if (f == 8) { // life skills / recipes
-        count = AddInt("Count");
+        count = AddInt("Mining/Foraging Count");
         for (i = 0; i < count; i++) {
+            StartNode("Entry " + i);
             AddInt("MasteryRecipe");
             AddInt("Mastery");
+            EndNode(true);
         }
-        count = AddInt("Count");
+        count = AddInt("Ranching/Farming Count");
         for (i = 0; i < count; i++) {
+            StartNode("Entry " + i);
+            AddInt("MasteryRecipe");
             AddInt("Unknown");
-            AddInt("Unknown");
+            EndNode(true);
         }
     } else if (f == 10) {
         count = AddInt("Count");
         for (i = 0; i < count; i++) {
-            AddShort("Unknown");
+            StartNode("Entry " + i);
+            AddShort("entry#");
             AddInt("Unknown");
+            EndNode(true);
         }
     } else if (f == 11) {
         AddShort("Unknown");
@@ -39,8 +47,10 @@ using (ScriptAPI) {
     } else if (f == 12) {
         count = AddInt("Count");
         for (i = 0; i < count; i++) {
+            StartNode("Entry " + i);
             AddInt("Unknown");
-            AddLong("Unknown");
+            AddLong("Timestamp");
+            EndNode(true);
         }
     } else if (f == 13) {
         AddInt("Unknown");

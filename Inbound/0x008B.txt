@@ -1,0 +1,10 @@
+using (ScriptAPI) {
+    count = AddInt("count");
+    for (i = 0; i < count; i++) {
+        StartNode("Entry " + i);
+        AddInt("Unknown");
+        AddInt("Unknown");
+        EndNode(false);
+    }
+    AddByte("Unknown");
+}

@@ -4,5 +4,7 @@ using (ScriptAPI) {
     AddInt("ServerTick");
     if (f == 0) {
         DecodeCoordF("Position");
+    } else if (f == 1) {
+        // nothing
     }
 }

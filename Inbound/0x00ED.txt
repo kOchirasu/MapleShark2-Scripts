@@ -1,0 +1,27 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+    
+    switch ((int)f) {
+        case 0: // activate premium
+            AddInt("UserObjectId");
+            AddLong("Premium expiration");
+        case 1: // daily rewards
+            m = AddInt("flag?");
+            if (m != 0) {
+                m = AddInt("Unknown");
+                while (m != 1) {
+                    m = AddInt("Unknown");
+                }
+            }
+        case 2: // confirm reward claimed
+            AddInt("RewardId");
+        case 3: // purchase options
+            count = AddInt("Count");
+            for (i = 0; i < count; i++) {
+                AddInt("OptionId"); // stringvipgoodsname.xml
+                AddInt("Amount"); // times per account
+            }
+        case 4: // purchase completed
+            AddInt("OptionId");
+    }
+}

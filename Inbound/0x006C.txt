@@ -42,7 +42,7 @@ using (ScriptAPI) {
                 AddInt("Unknown");
                 AddInt("Unknown");
                 AddUnicodeString("UnknownStr");
-                AddLong("CharacterId");
+                AddLong("AccountId");
                 EndNode(false);
             }
         case 3:

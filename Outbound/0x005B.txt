@@ -1,0 +1,16 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+
+    switch ((int)f) {
+        case 0: // open/close ui
+            AddBool("IsOpen");
+        case 1: // add item
+            AddInt("Unknown"); // -1
+            AddLong("ItemUid");
+            AddInt("Amount");
+        case 2: // remove item
+            AddLong("ItemUid");
+        case 3: // confirm dismantle
+            // None
+    }
+}

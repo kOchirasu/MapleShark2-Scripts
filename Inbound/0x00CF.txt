@@ -1,12 +1,27 @@
 // SendMastery
 using (ScriptAPI) {
     f = AddByte("Function1");
-    if (f == 0) {
-        f2 = AddByte("Function2");
-        if (f2 == 1) {
-            AddLong("CurrentFishingMastery");
-        } else if (f2 == 2) {
-            AddLong("CurrentInstrumentMastery");
-        }
+
+    switch ((int)f) {
+        case 0: // mastery exp
+            AddByte("MasteryType");
+            AddInt("CurrentMastery");
+            AddInt("Unknown");
+        case 1: // claiming rank reward
+            AddInt("RewardId");
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                AddInt("ItemId");
+                AddShort("Rarity");
+            }
+        case 2: // craft result
+            AddShort("MasteryType");
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                AddInt("ItemId"); // Reward from craft item
+                AddShort("Rarity");
+            }
+        case 3: // error code?
+            AddShort("Unknown");
     }
 }

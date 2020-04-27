@@ -1,0 +1,16 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+
+    if (f == 0) {
+        count = AddShort("Count");
+        for (i = 0; i < count; i++) {
+            AddInt("StampId");
+        }
+        count = AddShort("Count");
+        for (i = 0; i < count; i++) {
+            AddInt("Unknown");
+            AddInt("-1");
+            AddInt("217538647");
+        }
+    }
+}

@@ -1,15 +1,44 @@
 using (ScriptAPI) {
     count = AddShort("Count");
     for (i = 0; i < count; i++) {
+        StartNode("NpcControl " + i);
         size = AddShort("BufferSize");
         AddInt("ObjectId");
-        AddByte("Unknown");
-        DecodeCoordS("");
-        StartNode("Movement");
+        AddByte("Flags"); // bit-1, bit-2
+        DecodeCoordS("Position");
+        AddShort("Rotation / 10");
         DecodeCoordS("Speed");
-        AddShort("Unknown");
-        AddByte("Unknown");
-        AddShort("Animation");
+        AddShort("Short / 100"); // 100
+        // Dummy (!friendly && class >= 3)
+        //AddInt("CondUnknown");
+        n = AddByte("Unknown");
+        a = AddShort("Animation"); //  -2 = Jump_A, -3 = Jump_B
         AddShort("Counter (per action)");
+
+        // False here, but it is true if no animation can be found
+        // Not sure how it can happen since Jump_A/Jump_B are assigned from consts
+        if ((a == -2 || a == -3) && false) {
+            b = AddBool("Flag?");
+            if (b) {
+                DecodeCoordF("Unknown");
+                DecodeCoordF("Unknown");
+                AddFloat("Unknown");
+                AddFloat("Unknown");
+            }
+            DecodeCoordF("Unknown");
+        }
+
+        switch ((int)n) {
+            case 17: // StateSpawnData
+                AddInt("StateSpawnUnknown");
+            case 22:
+            case 56:
+            case 13: // StateHitData
+                AddFloat("StateHitUnknown");
+                AddFloat("StateHitUnknown");
+                AddFloat("StateHitUnknown");
+                AddByte("StateHitUnknown");
+        }
+        EndNode(true);
     }
 }

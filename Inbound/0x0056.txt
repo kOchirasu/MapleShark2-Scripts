@@ -4,54 +4,49 @@ using (ScriptAPI) {
     DecodeCoordF("Position");
     DecodeCoordF("Rotation");
 
-    // Dummy
+    // Dummy (!friendly && class >= 3)
     //AddString("npcstring");
 
     // If valid NpcId
     StartNode("Stats");
-    c = AddByte("Stats Flag?"); // 0x35
+    c = AddByte("Stats Flag"); // 0x23
     if (c == 1) {
-        v = AddByte("Value");
-        if (v == 4) {
-            AddLong("Unknown");
-            AddLong("Unknown");
-            AddLong("Unknown");
+        v = AddByte("StatType");
+        if (v == 4) { // Hp uses longs
+            AddLong("TotalHp");
+            AddLong("MinHp");
+            AddLong("MaxHp");
         } else {
-            AddInt("Unknown");
-            AddInt("Unknown");
-            AddInt("Unknown");
+            AddInt("TotalStat");
+            AddInt("MinStat");
+            AddInt("MaxStat");
         }
     } else {
-        AddLong("Unknown");
-        AddInt("Unknown");
-        AddLong("Unknown");
-        AddInt("Unknown");
-        AddLong("Unknown");
-        AddInt("Unknown");
+        AddLong("TotalHp");
+        AddInt("TotalAtkSpd");
+        AddLong("MinHp");
+        AddInt("MinAtkSpd");
+        AddLong("MaxHp");
+        AddInt("MaxAtkSpd");
     }
     EndNode(false);
-    AddByte("Unknown+77");
+    AddBool("IsDead");
     count = AddShort("Count");
     for (i = 0; i < count; i++) {
         StartNode("node " + i);
-        AddInt("Unknown");
-        AddInt("Unknown");
-        AddInt("Unknown");
-        AddInt("Unknown");
-        AddInt("Unknown");
-        AddInt("Unknown");
-        AddShort("Unknown");
-        AddInt("Unknown");
-        AddByte("Unknown");
-        AddLong("Unknown");
+        AddInt("NpcObjectId");
+        AddInt("EffectObjectId");
+        AddInt("NpcObjectId");
+        DecodeAdditionalEffect();
+        AddLong("AdditionalEffectRelated"); // 0
         EndNode(false);
     }
-    AddLong("uid");
-    AddByte("Unknown+88");
-    AddInt("Unknown+89");
-    AddInt("Unknown+93");
+    AddLong("ItemUid"); // From PetNpc
+    AddByte("Npc+6384");
+    AddInt("NpcLevel");
+    AddInt("Npc+1610");
 
-    // Dummy
+    // Dummy (!friendly && class >= 3)
     /*AddUnicodeString("UnknownStr");
     count = AddInt("Count");
     for (i = 0; i < count; i++) {
@@ -60,7 +55,10 @@ using (ScriptAPI) {
     }
     AddInt("Unknown");*/
 
-    AddByte("Unknown+97");
+    // Some flag condition on npc xml data
+    // AddLong("Npc+1620");
+
+    AddBool("Npc+6536");
 }
 
 /*

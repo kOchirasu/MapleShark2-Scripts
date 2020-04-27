@@ -8,7 +8,7 @@ using (ScriptAPI) {
             AddInt("SkillId");
             AddShort("SkillLevel");
             AddByte("Unknown"); // 0?
-            AddByte("Unknown"); // 0?
+            AddByte("AttackPoint");
             DecodeCoordS("Position");
             DecodeCoordF("Speed?");
             AddByte("Unknown");
@@ -17,20 +17,22 @@ using (ScriptAPI) {
             for (i = 0; i < count; i++) {
                 StartNode("Node " + i);
                 AddLong("Unknown");
-                AddLong("Unknown");
-                AddInt("Unknown");
+                AddInt("AttackCounter");
+                AddInt("UserObjectId");
+                AddInt("NpcObjectId");
                 AddByte("Unknown");
                 AddByte("Unknown");
                 EndNode(false);
             }
         case 1:
             AddLong("SkillUseUid");
-            AddLong("Unknown");
+            AddInt("AttackCounter");
+            AddInt("UserObjectId");
             AddInt("UserObjectId");
             AddInt("SkillId");
             AddShort("SkillLevel");
             AddByte("Unknown");
-            AddByte("Unknown");
+            AddByte("AttackPoint");
             DecodeCoordS("Position?");
             DecodeCoordS("Unknown");
             count = AddByte("count");
@@ -58,18 +60,18 @@ using (ScriptAPI) {
             AddInt("Unknown");
             AddInt("Unknown");
             AddByte("Unknown");
-        case 5:
+        case 5: // region skill
             AddLong("Unknown");
             AddInt("UserObjectId");
-            AddInt("SkillObjectId?"); // increments
+            AddInt("SkillObjectId");
             AddByte("Unknown");
             count = AddByte("count");
             for (i = 0; i < count; i++) {
                 StartNode("Node " + i);
-                AddInt("Unknown");
+                AddInt("PlayerObjectId");
                 count2 = AddByte("Unknown");
-                DecodeCoordS("Unknown");
-                DecodeCoordF("Unknown");
+                DecodeCoordS("BlockPosition");
+                DecodeCoordF("Speed?");
                 for (j = 0; j < count2; j++) {
                     AddByte("Unknown");
                     AddLong("Unknown");

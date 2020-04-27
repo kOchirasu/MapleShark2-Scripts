@@ -1,0 +1,24 @@
+using (ScriptAPI) {
+    AddInt("TotalPoints"); // Extra points (Rank1+Rank2)
+    sourceCount = AddInt("SourceCount");
+    for (i = 0; i < sourceCount; i++) {
+        source = AddInt("Source");
+        switch ((int)source) {
+            case 1:
+                StartNode("Trophy");
+            case 2:
+                StartNode("ChapterCompletion");
+            default:
+                StartNode("Unknown");
+        }
+        
+        jobRankCount = AddInt("JobRankCount");
+        for (j = 0; j < jobRankCount; j++) {
+            StartNode("JobRank");
+            AddShort("JobRank");
+            AddInt("Points");
+            EndNode(true);
+        }
+        EndNode(true);
+    }
+}

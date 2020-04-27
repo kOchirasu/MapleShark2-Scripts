@@ -1,0 +1,48 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+
+    switch ((int)f) {
+        case 0: // active item crafts
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                DecodeMaidCraft();
+            }
+        case 1:
+            DecodeMaidCraft();
+        case 2:
+            DecodeMaidCraft();
+        case 3: // collect/cancel craft
+            AddLong("RecipeUid");
+        case 4: // craft item response #2
+            AddInt("Amount?"); // 1
+        case 6: // collect item #3
+            AddInt("Unknown"); // 2
+        case 7: // Same as 6
+            AddInt("Unknown");
+        case 8: // Same as 6
+            AddInt("Unknown");
+        case 9: // Same as 6
+            AddInt("Unknown");
+        case 10: // cancel craft #2
+            AddInt("Unknown"); // 4
+        case 11: // collect item #2
+            AddInt("ItemId");
+            AddInt("Amount");
+            AddByte("Rarity");
+            AddInt("MoodIncrease");
+            AddInt("ClosenessIncrease");
+            AddByte("Unknown");
+            AddByte("Unknown");
+    }
+}
+
+function DecodeMaidCraft() {
+    using (ScriptAPI) {
+        AddLong("CraftUid"); // 2867694360299044869
+        AddLong("RecipeUid"); // 2867553603835392936
+        AddInt("RecipeId");
+        AddLong("StartTimestamp");
+        AddInt("CraftTimeSeconds");
+        AddInt("CraftTimeSeconds");
+    }
+}

@@ -1,10 +1,10 @@
 using (ScriptAPI) {
     f = AddByte("Function");
-    if (f == 0) {
-        AddInt("Unknown");
-        AddInt("Unknown");
-        AddShort("Unknown");
+    if (f == 0) { // world boss spawn map
+        AddInt("BossMonsterId");
+        AddInt("MapId");
+        AddShort("Channel?");
         AddLong("Timestamp");
-        AddByte("Unknown"); // 1
+        AddBool("Alive?"); // 1
     }
 }

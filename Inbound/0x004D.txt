@@ -3,7 +3,7 @@ using (ScriptAPI) {
     AddInt("SkillObjectId?");
     if (f == 0) {
         AddInt("UserObjectId"); // this incremented on arrow rain
-        AddInt("Unknown");
+        AddInt("ServerTicks");
         count = AddByte("Count");
         for (i = 0; i < count; i++) {
             DecodeCoordF("Position");

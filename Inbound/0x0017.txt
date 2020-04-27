@@ -56,9 +56,9 @@ using (ScriptAPI) {
     }
     EndNode(false);
     AddInt("Unknown+513");
-    AddLong("Unknown+517");
-    AddInt("Unknown+525");
-    AddInt("Unknown+529");
+    AddLong("Timestamp");
+    AddInt("Weekly Architect Score");
+    AddInt("Architect Score");
 
     flag = AddBool("Flag");
     if (flag) {
@@ -77,13 +77,13 @@ using (ScriptAPI) {
         AddField("Buffer", size);
         EndNode(false);
 
-        StartNode("Passive skills");
+        StartNode("Passive buffs?");
         count = AddShort("Count");
         for (i = 0; i < count; i++) {
-            StartNode("Passive skill " + i);
-            AddInt("SessionId");
+            StartNode("Passive buff " + i);
+            AddInt("UserObjectId");
             AddInt("Unknown+778");
-            AddInt("SessionId");
+            AddInt("UserObjectId");
             AddInt("Unknown+786");
             AddInt("Unknown+790");
             AddInt("SkillId");

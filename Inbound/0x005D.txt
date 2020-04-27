@@ -1,0 +1,5 @@
+using (ScriptAPI) {
+    AddInt("PetObjectId");
+    AddInt("UserObjectId");
+    AddInt("TamingPoint");
+}

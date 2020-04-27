@@ -1,0 +1,31 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+
+    switch ((int)f) {
+        case 0: // load mail
+            // none
+        case 1: // send mail
+            AddUnicodeString("Recipient");
+            AddUnicodeString("Title");
+            AddUnicodeString("Message");
+        case 2: // view unread mail
+            AddLong("MailUid");
+        case 11: // collect all (AddToInventory + MarkNew)
+            AddLong("MailUid");
+        case 13: // delete mail
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                AddLong("MailUid");
+            }
+        case 18: // mark read
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                AddLong("MailUid");
+            }
+        case 19: // collect multiple mail
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                AddLong("MailUid");
+            }
+    }
+}

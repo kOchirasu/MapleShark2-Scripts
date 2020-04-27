@@ -1,0 +1,23 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+
+    if (f == 0) {
+        f2 = AddByte("function2");
+        if (f2 == 0) {
+            AddUnicodeString("Log");
+            AddUnicodeString("Log");
+        } else if (f2 == 1) { // sent every ~5 min by client
+            count = AddByte("count"); // fps, memory, latency metrics
+            for (i = 0; i < count; i++) {
+                StartNode("Entry " + i);
+                AddString("Type");
+                AddFloat("Average");
+                AddFloat("StandardDeviation");
+                AddInt("DataPoints");
+                AddFloat("Min");
+                AddFloat("Max");
+                EndNode(true);
+            }
+        }
+    }
+}

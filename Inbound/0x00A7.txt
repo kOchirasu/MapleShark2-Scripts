@@ -1,0 +1,24 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+    if (f == 0) {
+        
+    } else if (f == 1) {
+        AddInt("Unknown");
+    } else if (f == 2) {
+        AddInt("Unknown");
+    } else if (f == 3) {
+        AddByte("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+    }
+    /*for (i = 0; i < 15; i++) {
+        StartNode("Entry " + i);
+        AddInt("Id");
+        AddInt("Level");
+        AddInt("Unknown");
+        AddShort("Unknown");
+        AddField("Unknown", 38);
+        EndNode(true);
+    }*/
+}

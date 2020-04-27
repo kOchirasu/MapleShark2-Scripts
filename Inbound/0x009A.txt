@@ -1,0 +1,61 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+
+    switch ((int)f) {
+        case 0: // item sold out
+            AddByte("Unknown");
+            n = AddInt("ErrorCode");
+            AddLong("ListingUid");
+            AddInt("Unknown"); // 0
+            AddInt("Unknown"); // 0
+        case 1: // my listings
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                DecodeBlackMarketEntry();
+            }
+        case 2:
+            DecodeBlackMarketEntry();
+        case 3: // remove my listing
+            AddLong("ListingUid");
+            AddByte("Unknown"); // 0
+        case 4:
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                DecodeBlackMarketEntry();
+            }
+        case 5: // listing purchased
+            AddLong("ListingUid");
+            AddInt("Amount");
+        case 6:
+            AddByte("Unknown");
+            AddLong("Unknown");
+            AddLong("Unknown");
+        case 7: // item sold
+            // none
+        case 8: // preview item
+            AddInt("ItemId");
+            AddInt("Rarity");
+            AddLong("ShopPrice");
+        case 9:       
+    }
+}
+
+function DecodeBlackMarketEntry() {
+    using (ScriptAPI) {
+        StartNode("Entry");
+        AddLong("ListingUid");
+        AddLong("TimeListed");
+        AddLong("TimeListed");
+        AddLong("TimeExpires");
+        AddInt("Amount");
+        AddInt("Unknown"); // 0
+        AddLong("CostPerItem");
+        AddByte("Unknown"); // 0
+        AddLong("ItemUid");
+        id = AddInt("ItemId");
+        AddByte("Rarity");
+        AddLong("ListerAccountId");
+        DecodeItem(id);
+        EndNode(false);
+    }
+}

@@ -33,9 +33,19 @@ using (ScriptAPI) {
             AddLong("Stat");
         }
         EndNode(false);
-        StartNode("UnknownFloatBlock");
-        for (i = 0; i < 395; i++) {
-            prev = AddFloat("UnknownFloat " + i);
+        StartNode("Stats4");
+        for (i = 0; i < 35; i++) {
+            AddFloat("Stat");
+        }
+        EndNode(false);
+        StartNode("UnknownFloatBlock1");
+        for (i = 0; i < 180; i++) {
+            prev = AddFloat("UnknownFloat " + i + "|" + (i % 60));
+        }
+        EndNode(false);
+        StartNode("UnknownFloatBlock2");
+        for (i = 0; i < 180; i++) {
+            prev = AddFloat("UnknownFloat " + i + "|" + (i % 60));
         }
         EndNode(false);
         AddUnicodeString("ProfileUrl");
