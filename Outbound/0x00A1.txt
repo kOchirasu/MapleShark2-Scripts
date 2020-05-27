@@ -1,0 +1,4 @@
+using (ScriptAPI) {
+	AddLong("AnvilItemUid");
+	AddLong("ItemUid");
+}

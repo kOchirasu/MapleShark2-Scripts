@@ -77,39 +77,52 @@ using (ScriptAPI) {
         AddField("Buffer", size);
         EndNode(false);
 
-        StartNode("Passive buffs?");
+        StartNode("AdditionalEffects");
         count = AddShort("Count");
         for (i = 0; i < count; i++) {
             StartNode("Passive buff " + i);
             AddInt("UserObjectId");
             AddInt("Unknown+778");
             AddInt("UserObjectId");
-            AddInt("Unknown+786");
-            AddInt("Unknown+790");
-            AddInt("SkillId");
-            AddShort("Unknown+798");
-            AddInt("Unknown+800");
-            AddByte("Unknown+804");
-            AddLong("Unknown+805");
+            DecodeAdditionalEffect();
+            AddLong("AdditionalEffect2");
             EndNode(true);
         }
         EndNode(false);
-        AddInt("Unknown+852");
-        AddInt("Unknown+856");
+        StartNode("Node");
+        AddInt("SkillBookRelated1");
+        AddInt("SkillBookRelated2");
+        EndNode(true);
         AddByte("Unknown+860");
+        StartNode("Node");
         AddInt("Unknown+861");
         AddByte("Unknown+865");
         AddByte("Unknown+866");
-        AddInt("Unknown+867");
+        EndNode(true);
+        AddInt("TitleId");
+        StartNode("Node");
         AddShort("Unknown+871");
         AddByte("Unknown+873");
+        EndNode(true);
         AddInt("Unknown+874");
-        AddByte("Unknown+878");
-        AddLong("Unknown+879");
-        AddInt("Unknown+887");
+        b = AddBool("HasPet");
+        if (b) {
+            StartNode("FieldPet");
+            id = AddInt("PetItemId");
+            AddLong("PetUid");
+            AddInt("PetLevel");
+            DecodeItem(id);
+            EndNode(false);
+        }
+        AddLong("PremiumExpirationTime");
+        AddInt("unknown -1"); // 724497??
         AddByte("Unknown+891");
         AddInt("Unknown+892");
-        AddInt("Unknown+896");
+        count = AddInt("count");
+        for (i = 0; i < count; i++) {
+            AddInt("Unknown");
+            AddString("Unknown");
+        }
         AddShort("Unknown+900");
     } else {
         AddInt("Unknown");

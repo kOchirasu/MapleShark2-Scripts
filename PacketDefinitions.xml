@@ -3,48 +3,8 @@
     <Build>12</Build>
     <Locale>0</Locale>
     <Outbound>false</Outbound>
-    <Opcode>66</Opcode>
-    <Name>Unknown42</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
-    <Opcode>54</Opcode>
-    <Name />
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
-    <Opcode>283</Opcode>
-    <Name>REQUIRED</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
     <Opcode>3</Opcode>
     <Name>Unknown3</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
-    <Opcode>7</Opcode>
-    <Name>Unknown7</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
-    <Opcode>8</Opcode>
-    <Name>Unknown8</Name>
     <Ignore>false</Ignore>
   </Definition>
   <Definition>
@@ -141,14 +101,6 @@
     <Outbound>false</Outbound>
     <Opcode>16</Opcode>
     <Name>SendGameToGame</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
-    <Opcode>19</Opcode>
-    <Name>RequestClientTickSync</Name>
     <Ignore>false</Ignore>
   </Definition>
   <Definition>
@@ -253,14 +205,6 @@
     <Outbound>false</Outbound>
     <Opcode>34</Opcode>
     <Name>SendItemStore</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
-    <Opcode>35</Opcode>
-    <Name>SendWarehouseContainer</Name>
     <Ignore>false</Ignore>
   </Definition>
   <Definition>
@@ -595,14 +539,6 @@
     <Build>12</Build>
     <Locale>0</Locale>
     <Outbound>false</Outbound>
-    <Opcode>81</Opcode>
-    <Name>SendRoom</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
     <Opcode>82</Opcode>
     <Name>SendShop</Name>
     <Ignore>false</Ignore>
@@ -771,14 +707,6 @@
     <Build>12</Build>
     <Locale>0</Locale>
     <Outbound>false</Outbound>
-    <Opcode>104</Opcode>
-    <Name>SendCinmatic</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
     <Opcode>105</Opcode>
     <Name>SendAdmin</Name>
     <Ignore>false</Ignore>
@@ -933,14 +861,6 @@
     <Outbound>false</Outbound>
     <Opcode>127</Opcode>
     <Name>ResponseLoadUGCMap</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
-    <Opcode>129</Opcode>
-    <Name>SendGem</Name>
     <Ignore>false</Ignore>
   </Definition>
   <Definition>
@@ -1227,14 +1147,6 @@
     <Build>12</Build>
     <Locale>0</Locale>
     <Outbound>false</Outbound>
-    <Opcode>166</Opcode>
-    <Name>AttendGift</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
     <Opcode>167</Opcode>
     <Name>PCBangBonus</Name>
     <Ignore>false</Ignore>
@@ -1261,14 +1173,6 @@
     <Outbound>false</Outbound>
     <Opcode>170</Opcode>
     <Name>SendUserEnv</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
-    <Opcode>171</Opcode>
-    <Name>SendManufacturer</Name>
     <Ignore>false</Ignore>
   </Definition>
   <Definition>
@@ -1579,14 +1483,6 @@
     <Build>12</Build>
     <Locale>0</Locale>
     <Outbound>false</Outbound>
-    <Opcode>211</Opcode>
-    <Name>SkillCompactControl</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
     <Opcode>212</Opcode>
     <Name>BanWord</Name>
     <Ignore>false</Ignore>
@@ -1755,14 +1651,6 @@
     <Build>12</Build>
     <Locale>0</Locale>
     <Outbound>false</Outbound>
-    <Opcode>237</Opcode>
-    <Name>VIPGoodsShop</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
     <Opcode>239</Opcode>
     <Name>SteamCashShop</Name>
     <Ignore>false</Ignore>
@@ -1883,22 +1771,6 @@
     <Build>12</Build>
     <Locale>0</Locale>
     <Outbound>false</Outbound>
-    <Opcode>295</Opcode>
-    <Name>MERET_MARKET_RELATED</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
-    <Opcode>36</Opcode>
-    <Name>SendFurnishingInventory</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
     <Opcode>6</Opcode>
     <Name>Ping</Name>
     <Ignore>true</Ignore>
@@ -1949,14 +1821,6 @@
     <Outbound>true</Outbound>
     <Opcode>9</Opcode>
     <Name>CharacterManagement</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>true</Outbound>
-    <Opcode>12</Opcode>
-    <Name>ResponseClientTickSync</Name>
     <Ignore>false</Ignore>
   </Definition>
   <Definition>
@@ -2387,14 +2251,6 @@
     <Build>12</Build>
     <Locale>0</Locale>
     <Outbound>true</Outbound>
-    <Opcode>72</Opcode>
-    <Name>RequestGemEquipment</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>true</Outbound>
     <Opcode>73</Opcode>
     <Name>RequestTaxi</Name>
     <Ignore>false</Ignore>
@@ -2627,14 +2483,6 @@
     <Build>12</Build>
     <Locale>0</Locale>
     <Outbound>true</Outbound>
-    <Opcode>103</Opcode>
-    <Name>AttendGift</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>true</Outbound>
     <Opcode>104</Opcode>
     <Name>PcBangBonus</Name>
     <Ignore>false</Ignore>
@@ -2789,14 +2637,6 @@
     <Outbound>true</Outbound>
     <Opcode>123</Opcode>
     <Name>NoticeDialog</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>true</Outbound>
-    <Opcode>124</Opcode>
-    <Name>SkillCompactControl</Name>
     <Ignore>false</Ignore>
   </Definition>
   <Definition>
@@ -2994,22 +2834,6 @@
   <Definition>
     <Build>12</Build>
     <Locale>0</Locale>
-    <Outbound>true</Outbound>
-    <Opcode>187</Opcode>
-    <Name>ResponseServerEnter2</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>true</Outbound>
-    <Opcode>183</Opcode>
-    <Name>CpuInfo</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
     <Outbound>false</Outbound>
     <Opcode>18</Opcode>
     <Name>RequestHeartbeat</Name>
@@ -3037,22 +2861,6 @@
     <Outbound>false</Outbound>
     <Opcode>128</Opcode>
     <Name>ProxyGameObj</Name>
-    <Ignore>true</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
-    <Opcode>72</Opcode>
-    <Name>SendBuff</Name>
-    <Ignore>true</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>true</Outbound>
-    <Opcode>53</Opcode>
-    <Name>SendGuideObjectSync</Name>
     <Ignore>true</Ignore>
   </Definition>
   <Definition>
@@ -3115,14 +2923,6 @@
     <Build>12</Build>
     <Locale>0</Locale>
     <Outbound>false</Outbound>
-    <Opcode>112</Opcode>
-    <Name>SendGuideObject</Name>
-    <Ignore>true</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
     <Opcode>261</Opcode>
     <Name>ItemRelated (Picked up instanced item)</Name>
     <Ignore>false</Ignore>
@@ -3133,22 +2933,6 @@
     <Outbound>false</Outbound>
     <Opcode>286</Opcode>
     <Name>PrestigeLevel</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>true</Outbound>
-    <Opcode>5</Opcode>
-    <Name>ResponseKey</Name>
-    <Ignore>false</Ignore>
-  </Definition>
-  <Definition>
-    <Build>12</Build>
-    <Locale>0</Locale>
-    <Outbound>false</Outbound>
-    <Opcode>5</Opcode>
-    <Name>ReceiveKey</Name>
     <Ignore>false</Ignore>
   </Definition>
   <Definition>
@@ -3186,9 +2970,417 @@
   <Definition>
     <Build>12</Build>
     <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>165</Opcode>
+    <Name>PairedBadgeRelated?</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>150</Opcode>
+    <Name>Club</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>211</Opcode>
+    <Name>SkillMacro</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>298</Opcode>
+    <Name>Wedding</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>164</Opcode>
+    <Name>BuddyEmote</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>271</Opcode>
+    <Name>BuddyEmote</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>147</Opcode>
+    <Name>LifeSkills</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>5</Opcode>
+    <Name>Reconnect</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>5</Opcode>
+    <Name>Reconnect</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>7</Opcode>
+    <Name>Reconnect7</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>8</Opcode>
+    <Name>Reconnect8</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>8</Opcode>
+    <Name>Reconnect8</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>7</Opcode>
+    <Name>Reconnect7</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>187</Opcode>
+    <Name>FileHash</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>183</Opcode>
+    <Name>SystemInfo</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>295</Opcode>
+    <Name>RequestSystemInfo</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>171</Opcode>
+    <Name>SendMaidCraftItem</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>283</Opcode>
+    <Name>Survival</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>268</Opcode>
+    <Name>Mentor</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>163</Opcode>
+    <Name>SkillBookTree</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>246</Opcode>
+    <Name>LegionBattle</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>66</Opcode>
+    <Name>StateSkill</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>274</Opcode>
+    <Name />
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>143</Opcode>
+    <Name>PremiumClub</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>237</Opcode>
+    <Name>PremiumClub</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>72</Opcode>
+    <Name>BadgeEquip</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>129</Opcode>
+    <Name>BadgeEquip</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>124</Opcode>
+    <Name>SkillMacro</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>180</Opcode>
+    <Name>WinActivate</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>258</Opcode>
+    <Name>DungeonMission</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>242</Opcode>
+    <Name>DungeonWaiting</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>19</Opcode>
+    <Name>RequestClientTickSync</Name>
+    <Ignore>true</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>12</Opcode>
+    <Name>ResponseClientTickSync</Name>
+    <Ignore>true</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>54</Opcode>
+    <Name>ReviveCount</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>253</Opcode>
+    <Name>DungeonReviveCount</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>14</Opcode>
+    <Name>DynamicBanword</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>166</Opcode>
+    <Name>DailyWonder</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>103</Opcode>
+    <Name>DailyWonder</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>112</Opcode>
+    <Name>SendGuideObject</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>53</Opcode>
+    <Name>SendGuideObjectSync</Name>
+    <Ignore>true</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>236</Opcode>
+    <Name>HomeGame</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>true</Outbound>
+    <Opcode>145</Opcode>
+    <Name>HomeGame</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>35</Opcode>
+    <Name>FurnishingStorage</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>36</Opcode>
+    <Name>FurnishingInventory</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>257</Opcode>
+    <Name>DungeonRecord</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>296</Opcode>
+    <Name>DungeonReward</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>27</Opcode>
+    <Name>DungeonResult</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
     <Outbound>false</Outbound>
     <Opcode>89</Opcode>
     <Name>SendNpcControl</Name>
     <Ignore>true</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>72</Opcode>
+    <Name>SendBuff</Name>
+    <Ignore>true</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>81</Opcode>
+    <Name>RoomTimer</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>244</Opcode>
+    <Name>SetCamera</Name>
+    <Ignore>false</Ignore>
+  </Definition>
+  <Definition>
+    <Build>12</Build>
+    <Locale>0</Locale>
+    <Outbound>false</Outbound>
+    <Opcode>104</Opcode>
+    <Name>SendCinematic</Name>
+    <Ignore>false</Ignore>
   </Definition>
 </ArrayOfDefinition>

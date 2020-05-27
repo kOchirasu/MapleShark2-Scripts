@@ -1,0 +1,11 @@
+using (ScriptAPI) {
+	f = AddByte("function");
+	
+	switch ((int)f) {
+		case 4: // toggle use function cube
+		    AddUnicodeString("FunctionCubeName");
+		    AddBool("Using?");
+		case 6: // finish using computer
+		    AddUnicodeString("FunctionCubeName");
+	}
+}

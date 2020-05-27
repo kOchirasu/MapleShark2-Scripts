@@ -1,42 +1,53 @@
 using (ScriptAPI) {
     AddInt("uid");
     f = AddByte("Function");
-    t = AddByte("type");
-    if (t == 1) { // updating mob stats??
-        statType = AddByte("StatType");
-        if (statType == 4) {
-            StartNode("TotalHp");
-            AddInt("Unknown");
-            AddInt("Unknown");
-            AddInt("Unknown");
-            EndNode(true);
-            StartNode("CurrentHp");
-            AddInt("Unknown");
-            AddInt("Unknown");
-            AddInt("Unknown");
-            EndNode(true);
-        }
-    } else if (t == 35) { // updating user stats
-        if (f == 0) {
-            // Not parsing here because it differs between self and others
-            for (i = 0; i < 0; i++) {
-                StartNode("Stat " + i);
-                AddInt("Unknown");
-                AddInt("Unknown");
-                AddInt("Unknown");
-                EndNode(false);
+    t = AddByte("StatType");
+    switch ((int)f) {
+        case 0:
+            if (t == 35) {
+                // Not parsing here because it differs between self and others
+                for (i = 0; i < 35; i++) {
+                    StartNode("Stat " + i);
+                    DecodeStat(i);
+                    EndNode(false);
+                }
+            } else {
+                DecodeSpecificStats(t);
             }
-        } else if (f == 1) {
-            for (i = 0; i < 3; i++) {
-                StartNode("Stats " + i);
-                AddLong("Health");
-                AddInt("AtkSpd");
-                AddInt("MoveSpd");
-                AddInt("MountSpd");
-                AddInt("JumpHeight");
-                EndNode(true);
+        case 1:
+            if (t == 35) {
+                for (i = 0; i < 3; i++) {
+                    StartNode("Stats " + i);
+                    AddLong("Health");
+                    AddInt("AtkSpd");
+                    AddInt("MoveSpd");
+                    AddInt("MountSpd");
+                    AddInt("JumpHeight");
+                    EndNode(true);
+                }
+            } else {
+                DecodeSpecificStats(t);
             }
-        }
     }
-    
+}
+
+function DecodeSpecificStats(count) {
+    for (i = 0; i < count; i++) {
+        StartNode("Stat " + i);
+        type = AddByte("StatType");
+        DecodeStat(type);
+        EndNode(true);
+    }
+}
+
+function DecodeStat(type) {
+    if (type == 4) {
+        AddLong("TotalHp");
+        AddLong("MinHp");
+        AddLong("MaxHp");
+    } else {
+        AddInt("StatTotal");
+        AddInt("StatMin");
+        AddInt("StatMax");
+    }
 }

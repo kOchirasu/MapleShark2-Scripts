@@ -1,0 +1,6 @@
+using (ScriptAPI) {
+	b = AddBool("Unknown");
+	if (b) {
+	    AddInt("Score");
+	}
+}

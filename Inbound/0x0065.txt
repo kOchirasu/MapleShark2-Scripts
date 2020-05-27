@@ -3,15 +3,15 @@ using (ScriptAPI) {
 
     switch ((int)f) {
         case 4:
-            AddString("Unknown");
-            AddByte("Unknown");
-            AddByte("Unknown");
+            AddString("EntityId");
+            AddByte("Unknown"); // 0 <- visible?
+            AddByte("Unknown"); // 1
         case 5: // after interacting, despawn?
             AddString("EntityId");
             AddByte("Unknown"); // 6 (index?)
             // ... (00 00 01 00 00 00)
         case 6:
-            AddInt("Unknown");
+            AddInt("InteractId");
             AddByte("Unknown");
         case 7:
             AddByte("Unknown");
@@ -34,20 +34,22 @@ using (ScriptAPI) {
             AddInt("InteractObjectId");
             DecodeCoordF("Position");
             DecodeCoordF("Rotation");
-            AddUnicodeString("UnknownStr"); // MS2InteractActor
+            AddUnicodeString("InteractXmlType"); // MS2InteractActor/MS2InteractMesh
             AddUnicodeString("UnknownStr"); // interaction_chestA_02
-            AddUnicodeString("UnknownStr"); // Opened_A
-            AddUnicodeString("UnknownStr"); // Idle_A
+            AddUnicodeString("UnknownStr"); // Opened_A/Interaction_advertisement_A01
+            AddUnicodeString("UnknownStr"); // Idle_A/Interaction_advertisement_A01
             AddFloat("Unknown");
             AddBool("Unknown");
             // Some other conditional cases
+		    AddLong("Unknown");
+		    AddUnicodeString("OwnerIgn");
         case 10:
             AddString("Unknown");
             AddUnicodeString("Unknown");
-        case 13: // respawn?
-            AddByte("Unknown"); // 0
+        case 13: // respawn? | gold chest remove #2
+            AddByte("Unknown"); // 0 <- visible?
             AddString("EntityId");
-            AddByte("Unknown"); // index? (6)
+            AddByte("Unknown"); // index? (6, 1)
             // ...?
         case 14:
             AddShort("Unknown");

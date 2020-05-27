@@ -4,9 +4,9 @@ using (ScriptAPI) {
     AddInt("ObjectId");
     AddInt("SkillId");
     AddShort("SkillLevel");
-    AddByte("Unknown"); // 0?
+    AddByte("MotionPoint");
     DecodeCoordS("Position");
-    DecodeCoordF("Speed");
+    DecodeCoordF("Direction");
     DecodeCoordF("Rotation");
     AddShort("CoordS / 10");
     AddBool("Unknown");

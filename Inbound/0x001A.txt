@@ -1,0 +1,73 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+
+    switch ((int)f) {
+        case 5:
+            count = AddInt("Count");
+            for (i = 0; i < count; i++) {
+                StartNode("DungeonRecord " + i);
+                AddInt("DungeonRoomId");
+                DecodeDungeonRecordCli();
+                EndNode(false);
+            }
+        case 6: // DungeonRecordCli
+            DecodeDungeonRecordCli();
+        case 7:
+            AddByte("Type");
+            AddInt("Unknown");
+            // some string notice?
+        case 9: // UIDungeonExpenseRewardDialog
+            AddInt("Unknown");
+            AddInt("Unknown");
+        case 11: // UIDungeonClosingPhotoDialog
+            AddByte("Unknown");
+            count = AddInt("Count");
+            for (i = 0; i < count; i++) {
+                AddLong("CharacterId");
+                AddInt("Unknown");
+                AddInt("Unknown");
+                AddInt("Unknown");
+            }
+        case 12: // UI related
+            // none
+        case 19: // error
+            AddInt("Type"); // 8 = dungeon expired
+            AddInt("Unknown");
+            // server sends additional useless int
+        case 20:
+            count = AddInt("Count");
+            for (i = 0; i < count; i++) {
+                StartNode("RankReward " + i);
+                AddInt("DungeonRoomId");
+                DecodeDungeonRankReward();
+                EndNode(false);
+            }
+        case 21: // DungeonRankReward
+            DecodeDungeonRankReward();
+        case 23:
+            AddLong("Timestamp");
+            AddLong("CharacterId");
+    }
+}
+
+function DecodeDungeonRecordCli() {
+    AddInt("DungeonRoomId");
+    AddLong("ClearDate"); // no minutes
+    AddByte("Unknown");
+    AddByte("Unknown");
+    AddLong("Unknown");
+    AddByte("Unknown");
+    AddByte("Unknown");
+    AddLong("Unknown");
+    AddInt("Unknown");
+    AddShort("Unknown");
+    AddLong("Unknown");
+    AddShort("Unknown");
+    AddByte("Unknown");
+}
+
+function DecodeDungeonRankReward() {
+    AddInt("DungeonRoomId");
+    AddInt("Unknown");
+    AddLong("Unknown");
+}

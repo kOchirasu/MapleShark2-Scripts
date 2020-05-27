@@ -3,14 +3,14 @@ using (ScriptAPI) {
     f = AddByte("Function");
     if (f == 8) {
         // SendJob load
-    } else if (f == 9) {
+    } else if (f == 9 || f == 11) {
         count = AddInt("Count");
         for (i = 0; i < count; i++) {
             StartNode("Skill " + i);
             AddInt("SkillId");
             AddShort("Skill Points");
-            AddBool("Enabled");
-            EndNode(false);
+            b = AddBool("Enabled");
+            EndNode(b);
         }
     } else if (f == 10) { // Reset skillbook
         AddInt("Unknown"); // 0 = basic, 1 = awakening, 2 = both

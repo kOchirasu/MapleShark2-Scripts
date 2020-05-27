@@ -1,21 +1,21 @@
 using (ScriptAPI) {
     f = AddByte("Function");
-    if (f == 2) {
+    if (f == 2) { // load
         count = AddInt("count");
         for (i = 0; i < count; i++) {
-            SameFunction();
+            DecodeFunctionCube();
         }
-    } else if (f == 3) {
-        SameFunction();
-    } else if (f == 5) {
-        AddLong("Unknown");
-        AddUnicodeString("UnknownStr");
-        AddByte("Unknown");
-    } else if (f == 8) {
-        AddLong("Unknown");
-        AddUnicodeString("UnknownStr");
-        AddLong("Unknown");
-        AddInt("Unknown");
+	} else if (f == 3) { // use/spawn function cube 
+        DecodeFunctionCube();
+	} else if (f == 5) { // using function cube
+        AddLong("CharacterId");
+        AddUnicodeString("FunctionCubeName");
+        AddByte("Using (On/Off)");
+	} else if (f == 8) { // harvest chicken 
+        AddLong("CharacterId?");
+        AddUnicodeString("FunctionCubeName");
+        AddLong("TimestampNow");
+        AddInt("Amount?");
     } else if (f == 9) {
         AddLong("Unknown");
         AddUnicodeString("UnknownStr");
@@ -30,10 +30,10 @@ using (ScriptAPI) {
     }
 }
 
-function SameFunction() {
+function DecodeFunctionCube() {
     using (ScriptAPI) {
-        AddUnicodeString("UnknownStr");
-        AddInt("Unknown");
-        AddByte("Unknown");
+        AddUnicodeString("FunctionCubeName");
+        AddInt("State?");
+        AddByte("Unknown"); // 0/1
     }
 }

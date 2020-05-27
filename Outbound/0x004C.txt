@@ -1,0 +1,67 @@
+// Guild
+using (ScriptAPI) {
+    f = AddByte("Function");
+
+    switch ((int)f) {
+        case 1: // create guild
+            AddUnicodeString("GuildName");
+        case 2: // disband guild
+            // none
+        case 3: // guild invite
+            AddUnicodeString("PlayerName");
+        case 5: // accept/decline invite
+            DecodeGuildInviteInfo();
+            AddBool("IsAccepted");
+        case 7: // leave guild
+            // none
+        case 8: // kick from guild
+            AddUnicodeString("PlayerName");
+        case 10: // change player rank
+            AddUnicodeString("PlayerName");
+            AddByte("Rank");
+        case 13: // set motto
+            AddUnicodeString("GuildMotto");
+        case 15: // check-in guild
+            // none
+        case 61: // make leader
+            AddUnicodeString("NewLeaderName");
+        case 62: // set guild notice
+            AddBool("Unknown"); // 1
+            AddUnicodeString("GuildNotice");
+        case 65: // update rank
+            AddByte("Unknown");
+            DecodeGuildRank();
+        case 66: // set guild focus
+            AddBool("Unkown");
+            AddInt("FocusFlags");
+        case 69: // Send guild mail
+            AddUnicodeString("MailTitle");
+            AddUnicodeString("MailBody");
+        case 80: // apply guild
+            AddLong("GuildUid");
+        case 81: // cancel application
+            AddLong("ApplicationId");
+        case 82: // response application
+            AddLong("ApplicationUid");
+            AddBool("IsAccepted"); // false=decline, true=accept
+        case 83: // sent after changing the players rank
+            // none
+        case 84: // load guild search ui (active requests)
+            // none
+        case 85: // search for guilds (open ui) by options
+            AddInt("Unknown"); // bit flags? (-1 default)
+            AddInt("Unknown"); // 1
+        case 86: // search by name
+            AddUnicodeString("GuildName");
+        case 88: // active guild buff
+            AddInt("GuildBuffId");
+        case 89: // activate guil personal buff
+            AddInt("GuildBuffId");
+        case 96: // start arcade
+            AddInt("MinigameIndex");
+        case 100: // enter guild house
+            // none
+        case 110: // donate to guild
+            AddInt("DonationCount");
+    }
+}

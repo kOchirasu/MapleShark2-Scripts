@@ -7,10 +7,10 @@ using (ScriptAPI) {
             AddInt("ObjectId");
             AddInt("SkillId");
             AddShort("SkillLevel");
-            AddByte("Unknown"); // 0?
+            AddByte("MotionPoint");
             AddByte("AttackPoint");
-            DecodeCoordS("Position");
-            DecodeCoordF("Speed?");
+            DecodeCoordS("PositionOfUse");
+            DecodeCoordF("DirectionToImpact");
             AddByte("Unknown");
             AddInt("ServerTick");
             count = AddByte("count");
@@ -31,10 +31,10 @@ using (ScriptAPI) {
             AddInt("UserObjectId");
             AddInt("SkillId");
             AddShort("SkillLevel");
-            AddByte("Unknown");
+            AddByte("MotionPoint");
             AddByte("AttackPoint");
-            DecodeCoordS("Position?");
-            DecodeCoordS("Unknown");
+            DecodeCoordS("PositionOfImpact");
+            DecodeCoordS("Direction");
             count = AddByte("count");
             for (i = 0; i < count; i++) {
                 StartNode("AttackedMonster " + i);
@@ -46,20 +46,19 @@ using (ScriptAPI) {
                 }
                 EndNode(false);
             }
-        case 3:
-            AddInt("Unknown");
-            AddInt("Unknown");
-            AddInt("Unknown");
-            AddByte("Unknown");
-            AddInt("Unknown");
-        case 4:
-            AddInt("MobObjectId");
-            AddInt("MobObjectId");
-            AddInt("???");
-            AddInt("MobHealth");
-            AddInt("Unknown");
-            AddInt("Unknown");
-            AddByte("Unknown");
+        case 3: // dot
+            AddInt("OwnerId");
+            AddInt("TargetId");
+            AddInt("Tick");
+            AddByte("DamageType");
+            AddInt("Damage");
+        case 4: // healing
+            AddInt("CasterId");
+            AddInt("TargetId");
+            AddInt("???"); // Some kind of counter?
+            AddLong("MobHealth"); // Healed amount
+            AddInt("Unknown"); // 0?
+            AddByte("Unknown"); // 1
         case 5: // region skill
             AddLong("Unknown");
             AddInt("UserObjectId");
@@ -71,27 +70,27 @@ using (ScriptAPI) {
                 AddInt("PlayerObjectId");
                 count2 = AddByte("Unknown");
                 DecodeCoordS("BlockPosition");
-                DecodeCoordF("Speed?");
+                DecodeCoordF("Direction");
                 for (j = 0; j < count2; j++) {
-                    AddByte("Unknown");
-                    AddLong("Unknown");
+                    AddByte("DanageType");
+                    AddLong("Damage");
                 }
                 EndNode(false);
             }
-        case 6:
-            AddLong("Unknown");
-            AddInt("Unknown");
-            AddShort("Unknown");
-            count = AddByte("count");
+        case 6: // tile skill
+            AddLong("CastUid");
+            AddInt("SkillId");
+            AddShort("SkillLevel");
+            count = AddByte("TargetCount");
             for (i = 0; i < count; i++) {
-                StartNode("Node " + i);
-                AddInt("Unknown");
+                StartNode("Target " + i);
+                AddInt("PlayerObjectId");
                 count2 = AddByte("Unknown");
-                DecodeCoordS("Unknown");
-                DecodeCoordF("Unknown");
+                DecodeCoordS("Position");
+                DecodeCoordF("Direction");
                 for (j = 0; j < count2; j++) {
-                    AddByte("Unknown");
-                    AddLong("Unknown");
+                    AddByte("DamageType");
+                    AddLong("Damage");
                 }
                 EndNode(false);
             }

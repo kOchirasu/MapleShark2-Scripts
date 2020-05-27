@@ -1,5 +1,5 @@
 using (ScriptAPI) {
     AddInt("UserObjectId");
-    AddInt("Unknown");
-    AddInt("Unknown");
+    AddInt("ServerTick");
+    AddInt("Unknown (1)"); // 1
 }

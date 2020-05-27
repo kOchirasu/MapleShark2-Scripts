@@ -1,0 +1,38 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    switch ((int)f) {
+        case 1: // create club name (from party)
+            AddUnicodeString("ClubName");
+        case 3: // respond club from party
+            AddLong("ClubUid");
+            AddInt("Unknown"); // 0 = create, 75 = decline
+        case 6: // invite player to existing club
+            AddLong("ClubUid");
+            AddUnicodeString("PlayerName");
+        case 8: // accept invite
+            DecodeClubPacketInvite();
+            AddBool("Accepted"); // 1 = accept, 0 = decline
+        case 10: // leave club
+            AddLong("ClubUid");
+        case 12:
+            AddByte("Unknown");
+            AddLong("Unknown");
+            AddUnicodeString("UnknownStr");
+        case 13:
+            AddLong("ClubUid");
+            AddInt("BuffId");
+            AddInt("Unknown"); // 1
+        case 14: // change name
+            AddLong("ClubUid");
+            AddUnicodeString("NewName");
+    }
+}
+
+function DecodeClubPacketInvite() {
+    StartNode("ClubPacketInvite");
+    AddLong("ClubUid");
+    AddUnicodeString("ClubName");
+    AddUnicodeString("ClubLeader");
+    AddUnicodeString("Invitee");
+    EndNode(false);
+}

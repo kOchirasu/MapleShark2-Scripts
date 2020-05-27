@@ -3,7 +3,7 @@ using (ScriptAPI) {
 
     switch ((int)f) {
         case 0:
-            count = AddByte("Count");
+            charCount = AddByte("Count");
             for (i = 0; i < charCount; i++) {
                 DecodeListEntry();
             }

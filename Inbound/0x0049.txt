@@ -1,39 +1,35 @@
 using (ScriptAPI) {
     f = AddByte("Function");
     AddInt("PortalId");
-    if (f == 0) {
-        AddByte("Visible?");
-        AddByte("MinimapVisible?");
-        DecodeCoordF("Location");
+    if (f == 0) { // load portal
+        AddBool("Visible");
+        AddBool("Enabled");
+        DecodeCoordF("Position");
         DecodeCoordF("Rotation");
-        DecodeCoordF("Unknown");
+        DecodeCoordF("PortalDimension");
         AddUnicodeString("UnknownStr"); // Eff_Com_Portal_E
         AddInt("TargetMapId");
+        AddInt("ObjectId");
         AddInt("Unknown");
-        AddInt("Unknown");
-        AddByte("Unknown");
+        AddBool("MinimapVisible");
         AddLong("UnknownLongId");
-        AddByte("Unknown");
-        AddInt("Unknown");
+        AddByte("PortalType");
+        AddInt("StartTick");
         AddShort("Unknown");
-        AddInt("Unknown");
+        AddInt("EndTick");
         AddBool("Unknown"); // locked?
         AddUnicodeString("PortalOwnerName"); // minigame portal
         AddUnicodeString("UnknownStr");
         AddUnicodeString("UnknownStr");
-    } else if (f == 1) {
+	} else if (f == 1) { // remove portal
         // ??
-    } else if (f == 2) {
-        AddByte("Unknown");
-        AddByte("Unknown");
-        AddByte("Unknown");
+	} else if (f == 2) { // trigger portal
+        AddBool("Visible");
+        AddBool("Enabled");
+        AddBool("MinimapVisible");
         AddShort("Unknown");
     } else if (f == 3) {
-        AddFloat("CoordX");
-        AddFloat("CoordY");
-        AddFloat("CoordZ");
-        AddFloat("UnknownCoordX");
-        AddFloat("UnknownCoordY");
-        AddFloat("UnknownCoordZ");
+        DecodeCoordF("Location");
+        DecodeCoordF("Rotation");
     }
 }

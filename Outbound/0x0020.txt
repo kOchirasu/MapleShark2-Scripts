@@ -9,7 +9,7 @@ using (ScriptAPI) {
             AddShort("SkillLevel"); // 1? Skill Level?
             AddByte("AttackPoint"); // +1 for each part of an attack
             DecodeCoordF("Position");
-            DecodeCoordF("Speed"); // Movement/Speed?
+            DecodeCoordF("Direction");
             DecodeCoordF("Rotation");
             AddFloat("UnknownFloat");
             AddInt("ClientTick");
@@ -26,8 +26,8 @@ using (ScriptAPI) {
             if (t == 0) {
                 AddByte("AttackPoint");
                 DecodeCoordF("Position");
-                DecodeCoordF("Speed");
-                count = AddByte("Unknown");
+                DecodeCoordF("Direction");
+                count = AddByte("count");
                 AddInt("Unknown");
                 for (i = 0; i < count; i++) {
                     StartNode("Npc " + i);
@@ -41,8 +41,8 @@ using (ScriptAPI) {
                 AddInt("AttackCounter");
                 AddInt("UserObjectId");
                 DecodeCoordF("Position");
-                DecodeCoordF("AnotherPosition");
-                DecodeCoordF("Rotation");
+                DecodeCoordF("ImpactPosition");
+                DecodeCoordF("Direction");
                 AddByte("AttackPoint");
                 count = AddByte("count");
                 AddInt("Unknown");
@@ -63,9 +63,9 @@ using (ScriptAPI) {
             AddLong("SkillUseUid");
             AddInt("SkillId");
             AddShort("SkillLevel");
-            AddByte("Unknown");
+            AddByte("MotionPoint");
             DecodeCoordF("Position");
-            DecodeCoordF("Unknown");
+            DecodeCoordF("Direction");
             DecodeCoordF("Rotation");
             DecodeCoordF("Unknown");
             AddByte("Unknown");

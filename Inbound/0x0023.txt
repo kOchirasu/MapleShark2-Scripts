@@ -1,20 +1,20 @@
 using (ScriptAPI) {
     f = AddByte("Function");
     if (f == 2) { // opening furnishing box
-        AddInt("Unknown");
+        AddInt("storage count");
     } else if (f == 3) {
         id = AddInt("ItemId");
         AddLong("ItemUid");
-        AddByte("Unknown"); // 1
+        AddByte("rarity");
         AddInt("Index");
         DecodeItem(id);
     } else if (f == 4) {
-        AddLong("Unknown");
+        AddLong("ItemUid");
     } else if (f == 5) { // opening furnishing box
-        AddLong("uid");
+        AddLong("ItemUid");
         AddInt("Count");
     } else if (f == 7) { // opening furnishing box
-        AddLong("uid");
-        AddInt("Unknown");
+        AddLong("ItemUid");
+        AddInt("Count");
     }
 }

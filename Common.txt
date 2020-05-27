@@ -291,8 +291,8 @@ function DecodePlayer() {
 
         AddInt("Unknown");
         AddInt("MapId");
-        AddInt("AnotherMapId"); // Sometimes 0
-        AddInt("Unknown");
+        AddInt("InstanceMapId"); // Guess
+        AddInt("MapInstanceId"); // Guess
         AddShort("Level");
         AddShort("Unknown");
         AddInt("JobGroupId");
@@ -302,11 +302,11 @@ function DecodePlayer() {
         AddShort("Unknown");
 
         AddLong("Unknown");
-        AddLong("UnknownTimestamp");
-        AddLong("Unknown");
+        AddLong("StorageAccessTime");
+        AddLong("DoctorAccessTime");
         AddInt("OutsideMapId");
         DecodeCoordF("OutsidePosition");
-        AddInt("Unknown");
+        AddInt("GearScore");
         DecodeSkinColor();
         AddLong("CreationTime");
         StartNode("Trophy");
@@ -426,11 +426,11 @@ function DecodeSkillTree() {
             for (j = 0; j < count; j++) {
                 StartNode("Skill " + j);
                 AddBool("NewlyEnabled");
-                AddBool("Enabled");
-                s = AddInt("SkillId");
-                p = AddInt("Skill Points");
+                b = AddBool("Enabled");
+                AddInt("SkillId");
+                AddInt("Skill Points");
                 AddBool("Unknown (0)");
-                EndNode(s == 10500021 || s == 10500022 || s == 10500023);
+                EndNode(b);
             }
             EndNode(true);
         }
@@ -513,4 +513,22 @@ function DecodeAdditionalEffect() {
         AddByte("Unknown"); // 1
         EndNode(true);
     }
+}
+
+function DecodeGuildInviteInfo() {  // CGuildInviteInfo
+    StartNode("GuildInviteInfo");
+    AddLong("GuildUid");
+    AddUnicodeString("GuildName");
+    AddUnicodeString("UnknownStr");
+    AddUnicodeString("LeaderName");
+    AddUnicodeString("RequesterName");
+    EndNode(true);
+}
+
+function DecodeGuildRank() {
+    StartNode("GuildRank");
+    AddByte("Index");
+    AddUnicodeString("Name");
+    AddInt("PermissionFlags?");
+    EndNode(false);
 }

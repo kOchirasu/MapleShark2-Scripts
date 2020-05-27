@@ -10,9 +10,9 @@ using (ScriptAPI) {
         StartNode("Breakable " + i);
         AddString("EntityId");
         AddByte("Unknown"); // 2
-        AddByte("Unknown"); // 1
+        AddByte("Visible?"); // 1
         AddInt("Unknown");
-        AddInt("Unknown");
+        AddInt("ServerTick");
         EndNode(true);
     }
 }

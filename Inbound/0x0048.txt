@@ -1,9 +1,9 @@
 using (ScriptAPI) {
     f = AddByte("function");
 
-    AddInt("UserObjectId");
+    AddInt("BuffedObjectId");
     AddInt("BuffObjectId");
-    AddInt("UserObjectId");
+    AddInt("BuffOwnerObjectId");
     switch ((int)f) {
         case 0: // additional effect
             DecodeAdditionalEffect();

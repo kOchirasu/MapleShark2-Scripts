@@ -1,0 +1,16 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+    switch ((int)f) {
+        case 1: // create group
+            AddUnicodeString("Unknown");
+        case 2: // invite player
+            AddUnicodeString("UserName");
+            AddInt("GroupChatId");
+        case 4: // leave group
+            AddInt("GroupChatId");
+            AddBool("Unknown"); // 0
+        case 10: // message group
+            AddUnicodeString("Message");
+            AddInt("GroupChatId");
+    }
+}

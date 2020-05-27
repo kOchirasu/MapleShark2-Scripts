@@ -1,0 +1,40 @@
+using (ScriptAPI) {
+	f = AddByte("function");
+	switch ((int)f) {
+		case 0: // load
+		    AddInt("ObjectId");
+		    AddLong("DollUid");
+		    AddInt("DollItemId");
+		    DecodeCoordF("Position");
+		    DecodeCoordF("Rotation");
+		    AddBool("HasITems");
+		    count = AddInt("count");
+			for (i = 0; i < count; i++) {
+			    StartNode("Item " + i);
+			    id = AddInt("ItemId");
+			    AddLong("ItemUid");
+			    AddUnicodeString("slot");
+			    AddInt("rarity");
+			    DecodeItem(id);
+			    EndNode(false);
+		    }
+		case 1: // remove
+		    AddInt("ObjectId");
+		case 6: // put item on doll
+		    AddLong("DollUid");
+		    id = AddInt("ItemId");
+		    AddLong("ItemUid");
+		    AddUnicodeString("slot");
+		    AddInt("rarity");
+		    DecodeItem(id);
+		case 7: // remove item
+		    AddLong("ItemUid");
+		    AddUnicodeString("Slot");
+	    case 8:
+		    // Feature 233 locked
+		    AddLong("Unknown");
+		    AddInt("Unknown"); // n - 23
+	    case 11:
+		    AddInt("ErrorCode");
+	}
+}

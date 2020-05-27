@@ -5,9 +5,10 @@ using (ScriptAPI) {
         case 0: // load mail
             count = AddInt("count");
             for (i = 0; i < count; i++) {
+                StartNode("MailEntry " + i);
                 n = AddByte("UnknownNum"); // 102
                 AddLong("MailUid"); // 59030013
-                AddLong("Unknown");
+                AddLong("SenderCharacterId"); // SomeUid
                 // <ms2><v key="s_blackmarket_mail_to_sender" /></ms2>
                 AddUnicodeString("SenderName");
                 // <ms2><v key="s_blackmarket_mail_to_buyer_title" /></ms2>
@@ -15,13 +16,25 @@ using (ScriptAPI) {
                 // <ms2><v key="s_blackmarket_mail_to_buyer_content" /></ms2>
                 AddUnicodeString("MailContent");
                 // <ms2><v item="30000235" ></v></ms2>
-                AddUnicodeString("MailItem");
+                AddUnicodeString("MetadataKey");
                 // Purchase 10 for 60 total, 6 each
                 // <ms2><v item="30000235" ></v><v str="10" ></v><v money="60" ></v><v money="6" ></v></ms2>
-                AddUnicodeString("Message");
-                if (n == 200) {
-
-                } else { // AttachItem
+                AddUnicodeString("MetadataValue");
+                if (n == 200) { // CMailAdItem
+                    adCount = AddByte("AdCount");
+                    for (j = 0; j < adCount; j++) {
+                        AddInt("Unknown");
+                        AddInt("Unknown");
+                        AddInt("Unknown");
+                        AddInt("Unknown");
+                        AddLong("Unknown");
+                        AddLong("Unknown");
+                        AddLong("Unknown");
+                    }
+                    AddUnicodeString("UnknownStr");
+                    AddLong("Unknown");
+                    AddByte("Unknown");
+                } else { // CMailAttachItem
                     itemCount = AddByte("ItemCount");
                     for (j = 0; j < itemCount; j++) {
                         StartNode("AttachedItem " + j);
@@ -54,6 +67,7 @@ using (ScriptAPI) {
                 AddLong("ExpiryTime");
                 AddLong("SentTime");
                 AddUnicodeString("UnknownStr");
+                EndNode(false);
             }
         case 1: // send custom mail confirm
             AddLong("MailUid");

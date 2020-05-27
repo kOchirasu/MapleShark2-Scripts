@@ -1,0 +1,170 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    switch ((int)f) {
+        case 0: // load club (after joining)
+            DecodeClub();
+        case 1: // "The club %s has been created"
+            AddLong("ClubUid");
+            AddUnicodeString("ClubName");
+        case 2: // staged club creation
+            DecodeClub();
+        case 4:
+            AddLong("Unknown");
+            AddByte("Unknown");
+        case 5: // club could not be created
+            AddLong("ClubUid");
+            AddInt("Unknown"); // notice code
+        case 6: // invite player to existing club
+            AddLong("ClubUid");
+            AddUnicodeString("PlayerName");
+        case 7:
+            DecodeClubPacketInvite();
+        case 8: // accept invite
+            DecodeClubPacketInvite();
+            AddInt("Unknown");
+        case 9: // club invite declined
+            AddLong("ClubUid");
+            AddUnicodeString("PlayerName");
+            AddByte("Unknown"); // 0
+            AddByte("Unknown"); // 1
+        case 10: // leave club
+            AddLong("ClubUid");
+        case 12:
+            AddLong("ClubUid");
+            AddUnicodeString("UnknownStr");
+        case 13: // set club buff (sent to leader only)
+            AddLong("ClubUid");
+            AddInt("BuffId");
+            AddInt("Unknown"); // 1
+        case 15: // declined invite(75), club created (0)
+            AddLong("ClubUid");
+            AddInt("Unknown"); // 75?
+            AddUnicodeString("PlayerName");
+        case 16:
+            AddLong("ClubUid");
+            AddUnicodeString("UnknownStr");
+            AddInt("Unknown"); // if == 207 display some notice
+        case 17: // %s has accepted %s's invite to the club
+            AddLong("ClubUid");
+            AddUnicodeString("LeaderName?");
+            DecodeClubMember();
+        case 18:
+            AddLong("ClubUid");
+            AddUnicodeString("UnknownStr");
+        case 19:
+            AddLong("ClubUid");
+            AddUnicodeString("UnknownStr");
+        case 20: // club member log off
+            AddLong("ClubUid");
+            AddUnicodeString("PlayerName");
+            AddLong("Timestamp");
+        case 21:
+            AddLong("ClubUid");
+            AddUnicodeString("UnknownStr");
+            AddUnicodeString("UnknownStr");
+            AddByte("Unknown");
+        case 22: // set club buff (sent to all)
+            AddLong("ClubUid");
+            AddInt("BuffId");
+            AddInt("Unknown"); // 1
+        case 23:
+            AddLong("ClubUid");
+            AddUnicodeString("UnknownStr");
+        case 24: // update club member
+            AddLong("ClubUid");
+            AddUnicodeString("MemberName");
+            DecodeClubMemberPlayer();
+        case 25:
+            AddLong("ClubUid");
+            AddUnicodeString("UnknownStr");
+        case 26: // change name
+            AddLong("ClubUid");
+            AddUnicodeString("ClubName");
+            AddLong("Timestamp");
+        case 27:
+            AddLong("Unknown");
+            ClubUid("UnknownStr");
+            AddUnicodeString("UnknownStr");
+        case 28:
+            AddLong("ClubUid");
+            AddUnicodeString("UnknownStr");
+        case 29: // Error
+            AddByte("ErrorType?");
+            AddInt("ErrorCode");
+        case 30: // left club, joined club
+            AddLong("ClubUid");
+            AddUnicodeString("PlayerName");
+            AddUnicodeString("ClubName"); // Empty when leaving
+    }
+}
+
+function DecodeClub() {
+    using (ScriptAPI) {
+        AddLong("ClubUid");
+        AddUnicodeString("ClubName");
+        AddLong("LeaderAccountId");
+        AddLong("LeaderCharacterId");
+        AddUnicodeString("LeaderName");
+        AddLong("CreationTime");
+        AddByte("Unknown"); // 1
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddLong("Unknown");
+        count = AddByte("count");
+        for (i = 0; i < count; i++) {
+            DecodeClubMember();
+        }
+    }
+}
+
+function DecodeClubMember() {
+    StartNode("ClubMember");
+    t = AddByte("Type");
+    if (t == 2) {
+        AddLong("Unknown");
+        DecodeClubMemberPlayer();
+        AddLong("Unknown");
+        AddLong("Unknown");
+        AddByte("Unknown");
+    } else {
+        AddLong("Unknown");
+        // sub
+        AddUnicodeString("UnknownStr");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddShort("Unknown");
+        AddUnicodeString("UnknownStr");
+    }
+    EndNode(false);
+}
+
+function DecodeClubMemberPlayer() {
+    StartNode("PlayerInfo");
+    AddLong("AccountId");
+    AddLong("CharacterId");
+    AddUnicodeString("Name");
+    AddByte("Gender");
+    AddInt("JobCode");
+    AddInt("JobId");
+    AddShort("Level");
+    AddInt("MapId");
+    AddShort("Unknown"); // 0
+    AddUnicodeString("ProfileUrl");
+    AddInt("PlotMapId");
+    AddInt("PlotId"); // 41
+    AddInt("Unknown");
+    AddLong("PlotExpiration");
+    for (i = 0; i < 3; i++) {
+        AddInt("Trophy");
+    }
+    EndNode(true);
+}
+
+function DecodeClubPacketInvite() {
+    StartNode("ClubPacketInvite");
+    AddLong("ClubUid");
+    AddUnicodeString("ClubName");
+    AddUnicodeString("ClubLeader");
+    AddUnicodeString("Invitee");
+    EndNode(false);
+}

@@ -1,6 +1,6 @@
 
 using (ScriptAPI) {
-    count = AddByte("Unknown");
+    count = AddByte("function");
 	if (count == 0 || count == 4) {
 		// 0 == Start List
 		// 4 == End List
@@ -8,11 +8,16 @@ using (ScriptAPI) {
 		AddInt("ItemId");
 		AddLong("ItemUid");
 		AddLong("Unknown");
-		AddBool("Unknown");
-	} else if (count == 2) {
-		AddLong("Unknown");
-	} else if (count = 3) {
-		AddLong("Unknown");
-		AddInt("Unknown");
+		b = AddBool("IsTemplate");
+
+		if (b) {
+			DecodeUgcData();
+		}
+
+	} else if (count == 2) { // Remove
+		AddLong("ItemUid");
+	} else if (count = 3) { // Update?
+		AddLong("ItemUid");
+		AddInt("Count");
 	}
 }

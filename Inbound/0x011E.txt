@@ -9,7 +9,7 @@ using (ScriptAPI) {
             count = AddInt("Count");
             // 2, 4, 6, 8, 10, 12, 20, 30, 40, 50, 60, 70, 80, 90???
             for (i = 0; i < count; i++) {
-                AddInt("Unknown");
+                AddInt("ClaimedRankReward " + i);
             }
         case 1: // Gain Prestige
             AddLong("CurrentPrestigeExp");

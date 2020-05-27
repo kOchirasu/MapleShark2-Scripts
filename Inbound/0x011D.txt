@@ -1,0 +1,27 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+
+    switch ((int)f) {
+        case 0: // load
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                StartNode("Lapenshard " + i);
+                AddInt("EquipSlot");
+                AddInt("ItemId");
+                EndNode(true);
+            }
+        case 1: // equip
+            AddInt("EquipSlot");
+            AddInt("ItemId");
+        case 2: // unequip
+            AddInt("EquipSlot");
+        case 4: // lapenshard stage update
+            AddInt("SuccessRate"); // 10000 = 100%
+        case 5: // lapenshard upgraded
+            // if upgrading equipped, send 0x00
+            AddLong("TargetItemUid"); // 0
+            AddInt("TargetItemId"); // oldId
+            AddInt("Unknown"); //0
+            AddBool("Success");
+    }
+}

@@ -12,9 +12,9 @@ using (ScriptAPI) {
         DecodeItem(id);
         EndNode(false);
     } else if (f == 8) {
-        AddLong("???");
-        AddInt("???");
-        AddUnicodeString("???");
+        AddLong("ItemUid");
+        AddInt("Amount");
+        AddUnicodeString("Unknown");
         // more...
     } else if (f == 7 || f == 10) {
         count = AddShort("count");

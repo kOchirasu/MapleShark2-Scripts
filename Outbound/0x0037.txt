@@ -1,25 +1,56 @@
 using (ScriptAPI) {
     f = AddByte("function");
     switch ((int)f) {
-        case 1: // place cube #1
+        case 1: // hold cube
             DecodeCubeItemInfo();
-        case 10: // place cube #2
+        case 2: // buy plot
+            AddInt("PlotId");
+            AddInt("Unknown");
+        case 6: // forfeit plot
+            // none
+        case 9: // extend plot?
+            // none
+        case 10: // place cube
             AddFloat("CoordB");
             DecodeCubeItemInfo();
-            AddInt("Unknown");
+            AddInt("Rotation");
         case 12: // request remove cube
             AddFloat("CoordB");
+        case 14: // rotate furnishing
+            AddFloat("CoordB");
+            AddBool("Rotate?");
+        case 15: // replace cube
+            AddFloat("CoordB");
+            DecodeCubeItemInfo();
+            AddInt("Rotation");
         case 17: // pick up object
             AddInt("CoordB");
         case 18: // throw object
+        case 21: // set home name
+            AddUnicodeString("HomeName");
         case 23:
             AddInt("Unknown");
+        case 24: // set password
+            AddBool("HasPassword");
+            AddUnicodeString("Password");
+        case 25: // thumbs up house
+            // none
+        case 29: // set home message
+            AddUnicodeString("Message");
         case 31: // clear home cubes
             // none
         case 35: // load save?
             AddInt("slot");
         case 37: // increase area
         case 38: // decrease area
+        case 40: // design rank reward
+            // none
+        case 42: // set permission 1
+            AddByte("PermissionType");
+            AddByte("PermissionSetting");
+        case 43: // set permission 2
+            AddByte("PermissionType");
+            AddByte("PermissionSetting");
         case 44: // increase height
         case 45: // decrease height
         case 46: // save house
@@ -27,11 +58,12 @@ using (ScriptAPI) {
             AddUnicodeString("SaveName");
         case 48: // confirm load save
             AddInt("slot");
-        case 51:
+        case 49: // kick from house
+        case 51: // change background
             AddByte("Index");
-        case 52:
+        case 52: // change lighting
             AddByte("Index");
-        case 54:
+        case 54: // change camera
             AddByte("Index");
         case 64: // save blueprint
             AddInt("Slot");

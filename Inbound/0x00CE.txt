@@ -9,7 +9,7 @@ using (ScriptAPI) {
             if (b) {
                 id = AddInt("PetItemId");
                 AddLong("PetUid");
-                AddInt("PetLevel");
+                AddInt("Rarity");
                 DecodeItem(id);
                 AddLong("PetUid");
             }
@@ -17,11 +17,17 @@ using (ScriptAPI) {
             // BROADCAST
             AddInt("PlayerObjectId");
             AddLong("PetUid");
-        case 7:
+	    case 5:
+		    AddInt("PlayerObjectId");
+		    DecodePotionSettings();
+		case 6:
+		    AddInt("PlayerObjectId");
+		    DecodeLootSettings();
+        case 7: // load collection
             count = AddInt("Count");
             for (i = 0; i < count; i++) {
                 AddInt("PetId");
-                AddShort("Unknown");
+                AddShort("PetRarity");
             }
         case 9:
             AddInt("PlayerObjectId");
@@ -31,23 +37,37 @@ using (ScriptAPI) {
             AddShort("Unknown");
             AddShort("Unknown");
             AddShort("Unknown");
-            count = AddByte("Count");
-            for (i = 0; i < count; i++) {
-                AddInt("Unknown");
-                AddFloat("Unknown");
-                AddInt("Unknown");
-            }
-            AddByte("Unknown"); // 1
-            AddByte("Unknown"); // 1
-            AddByte("Unknown"); // 1
-            AddByte("Unknown"); // 1
-            AddByte("Unknown"); // 1
-            AddByte("Unknown"); // 1
-            AddByte("Unknown"); // 1
-            AddByte("Unknown"); // 0
-            AddInt("Unknown"); // 1
-            AddByte("Unknown"); // 1
+            DecodePotionSettings();
+            DecodeLootSettings();
         case 20: // use master snare
             AddInt("ItemId"); // Lapis master snare
     }
-} 
+}
+
+function DecodePotionSettings() {
+	StartNode("PotionSettings");
+	count = AddByte("Count");
+    for (i = 0; i < count; i++) {
+	    StartNode("Potion " + i);
+        AddInt("ThresholdIndex");
+        AddFloat("Threshold");
+        AddInt("ItemId");
+	    EndNode(true);
+    }
+	EndNode(true);
+}
+
+function DecodeLootSettings() {
+	StartNode("LootSettings");
+	AddBool("Mesos");
+    AddBool("Merets");
+    AddBool("Other");
+    AddBool("Currency");
+    AddBool("Equipment");
+    AddBool("Consumable");
+    AddBool("Gemstone");
+    AddBool("Dropped");
+    AddInt("MinRarity");
+    AddBool("Enabled");
+	EndNode(true);
+}

@@ -16,6 +16,7 @@ using (ScriptAPI) {
         case 5:
             DecodePlayer();
         case 6:
+            AddLong("Unknown");
         case 7: // left party 2 (OTHERS)
             // None
         case 8: // become leader
@@ -32,12 +33,13 @@ using (ScriptAPI) {
                 DecodeUnknownInfo();
                 EndNode(false);
             }
-            AddByte("Unknown");
-            b = AddBool("Unknown");
+            AddBool("Unknown");
+            AddInt("DungeonId?");
+            AddBool("Unknown");
+            b = AddBool("IsPartyListed");
             if (b) {
-                //sub_5B9350();
+                DecodeMatchPartyRecruit();
             }
-            AddInt("DungeonId");
         case 11: // party request
             AddUnicodeString("name");
             AddInt("partyId");
@@ -53,7 +55,11 @@ using (ScriptAPI) {
             AddLong("CharacterId");
             DecodeUnknownInfo();
         case 15:
+            AddLong("Unknown");
+            AddInt("Unknown");
         case 18:
+            AddLong("Unknown");
+            AddByte("Unknown");
         case 19: // joined party #3
             AddLong("CharacterId");
             AddLong("AccountId");
@@ -65,15 +71,43 @@ using (ScriptAPI) {
             AddUnicodeString("str_const"); // Field_Enterance_Reset_Dungeon
             AddUnicodeString("Unknown");
         case 21:
+            b = AddBool("Unknown");
+            AddInt("Unknown");
+            if (b) {
+                AddInt("Unknown");
+                count = AddInt("count");
+                for (i = 0; i < count; i++) {
+                    AddUnicodeString("UnknownStr");
+                }
+            } else {
+                AddUnicodeString("UnknownStr");
+            }
+            AddUnicodeString("UnknownStr");
         case 25: // dungeon reset
             AddBool("startedDungeon");
             AddInt("DungeonId?");
-        case 26:
-        case 30:
+        case 26: // party finder
+            // true = listed, false = cancel listing
+            b = AddBool("IsListed");
+            if (b) {
+                DecodeMatchPartyRecruit();
+            }
+        case 30: // search party/search party cancel
+            // 1->1, 2->8, 3->11, 4->5, default->0 (sub_437040)
+            AddByte("Type");
+            b = AddBool("StartSearch"); // false = cancel
+            AddBool("Unknown"); // must be true
+            AddByte("Unknown");
         case 31:
+            AddLong("Unknown");
         case 35:
+            AddLong("Unknown");
         case 37:
+            AddLong("Unknown");
+            AddUnicodeString("UnknownStr");
         case 40:
+            // This value is used as (x / 1000 + 1)
+            AddInt("Unknown");
         case 44: // IGN wants to join your party
             AddUnicodeString("name");
         case 47: // start ready check
@@ -97,7 +131,9 @@ using (ScriptAPI) {
             AddBool("IsReady");
         case 49: // ready check expired/completed
             // none
-        case 54:
+        case 54: // search party/search party cancel
+            b = AddBool("StartSearch"); // false = cancel
+            AddBool("Unknown"); // must be true
     }
 }
 
@@ -124,5 +160,24 @@ function DecodeUnknownInfo() {
         AddInt("Unknown");
         AddByte("Unknown");
         EndNode(false);
+    }
+}
+
+function DecodeMatchPartyRecruit() {
+    using (ScriptAPI) {
+        StartNode("PartyListing");
+        AddLong("PartyId");
+        AddInt("SomeId"); // increments somewhat
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddUnicodeString("PartyName");
+        AddBool("IsPublic");
+        AddInt("MemberCount");
+        AddInt("MaxMembers");
+        AddLong("LeaderAccountId");
+        AddLong("LeaderCharacterId");
+        AddUnicodeString("LeaderName");
+        AddLong("CreationTime");
+        EndNode(true);
     }
 }

@@ -22,13 +22,15 @@ using (ScriptAPI) {
             // none
         case 32:
             AddByte("1/2/3/4");
-        case 33:
-            // unknown function call on struct
-        case 34:
-            AddByte("1/2/3/4"); // sometimes ends here?
-            AddInt("const 1");
-            AddInt("Unknown");
-            AddByte("Unknown");
+        case 33: // SearchForParty
+            AddInt("RoomDungeonId");
+        case 34: // cancel search party
+            b = AddByte("1/2/3/4"); // sometimes ends here?
+            if (b != 3) {
+                AddInt("const 1");
+                AddInt("Unknown");
+                AddByte("Unknown");
+            }
         case 45: // vote kick
             AddLong("CharacterId");
         case 46: // ready check

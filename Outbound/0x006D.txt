@@ -2,7 +2,7 @@ using (ScriptAPI) {
     f = AddByte("Function");
     if (f == 0) {
         AddInt("CurrentMapId");
-        AddInt("PortalId?");
+        AddInt("PortalId");
         AddField("Unknown", 10);
         AddUnicodeString("Password"); // For locked portals
     }

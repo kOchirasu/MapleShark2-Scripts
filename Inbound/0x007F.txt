@@ -1,0 +1,71 @@
+using (ScriptAPI) {
+    DecodeType1();
+}
+
+function DecodeType1() {
+    AddInt("CubeCount");
+    AddInt("Unknown");
+    b = AddBool("HasUgcDetails");
+    if (b) {
+        accountId = AddLong("AccountId?");
+        AddUnicodeString("HomeName");
+        AddUnicodeString("HomeMessage");
+        AddByte("Unknown");
+        AddInt("WeelkyArchitectScore");
+        AddInt("TotalArchitectScore");
+        AddInt("PlotId");
+        AddInt("PlotMapId");
+        AddByte("Unknown");
+        AddByte("AreaDimension");
+        AddByte("HeightDimension");
+        StartNode("InteriorSettings");
+        AddByte("Background");
+        AddByte("Lighting");
+        AddByte("Camera");
+        EndNode(true);
+        StartNode("HomePermissions");
+        // 0 - Jumping
+        // 1 - Wall Climbing
+        // 2 - Skill Use
+        // 3 - Music Performance
+        // 4 - Potion Use
+        // 5 - Ground Mounts
+        // 6 - Air Mounts
+        // 7
+        // 8
+        count = AddByte("Count");
+        for (i = 0; i < count; i++) {
+            StartNode("Permission " + i);
+            n = AddBool("IsConfigured");
+            if (n) {
+                // 0 - Allow None
+                // 1 - Allow Me
+                // 2 - Allow My Party
+                AddByte("Value");
+            }
+            EndNode(n);
+        }
+        EndNode(true);
+        StartNode("DesignNode");
+        if (accountId != 0) { // Another unknown condition
+            count = AddByte("Count");
+            for (i = 0; i < count; i++) {
+                StartNode("SavedDesign " + i); // UGCMapDesignInfo
+                AddInt("SaveSlot");
+                AddUnicodeString("Name");
+                AddLong("SaveTime");
+                EndNode(false);
+            }
+
+            count = AddByte("Count");
+            for (i = 0; i < count; i++) {
+                StartNode("UGCMapBlueprintInfo " + i);
+                AddInt("Unknown");
+                AddUnicodeString("UnknownStr");
+                AddLong("Unknown");
+                EndNode(false);
+            }
+        }
+        EndNode(true);
+    }
+}

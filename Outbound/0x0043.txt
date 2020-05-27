@@ -1,0 +1,14 @@
+using (ScriptAPI) {
+	f = AddByte("function");
+	switch ((int)f) {
+		case 2: // put on item
+		    AddLong("ItemUid");
+		    AddLong("AccountUid");
+		    AddUnicodeString("Slot");
+		case 3: // swap outfits
+		    AddLong("SomeUid");
+		case 7: // remove item
+		    AddLong("ItemUid");
+		    AddUnicodeString("Slot");
+	}
+}

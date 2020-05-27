@@ -1,16 +1,19 @@
 using (ScriptAPI) {
-    type = AddByte("Header");
+    f = AddByte("Function");
 
-    if (type == 0) {
-        AddUnicodeString("Party Name");
-        AddByte("Is Public Party");
-        AddUInt("Maximum # in Party");		
-    } else if (type == 1) {
-        
-    } else if (type == 2) {
-        AddField("Unknown", 8);
-        AddByte("Party Type");
-        AddField("Unknown", 2);
-        AddLong("Page Number");
+    switch ((int)f) {
+        case 0: // list party
+            AddUnicodeString("PartyName");
+            AddBool("IsPublic");
+            AddInt("MaxMembers");	
+        case 1: // cancel listing
+            // none
+        case 2: // load listings
+            AddInt("Unknown");
+            AddInt("Unknown");
+            AddByte("PartyType");
+            AddUnicodeString("UnknownStr");
+            AddInt("PageNumber");
+            AddInt("Unknown");
     }
 }

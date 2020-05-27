@@ -13,7 +13,7 @@ using (ScriptAPI) {
         for (i = 0; i < count; i++) {
             StartNode("DungeonRoom " + i);
             AddInt("Id");
-            AddByte("Unknown");
+            AddByte("Unknown"); // Eligible?
             EndNode(false);
         }
     }

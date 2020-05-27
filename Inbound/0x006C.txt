@@ -9,11 +9,16 @@ using (ScriptAPI) {
                 StartNode("Cube " + i);
                 AddInt("ByteCoord"); // XX YY ZZ 00
                 AddLong("SomeUid");
-
+                
+                StartNode("CubeItemInfo");
                 AddInt("ItemId");
                 AddLong("SomeUid");
                 AddLong("Unknown");
-                AddByte("Unknown");
+                b = AddBool("IsUGC");
+                if (b) {
+                    DecodeUgcData();
+                }
+                EndNode(false);
 
                 AddInt("Unknown");
                 AddInt("Unknown");
@@ -27,32 +32,32 @@ using (ScriptAPI) {
                 }
                 EndNode(false);
             }
-        case 1:
+        case 1: // House Plot Availability
             count = AddInt("count");
             for (i = 0; i < count; i++) {
                 StartNode("Cube " + i);
-                AddInt("Unknown");
-                AddByte("Unknown");
+                AddInt("PlotId");
+                AddByte("IsTaken");
                 EndNode(false);
             }
-        case 2:
+        case 2: // House Plots
             count = AddInt("count");
             for (i = 0; i < count; i++) {
                 StartNode("Cube " + i);
+                AddInt("PlotId");
                 AddInt("Unknown");
-                AddInt("Unknown");
-                AddUnicodeString("UnknownStr");
+                AddUnicodeString("PlotName");
                 AddLong("AccountId");
                 EndNode(false);
             }
-        case 3:
+        case 3: // House Plot related
             count = AddInt("count");
             for (i = 0; i < count; i++) {
                 StartNode("Cube " + i);
+                AddInt("PlotId");
                 AddInt("Unknown");
-                AddInt("Unknown");
-                AddByte("Unknown");
-                AddLong("Unknown");
+                AddByte("State?"); // 0, 1=taken, 4=pending
+                AddLong("ExpirationTime?");
                 EndNode(false);
             }
     }

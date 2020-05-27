@@ -1,0 +1,25 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+
+    switch ((int)f) {
+        case 2: // start quest (talk npc)
+            AddInt("QuestId");
+            AddInt("NpcObjectId");
+        case 4: // complete quest
+            AddInt("QuestId");
+            AddInt("NpcObjectId");
+            AddInt("Unknown");
+        case 6: // abandon
+            AddInt("QuestId");
+        case 8: // get quests for map?
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                AddInt("QuestId");
+    		}
+		case 14: // using "move to map"
+		    AddInt("QuestId");
+		    AddShort("Unknown"); // not sure
+		case 26: // exploration reward
+		    AddInt("StarAmount");
+    }
+}

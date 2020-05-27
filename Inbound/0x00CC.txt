@@ -21,8 +21,9 @@ function DecodeFieldPropertyInfo(t) {
         switch ((int)t) {
             case 1: // Gravity
                 AddFloat("Unknown");
-            case 2: // Concert
-                AddLong("Unknown");
+            case 2: // Concert (queenstown)
+                AddLong("CharacterId");
+			    AddInt("Unknown"); // 2252735185
             case 3: // HideMyPC
             case 4: // LockMyPC
             case 5: // UserTagSymbol

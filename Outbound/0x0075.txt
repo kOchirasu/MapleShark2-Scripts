@@ -23,5 +23,14 @@ using (ScriptAPI) {
         AddString("MusicCode");
     } else if (f == 10) { // View Music
         AddLong("ItemUid");
-    }
+	} else if (f == 11) { // queenstown start perform 
+		// none
+	} else if (f == 13) { // queenstown enter/exit stage 
+		// none
+		// Move P:-3600,7200,2125, R:0,0,0
+	} else if (f == 14) { // queenstown stage fireworks
+		// none
+	} else if (f == 15) { // queenstown stage emotes 
+		AddInt("EmoteId?");
+	} 
 }

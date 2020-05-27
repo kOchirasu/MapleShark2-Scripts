@@ -8,17 +8,15 @@ using (ScriptAPI) {
         AddUnicodeString("Profile Url");
         AddUnicodeString("Motto");
         AddByte("Unknown");
-        AddFloat("CoordX");
-        AddFloat("CoordY");
-        AddFloat("CoordZ");
+        DecordCoordF("Position");
         AddShort("Level");
         AddShort("JobGroupId");
         AddInt("JobId");
-        AddInt("Unknown");
-        AddInt("Unknown");
+        AddInt("HomePlotMapId");
+        AddInt("PlotId");
         AddInt("Unknown");
         AddUnicodeString("HomeName");
-        AddInt("Unknown");
+        AddInt("GearScore");
         AddShort("Unknown");
 
         // sub_45D8F0

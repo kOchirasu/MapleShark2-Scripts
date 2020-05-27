@@ -50,9 +50,9 @@ using (ScriptAPI) {
     /*AddUnicodeString("UnknownStr");
     count = AddInt("Count");
     for (i = 0; i < count; i++) {
-        AddInt("Unknown");
-        AddShort("Unknown");
-    }
+        AddInt("SkillId");
+        AddShort("SkillLevel");
+	}
     AddInt("Unknown");*/
 
     // Some flag condition on npc xml data

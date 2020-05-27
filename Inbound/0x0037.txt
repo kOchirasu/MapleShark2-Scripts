@@ -1,0 +1,4 @@
+using (ScriptAPI) {
+	AddInt("UserObjectId");
+	AddByte("state");
+}
