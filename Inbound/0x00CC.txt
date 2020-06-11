@@ -28,11 +28,15 @@ function DecodeFieldPropertyInfo(t) {
             case 4: // LockMyPC
             case 5: // UserTagSymbol
                 AddUnicodeString("Unknown");
+                AddUnicodeString("Unknown");
             case 6: // SightRange
                 AddFloat("Unknown");
                 AddFloat("Unknown");
                 AddFloat("Unknown");
                 AddFloat("Unknown");
+                AddBool("Unknown");
+                AddByte("Unknown");
+                AddBool("Unknown");
             case 7: // Weather
                 AddByte("Unknown");
             case 8: // AmbientLight
@@ -52,9 +56,9 @@ function DecodeFieldPropertyInfo(t) {
                 AddByte("Unknown");
                 AddByte("Unknown");
                 EndNode(false);
-            case 10: // Enables "Free Camera"
+            case 10: // Enables "Local Camera"
                 AddBool("IsEnabled?");
-            case 11: // Enables "Take a Screenshot"
+            case 11: // Enables "FreeCamera/Take a Screenshot"
                 AddBool("IsEnabled?");
         }
     }

@@ -100,20 +100,20 @@ using (ScriptAPI) {
             }
         case 15:
             // none
-        case 16: // GameObjectEffectNifCtx
-            AddInt("Unknown"); // objectId
-            AddString("Unknown");
-            AddBool("Unknown");
-            AddFloat("Unknown");
-            AddFloat("Unknown");
-        case 17:
-            AddInt("Unknown"); // objectId
+        case 16: // GameObjectEffectNifCtx (AddEffectNif)
+            AddInt("objectId");
+            AddString("nifPath");
+            AddBool("isOutline");
+            AddFloat("scale");
+            AddFloat("rotateZ");
+        case 17: // (RemoveEffectNif)
+            AddInt("objectId"); // objectId
         case 18: // side pop-up (SideNpcTalk)
             AddByte("type"); // 1 = talk, 2  = cutin
             AddInt("duration");
             AddString("UnknownStr");
             AddString("illustration");
-            AddString("UnknownStr");
+            AddString("sound");
             AddString("UnknownStr");
             AddUnicodeString("script");
         case 19:
@@ -128,19 +128,21 @@ using (ScriptAPI) {
             }
         case 21:
             AddInt("Unknown");
-        case 22: // 23, 24 also
+        case 22:
             count = AddInt("count");
             for (i = 0; i < count; i++) {
-                AddInt("Unknown");
-            }
-            AddUnicodeString("UnknownStr");
+                AddInt("PlayerObjectId");
+			}
+            // Additional/Etc/Eff_Target_Select_Keep.xml
+		    AddUnicodeString("TargetEffect");
         case 23:
             count = AddInt("count");
             for (i = 0; i < count; i++) {
-                AddInt("Unknown");
-            }
-            AddUnicodeString("UnknownStr");
-        case 24:
+                AddInt("PlayerObjectId");
+			}
+            // Additional/Etc/Eff_Target_Select_Keep.xml
+		    AddUnicodeString("TargetEffect");
+        case 24: // remove above effects?
             // none
     }
 }

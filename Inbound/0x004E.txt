@@ -5,9 +5,9 @@ using (ScriptAPI) {
         for (i = 0; i < count; i++) {
             DecodeFunctionCube();
         }
-	} else if (f == 3) { // use/spawn function cube 
+	} else if (f == 3) { // update function cube 
         DecodeFunctionCube();
-	} else if (f == 5) { // using function cube
+	} else if (f == 5) { // manual use function cube
         AddLong("CharacterId");
         AddUnicodeString("FunctionCubeName");
         AddByte("Using (On/Off)");

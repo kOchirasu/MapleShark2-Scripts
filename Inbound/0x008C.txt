@@ -150,8 +150,8 @@ using (ScriptAPI) {
             AddUnicodeString("UnknownStr");
             AddUnicodeString("UnknownStr");
         case 14:
-            AddUnicodeString("UnknownStr");
-            AddInt("Unknown");
+            AddUnicodeString("PlayerName");
+            AddInt("Unknown"); // 3382??
         case 15: // confirm check in
             // none
         case 18:
@@ -171,11 +171,11 @@ using (ScriptAPI) {
         case 22: // update motto
             AddUnicodeString("PlayerName");
             AddUnicodeString("PlayerMotto");
-        case 23:
-            AddUnicodeString("UnknownStr");
-        case 24:
-            AddUnicodeString("UnknownStr");
-            AddLong("Unknown");
+        case 23: // guild member logged in
+            AddUnicodeString("PlayerName");
+        case 24: // logged off
+            AddUnicodeString("PlayerName");
+            AddLong("LogOFfTime?");
         case 25: // become leader
             AddUnicodeString("OldLeaderName");
             AddUnicodeString("NewLeaderName");
@@ -266,7 +266,7 @@ using (ScriptAPI) {
             AddLong("ApplicationId");
             AddByte("Unknown"); // 0
         case 49: // update guild exp
-            AddInt("Unknown"); // 3307547 (GuildExp?)
+            AddInt("GuildExp"); // 3307547 (GuildExp?)
         case 50: // update guild funds
             AddInt("GuildFunds");
         case 51: // update contribution
@@ -274,11 +274,11 @@ using (ScriptAPI) {
             AddInt("ContributionGained");
             AddInt("WeeklyContribution");
             AddInt("TotalContribution");
-        case 52:
-            AddUnicodeString("UnknownStr");
+        case 52: // Use skill
+            AddUnicodeString("UsePlayerName");
             sub_508870();
-        case 53:
-            AddUnicodeString("UnknownStr");
+        case 53: // skill upgraded
+            AddUnicodeString("UpgraderName");
             sub_508870();
         case 54: // started arcade msg
             AddUnicodeString("PlayerName"); // who started it
@@ -406,20 +406,22 @@ using (ScriptAPI) {
             if (!b) {
                 AddUnicodeString("UnknownStr");
             }
-        case 107:
+        case 107: // update gift storage
+		    // Also causes 0x20 to be sent
             DecodeGuildBankEntry();
-        case 109:
+        case 109: // gift log
             count = AddInt("count");
             for (i = 0; i < count; i++) {
-                AddLong("Unknown");
-                AddLong("Unknown");
-                AddUnicodeString("UnknownStr");
-                // Same as above
-                AddLong("Unknown");
-                AddLong("Unknown");
-                AddUnicodeString("UnknownStr");
+			    // Gift Sender
+                AddLong("AccountId");
+                AddLong("CharacterId");
+                AddUnicodeString("Name");
+                // Gift Receiver
+                AddLong("AccountId");
+                AddLong("CharacterId");
+                AddUnicodeString("Name");
                 DecodeGuildBankEntry();
-                AddLong("Unknown");
+                AddLong("Timestamp");
             }
         case 110: // donate 
             AddInt("DonationAmount");
@@ -445,9 +447,9 @@ function f_59_60_115() {
 }
 
 function sub_508870() {
-    AddInt("Unknown");
-    AddInt("Unknown");
-    AddLong("Unknown");
+    AddInt("SkillLevel");
+    AddInt("SkillId (index)");
+    AddLong("ExpiryTime?");
 }
 
 function sub_AE52B0() {

@@ -9,8 +9,8 @@ using (ScriptAPI) {
             AddShort("SkillLevel");
             AddByte("MotionPoint");
             AddByte("AttackPoint");
-            DecodeCoordS("PositionOfUse");
-            DecodeCoordF("DirectionToImpact");
+            DecodeCoordS("Impact");
+            DecodeCoordF("ImpactDirection");
             AddByte("Unknown");
             AddInt("ServerTick");
             count = AddByte("count");

@@ -99,7 +99,7 @@ function DecodeSyncState() {
             DecodeCoordF("Unknown");
         }
         AddInt("Unknown");
-        EndNode(false);
+        EndNode(true);
     }
 }
 

@@ -20,7 +20,7 @@ using (ScriptAPI) {
             // maybe call on quest object + 68
 		    AddInt("Unknown"); // 1
 		    AddInt("Unknown"); // 1
-        case 4: // complete (exploration goal?)
+        case 4: // complete (exploration goal, navigator?)
             AddInt("QuestId");
             AddInt("Unknown"); // 1
             AddLong("CompletionTime");

@@ -10,7 +10,7 @@ using (ScriptAPI) {
             AddUnicodeString("Message");
         case 2: // view unread mail
             AddLong("MailUid");
-        case 11: // collect all (AddToInventory + MarkNew)
+        case 11: // collect one item (AddToInventory + MarkNew)
             AddLong("MailUid");
         case 13: // delete mail
             count = AddInt("count");

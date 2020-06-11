@@ -19,6 +19,8 @@ using (ScriptAPI) {
 		case 14: // using "move to map"
 		    AddInt("QuestId");
 		    AddShort("Unknown"); // not sure
+		case 24: // claim navigator
+		    AddInt("Unnknown"); // 70000018
 		case 26: // exploration reward
 		    AddInt("StarAmount");
     }

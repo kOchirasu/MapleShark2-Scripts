@@ -61,6 +61,8 @@ using (ScriptAPI) {
             AddInt("MinigameIndex");
         case 100: // enter guild house
             // none
+	    case 109: // request update gift log
+		    // none (respond 109)
         case 110: // donate to guild
             AddInt("DonationCount");
     }
