@@ -1,0 +1,7 @@
+using (ScriptAPI) {
+    AddInt("ObjectId");    
+    count = AddByte("Count");
+    for (i = 0; i < count; i++) {
+        DecodeSyncState();
+    }
+}

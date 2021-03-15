@@ -1,0 +1,23 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+    switch ((int)f) {
+        case 0:
+            AddInt("ServerTick");
+            AddLong("Timestamp");
+            AddByte("Unknown");
+            AddInt("Unknown");
+            AddInt("Key");
+        case 1:
+            AddInt("ServerTick");
+            AddLong("Timestamp");
+            AddByte("Unknown");
+            AddInt("Unknown");
+        case 2:
+            AddInt("ServerTick");
+            AddLong("Timestamp");
+            AddByte("Unknown");
+            AddInt("Unknown");
+        case 3:
+            AddLong("Timestamp");
+    }
+}

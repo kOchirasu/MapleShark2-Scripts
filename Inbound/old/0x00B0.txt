@@ -1,0 +1,4 @@
+using (ScriptAPI) {
+    AddInt("ObjectId");
+    AddUnicodeString("Motto");
+} 

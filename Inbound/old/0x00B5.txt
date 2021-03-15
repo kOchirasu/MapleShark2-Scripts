@@ -1,0 +1,15 @@
+using (ScriptAPI) {
+    count = AddShort("Count");
+    for (i = 0; i < count; i++) {
+        StartNode("Banner " + i);
+        AddInt("Id");
+        AddUnicodeString("Name");
+        AddUnicodeString("Type");
+        AddInt("Zero");
+        AddUnicodeString("Url");
+        AddInt("Language");
+        AddLong("Timestamp");
+        AddLong("Unknown");
+        EndNode(true);
+    }
+}

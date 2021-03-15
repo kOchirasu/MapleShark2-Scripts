@@ -1,5 +1,0 @@
-using (ScriptAPI) {
-    AddLong("Mesos");
-    AddShort("UnknownSeeExpUp"); // 1001 
-	AddShort("Unknown");
-}

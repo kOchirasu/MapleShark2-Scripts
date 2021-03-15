@@ -1,0 +1,7 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+    switch ((int)f) {
+        case 0:
+            AddInt("DungeonId");
+    }
+}

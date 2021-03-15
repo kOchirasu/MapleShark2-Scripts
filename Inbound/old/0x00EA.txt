@@ -1,0 +1,22 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+    switch ((int)f) {
+        case 0:
+            AddUnicodeString("Unknown");
+            AddInt("Unknown");
+        case 1:
+            AddInt("NpcObjectId");
+            AddUnicodeString("Unknown");
+        case 2:
+            AddInt("NpcObjectId");
+            AddUnicodeString("Unknown");
+        case 3:
+            AddByte("Unknown");
+            AddInt("duration");
+            AddString("Unknown");
+            AddString("illust");
+            AddString("sound");
+            AddString("Unknown");
+            AddUnicodeString("message");
+    }
+}

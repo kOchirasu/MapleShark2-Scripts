@@ -1,0 +1,27 @@
+using (ScriptAPI) {
+    f = AddByte("function");
+    switch ((int)f) {
+        case 0: // round ui
+            AddInt("Round");
+            AddInt("MaxRound");
+            AddInt("MinRound");
+            AddInt("VerticalOffset");
+        case 1: // count ui
+            AddUnicodeString("name");
+            AddInt("Round");
+            AddInt("Count");
+            AddInt("Unknown"); // 1
+        case 2: // banner ui
+            AddByte("Type");
+            AddUnicodeString("Name");
+            AddInt("duration");
+        case 3: // ui event introduce
+            AddInt("Number");
+            AddBool("IsFinal"); // ignores number
+            AddInt("Duration");
+        case 7: // start round popup
+            AddInt("round");
+            AddBool("IsFinal?");
+            AddInt("duration");
+    }
+}

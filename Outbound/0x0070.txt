@@ -1,9 +1,0 @@
-using (ScriptAPI) {
-	f = AddByte("function");	
-	
-	switch ((int)f) {
-		case 1: // user recall portal
-		    AddUnicodeString("PlayerName"); // player who used the scroll
-		    AddInt("MapId");
-	}
-}

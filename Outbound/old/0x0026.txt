@@ -1,0 +1,10 @@
+using (ScriptAPI) {
+    AddString("EntityStrId");
+    AddLong("SkillUseUid");
+    AddInt("SkillId");
+    AddShort("SkillLevel");
+    AddByte("Unknown"); // 1
+    AddByte("Unknown"); // 0
+    AddInt("Unknown");
+    DecodeCoordF("EntityRelated");
+}

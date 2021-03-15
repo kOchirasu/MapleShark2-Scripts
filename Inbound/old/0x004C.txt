@@ -1,0 +1,91 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    // f == 0: Cancel
+    if (f == 1) {
+        AddInt("ObjectId");
+        AddByte("TypeFlags"); // 2?
+        AddInt("ScriptId");
+        AddInt("ScriptIndex"); // when there's mutliple parts to a scriptId
+        AddInt("Options"); // Affects selections...
+    } else if (f == 2 ||  f == 8) { // continue talking
+        AddByte("TypeFlags");
+        AddInt("Unknown");
+        AddInt("ScriptId");
+        AddInt("ScriptIndex");
+        AddInt("Options");
+    } else if (f == 3) {
+        f = AddByte("Function");
+        switch ((int) f) {
+            case 1:
+                AddUnicodeString("UnknownStr");
+                // AddShort("Short / X");
+            case 3: // Move PC
+                AddInt("SomeLocaionId");
+            case 4:
+                AddUnicodeString("UnknownStr"); // BeautyShopDialog
+                AddUnicodeString("UnknownStr"); // itemcolor
+            case 5:
+                count = AddInt("count");
+                for (i = 0; i < count; i++) {
+                    id = AddInt("ItemId");
+                    AddByte("Unknown"); // 1
+                    AddInt("Unknown"); // 1
+                    DecodeItem(id);
+                }
+            case 6:
+                AddLong("Unknown");
+            case 7:
+                AddLong("Unknown");
+            case 8:
+                AddInt("Unknown");
+            case 9:
+                AddInt("Unknown");
+                AddByte("Unknown");
+            case 10:
+                AddInt("Unknown");
+                AddUnicodeString("Unknown");
+        }
+    } else if (f == 9) {
+        AddByte("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+        AddInt("Unknown");
+    } else if (f == 10) {
+        AddInt("Unknown");
+        AddShort("Unknown"); // some type
+        AddInt("Unknown");
+        AddByte("Unknown");
+        AddInt("Unknown");
+        AddByte("Unknown");
+        count = AddInt("Unknown");
+        for (i = 0; i < count; i++) {
+            t = AddByte("ScriptType");
+            if (t == 1) { // CChatBalloonContent
+                DecodeCScriptContent();
+            } else {
+                DecodeCCinematicContent();
+            }
+        }
+    }
+}
+
+function DecodeCScriptContent() {
+    AddUnicodeString("Unknown");
+    AddUnicodeString("Unknown");
+    AddUnicodeString("Unknown");
+}
+
+function DecodeCCinematicContent() {
+    DecodeCScriptContent();
+    AddInt("Unknown");
+    n = AddByte("Unknown");
+
+    if (n == 1) {
+        count = AddByte("Unknown"); // OR *(v2 + 4)
+        for (i = 0; i < count; i++) {
+            AddUnicodeString("Unknown");
+            AddUnicodeString("Unknown");
+            AddUnicodeString("Unknown");
+        }   
+    }
+}

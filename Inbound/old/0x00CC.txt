@@ -1,0 +1,65 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+
+    switch ((int)f) {
+        case 0:
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                t = AddByte("type");
+                DecodeFieldPropertyInfo(t);
+            }
+        case 1:
+            t = AddByte("type");
+            DecodeFieldPropertyInfo(t);
+        case 2:
+            AddByte("Unknown");
+    }
+}
+
+function DecodeFieldPropertyInfo(t) {
+    using (ScriptAPI) {
+        switch ((int)t) {
+            case 1: // Gravity
+                AddFloat("Unknown");
+            case 2: // Concert (queenstown)
+                AddLong("CharacterId");
+                AddInt("Unknown"); // 2252735185
+            case 3: // HideMyPC
+            case 4: // LockMyPC
+            case 5: // UserTagSymbol
+                AddUnicodeString("Unknown");
+                AddUnicodeString("Unknown");
+            case 6: // SightRange
+                AddFloat("Unknown");
+                AddFloat("Unknown");
+                AddFloat("Unknown");
+                AddFloat("Unknown");
+                AddBool("Unknown");
+                AddByte("Unknown");
+                AddBool("Unknown");
+            case 7: // Weather
+                AddByte("Unknown");
+            case 8: // AmbientLight
+                StartNode("Node");
+                AddByte("Unknown");
+                AddByte("Unknown");
+                AddByte("Unknown");
+                EndNode(false);
+            case 9: // DirectionalLight
+                StartNode("Node");
+                AddByte("Unknown");
+                AddByte("Unknown");
+                AddByte("Unknown");
+                EndNode(false);
+                StartNode("Node");
+                AddByte("Unknown");
+                AddByte("Unknown");
+                AddByte("Unknown");
+                EndNode(false);
+            case 10: // Enables "Local Camera"
+                AddBool("IsEnabled?");
+            case 11: // Enables "FreeCamera/Take a Screenshot"
+                AddBool("IsEnabled?");
+        }
+    }
+}

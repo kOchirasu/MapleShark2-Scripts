@@ -1,0 +1,21 @@
+using (ScriptAPI) {
+    AddByte("function"); // this is also 0/1 but it's redundant
+    b = AddBool("IsStart");
+    if (b) {
+        DecodeCubeItemInfo();
+    }
+}
+
+function DecodeCubeItemInfo() {
+    using (ScriptAPI) {
+        StartNode("CubeItemInfo");
+        AddInt("ItemId");
+        AddLong("ItemUid");
+        AddLong("Unknown");
+        b = AddBool("IsUgc");
+        if (b) {
+            DecodeUgcData();
+        }
+        EndNode(false);
+    }
+}

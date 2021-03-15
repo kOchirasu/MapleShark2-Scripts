@@ -1,0 +1,22 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+
+    switch ((int)f) {
+        case 0: // available missions
+            AddInt("count");
+            AddInt("DungeonId");
+        case 1: // finish dungeon mission
+            AddInt("count"); // ?
+            // Dungeon mission class
+            AddInt("DungeonId");
+            AddShort("");
+            AddShort("");
+        case 2: // mission results
+            count = AddInt("Count");
+            for (i = 0; i < count; i++) {
+
+            }
+        case 3: // finish dungeon
+            AddBool("Unknown"); // 1
+    }
+}

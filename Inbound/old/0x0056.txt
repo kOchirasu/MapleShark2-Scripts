@@ -1,0 +1,87 @@
+using (ScriptAPI) {
+    AddInt("ObjectId");
+    AddInt("NpcId");
+    DecodeCoordF("Position");
+    DecodeCoordF("Rotation");
+
+    // Dummy (!friendly && class >= 3)
+    //AddString("npcstring");
+
+    // If valid NpcId
+    StartNode("Stats");
+    c = AddByte("Stats Flag"); // 0x23
+    if (c == 1) {
+        v = AddByte("StatType");
+        if (v == 4) { // Hp uses longs
+            AddLong("TotalHp");
+            AddLong("MinHp");
+            AddLong("MaxHp");
+        } else {
+            AddInt("TotalStat");
+            AddInt("MinStat");
+            AddInt("MaxStat");
+        }
+    } else {
+        AddLong("TotalHp");
+        AddInt("TotalAtkSpd");
+        AddLong("MinHp");
+        AddInt("MinAtkSpd");
+        AddLong("MaxHp");
+        AddInt("MaxAtkSpd");
+    }
+    EndNode(false);
+    AddBool("IsDead");
+    count = AddShort("Count");
+    for (i = 0; i < count; i++) {
+        StartNode("node " + i);
+        AddInt("NpcObjectId");
+        AddInt("EffectObjectId");
+        AddInt("NpcObjectId");
+        DecodeAdditionalEffect();
+        AddLong("AdditionalEffectRelated"); // 0
+        EndNode(false);
+    }
+    AddLong("ItemUid"); // From PetNpc
+    AddByte("Npc+6384");
+    AddInt("NpcLevel");
+    AddInt("Npc+1610");
+
+    // Dummy (!friendly && class >= 3)
+    /*AddUnicodeString("UnknownStr");
+    count = AddInt("Count");
+    for (i = 0; i < count; i++) {
+        AddInt("SkillId");
+        AddShort("SkillLevel");
+    }
+    AddInt("Unknown");*/
+
+    // Some flag condition on npc xml data
+    // AddLong("Npc+1620");
+
+    AddBool("Npc+6536");
+}
+
+/*
+
+// AddString("ConditionedStrA");
+// UnknownClassCall(packet)
+AddByte("Unknown");
+AddLong("Unknown");
+AddByte("Unknown");
+AddInt("Unknown");
+AddInt("Unknown");
+// Condition
+AddString("UnknownStr");
+count = AddInt("count");
+for (i = 0; i < count; i++) {
+    AddInt("Unknown");
+    AddShort("Unknown");
+}
+AddInt("Unknown");
+// EndCondition
+// Condition
+AddLong("Unknown");
+// EndCondition
+AddByte("Unknown");
+
+*/

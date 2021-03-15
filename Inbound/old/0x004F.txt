@@ -1,0 +1,177 @@
+// Guild
+using (ScriptAPI) {
+    f = AddByte("Function");
+
+    switch ((int)f) {
+        case 0:
+            StartNode("AddTrigger");
+            EndNode(true);
+        case 1:
+            StartNode("RemoveTrigger");
+            EndNode(true);
+        case 2:
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                DecodeTriggerSync();
+            }
+        case 3:
+            DecodeTriggerSync();
+        case 5: // camera path
+            count = AddByte("count");
+            for (i = 0; i < count; i++) {
+                AddInt("CameraPathId");
+            }
+            AddByte("Unknown");
+        case 6:
+            // none (0.0)
+        case 8: // display some notice ui
+            n = AddByte("Unknown");
+            StartNode("type " + n);
+            switch ((int)n) {
+                case 1: // GuideManager(21)
+                    AddInt("Unknown");
+                case 2: // UIGuideEvent
+                    AddInt("EntityID");
+                    AddInt("textID");
+                    AddInt("durationTime");
+                case 3:    // UIGuideEvent
+                    AddInt("Unknown");
+                case 4: // UICutSceneMovie (Start)
+                    AddString("fileName");
+                    AddInt("movieID");
+                case 5: // UICutSceneMovie (Skip)
+                    AddInt("Unknown");
+                case 7: // StateTriggerEmotionData
+                    count = AddInt("count");
+                    for (i = 0; i < count; i++) {
+                        AddUnicodeString("UnknownStr");
+                    }
+                case 8: // StateTriggerEmotionData
+                    AddByte("Unknown");
+                    AddInt("Unknown");
+                    AddUnicodeString("UnknownStr");
+                case 9: // TextureAnimation
+                    AddInt("Unknown");
+                    AddUnicodeString("UnknownStr");
+                case 10:
+                    DecodeCoordS("Unknown");
+                    AddBool("Unknown");
+                case 11:
+                    DecodeCoordS("Unknown");
+                    AddBool("Unknown");
+                case 12: // UI: TypingGameDialog
+                    AddInt("Unknown");
+                    AddInt("Unknown");
+            }
+            EndNode(true);
+            // f(n)...
+        case 11: // load script computer
+            AddString("UnknownStr"); // script xml
+            // <?xml version="1.0" encoding="utf-8"?><ms2><state name="NewState1" posX="0" posY="0" /></ms2>
+            // FileBuffer
+            // TriggerEditorDialog
+        case 14:
+            f2 = AddByte("sub-function");
+            switch ((int)f2) {
+                case 1: // UI: TriggerTimerDialog (150)
+                    AddInt("ServerTick");
+                    AddInt("TimeMS");
+                    AddByte("arg4");
+                    AddInt("arg5");
+                    AddUnicodeString("arg6");
+                    //AddInt("Unknown");
+                    //AddInt("Unknown");
+                case 2: // UI: PvpObserverDialog (151)
+                    AddInt("Unknown");
+                    AddInt("Unknown");
+                    AddByte("Unknown");
+                case 5: // Same as 2
+                    AddInt("Unknown");
+                    AddInt("Unknown");
+                    AddByte("Unknown");
+                case 3: // UI Unknown (154, 155)
+                    AddInt("Unknown");
+                    AddInt("Unknown");
+                    AddByte("Unknown");
+                case 4: // UI Unknown (150 - TimerDialog, 212)
+                    AddInt("Unknown");
+                    AddInt("Unknown");
+                    AddByte("Unknown");
+            }
+        case 15:
+            // none
+        case 16: // GameObjectEffectNifCtx (AddEffectNif)
+            AddInt("objectId");
+            AddString("nifPath");
+            AddBool("isOutline");
+            AddFloat("scale");
+            AddFloat("rotateZ");
+        case 17: // (RemoveEffectNif)
+            AddInt("objectId"); // objectId
+        case 18: // side pop-up (SideNpcTalk)
+            AddByte("type"); // 1 = talk, 2  = cutin
+            AddInt("duration");
+            AddString("UnknownStr");
+            AddString("illustration");
+            AddString("sound");
+            AddString("UnknownStr");
+            AddUnicodeString("script");
+        case 19:
+            AddByte("Unknown");
+            AddString("UnknownStr");
+        case 20: // UI: NpcDualHpBarDialog (61, 101)
+            b = AddBool("Visible");
+            if (b) {
+                AddInt("ObjectId");
+                AddInt("durationTick");
+                AddInt("npcHpStep");
+            }
+        case 21:
+            AddInt("Unknown");
+        case 22:
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                AddInt("PlayerObjectId");
+            }
+            // Additional/Etc/Eff_Target_Select_Keep.xml
+            AddUnicodeString("TargetEffect");
+        case 23:
+            count = AddInt("count");
+            for (i = 0; i < count; i++) {
+                AddInt("PlayerObjectId");
+            }
+            // Additional/Etc/Eff_Target_Select_Keep.xml
+            AddUnicodeString("TargetEffect");
+        case 24: // remove above effects?
+            // none
+    }
+}
+
+function DecodeTriggerSync() {
+    id = AddInt("SomeTriggerId");
+    if (id < 5000) {
+        StartNode("TriggerMesh");
+        AddBool("UnknownBool");
+        AddByte("UnknownByte");
+        AddInt("UnknownInt");
+        AddUnicodeString("UnknownStr");
+        AddFloat("UnknownFloat");
+    } else {
+        StartNode("TriggerEffect");
+        AddBool("UnknownBool");
+        AddByte("UnknownByte");
+        AddInt("UnknownInt");
+    }
+    // Actor
+    // Byte
+    // UnicodeString
+    
+    // Rope
+    // Bool
+    // Bool
+    // Int
+    
+    // Cube/Sound
+    // Bool
+    EndNode(false);
+}

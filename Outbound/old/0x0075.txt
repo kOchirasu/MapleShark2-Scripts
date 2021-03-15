@@ -1,0 +1,36 @@
+using (ScriptAPI) {
+    f = AddByte("Function");
+    if (f == 0) {
+        // Instrument improvise start
+        AddLong("ItemUid");
+    } else if (f == 1) {
+        // Play single note
+        AddByte("Unknown");
+        AddByte("Note"); // [24-119] range, +1 for each half-step
+        AddShort("Volume");
+    } else if (f == 2) {
+        // Click play score tab
+    } else if (f == 3) {
+        // Start playing score
+        AddLong("InstrumentUid");
+        AddLong("ScoreUid");
+    } else if (f == 4) {
+        // Stop playing instrument
+    } else if (f == 8) { // Create Music
+        AddLong("ItemUid");
+        AddField("Unknown", 8); // 24 BF 01 00 10 00 00 00
+        AddUnicodeString("SheetName");
+        AddString("MusicCode");
+    } else if (f == 10) { // View Music
+        AddLong("ItemUid");
+    } else if (f == 11) { // queenstown start perform 
+        // none
+    } else if (f == 13) { // queenstown enter/exit stage 
+        // none
+        // Move P:-3600,7200,2125, R:0,0,0
+    } else if (f == 14) { // queenstown stage fireworks
+        // none
+    } else if (f == 15) { // queenstown stage emotes 
+        AddInt("EmoteId?");
+    } 
+}

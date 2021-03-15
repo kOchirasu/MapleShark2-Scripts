@@ -1,9 +1,0 @@
-using (ScriptAPI) {
-	f = AddByte("function");
-	switch ((int)f) {
-		case 0: // create pet badge
-			AddLong("PetItemUid");
-		    AddLong("BadgeItemUid");
-		    AddInt("PetItemId");
-	}
-}

@@ -1,4 +1,0 @@
-using (ScriptAPI) {
-	AddLong("ItemUid");
-	AddUnicodeString("Data");
-}
