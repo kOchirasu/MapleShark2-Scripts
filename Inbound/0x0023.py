@@ -1,20 +1,20 @@
 from script_api import *
 from common import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 2: # opening furnishing box
-    AddInt("storage count")
+    add_int("storage count")
 elif f == 3:
-    id = AddInt("ItemId")
-    AddLong("ItemUid")
-    AddByte("rarity")
-    AddInt("Index")
-    DecodeItem(id)
+    id = add_int("ItemId")
+    add_long("ItemUid")
+    add_byte("rarity")
+    add_int("Index")
+    decode_item(id)
 elif f == 4:
-    AddLong("ItemUid")
+    add_long("ItemUid")
 elif f == 5: # opening furnishing box
-    AddLong("ItemUid")
-    AddInt("Count")
+    add_long("ItemUid")
+    add_int("Count")
 elif f == 7: # opening furnishing box
-    AddLong("ItemUid")
-    AddInt("Count")
+    add_long("ItemUid")
+    add_int("Count")

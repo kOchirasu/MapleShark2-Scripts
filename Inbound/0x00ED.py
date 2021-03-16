@@ -1,22 +1,22 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 
 if f == 0: # activate premium
-    AddInt("UserObjectId")
-    AddLong("Premium expiration")
+    add_int("UserObjectId")
+    add_long("Premium expiration")
 elif f == 1: # daily rewards
-    m = AddInt("flag?")
+    m = add_int("flag?")
     if m != 0:
-        m = AddInt("Unknown")
+        m = add_int("Unknown")
         while m != 1:
-            m = AddInt("Unknown")
+            m = add_int("Unknown")
 elif f == 2: # confirm reward claimed
-    AddInt("RewardId")
+    add_int("RewardId")
 elif f == 3: # purchase options
-    count = AddInt("Count")
+    count = add_int("Count")
     for i in range(count):
-        AddInt("OptionId") # stringvipgoodsname.xml
-        AddInt("Amount") # times per account
+        add_int("OptionId") # stringvipgoodsname.xml
+        add_int("Amount") # times per account
 elif f == 4: # purchase completed
-    AddInt("OptionId")
+    add_int("OptionId")

@@ -1,5 +1,5 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 3: # Creating new home
-    AddInt("HomeType") # -1 = none
+    add_int("HomeType") # -1 = none

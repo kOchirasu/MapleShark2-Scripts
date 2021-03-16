@@ -2,32 +2,32 @@ from script_api import *
 
 # GlobalFactor
 with Node("f5"): 
-    AddByte("Unknown")
+    add_byte("Unknown")
     for i in range(99):
-        AddFloat("Unknown")
+        add_float("Unknown")
 
 with Node("f6"): 
-    AddByte("Unknown")
+    add_byte("Unknown")
     for i in range(99):
-        AddFloat("Unknown")
+        add_float("Unknown")
 
 with Node("f7"): 
-    AddByte("Unknown")
+    add_byte("Unknown")
     for i in range(99):
-        AddFloat("Unknown")
+        add_float("Unknown")
 
 with Node("f0"): 
-    AddByte("Unknown")
+    add_byte("Unknown")
     for i in range(99):
-        AddFloat("Unknown")
+        add_float("Unknown")
 
 with Node("f1"): 
-    AddByte("Unknown")
+    add_byte("Unknown")
     for i in range(99):
-        AddFloat("Unknown")
+        add_float("Unknown")
 
 with Node("f2"): 
-    AddByte("Unknown")
+    add_byte("Unknown")
     for i in range(99):
-        AddFloat("Unknown")
+        add_float("Unknown")
 

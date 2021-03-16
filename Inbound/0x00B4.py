@@ -1,12 +1,12 @@
 from script_api import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 
 if f == 0:
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
         with Node("Entry " + str(i)):
-            #AddUnicodeString("UnknownStr")
+            #add_unicode_str("UnknownStr")
             # Data Depends on string
             pass
 elif f == 1:

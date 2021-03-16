@@ -1,3 +1,3 @@
 from script_api import *
 
-AddInt("Unknown")
+add_int("Unknown")

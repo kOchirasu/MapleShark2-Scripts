@@ -1,11 +1,11 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 
 if f == 2: # buy item
-    AddInt("ShopItemId")
-    AddInt("Amount")
+    add_int("ShopItemId")
+    add_int("Amount")
 elif f == 9: # pay for restock
-    AddInt("restock price")
+    add_int("restock price")
 elif f == 10: # Times up restock
     pass

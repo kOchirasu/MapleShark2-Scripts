@@ -1,19 +1,19 @@
 from script_api import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 
 if f == 0: # available missions
-    AddInt("count")
-    AddInt("DungeonId")
+    add_int("count")
+    add_int("DungeonId")
 elif f == 1: # finish dungeon mission
-    AddInt("count") # ?
+    add_int("count") # ?
     # Dungeon mission class
-    AddInt("DungeonId")
-    AddShort("")
-    AddShort("")
+    add_int("DungeonId")
+    add_short("")
+    add_short("")
 elif f == 2: # mission results
-    count = AddInt("Count")
+    count = add_int("Count")
     for i in range(count):
         pass
 elif f == 3: # finish dungeon
-    AddBool("Unknown") # 1
+    add_bool("Unknown") # 1

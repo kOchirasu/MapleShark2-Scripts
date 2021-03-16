@@ -1,10 +1,10 @@
 from script_api import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 0:
     for i in range(8):
-        AddShort("Unknown")
+        add_short("Unknown")
 elif f == 1:
-    count = AddShort("Count")
+    count = add_short("Count")
     for i in range(count):
-        AddShort("Unknown")
+        add_short("Unknown")

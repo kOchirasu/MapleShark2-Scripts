@@ -1,81 +1,81 @@
 from script_api import *
 from common import *
 
-AddInt("ObjectId")
-AddInt("NpcId")
-DecodeCoordF("Position")
-DecodeCoordF("Rotation")
+add_int("ObjectId")
+add_int("NpcId")
+decode_coordF("Position")
+decode_coordF("Rotation")
 
 # Dummy (not friendly and class >= 3)
-#AddString("npcstring")
+#add_str("npcstring")
 
 # If valid NpcId
 with Node("Stats"):
-    c = AddByte("Stats Flag") # 0x23
+    c = add_byte("Stats Flag") # 0x23
     if c == 1:
-        v = AddByte("StatType")
+        v = add_byte("StatType")
         if v == 4: # Hp uses longs
-            AddLong("TotalHp")
-            AddLong("MinHp")
-            AddLong("MaxHp")
+            add_long("TotalHp")
+            add_long("MinHp")
+            add_long("MaxHp")
         else:
-            AddInt("TotalStat")
-            AddInt("MinStat")
-            AddInt("MaxStat")
+            add_int("TotalStat")
+            add_int("MinStat")
+            add_int("MaxStat")
     else:
-        AddLong("TotalHp")
-        AddInt("TotalAtkSpd")
-        AddLong("MinHp")
-        AddInt("MinAtkSpd")
-        AddLong("MaxHp")
-        AddInt("MaxAtkSpd")
+        add_long("TotalHp")
+        add_int("TotalAtkSpd")
+        add_long("MinHp")
+        add_int("MinAtkSpd")
+        add_long("MaxHp")
+        add_int("MaxAtkSpd")
 
-AddBool("IsDead")
-count = AddShort("Count")
+add_bool("IsDead")
+count = add_short("Count")
 for i in range(count):
     with Node("node " + str(i)):
-        AddInt("NpcObjectId")
-        AddInt("EffectObjectId")
-        AddInt("NpcObjectId")
-        DecodeAdditionalEffect()
-        AddLong("AdditionalEffectRelated") # 0
+        add_int("NpcObjectId")
+        add_int("EffectObjectId")
+        add_int("NpcObjectId")
+        decode_additional_effect()
+        add_long("add_itionalEffectRelated") # 0
 
-AddLong("ItemUid") # From PetNpc
-AddByte("Npc+6384")
-AddInt("NpcLevel")
-AddInt("Npc+1610")
+add_long("ItemUid") # From PetNpc
+add_byte("Npc+6384")
+add_int("NpcLevel")
+add_int("Npc+1610")
 
 # Dummy (not friendly and class >= 3)
-"""AddUnicodeString("UnknownStr")
-count = AddInt("Count")
+"""add_unicode_str("UnknownStr")
+count = add_int("Count")
 for i in range(count):
-    AddInt("SkillId")
-    AddShort("SkillLevel")
-AddInt("Unknown")"""
+    add_int("SkillId")
+    add_short("SkillLevel")
+add_int("Unknown")"""
 
 # Some flag condition on npc xml data
-# AddLong("Npc+1620")
+# add_long("Npc+1620")
 
-AddBool("Npc+6536")
+add_bool("Npc+6536")
 
 """
-# AddString("ConditionedStrA")
+# add_str("ConditionedStrA")
 # UnknownClassCall(packet)
-AddByte("Unknown")
-AddLong("Unknown")
-AddByte("Unknown")
-AddInt("Unknown")
-AddInt("Unknown")
+add_byte("Unknown")
+add_long("Unknown")
+add_byte("Unknown")
+add_int("Unknown")
+add_int("Unknown")
 # Condition
-AddString("UnknownStr")
-count = AddInt("count")
+add_str("UnknownStr")
+count = add_int("count")
 for i in range(count):
-    AddInt("Unknown")
-    AddShort("Unknown")
-AddInt("Unknown")
+    add_int("Unknown")
+    add_short("Unknown")
+add_int("Unknown")
 # EndCondition
 # Condition
-AddLong("Unknown")
+add_long("Unknown")
 # EndCondition
-AddByte("Unknown")
+add_byte("Unknown")
 """

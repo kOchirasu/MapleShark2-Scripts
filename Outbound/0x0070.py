@@ -1,7 +1,7 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 
 if f == 1: # user recall portal
-    AddUnicodeString("PlayerName") # player who used the scroll
-    AddInt("MapId")
+    add_unicode_str("PlayerName") # player who used the scroll
+    add_int("MapId")

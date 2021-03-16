@@ -1,19 +1,19 @@
 from script_api import *
 
-AddInt("TotalPoints") # Extra points (Rank1+Rank2)
-sourceCount = AddInt("SourceCount")
+add_int("TotalPoints") # Extra points (Rank1+Rank2)
+sourceCount = add_int("SourceCount")
 for i in range(sourceCount):
-    source = AddInt("Source")
+    source = add_int("Source")
     if source == 1:
-        StartNode("Trophy")
+        start_node("Trophy")
     elif source == 2:
-        StartNode("ChapterCompletion")
+        start_node("ChapterCompletion")
     else:
-        StartNode("Unknown")
+        start_node("Unknown")
 
-    jobRankCount = AddInt("JobRankCount")
+    jobRankCount = add_int("JobRankCount")
     for j in range(jobRankCount):
         with Node("JobRank", True):
-            AddShort("JobRank")
-            AddInt("Points")
-    EndNode(True)
+            add_short("JobRank")
+            add_int("Points")
+    end_node(True)

@@ -1,7 +1,7 @@
 from script_api import *
 
-AddLong("RemainingMerets")
-AddLong("Zero")
-AddLong("Zero")
-AddLong("Zero")
-AddLong("DeductedMerets") # negative number
+add_long("RemainingMerets")
+add_long("Zero")
+add_long("Zero")
+add_long("Zero")
+add_long("DeductedMerets") # negative number

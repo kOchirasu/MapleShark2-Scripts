@@ -1,12 +1,12 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 0:
-    AddLong("ItemUid")
-    AddField("Unknown", 8)
-    b = AddBool("UseLock")
+    add_long("ItemUid")
+    add_field("Unknown", 8)
+    b = add_bool("UseLock")
     if b:
-        AddByte("Unknown")
-        AddShort("LockedIndex")
+        add_byte("Unknown")
+        add_short("LockedIndex")
 elif f == 2: # Select new option
-    AddLong("ItemUid")
+    add_long("ItemUid")

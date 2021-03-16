@@ -1,4 +1,4 @@
 from script_api import *
 
 
-AddInt("Heartbeat")
+add_int("Heartbeat")

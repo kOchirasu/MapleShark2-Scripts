@@ -1,3 +1,3 @@
 from script_api import *
 
-AddString("Background.dds")
+add_str("Background.dds")

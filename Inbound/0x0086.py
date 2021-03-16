@@ -1,41 +1,41 @@
 from script_api import *
 
-def DecodeWorldBoss():
-    b = AddBool("Unknown")
+def decode_world_boss():
+    b = add_bool("Unknown")
     if b:
-        count = AddInt("Count")
+        count = add_int("Count")
         for i in range(count):
             with Node("WorldBosses " + str(i)):
-                entryCount = AddInt("Count")
+                entryCount = add_int("Count")
                 for j in range(entryCount):
                     with Node("WorldBossSpawn " + str(j)):
-                        AddInt("MonsterId")
-                        AddInt("MapId")
-                        AddShort("Channel")
-                        AddLong("SpawnTime?")
-                        AddByte("Unknown (1)")
+                        add_int("MonsterId")
+                        add_int("MapId")
+                        add_short("Channel")
+                        add_long("SpawnTime?")
+                        add_byte("Unknown (1)")
 
-def DecodeMapPopulation():
-    t = AddByte("PopulationType?")
+def decode_map_population():
+    t = add_byte("PopulationType?")
     if t == 3:
-        count = AddInt("Count")
+        count = add_int("Count")
         for i in range(count):
             with Node("MapPopulation " + str(i)):
-                AddInt("MapId")
+                add_int("MapId")
                 # 1 = 3 icon, 2 = 2 icon, 3 = 1 icon
-                AddInt("Population")
-                AddShort("Channel")
+                add_int("Population")
+                add_short("Channel")
 
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 0:
-    DecodeWorldBoss()
-    b = AddBool("Unknown")
+    decode_world_boss()
+    b = add_bool("Unknown")
     if b:
-        DecodeWorldBoss()
-    b = AddByte("GetMapPopulation")
+        decode_world_boss()
+    b = add_byte("GetMapPopulation")
     with Node("MapPopulations"):
         if b == 1:
-            DecodeMapPopulation()
+            decode_map_population()
 elif f == 1:
-    DecodeMapPopulation()
+    decode_map_population()

@@ -1,12 +1,12 @@
 from script_api import *
 
-f = AddByte("Function?")
-AddLong("SkillUseUid") # guess
-AddInt("ObjectId") # guess
-AddByte("Unknown")
+f = add_byte("Function?")
+add_long("SkillUseUid") # guess
+add_int("ObjectId") # guess
+add_byte("Unknown")
 
 if f == 6:
-    AddInt("Unknown")
-AddInt("Unknown")
-AddShort("CoordS / 10")
-AddInt("Unknown")
+    add_int("Unknown")
+add_int("Unknown")
+add_short("CoordS / 10")
+add_int("Unknown")

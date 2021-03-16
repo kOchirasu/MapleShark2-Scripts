@@ -1,41 +1,41 @@
 from script_api import *
 
-def DecodeMaidCraft():
-    AddLong("CraftUid") # 2867694360299044869
-    AddLong("RecipeUid") # 2867553603835392936
-    AddInt("RecipeId")
-    AddLong("StartTimestamp")
-    AddInt("CraftTimeSeconds")
-    AddInt("CraftTimeSeconds")
+def decode_maidCraft():
+    add_long("CraftUid") # 2867694360299044869
+    add_long("RecipeUid") # 2867553603835392936
+    add_int("RecipeId")
+    add_long("StartTimestamp")
+    add_int("CraftTimeSeconds")
+    add_int("CraftTimeSeconds")
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 0: # active item crafts
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
-        DecodeMaidCraft()
+        decode_maidCraft()
 elif f == 1:
-    DecodeMaidCraft()
+    decode_maidCraft()
 elif f == 2:
-    DecodeMaidCraft()
+    decode_maidCraft()
 elif f == 3: # collect/cancel craft
-    AddLong("RecipeUid")
+    add_long("RecipeUid")
 elif f == 4: # craft item response #2
-    AddInt("Amount?") # 1
+    add_int("Amount?") # 1
 elif f == 6: # collect item #3
-    AddInt("Unknown") # 2
+    add_int("Unknown") # 2
 elif f == 7: # Same as 6
-    AddInt("Unknown")
+    add_int("Unknown")
 elif f == 8: # Same as 6
-    AddInt("Unknown")
+    add_int("Unknown")
 elif f == 9: # Same as 6
-    AddInt("Unknown")
+    add_int("Unknown")
 elif f == 10: # cancel craft #2
-    AddInt("Unknown") # 4
+    add_int("Unknown") # 4
 elif f == 11: # collect item #2
-    AddInt("ItemId")
-    AddInt("Amount")
-    AddByte("Rarity")
-    AddInt("MoodIncrease")
-    AddInt("ClosenessIncrease")
-    AddByte("Unknown")
-    AddByte("Unknown")
+    add_int("ItemId")
+    add_int("Amount")
+    add_byte("Rarity")
+    add_int("MoodIncrease")
+    add_int("ClosenessIncrease")
+    add_byte("Unknown")
+    add_byte("Unknown")

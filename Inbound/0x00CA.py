@@ -1,13 +1,13 @@
 from script_api import *
 from common import *
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 1:
-    AddLong("ItemUid")
-    DecodeItem(0)
+    add_long("ItemUid")
+    decode_item(0)
 elif f == 2:
-    AddLong("ItemUid")
-    DecodeItem(0)
+    add_long("ItemUid")
+    decode_item(0)
 elif f == 4:
-    AddByte("Unknown")
-    AddInt("Unknown")
+    add_byte("Unknown")
+    add_int("Unknown")

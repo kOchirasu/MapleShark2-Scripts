@@ -1,5 +1,5 @@
 from script_api import *
 
-AddInt("Version")
-AddShort("Unknown")
-AddShort("Unknown")
+add_int("Version")
+add_short("Unknown")
+add_short("Unknown")

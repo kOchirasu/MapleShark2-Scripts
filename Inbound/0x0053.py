@@ -1,82 +1,82 @@
 from script_api import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 
 if f == 0:
-    AddInt("Unknown")
+    add_int("Unknown")
 elif f == 1: # Talking to npc with quests
-    AddInt("NpcObjectId?")
-    count = AddInt("Count")
+    add_int("NpcObjectId?")
+    count = add_int("Count")
     for i in range(count):
-        AddInt("QuestId")
+        add_int("QuestId")
 elif f == 2: # start quest
-    AddInt("QuestId")
-    AddLong("StartTime")
-    AddByte("Started") # 1 (only set immediately after starting quest?)
-    AddInt("Unknown")
+    add_int("QuestId")
+    add_long("StartTime")
+    add_byte("Started") # 1 (only set immediately after starting quest?)
+    add_int("Unknown")
 elif f == 3: # exploration goal (1/1)
-    AddInt("Unknown") # 72000145
+    add_int("Unknown") # 72000145
     # maybe call on quest object + 68
-    AddInt("Unknown") # 1
-    AddInt("Unknown") # 1
+    add_int("Unknown") # 1
+    add_int("Unknown") # 1
 elif f == 4: # complete (exploration goal, navigator?)
-    AddInt("QuestId")
-    AddInt("Unknown") # 1
-    AddLong("CompletionTime")
+    add_int("QuestId")
+    add_int("Unknown") # 1
+    add_long("CompletionTime")
 elif f == 5:
-    AddInt("Unknown")
-    AddInt("Unknown")
+    add_int("Unknown")
+    add_int("Unknown")
 elif f == 6: # abandon
-    AddInt("QuestId")
+    add_int("QuestId")
 elif f == 7:
-    count = AddInt("Count")
+    count = add_int("Count")
     for i in range(count):
-        AddInt("Unknown")
+        add_int("Unknown")
 elif f == 9:
-    AddInt("Unknown")
-    AddByte("Unknown")
+    add_int("Unknown")
+    add_byte("Unknown")
 elif f == 28:
-    AddInt("Unknown")
-    AddInt("Unknown")
-    AddInt("Unknown")
+    add_int("Unknown")
+    add_int("Unknown")
+    add_int("Unknown")
 elif f == 21: # start load #0
-    AddInt("Unknown") # something like count??
-    AddInt("Unknown")
+    add_int("Unknown") # something like count??
+    add_int("Unknown")
 elif f == 22: # load quests #3 (chunked 200)
-    count = AddInt("Count")
+    count = add_int("Count")
     for i in range(count):
         with Node("Quest " + str(i)):
-            AddInt("QuestId")
-            AddInt("State") # 1 = started, 2 = completed?
-            AddInt("CompletionCount?")
-            AddLong("StartTime")
-            AddLong("EndTime")
-            AddByte("Accepted")
-            count2 = AddInt("Count")
+            add_int("QuestId")
+            add_int("State") # 1 = started, 2 = completed?
+            add_int("CompletionCount?")
+            add_long("StartTime")
+            add_long("EndTime")
+            add_byte("Accepted")
+            count2 = add_int("Count")
             for j in range(count2):
                 # I think this is used for keeping track of condition progress
-                AddInt("ConditionCounter")
+                add_int("ConditionCounter")
 elif f == 23: # load quest ids #4?
-    count = AddInt("Count")
+    count = add_int("Count")
     for i in range(count):
-        AddInt("Unknown")
+        add_int("Unknown")
 elif f == 25:
-    AddLong("Unknown")
+    add_long("Unknown")
 elif f == 26: # exploration reward
-    AddInt("StarAmount")
+    add_int("StarAmount")
 elif f == 30:
     pass # none
 elif f == 31: # load quest ids #1
-    AddByte("Unknown")
-    count = AddInt("Count")
+    add_byte("Unknown")
+    count = add_int("Count")
     for i in range(count):
-        AddInt("Unknown")
+        add_int("Unknown")
 elif f == 32: # load quest ids #2
-    AddByte("Unknown")
-    count = AddInt("Count")
+    add_byte("Unknown")
+    count = add_int("Count")
     for i in range(count):
-        AddInt("Unknown")
+        add_int("Unknown")
 elif f == 34 or f == 35: # (SidePopupTalkParam)
-    AddShort("Unknown")
+    add_short("Unknown")
 elif f == 38:
     pass # none

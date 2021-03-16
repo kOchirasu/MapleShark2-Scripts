@@ -1,8 +1,8 @@
 from script_api import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 0:
-    AddInt("IPAddress")
-    AddShort("Port")
-    AddInt("TokenA")
-    AddInt("TokenB")
+    add_int("IPAddress")
+    add_short("Port")
+    add_int("TokenA")
+    add_int("TokenB")

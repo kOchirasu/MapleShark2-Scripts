@@ -1,3 +1,3 @@
 from script_api import *
 
-AddFloat("InterpolationTime")
+add_float("InterpolationTime")

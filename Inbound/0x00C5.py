@@ -1,3 +1,3 @@
 from script_api import *
 
-AddUnicodeString("soundname")
+add_unicode_str("soundname")

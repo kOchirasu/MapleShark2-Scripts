@@ -1,11 +1,11 @@
 from script_api import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 0: # Start fishing
-    AddLong("RodItemUid")
+    add_long("RodItemUid")
 elif f == 9:
-    AddInt("Unknown")
+    add_int("Unknown")
 elif f == 8: # Success
-    AddBool("Auto") #  0 = manual, 1 = auto
+    add_bool("Auto") #  0 = manual, 1 = auto
 elif f == 10: # Failed
     pass

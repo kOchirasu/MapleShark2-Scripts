@@ -1,26 +1,26 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 
 if f == 0: # load mail
     pass # none
 elif f == 1: # send mail
-    AddUnicodeString("Recipient")
-    AddUnicodeString("Title")
-    AddUnicodeString("Message")
+    add_unicode_str("Recipient")
+    add_unicode_str("Title")
+    add_unicode_str("Message")
 elif f == 2: # view unread mail
-    AddLong("MailUid")
+    add_long("MailUid")
 elif f == 11: # collect one item (AddToInventory + MarkNew)
-    AddLong("MailUid")
+    add_long("MailUid")
 elif f == 13: # delete mail
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
-        AddLong("MailUid")
+        add_long("MailUid")
 elif f == 18: # mark read
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
-        AddLong("MailUid")
+        add_long("MailUid")
 elif f == 19: # collect multiple mail
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
-        AddLong("MailUid")
+        add_long("MailUid")

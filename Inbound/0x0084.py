@@ -1,45 +1,45 @@
 from script_api import *
 from common import *
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 0: # Receive trade request
-    AddUnicodeString("PlayerName")
-    AddLong("CharacterId")
+    add_unicode_str("PlayerName")
+    add_long("CharacterId")
 elif f == 1: # unknown
-    AddByte("Unknown")
-    AddUnicodeString("UnknownStr")
-    AddInt("Unknown")
-    AddInt("Unknown")
+    add_byte("Unknown")
+    add_unicode_str("UnknownStr")
+    add_int("Unknown")
+    add_int("Unknown")
 elif f == 2: # confirm request trade
     pass # none
 elif f == 4: # trade declined
-    AddUnicodeString("PlayerName")
+    add_unicode_str("PlayerName")
 elif f == 5: # begin trade
-    AddLong("CharacterId")
+    add_long("CharacterId")
 elif f == 6: # end trade
-    AddBool("Success")
+    add_bool("Success")
 elif f == 8: # Add item
-    AddByte("Unknown") # 1
-    id = AddInt("ItemId")
-    AddLong("ItemUid")
-    AddInt("Unknown") # 1
-    AddInt("TradeSlot")
-    AddInt("Amount")
-    AddInt("Unknown")
-    DecodeItem(id)
+    add_byte("Unknown") # 1
+    id = add_int("ItemId")
+    add_long("ItemUid")
+    add_int("Unknown") # 1
+    add_int("TradeSlot")
+    add_int("Amount")
+    add_int("Unknown")
+    decode_item(id)
 elif f == 9: # RemoveItem
-    AddByte("Unknown")
-    AddInt("TradeSlot")
-    AddLong("ItemUid")
+    add_byte("Unknown")
+    add_int("TradeSlot")
+    add_long("ItemUid")
 elif f == 10: # set money
-    AddByte("Unknown")
-    AddLong("Mesos")
+    add_byte("Unknown")
+    add_long("Mesos")
 elif f == 11: # finalize trade
-    AddByte("Unknown") # (0 = left, 1 = right)
+    add_byte("Unknown") # (0 = left, 1 = right)
 elif f == 13: # finalize confirm trade
-    AddByte("Unknown") # (0 = left, 1 = right)
+    add_byte("Unknown") # (0 = left, 1 = right)
 elif f == 12:
-    t = AddByte("Unknown")
+    t = add_byte("Unknown")
     if t == 1:
         pass # ...
 elif f == 13 or f == 14:

@@ -1,33 +1,33 @@
 from script_api import *
 
-def AddBuddyEntry():
+def add_buddyEntry():
     with Node("Entry"):
-        AddLong("EntryUid")
-        AddLong("CharacterId")
-        AddLong("AccountId")
-        AddUnicodeString("Name")
-        AddUnicodeString("RequestMessage")
-        AddShort("Unknown")
-        AddInt("MapId")
-        AddInt("JobCode")
-        AddInt("JobId")
-        AddShort("Level")
+        add_long("EntryUid")
+        add_long("CharacterId")
+        add_long("AccountId")
+        add_unicode_str("Name")
+        add_unicode_str("RequestMessage")
+        add_short("Unknown")
+        add_int("MapId")
+        add_int("JobCode")
+        add_int("JobId")
+        add_short("Level")
         with Node("Flags"):
             for i in range(5):
-                AddBool("Flag-bit " + str(i))
+                add_bool("Flag-bit " + str(i))
         
-        AddLong("Timestamp")
-        AddUnicodeString("ProfileUrl")
-        AddUnicodeString("Motto")
-        AddUnicodeString("Unknown")
-        AddInt("Unknown")
-        AddInt("Unknown")
-        AddInt("Unknown")
-        AddUnicodeString("HouseName")
-        AddLong("Unknown")
+        add_long("Timestamp")
+        add_unicode_str("ProfileUrl")
+        add_unicode_str("Motto")
+        add_unicode_str("Unknown")
+        add_int("Unknown")
+        add_int("Unknown")
+        add_int("Unknown")
+        add_unicode_str("HouseName")
+        add_long("Unknown")
         with Node("Trophy"):
             for i in range(3):
-                AddInt("Count")
+                add_int("Count")
 
 
 # Me
@@ -40,52 +40,52 @@ def AddBuddyEntry():
 
 # 2759038746032736787
 # 2755801783803708036
-f = AddByte("function")
+f = add_byte("function")
 if f == 1: # load
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
-        AddBuddyEntry()
+        add_buddyEntry()
 elif f == 2: # Request friend
-    AddByte("Unknown")
-    AddUnicodeString("Name")
+    add_byte("Unknown")
+    add_unicode_str("Name")
 elif f == 3: # and 7
-    AddByte("Unknown") # 0
-    AddLong("EntryUid")
-    AddLong("CharacterId")
-    AddLong("AccountId")
-    AddUnicodeString("Name")
+    add_byte("Unknown") # 0
+    add_long("EntryUid")
+    add_long("CharacterId")
+    add_long("AccountId")
+    add_unicode_str("Name")
 elif f == 4: # and 6 (unblock 1) and 17
-    AddByte("Unknown") # 0
-    AddLong("EntryUid")
+    add_byte("Unknown") # 0
+    add_long("EntryUid")
 elif f == 5 or f == 7: # Remove Entry (unblocking, cancelling request)
-    AddByte("Unknown")
-    AddLong("EntryUid")
-    AddLong("CharacterId")
-    AddLong("AccountId")
-    AddUnicodeString("Name")
+    add_byte("Unknown")
+    add_long("EntryUid")
+    add_long("CharacterId")
+    add_long("AccountId")
+    add_unicode_str("Name")
 elif f == 8: # Also use to update buddy map/online
-    AddBuddyEntry()
+    add_buddyEntry()
 elif f == 9: # Add Entry (blocking, request friend)
-    AddBuddyEntry()
+    add_buddyEntry()
 elif f == 10: # update block reason
-    AddByte("Unknown") # 0
-    AddLong("EntryUid") # uid of the block entry
-    AddUnicodeString("Name")
-    AddUnicodeString("BlockMsg")
-    AddByte("Unknown") # 0
-    AddLong("EntryUid") # uid of the block entry
-    AddUnicodeString("Name")
+    add_byte("Unknown") # 0
+    add_long("EntryUid") # uid of the block entry
+    add_unicode_str("Name")
+    add_unicode_str("BlockMsg")
+    add_byte("Unknown") # 0
+    add_long("EntryUid") # uid of the block entry
+    add_unicode_str("Name")
 elif f == 11 or f == 12: # block 1
-    AddByte("Unknown")
-    AddUnicodeString("Name")
+    add_byte("Unknown")
+    add_unicode_str("Name")
 elif f == 14:
-    AddByte("Unknown")
-    AddLong("EntryUid")
-    AddUnicodeString("Name")
+    add_byte("Unknown")
+    add_long("EntryUid")
+    add_unicode_str("Name")
 elif f == 15: # Reset (Start load)
     pass # None
 elif f == 17: # cancel friend request
-    AddByte("Unknown")
-    AddLong("EntryUid")
+    add_byte("Unknown")
+    add_long("EntryUid")
 elif f == 19:
-    AddInt("FriendCount")
+    add_int("FriendCount")

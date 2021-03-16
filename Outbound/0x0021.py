@@ -1,11 +1,11 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 0:
-    AddLong("SkillUseUid")
-    AddInt("ServerTick")
-    AddInt("SkillId")
-    AddShort("Unknown")
-    AddInt("Animation")
-    AddInt("ClientTick")
-    AddLong("ItemUid")
+    add_long("SkillUseUid")
+    add_int("ServerTick")
+    add_int("SkillId")
+    add_short("Unknown")
+    add_int("Animation")
+    add_int("ClientTick")
+    add_long("ItemUid")

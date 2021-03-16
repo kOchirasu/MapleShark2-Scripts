@@ -1,5 +1,5 @@
 from script_api import *
 
-AddLong("Mesos")
-AddShort("UnknownSeeExpUp") # 1001
-AddShort("Unknown")
+add_long("Mesos")
+add_short("UnknownSeeExpUp") # 1001
+add_short("Unknown")

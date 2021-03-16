@@ -1,20 +1,20 @@
 from script_api import *
 from common import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 
 if f == 0 or f == 1:
-    AddString("EntityStrId")
-    AddLong("SkillUseUid")
-    AddInt("SkillId")
-    AddShort("SkillLevel")
-    AddByte("Unknown") # 1
-    AddByte("Unknown") # 0
-    DecodeCoordS("EntityRelated")
-    AddInt("ServerTick")
-    AddString("UnknownStr") # empty
-    AddByte("Unknown") # 0
+    add_str("EntityStrId")
+    add_long("SkillUseUid")
+    add_int("SkillId")
+    add_short("SkillLevel")
+    add_byte("Unknown") # 1
+    add_byte("Unknown") # 0
+    decode_coordS("EntityRelated")
+    add_int("ServerTick")
+    add_str("UnknownStr") # empty
+    add_byte("Unknown") # 0
 elif f == 2:
-    AddString("UnknownStr")
-    AddString("UnknownStr")
-    AddByte("Unknown")
+    add_str("UnknownStr")
+    add_str("UnknownStr")
+    add_byte("Unknown")

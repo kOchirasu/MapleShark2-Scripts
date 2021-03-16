@@ -1,58 +1,58 @@
 from script_api import *
 
-def DecodeFieldPropertyInfo(t):
+def decode_field_property_info(t):
     if t == 1: # Gravity
-        AddFloat("Unknown")
+        add_float("Unknown")
     elif t == 2: # Concert (queenstown)
-        AddLong("CharacterId")
-        AddInt("Unknown") # 2252735185
+        add_long("CharacterId")
+        add_int("Unknown") # 2252735185
     elif t == 3: # HideMyPC
-        AddUnicodeString("Unknown")
-        AddUnicodeString("Unknown")
+        add_unicode_str("Unknown")
+        add_unicode_str("Unknown")
     elif t == 4: # LockMyPC
-        AddUnicodeString("Unknown")
-        AddUnicodeString("Unknown")
+        add_unicode_str("Unknown")
+        add_unicode_str("Unknown")
     elif t == 5: # UserTagSymbol
-        AddUnicodeString("Unknown")
-        AddUnicodeString("Unknown")
+        add_unicode_str("Unknown")
+        add_unicode_str("Unknown")
     elif t == 6: # SightRange
-        AddFloat("Unknown")
-        AddFloat("Unknown")
-        AddFloat("Unknown")
-        AddFloat("Unknown")
-        AddBool("Unknown")
-        AddByte("Unknown")
-        AddBool("Unknown")
+        add_float("Unknown")
+        add_float("Unknown")
+        add_float("Unknown")
+        add_float("Unknown")
+        add_bool("Unknown")
+        add_byte("Unknown")
+        add_bool("Unknown")
     elif t == 7: # Weather
-        AddByte("Unknown")
+        add_byte("Unknown")
     elif t == 8: # AmbientLight
         with Node("Node"):
-            AddByte("Unknown")
-            AddByte("Unknown")
-            AddByte("Unknown")
+            add_byte("Unknown")
+            add_byte("Unknown")
+            add_byte("Unknown")
     elif t == 9: # DirectionalLight
         with Node("Node"):
-            AddByte("Unknown")
-            AddByte("Unknown")
-            AddByte("Unknown")
+            add_byte("Unknown")
+            add_byte("Unknown")
+            add_byte("Unknown")
         with Node("Node"):
-            AddByte("Unknown")
-            AddByte("Unknown")
-            AddByte("Unknown")
+            add_byte("Unknown")
+            add_byte("Unknown")
+            add_byte("Unknown")
     elif t == 10: # Enables "Local Camera"
-        AddBool("IsEnabled?")
+        add_bool("IsEnabled?")
     elif t == 11: # Enables "FreeCamera/Take a Screenshot"
-        AddBool("IsEnabled?")
+        add_bool("IsEnabled?")
 
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 0:
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
-        t = AddByte("type")
-        DecodeFieldPropertyInfo(t)
+        t = add_byte("type")
+        decode_field_property_info(t)
 elif f == 1:
-    t = AddByte("type")
-    DecodeFieldPropertyInfo(t)
+    t = add_byte("type")
+    decode_field_property_info(t)
 elif f == 2:
-    AddByte("Unknown")
+    add_byte("Unknown")

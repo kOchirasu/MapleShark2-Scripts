@@ -1,23 +1,23 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 
 if f == 0: # load
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
         with Node("Lapenshard " + str(i), True):
-            AddInt("EquipSlot")
-            AddInt("ItemId")
+            add_int("EquipSlot")
+            add_int("ItemId")
 elif f == 1: # equip
-    AddInt("EquipSlot")
-    AddInt("ItemId")
+    add_int("EquipSlot")
+    add_int("ItemId")
 elif f == 2: # unequip
-    AddInt("EquipSlot")
+    add_int("EquipSlot")
 elif f == 4: # lapenshard stage update
-    AddInt("SuccessRate") # 10000 = 100%
+    add_int("SuccessRate") # 10000 = 100%
 elif f == 5: # lapenshard upgraded
     # if upgrading equipped, send 0x00
-    AddLong("TargetItemUid") # 0
-    AddInt("TargetItemId") # oldId
-    AddInt("Unknown") #0
-    AddBool("Success")
+    add_long("TargetItemUid") # 0
+    add_int("TargetItemId") # oldId
+    add_int("Unknown") #0
+    add_bool("Success")

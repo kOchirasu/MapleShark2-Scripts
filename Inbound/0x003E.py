@@ -1,99 +1,99 @@
 from script_api import *
 from common import *
 
-f = AddByte("function")
+f = add_byte("function")
 
 if f == 0:
-    AddLong("SkillUseUid")
-    AddInt("ObjectId")
-    AddInt("SkillId")
-    AddShort("SkillLevel")
-    AddByte("MotionPoint")
-    AddByte("AttackPoint")
-    DecodeCoordS("Impact")
-    DecodeCoordF("ImpactDirection")
-    AddByte("Unknown")
-    AddInt("ServerTick")
-    count = AddByte("count")
+    add_long("SkillUseUid")
+    add_int("ObjectId")
+    add_int("SkillId")
+    add_short("SkillLevel")
+    add_byte("MotionPoint")
+    add_byte("AttackPoint")
+    decode_coordS("Impact")
+    decode_coordF("ImpactDirection")
+    add_byte("Unknown")
+    add_int("ServerTick")
+    count = add_byte("count")
     for i in range(count):
         with Node("Node " + str(i)):
-            AddLong("Unknown")
-            AddInt("AttackCounter")
-            AddInt("UserObjectId")
-            AddInt("NpcObjectId")
-            AddByte("Unknown")
-            AddByte("Unknown")
+            add_long("Unknown")
+            add_int("AttackCounter")
+            add_int("UserObjectId")
+            add_int("NpcObjectId")
+            add_byte("Unknown")
+            add_byte("Unknown")
 elif f == 1:
-    AddLong("SkillUseUid")
-    AddInt("AttackCounter")
-    AddInt("UserObjectId")
-    AddInt("UserObjectId")
-    AddInt("SkillId")
-    AddShort("SkillLevel")
-    AddByte("MotionPoint")
-    AddByte("AttackPoint")
-    DecodeCoordS("PositionOfImpact")
-    DecodeCoordS("Direction")
-    count = AddByte("count")
+    add_long("SkillUseUid")
+    add_int("AttackCounter")
+    add_int("UserObjectId")
+    add_int("UserObjectId")
+    add_int("SkillId")
+    add_short("SkillLevel")
+    add_byte("MotionPoint")
+    add_byte("AttackPoint")
+    decode_coordS("PositionOfImpact")
+    decode_coordS("Direction")
+    count = add_byte("count")
     for i in range(count):
         with Node("AttackedMonster " + str(i)):
-            AddInt("MobObjectId")
-            count2 = AddByte("Unknown")
+            add_int("MobObjectId")
+            count2 = add_byte("Unknown")
             for j in range(count2):
-                AddByte("Unknown")
-                AddLong("Damage (neg)") # As negative
+                add_byte("Unknown")
+                add_long("Damage (neg)") # As negative
 elif f == 3: # dot
-    AddInt("OwnerId")
-    AddInt("TargetId")
-    AddInt("Tick")
-    AddByte("DamageType")
-    AddInt("Damage")
+    add_int("OwnerId")
+    add_int("TargetId")
+    add_int("Tick")
+    add_byte("DamageType")
+    add_int("Damage")
 elif f == 4: # healing
-    AddInt("CasterId")
-    AddInt("TargetId")
-    AddInt("???") # Some kind of counter?
-    AddLong("MobHealth") # Healed amount
-    AddInt("Unknown") # 0?
-    AddByte("Unknown") # 1
+    add_int("CasterId")
+    add_int("TargetId")
+    add_int("???") # Some kind of counter?
+    add_long("MobHealth") # Healed amount
+    add_int("Unknown") # 0?
+    add_byte("Unknown") # 1
 elif f == 5: # region skill
-    AddLong("Unknown")
-    AddInt("UserObjectId")
-    AddInt("SkillObjectId")
-    AddByte("Unknown")
-    count = AddByte("count")
+    add_long("Unknown")
+    add_int("UserObjectId")
+    add_int("SkillObjectId")
+    add_byte("Unknown")
+    count = add_byte("count")
     for i in range(count):
         with Node("Node " + str(i)):
-            AddInt("PlayerObjectId")
-            count2 = AddByte("Unknown")
-            DecodeCoordS("BlockPosition")
-            DecodeCoordF("Direction")
+            add_int("PlayerObjectId")
+            count2 = add_byte("Unknown")
+            decode_coordS("BlockPosition")
+            decode_coordF("Direction")
             for j in range(count2):
-                AddByte("DanageType")
-                AddLong("Damage")
+                add_byte("DanageType")
+                add_long("Damage")
 elif f == 6: # tile skill
-    AddLong("CastUid")
-    AddInt("SkillId")
-    AddShort("SkillLevel")
-    count = AddByte("TargetCount")
+    add_long("CastUid")
+    add_int("SkillId")
+    add_short("SkillLevel")
+    count = add_byte("TargetCount")
     for i in range(count):
         with Node("Target " + str(i)):
-            AddInt("PlayerObjectId")
-            count2 = AddByte("Unknown")
-            DecodeCoordS("Position")
-            DecodeCoordF("Direction")
+            add_int("PlayerObjectId")
+            count2 = add_byte("Unknown")
+            decode_coordS("Position")
+            decode_coordF("Direction")
             for j in range(count2):
-                AddByte("DamageType")
-                AddLong("Damage")
+                add_byte("DamageType")
+                add_long("Damage")
 elif f == 7:
-    AddInt("Unknown")
-    count = AddInt("count")
+    add_int("Unknown")
+    count = add_int("count")
     for i in range(count):
-        AddInt("Unknown")
+        add_int("Unknown")
 elif f == 8:
-    AddLong("Unknown")
-    b = AddBool("Unknown")
+    add_long("Unknown")
+    b = add_bool("Unknown")
     if b:
-        AddInt("Unknown")
-        AddShort("Unknown")
-        AddInt("Unknown")
-        AddInt("Unknown")
+        add_int("Unknown")
+        add_short("Unknown")
+        add_int("Unknown")
+        add_int("Unknown")

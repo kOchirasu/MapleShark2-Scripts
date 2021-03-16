@@ -1,35 +1,35 @@
 from script_api import *
 
-def DecodeClubPacketInvite():
+def decode_club_packet_invite():
     with Node("ClubPacketInvite"):
-        AddLong("ClubUid")
-        AddUnicodeString("ClubName")
-        AddUnicodeString("ClubLeader")
-        AddUnicodeString("Invitee")
+        add_long("ClubUid")
+        add_unicode_str("ClubName")
+        add_unicode_str("ClubLeader")
+        add_unicode_str("Invitee")
     
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 1: # create club name (from party)
-    AddUnicodeString("ClubName")
+    add_unicode_str("ClubName")
 elif f == 3: # respond club from party
-    AddLong("ClubUid")
-    AddInt("Unknown") # 0 = create, 75 = decline
+    add_long("ClubUid")
+    add_int("Unknown") # 0 = create, 75 = decline
 elif f == 6: # invite player to existing club
-    AddLong("ClubUid")
-    AddUnicodeString("PlayerName")
+    add_long("ClubUid")
+    add_unicode_str("PlayerName")
 elif f == 8: # accept invite
-    DecodeClubPacketInvite()
-    AddBool("Accepted") # 1 = accept, 0 = decline
+    decode_club_packet_invite()
+    add_bool("Accepted") # 1 = accept, 0 = decline
 elif f == 10: # leave club
-    AddLong("ClubUid")
+    add_long("ClubUid")
 elif f == 12:
-    AddByte("Unknown")
-    AddLong("Unknown")
-    AddUnicodeString("UnknownStr")
+    add_byte("Unknown")
+    add_long("Unknown")
+    add_unicode_str("UnknownStr")
 elif f == 13:
-    AddLong("ClubUid")
-    AddInt("BuffId")
-    AddInt("Unknown") # 1
+    add_long("ClubUid")
+    add_int("BuffId")
+    add_int("Unknown") # 1
 elif f == 14: # change name
-    AddLong("ClubUid")
-    AddUnicodeString("NewName")
+    add_long("ClubUid")
+    add_unicode_str("NewName")

@@ -1,15 +1,15 @@
 from script_api import *
 from common import *
 
-f = AddByte("function")
-AddInt("SkillObjectId?")
+f = add_byte("function")
+add_int("SkillObjectId?")
 if f == 0:
-    AddInt("OwnerObjectId") # this incremented on arrow rain
-    AddInt("ServerTicks")
-    count = AddByte("Count")
+    add_int("OwnerObjectId") # this incremented on arrow rain
+    add_int("ServerTicks")
+    count = add_byte("Count")
     for i in range(count):
-        DecodeCoordF("Position")
-    AddInt("SkillId")
-    AddShort("SkillLevel")
-    AddFloat("Unknown")
-    AddFloat("Unknown")
+        decode_coordF("Position")
+    add_int("SkillId")
+    add_short("SkillLevel")
+    add_float("Unknown")
+    add_float("Unknown")

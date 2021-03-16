@@ -1,10 +1,10 @@
 from script_api import *
 from common import *
 
-f = AddByte("Function")
-AddByte("State")
-AddInt("ServerTick")
+f = add_byte("Function")
+add_byte("State")
+add_int("ServerTick")
 if f == 0:
-    DecodeCoordF("Position")
+    decode_coordF("Position")
 elif f == 1:
     pass # nothing

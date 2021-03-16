@@ -1,25 +1,25 @@
 from script_api import *
 
-def AddAchievementDetails():
-    AddByte("Type")
-    AddInt("StartGrade")
-    AddInt("CurrentGrade")
-    AddInt("EndGrade")
-    AddByte("Unknown")
-    AddLong("TrackerTotalCount")
-    count2 = AddInt("Count")
+def decode_achieve_details():
+    add_byte("Type")
+    add_int("StartGrade")
+    add_int("CurrentGrade")
+    add_int("EndGrade")
+    add_byte("Unknown")
+    add_long("TrackerTotalCount")
+    count2 = add_int("Count")
     for j in range(count2):
-        AddInt("Grade " + (j + 1))
-        AddLong("DateAchieved")
+        add_int("Grade " + (j + 1))
+        add_long("DateAchieved")
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 1: # Load
-    count = AddInt("Count")
+    count = add_int("Count")
     for i in range(count):
         with Node("Achievment " + str(i)):
-            AddInt("Id")
-            AddInt("ss")
-            AddAchievementDetails()
+            add_int("Id")
+            add_int("ss")
+            decode_achieve_details()
 elif f == 2: # Update?
-    AddInt("Id")
-    AddAchievementDetails()
+    add_int("Id")
+    decode_achieve_details()

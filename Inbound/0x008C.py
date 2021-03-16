@@ -2,569 +2,569 @@ from script_api import *
 from common import *
 
 def f_59_60_115():
-    AddBool("Unknown")
-    AddBool("Unknown")
+    add_bool("Unknown")
+    add_bool("Unknown")
 
 def sub_508870():
-    AddInt("SkillLevel")
-    AddInt("SkillId (index)")
-    AddLong("ExpiryTime?")
+    add_int("SkillLevel")
+    add_int("SkillId (index)")
+    add_long("ExpiryTime?")
 
 def sub_AE52B0():
-    AddLong("Unknown")
-    AddUnicodeString("UnknownStr")
-    AddUnicodeString("UnknownStr")
-    AddInt("Unknown")
+    add_long("Unknown")
+    add_unicode_str("UnknownStr")
+    add_unicode_str("UnknownStr")
+    add_int("Unknown")
 
-def DecodeGuildMember():
+def decode_guild_member():
     with Node("GuildMember"):
-        memberType = AddByte("Type (const)") # always 3...
-        AddByte("GuildRank")
-        AddLong("GuildMemberUid")
+        memberType = add_byte("Type (const)") # always 3...
+        add_byte("GuildRank")
+        add_long("GuildMemberUid")
 
         if memberType == 3:
-            DecodeGuildMemberPlayer()
+            decode_guild_member_player()
 
-            AddUnicodeString("GuildMessage")
-            AddLong("JoinDate")
-            AddLong("LastLogoffTime")
-            AddLong("LastLoginTime")
-            AddInt("Unknown+213")
-            AddInt("Unknown+217")
-            AddInt("WeeklyContribution")
-            AddInt("TotalContribution")
-            AddInt("DonationCount") # times donated today?
-            AddLong("LastContributeTime?")
-            count2 = AddInt("count")
+            add_unicode_str("GuildMessage")
+            add_long("JoinDate")
+            add_long("LastLogoffTime")
+            add_long("LastLoginTime")
+            add_int("Unknown+213")
+            add_int("Unknown+217")
+            add_int("WeeklyContribution")
+            add_int("TotalContribution")
+            add_int("DonationCount") # times donated today?
+            add_long("LastContributeTime?")
+            count2 = add_int("count")
             for j in range(count2):
-                AddInt("Unknown")
-                AddInt("Unknown")
-            AddBool("CanCheckIn?")
+                add_int("Unknown")
+                add_int("Unknown")
+            add_bool("CanCheckIn?")
         else:
-            AddUnicodeString("UnknownStr+114")
-            AddInt("Unknown+116")
-            AddInt("Unknown+120")
-            AddShort("Unknown+124")
-            AddUnicodeString("UnknownStr+126")
+            add_unicode_str("UnknownStr+114")
+            add_int("Unknown+116")
+            add_int("Unknown+120")
+            add_short("Unknown+124")
+            add_unicode_str("UnknownStr+126")
 
-def DecodeGuildMemberPlayer():
+def decode_guild_member_player():
     with Node("PlayerUIEntry"):
-        AddLong("AccountId")
-        AddLong("CharacterId")
-        AddUnicodeString("MemberName")
-        AddByte("Gender") # 1
-        AddInt("JobCode")
-        AddInt("JobId")
-        AddShort("Level")
-        AddInt("GearScore")
-        AddInt("MapId")
-        AddShort("Unknown+151") # 0
-        AddUnicodeString("MemberProfileUrl")
-        AddInt("PlotMapId")
-        AddInt("PlotId") # 41?
-        AddInt("Unknown+163")
-        AddLong("PlotExpiration") # By default, but can change...
+        add_long("AccountId")
+        add_long("CharacterId")
+        add_unicode_str("MemberName")
+        add_byte("Gender") # 1
+        add_int("JobCode")
+        add_int("JobId")
+        add_short("Level")
+        add_int("GearScore")
+        add_int("MapId")
+        add_short("Unknown+151") # 0
+        add_unicode_str("MemberProfileUrl")
+        add_int("PlotMapId")
+        add_int("PlotId") # 41?
+        add_int("Unknown+163")
+        add_long("PlotExpiration") # By default, but can change...
         for i in range(3):
-            AddInt("Trophy")
+            add_int("Trophy")
 
-def DecodeGuildJoinRequest(): # CGuildJoinRequestForGuild
+def decode_guild_join_request(): # CGuildJoinRequestForGuild
     with Node("GuildJoinRequest"):
-        AddLong("Unknown")
-        AddLong("Unknown")
-        AddLong("Unknown")
-        AddLong("Unknown")
-        AddUnicodeString("UnknownStr")
-        AddUnicodeString("UnknownStr")
-        AddInt("Unknown")
-        AddInt("Unknown")
-        AddInt("Unknown")
-        AddLong("Unknown")
+        add_long("Unknown")
+        add_long("Unknown")
+        add_long("Unknown")
+        add_long("Unknown")
+        add_unicode_str("UnknownStr")
+        add_unicode_str("UnknownStr")
+        add_int("Unknown")
+        add_int("Unknown")
+        add_int("Unknown")
+        add_long("Unknown")
     
 
-def DecodeGuildJoinRequestForChar(): # CGuildJoinRequestForChar
+def decode_guild_join_requestforchar(): # CGuildJoinRequestForChar
     with Node("GuildJoinRequestForChar", True):
-        AddLong("ApplicationId")
-        AddLong("GuildId") # 2740883628096919654
-        AddUnicodeString("GuildName")
-        AddInt("GuildFocus")
-        AddUnicodeString("UnknownStr")
+        add_long("ApplicationId")
+        add_long("GuildId") # 2740883628096919654
+        add_unicode_str("GuildName")
+        add_int("GuildFocus")
+        add_unicode_str("UnknownStr")
         for i in range(3):
-            AddInt("TotalTrophy")
-        AddInt("Members")
-        AddInt("MaxMembers")
-        AddUnicodeString("UnknownStr")
-        AddLong("ApplicantAccountId") # 2754957392241780790
-        AddLong("ApplicantCharacterId") # 2755521558353024091
-        AddLong("Timestamp")
+            add_int("TotalTrophy")
+        add_int("Members")
+        add_int("MaxMembers")
+        add_unicode_str("UnknownStr")
+        add_long("ApplicantAccountId") # 2754957392241780790
+        add_long("ApplicantCharacterId") # 2755521558353024091
+        add_long("Timestamp")
     
 
-def DecodeSearchGuildJoin(): # CSearchGuildJoin
+def decode_search_guild_join(): # CSearchGuildJoin
     with Node("SearchGuildJoin", True):
-        AddLong("GuildUid") # 2740883628096919654
-        AddUnicodeString("GuildName")
-        AddUnicodeString("UnknownStr")
+        add_long("GuildUid") # 2740883628096919654
+        add_unicode_str("GuildName")
+        add_unicode_str("UnknownStr")
         for i in range(3):
-            AddInt("TotalTrophy")
-        AddInt("Members")
-        AddInt("MaxMembers")
-        AddInt("GuildFocusFlags")
-        AddLong("LeaderAccountId") # 2757912858338010347
-        AddLong("LeaderCharacterId") # 2758194333369633524
-        AddUnicodeString("LeaderName") # Sonic44885
+            add_int("TotalTrophy")
+        add_int("Members")
+        add_int("MaxMembers")
+        add_int("GuildFocusFlags")
+        add_long("LeaderAccountId") # 2757912858338010347
+        add_long("LeaderCharacterId") # 2758194333369633524
+        add_unicode_str("LeaderName") # Sonic44885
     
 
-def DecodeGuildPVPHistoryData():
+def decode_guild_pvp_history_data():
     with Node("GuildPVPHistoryData", True):
-        AddInt("Unknown")
-        AddInt("Unknown")
-        AddByte("Unknown")
-        AddLong("Unknown")
-        AddLong("Unknown")
-        AddUnicodeString("UnknownStr")
-        AddUnicodeString("UnknownStr")
-        AddInt("Unknown")
-        AddInt("Unknown")
-        AddInt("Unknown")
-        AddInt("Unknown")
+        add_int("Unknown")
+        add_int("Unknown")
+        add_byte("Unknown")
+        add_long("Unknown")
+        add_long("Unknown")
+        add_unicode_str("UnknownStr")
+        add_unicode_str("UnknownStr")
+        add_int("Unknown")
+        add_int("Unknown")
+        add_int("Unknown")
+        add_int("Unknown")
         for i in range(5):
             with Node("Entry " + str(i)):
-                AddUnicodeString("UnknownStr")
-                AddUnicodeString("UnknownStr")
-                AddByte("Unknown")
-        AddLong("Unknown")
-        AddLong("Unknown")
+                add_unicode_str("UnknownStr")
+                add_unicode_str("UnknownStr")
+                add_byte("Unknown")
+        add_long("Unknown")
+        add_long("Unknown")
     
 
-def DecodeGuildPVPSeasonHistoryData():
+def decode_guild_pvp_season_history_data():
     with Node("GuildPVPSeasonHistoryData"):
-        AddInt("Unknown")
-        AddLong("Unknown")
-        AddLong("Unknown")
-        AddUnicodeString("UnknownStr")
-        AddInt("Unknown")
-        AddInt("Unknown")
-        AddInt("Unknown")
-        AddUnicodeString("UnknownStr")
-        AddInt("Unknown")
-        AddInt("Unknown")
-        AddInt("Unknown")
-        AddInt("Unknown")
-        AddInt("Unknown")
-        AddInt("Unknown")
-        AddInt("Unknown")
+        add_int("Unknown")
+        add_long("Unknown")
+        add_long("Unknown")
+        add_unicode_str("UnknownStr")
+        add_int("Unknown")
+        add_int("Unknown")
+        add_int("Unknown")
+        add_unicode_str("UnknownStr")
+        add_int("Unknown")
+        add_int("Unknown")
+        add_int("Unknown")
+        add_int("Unknown")
+        add_int("Unknown")
+        add_int("Unknown")
+        add_int("Unknown")
     
 
-def DecodeGuildBankEntry():
+def decode_guild_bank_entry():
     with Node("UnknownEntry"):
-        AddInt("ItemId")
-        AddShort("Rarity")
-        AddInt("Amount")
-        AddBool("Unknown")
-        AddBool("Unknown")
-        AddBool("Unknown")
-        AddBool("Unknown")
+        add_int("ItemId")
+        add_short("Rarity")
+        add_int("Amount")
+        add_bool("Unknown")
+        add_bool("Unknown")
+        add_bool("Unknown")
+        add_bool("Unknown")
 
 
 # Guild
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 0:
-    AddLong("GuildUid")
-    AddUnicodeString("GuildName")
-    AddUnicodeString("GuildIconUrl")
-    AddByte("MaxMembers")
-    AddUnicodeString("UnknownStr+22")
-    AddUnicodeString("GuildMessage")
-    AddLong("LeaderAccountId")
-    AddLong("LeaderCharacterId")
-    AddUnicodeString("GuildLeaderName")
-    AddLong("CreationTime")
-    AddByte("Unknown+52")
-    AddInt("Unknown+53") # 1000
-    AddInt("Unknown+57")
-    AddInt("Unknown+61")
-    AddInt("Unknown+65")
-    AddInt("Unknown+69")
-    AddInt("Unknown+73")
-    AddInt("Unknown+77")
-    AddInt("Unknown+81")
-    AddByte("Unknown+85") # 1
-    AddInt("GuildFocus") # bit-flags
-    AddInt("GuildExp")
-    AddInt("GuildFunds")
-    AddBool("Unknown+98")
-    AddInt("Unknown+99")
+    add_long("GuildUid")
+    add_unicode_str("GuildName")
+    add_unicode_str("GuildIconUrl")
+    add_byte("MaxMembers")
+    add_unicode_str("UnknownStr+22")
+    add_unicode_str("GuildMessage")
+    add_long("LeaderAccountId")
+    add_long("LeaderCharacterId")
+    add_unicode_str("GuildLeaderName")
+    add_long("CreationTime")
+    add_byte("Unknown+52")
+    add_int("Unknown+53") # 1000
+    add_int("Unknown+57")
+    add_int("Unknown+61")
+    add_int("Unknown+65")
+    add_int("Unknown+69")
+    add_int("Unknown+73")
+    add_int("Unknown+77")
+    add_int("Unknown+81")
+    add_byte("Unknown+85") # 1
+    add_int("GuildFocus") # bit-flags
+    add_int("GuildExp")
+    add_int("GuildFunds")
+    add_bool("Unknown+98")
+    add_int("Unknown+99")
     with Node("Guild Members"):
-        count = AddByte("MemberCount+103")
+        count = add_byte("MemberCount+103")
         for i in range(count):
-            DecodeGuildMember()
+            decode_guild_member()
 
     with Node("GuildRanks"):
-        count = AddByte("GuildRanksCount")
+        count = add_byte("GuildRanksCount")
         for i in range(count):
-            DecodeGuildRank()
+            decode_guild_rank()
     
     with Node("GuildSkills"):
-        count = AddByte("GuildSkillsCount")
+        count = add_byte("GuildSkillsCount")
         for i in range(count):
             with Node("GuildSkill " + str(i)):
-                AddInt("SkillId")
-                AddInt("SkillLevel")
-                AddLong("ExpireTime")
+                add_int("SkillId")
+                add_int("SkillLevel")
+                add_long("ExpireTime")
         
     with Node("GuildEvents"):
-        count = AddByte("GuildEventsCount")
+        count = add_byte("GuildEventsCount")
         for i in range(count):
             with Node("GuildEvent " + str(i)):
-                AddInt("Index")
-                AddInt("Unknown") # 0
+                add_int("Index")
+                add_int("Unknown") # 0
         
     with Node("GuildPosters"):
-        AddInt("Unknown+131")
-        AddInt("Unknown+135")
-        count = AddInt("Count")
+        add_int("Unknown+131")
+        add_int("Unknown+135")
+        count = add_int("Count")
         for i in range(count):
             with Node("Poster " + str(i)):
-                AddInt("Index")
-                AddUnicodeString("PosterUrl")
-                AddLong("OwnerCharacterId")
-                AddUnicodeString("OwnerName")
+                add_int("Index")
+                add_unicode_str("PosterUrl")
+                add_long("OwnerCharacterId")
+                add_unicode_str("OwnerName")
             
     with Node("GuildNpcs"):
-        count = AddByte("Count")
+        count = add_byte("Count")
         for i in range(count):
             with Node("GuildNpc " + str(i)):
-                AddInt("ServiceType")
-                AddInt("Level")
+                add_int("ServiceType")
+                add_int("Level")
         
     with Node("GuildNpcShopProducts"):
-        if AddBool("Flag"):
-            count = AddShort("Count")
+        if add_bool("Flag"):
+            count = add_short("Count")
             for i in range(count):
-                AddBool("Unknown")
-                AddShort("Unknown")
-                AddLong("Unknown")
-                count2 = AddShort("Unknown")
+                add_bool("Unknown")
+                add_short("Unknown")
+                add_long("Unknown")
+                count2 = add_short("Unknown")
                 for j in range(count2):
-                    if AddBool("Flag"):
-                        AddInt("Unknown")
-                        AddByte("Unknown")
-                        AddInt("Unknown")
-                        AddInt("Unknown")
+                    if add_bool("Flag"):
+                        add_int("Unknown")
+                        add_byte("Unknown")
+                        add_int("Unknown")
+                        add_int("Unknown")
     
     with Node("GuildBank"):
-        count = AddInt("count")
+        count = add_int("count")
         for i in range(count):
-            DecodeGuildBankEntry()
+            decode_guild_bank_entry()
     
-    AddInt("Unknown+149")
-    AddUnicodeString("UnknownStr+153")
-    AddLong("Unknown+155")
-    AddLong("Unknown+163")
+    add_int("Unknown+149")
+    add_unicode_str("UnknownStr+153")
+    add_long("Unknown+155")
+    add_long("Unknown+163")
     for i in range(7):
-        AddInt("Unknown")
+        add_int("Unknown")
 elif f == 1: # guild created
-    e = AddByte("Notice")
+    e = add_byte("Notice")
     if e == 0:
-        AddUnicodeString("GuildName")
+        add_unicode_str("GuildName")
 elif f == 2: # disband guild
-    e = AddByte("Notice") # 0 = success
+    e = add_byte("Notice") # 0 = success
 elif f == 3: # guild invite
-    AddUnicodeString("Player Name")
+    add_unicode_str("Player Name")
 elif f == 4:
-    DecodeGuildInviteInfo()
+    decode_guild_invite_info()
 elif f == 5: # accepeted to guild
-    DecodeGuildInviteInfo()
-    AddBool("Notice")
+    decode_guild_invite_info()
+    add_bool("Notice")
 elif f == 6: # invite response msg
-    AddUnicodeString("PlayerName")
-    b = AddByte("Unknown") # T if accept
-    AddByte("Notice") # 0=accepted, 1=declined, 2, 3
+    add_unicode_str("PlayerName")
+    b = add_byte("Unknown") # T if accept
+    add_byte("Notice") # 0=accepted, 1=declined, 2, 3
     if b != 1:
         pass # Display Notice
 elif f == 7: # leave guild
     pass # notice
 elif f == 8:
-    AddUnicodeString("UnknownStr")
+    add_unicode_str("UnknownStr")
 elif f == 9:
-    AddUnicodeString("UnknownStr")
+    add_unicode_str("UnknownStr")
 elif f == 10: # change player rank
-    AddUnicodeString("PlayerName")
-    AddByte("Rank")
+    add_unicode_str("PlayerName")
+    add_byte("Rank")
 elif f == 11:
-    AddUnicodeString("UnknownStr")
+    add_unicode_str("UnknownStr")
 elif f == 12:
-    AddUnicodeString("UnknownStr")
-    AddUnicodeString("UnknownStr")
+    add_unicode_str("UnknownStr")
+    add_unicode_str("UnknownStr")
 elif f == 14:
-    AddUnicodeString("PlayerName")
-    AddInt("Unknown") # 3382??
+    add_unicode_str("PlayerName")
+    add_int("Unknown") # 3382??
 elif f == 15: # confirm check in
     pass # none
 elif f == 18:
-    AddUnicodeString("AcceptorName") # maybe leader
-    AddUnicodeString("PlayerName")
-    AddByte("Unknown")
-    DecodeGuildMember()
+    add_unicode_str("AcceptorName") # maybe leader
+    add_unicode_str("PlayerName")
+    add_byte("Unknown")
+    decode_guild_member()
 elif f == 19:
-    AddUnicodeString("UnknownStr")
+    add_unicode_str("UnknownStr")
 elif f == 20: # kicked player
-    AddUnicodeString("LeaderName")
-    AddUnicodeString("PlayerName")
+    add_unicode_str("LeaderName")
+    add_unicode_str("PlayerName")
 elif f == 21: # updated player rank
-    AddUnicodeString("LeaderName")
-    AddUnicodeString("PlayerName")
-    AddByte("Rank")
+    add_unicode_str("LeaderName")
+    add_unicode_str("PlayerName")
+    add_byte("Rank")
 elif f == 22: # update motto
-    AddUnicodeString("PlayerName")
-    AddUnicodeString("PlayerMotto")
+    add_unicode_str("PlayerName")
+    add_unicode_str("PlayerMotto")
 elif f == 23: # guild member logged in
-    AddUnicodeString("PlayerName")
+    add_unicode_str("PlayerName")
 elif f == 24: # logged off
-    AddUnicodeString("PlayerName")
-    AddLong("LogOFfTime?")
+    add_unicode_str("PlayerName")
+    add_long("LogOFfTime?")
 elif f == 25: # become leader
-    AddUnicodeString("OldLeaderName")
-    AddUnicodeString("NewLeaderName")
+    add_unicode_str("OldLeaderName")
+    add_unicode_str("NewLeaderName")
 elif f == 26: # setting notice
-    AddUnicodeString("LeaderName")
-    AddByte("Notice")
-    AddUnicodeString("NoticeMessage")
+    add_unicode_str("LeaderName")
+    add_byte("Notice")
+    add_unicode_str("NoticeMessage")
 elif f == 27:
-    AddUnicodeString("UnknownStr")
+    add_unicode_str("UnknownStr")
 elif f == 28:
-    AddUnicodeString("UnknownStr")
-    AddInt("Unknown")
+    add_unicode_str("UnknownStr")
+    add_int("Unknown")
 elif f == 29: # update rank
-    b = AddBool("Unknown")
-    AddInt("Unknown")
+    b = add_bool("Unknown")
+    add_int("Unknown")
     if not b:
-        AddUnicodeString("LeaderName")
+        add_unicode_str("LeaderName")
     else:
-        AddInt("Unknown")
-        count = AddInt("count")
+        add_int("Unknown")
+        count = add_int("count")
         for i in range(count):
-            AddUnicodeString("UnknownStr")
-    AddByte("Unknown")
-    DecodeGuildRank()
+            add_unicode_str("UnknownStr")
+    add_byte("Unknown")
+    decode_guild_rank()
 elif f == 30: # set guild focus msg (???)
-    AddUnicodeString("LEaderName")
+    add_unicode_str("LEaderName")
     # guild focus packet
-    AddBool("Unkown")
-    AddInt("FocusFlags")
+    add_bool("Unkown")
+    add_int("FocusFlags")
 elif f == 31:
-    AddUnicodeString("UnknownStr")
+    add_unicode_str("UnknownStr")
     # Some condition
-    # AddInt("Unknown")
+    # add_int("Unknown")
 elif f == 32: # update member
-    AddUnicodeString("PlayerName")
-    DecodeGuildMemberPlayer()
+    add_unicode_str("PlayerName")
+    decode_guild_member_player()
 elif f == 33:
-    AddUnicodeString("UnknownStr")
+    add_unicode_str("UnknownStr")
 elif f == 34:
-    AddUnicodeString("UnknownStr")
+    add_unicode_str("UnknownStr")
 elif f == 35:
-    AddUnicodeString("UnknownStr")
-    AddInt("Unknown")
-    AddInt("Unknown")
-    AddShort("Unknown")
+    add_unicode_str("UnknownStr")
+    add_int("Unknown")
+    add_int("Unknown")
+    add_short("Unknown")
 elif f == 36: # sent after updating contribution?
-    AddUnicodeString("Name")
-    AddLong("TimeNow")
+    add_unicode_str("Name")
+    add_long("TimeNow")
 elif f == 37:
-    AddUnicodeString("UnknownStr")
-    AddInt("Unknown")
-    AddInt("Unknown")
+    add_unicode_str("UnknownStr")
+    add_int("Unknown")
+    add_int("Unknown")
 elif f == 38: # CUIService Related
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
-        AddUnicodeString("UnknownStr")
-        AddInt("Unknown")
-        AddInt("Unknown")
+        add_unicode_str("UnknownStr")
+        add_int("Unknown")
+        add_int("Unknown")
 elif f == 39:
-    AddByte("Unknown")
+    add_byte("Unknown")
 elif f == 40:
-    AddByte("Unknown")
+    add_byte("Unknown")
 elif f == 41:
-    AddInt("Unknown")
-    AddInt("Unknown")
-    AddInt("Unknown")
+    add_int("Unknown")
+    add_int("Unknown")
+    add_int("Unknown")
 elif f == 42:
-    AddByte("Unknown")
-    AddUnicodeString("UnknownStr")
+    add_byte("Unknown")
+    add_unicode_str("UnknownStr")
 elif f == 43:
-    AddUnicodeString("UnknownStr")
+    add_unicode_str("UnknownStr")
 elif f == 44:
-    AddUnicodeString("UnknownStr")
+    add_unicode_str("UnknownStr")
 elif f == 45: # receive application
-    DecodeGuildJoinRequest()
+    decode_guild_join_request()
 elif f == 46: # application removed
-    AddLong("ApplicationUid")
+    add_long("ApplicationUid")
 elif f == 47: # accept guild invite
-    AddUnicodeString("AcceptorName")
-    AddUnicodeString("AcceptedName")
-    AddByte("1 when accepted")
-    AddLong("ApplicationId")
+    add_unicode_str("AcceptorName")
+    add_unicode_str("AcceptedName")
+    add_byte("1 when accepted")
+    add_long("ApplicationId")
 elif f == 48: # your application rejected
-    AddUnicodeString("GuildName")
-    AddLong("ApplicationId")
-    AddByte("Unknown") # 0
+    add_unicode_str("GuildName")
+    add_long("ApplicationId")
+    add_byte("Unknown") # 0
 elif f == 49: # update guild exp
-    AddInt("GuildExp") # 3307547 (GuildExp?)
+    add_int("GuildExp") # 3307547 (GuildExp?)
 elif f == 50: # update guild funds
-    AddInt("GuildFunds")
+    add_int("GuildFunds")
 elif f == 51: # update contribution
-    AddUnicodeString("Name")
-    AddInt("ContributionGained")
-    AddInt("WeeklyContribution")
-    AddInt("TotalContribution")
+    add_unicode_str("Name")
+    add_int("ContributionGained")
+    add_int("WeeklyContribution")
+    add_int("TotalContribution")
 elif f == 52: # Use skill
-    AddUnicodeString("UsePlayerName")
+    add_unicode_str("UsePlayerName")
     sub_508870()
 elif f == 53: # skill upgraded
-    AddUnicodeString("UpgraderName")
+    add_unicode_str("UpgraderName")
     sub_508870()
 elif f == 54: # started arcade msg
-    AddUnicodeString("PlayerName") # who started it
-    AddInt("GameIndex")
-    AddInt("timestamp (INT)")
+    add_unicode_str("PlayerName") # who started it
+    add_int("GameIndex")
+    add_int("timestamp (INT)")
 elif f == 55:
-    AddUnicodeString("UnknownStr")
-    AddInt("Unknown")
-    AddInt("Unknown")
+    add_unicode_str("UnknownStr")
+    add_int("Unknown")
+    add_int("Unknown")
 elif f == 56:
-    AddLong("Unknown")
-    AddUnicodeString("UnknownStr")
-    AddInt("Unknown")
-    AddUnicodeString("UnknownStr")
+    add_long("Unknown")
+    add_unicode_str("UnknownStr")
+    add_int("Unknown")
+    add_unicode_str("UnknownStr")
 elif f == 57:
-    AddUnicodeString("UnknownStr")
+    add_unicode_str("UnknownStr")
     # CGuildNpc related
-    AddInt("Unknown")
-    AddInt("Unknown")
+    add_int("Unknown")
+    add_int("Unknown")
 elif f == 59:
     f_59_60_115()
 elif f == 60:
     f_59_60_115()
 elif f == 61: # make leader response
-    AddUnicodeString("NewLeaderName")
+    add_unicode_str("NewLeaderName")
 elif f == 62: # set guild notice
-    AddBool("Unknown") # 1
-    AddUnicodeString("GuildNotice")
+    add_bool("Unknown") # 1
+    add_unicode_str("GuildNotice")
 elif f == 63:
-    AddUnicodeString("UnknownStr")
+    add_unicode_str("UnknownStr")
 elif f == 64:
-    AddInt("Unknown")
+    add_int("Unknown")
 elif f == 65: # update rank response
-    AddByte("Unknown")
-    DecodeGuildRank()
+    add_byte("Unknown")
+    decode_guild_rank()
 elif f == 66: # set guild focus
-    AddBool("Unkown")
-    AddInt("FocusFlags")
+    add_bool("Unkown")
+    add_int("FocusFlags")
 elif f == 69: # send mail response
     pass # none
 elif f == 72:
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
-        b = AddBool("flag")
+        b = add_bool("flag")
         if b:
-            DecodeGuildPVPHistoryData()
+            decode_guild_pvp_history_data()
 elif f == 73:
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
-        b = AddBool("flag")
+        b = add_bool("flag")
         if b:
-            DecodeGuildPVPSeasonHistoryData()
+            decode_guild_pvp_season_history_data()
 elif f == 74:
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
-        AddUnicodeString("UnknownStr")
-        AddUnicodeString("UnknownStr")
-        AddLong("Unknown")
+        add_unicode_str("UnknownStr")
+        add_unicode_str("UnknownStr")
+        add_long("Unknown")
 elif f == 75: # add guild details above player
-    AddUnicodeString("PlayerName")
-    AddUnicodeString("GuildName")
+    add_unicode_str("PlayerName")
+    add_unicode_str("GuildName")
 elif f == 76: # left/kicked from guild
-    AddUnicodeString("Name")
+    add_unicode_str("Name")
 elif f == 77: # create guild name taken
-    AddByte("Unknown") # 1
-    AddByte("Unknown") # 11
-    AddInt("Unknown")
+    add_byte("Unknown") # 1
+    add_byte("Unknown") # 11
+    add_int("Unknown")
 elif f == 78:
-    AddInt("Unknown")
-    AddLong("Unknown")
-    AddLong("Unknown")
-    AddUnicodeString("UnknownStr")
+    add_int("Unknown")
+    add_long("Unknown")
+    add_long("Unknown")
+    add_unicode_str("UnknownStr")
 elif f == 80: # apply guild
-    AddLong("ApplicationId")
-    AddUnicodeString("GuildName")
+    add_long("ApplicationId")
+    add_unicode_str("GuildName")
 elif f == 81: # cancel application
-    AddLong("ApplicationId")
-    AddUnicodeString("GuildName")
+    add_long("ApplicationId")
+    add_unicode_str("GuildName")
 elif f == 82: # response application
-    AddLong("ApplicationId")
-    AddUnicodeString("PlayerName")
-    AddBool("IsAccepted") # 0
+    add_long("ApplicationId")
+    add_unicode_str("PlayerName")
+    add_bool("IsAccepted") # 0
 elif f == 83: # updated players rank?
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
-        b = AddBool("Unknown")
+        b = add_bool("Unknown")
         if b:
-             DecodeGuildJoinRequest()
+             decode_guild_join_request()
 elif f == 84: # load open guild search ui (not in guild)
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
-        b = AddBool("Requested")
+        b = add_bool("Requested")
         if b:
-            DecodeGuildJoinRequestForChar()
+            decode_guild_join_requestforchar()
 elif f == 85: # Search for guild
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
-        b = AddBool("Unknown")
+        b = add_bool("Unknown")
         if b:
-            DecodeSearchGuildJoin()
+            decode_search_guild_join()
 elif f == 88: # active guild buff
-    AddInt("GuildBuffId")
+    add_int("GuildBuffId")
 elif f == 89: # activate guild personal buff
-    AddInt("GuildBuffId")
+    add_int("GuildBuffId")
 elif f == 95: # acquired guild funds/exp (msg)
-    AddInt("AcquiredExp")
-    AddInt("AcquiredFunds")
+    add_int("AcquiredExp")
+    add_int("AcquiredFunds")
 elif f == 96: # start arcade
-    AddInt("MinigameIndex")
+    add_int("MinigameIndex")
 elif f == 104:
-    AddInt("Unknown")
+    add_int("Unknown")
 elif f == 106:
-    b = AddBool("Unknown")
+    b = add_bool("Unknown")
     if not b:
-        AddUnicodeString("UnknownStr")
+        add_unicode_str("UnknownStr")
 elif f == 107: # update gift storage
     # Also causes 0x20 to be sent
-    DecodeGuildBankEntry()
+    decode_guild_bank_entry()
 elif f == 109: # gift log
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
         # Gift Sender
-        AddLong("AccountId")
-        AddLong("CharacterId")
-        AddUnicodeString("Name")
+        add_long("AccountId")
+        add_long("CharacterId")
+        add_unicode_str("Name")
         # Gift Receiver
-        AddLong("AccountId")
-        AddLong("CharacterId")
-        AddUnicodeString("Name")
-        DecodeGuildBankEntry()
-        AddLong("Timestamp")
+        add_long("AccountId")
+        add_long("CharacterId")
+        add_unicode_str("Name")
+        decode_guild_bank_entry()
+        add_long("Timestamp")
 elif f == 110: # donate
-    AddInt("DonationAmount")
-    AddLong("DonationTime")
+    add_int("DonationAmount")
+    add_long("DonationTime")
 elif f == 114:
     pass # none
 elif f == 115:
     f_59_60_115()
 elif f == 116:
-    AddInt("Unknown")
+    add_int("Unknown")
 elif f == 119:
     sub_AE52B0()
     sub_AE52B0()
 elif f == 120:
-    AddBool("Unknown")
-    AddInt("Unknown")
+    add_bool("Unknown")
+    add_int("Unknown")

@@ -1,4 +1,4 @@
 from script_api import *
 
-AddInt("Heartbeat copy")
-AddInt("Heartbeat new")
+add_int("Heartbeat copy")
+add_int("Heartbeat new")

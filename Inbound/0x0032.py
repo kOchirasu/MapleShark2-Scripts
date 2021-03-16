@@ -1,101 +1,101 @@
 from script_api import *
 from common import *
 
-def DecodeCost():
+def decode_cost():
     with Node("Cost?", True):
-        AddByte("CurrencyType") # 0 = mesos, 9 = meret, 1 = custom?
-        AddInt("CurrencyItemId") # if type == 1?
-        AddInt("Amount")
-        AddString("UnknownStr+52")
+        add_byte("CurrencyType") # 0 = mesos, 9 = meret, 1 = custom?
+        add_int("CurrencyItemId") # if type == 1?
+        add_int("Amount")
+        add_str("UnknownStr+52")
 
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 0:
-    AddByte("Unknown+9")
-    AddInt("ShopId")
-    AddInt("Unknown+14") # 1-Hair, 3-Face, 4-Skin, 5-Dye
-    AddInt("VoucherItemId")
-    AddByte("UseCustomCurrency")
-    AddInt("CurrencyId")
-    AddInt("ShopIndex???")
-    AddByte("Unknown+31")
-    DecodeCost()
-    DecodeCost()
-    AddByte("Unknown+54")
-    AddByte("Unknown+55")
-    count = AddShort("count")
+    add_byte("Unknown+9")
+    add_int("ShopId")
+    add_int("Unknown+14") # 1-Hair, 3-Face, 4-Skin, 5-Dye
+    add_int("VoucherItemId")
+    add_byte("UseCustomCurrency")
+    add_int("CurrencyId")
+    add_int("ShopIndex???")
+    add_byte("Unknown+31")
+    decode_cost()
+    decode_cost()
+    add_byte("Unknown+54")
+    add_byte("Unknown+55")
+    count = add_short("count")
     for i in range(count):
         with Node("Option " + str(i)):
-            AddInt("CosmeticId")
-            AddBool("IsNew")
-            AddShort("Unknown+63") # 0
-            AddInt("AchievmentId")
-            AddByte("AchievementRank")
-            DecodeCost()
+            add_int("CosmeticId")
+            add_bool("IsNew")
+            add_short("Unknown+63") # 0
+            add_int("AchievmentId")
+            add_byte("AchievementRank")
+            decode_cost()
 elif f == 1:
-    AddByte("Unknown+9")
-    AddInt("ShopId")
-    AddInt("Unknown+14")
-    AddInt("VoucherItemId")
-    AddByte("Unknown+22")
-    AddInt("Unknown+23")
-    AddInt("Unknown+27")
-    AddByte("Unknown+31")
-    DecodeCost()
-    DecodeCost()
-    AddByte("Unknown+54")
-    AddByte("Unknown+55")
-    AddUnicodeString("UnknownStr")
+    add_byte("Unknown+9")
+    add_int("ShopId")
+    add_int("Unknown+14")
+    add_int("VoucherItemId")
+    add_byte("Unknown+22")
+    add_int("Unknown+23")
+    add_int("Unknown+27")
+    add_byte("Unknown+31")
+    decode_cost()
+    decode_cost()
+    add_byte("Unknown+54")
+    add_byte("Unknown+55")
+    add_unicode_str("UnknownStr")
 elif f == 2:
-    AddByte("Unknown+9")
-    AddInt("ShopId")
-    AddInt("Unknown+14")
-    AddInt("VoucherItemId")
-    AddByte("Unknown+22")
-    AddInt("Unknown+23")
-    AddInt("Unknown+27")
-    AddByte("Unknown+31")
-    DecodeCost()
-    DecodeCost()
-    AddByte("Unknown+54")
-    AddByte("Unknown+55")
-    AddUnicodeString("UnknownStr")
+    add_byte("Unknown+9")
+    add_int("ShopId")
+    add_int("Unknown+14")
+    add_int("VoucherItemId")
+    add_byte("Unknown+22")
+    add_int("Unknown+23")
+    add_int("Unknown+27")
+    add_byte("Unknown+31")
+    decode_cost()
+    decode_cost()
+    add_byte("Unknown+54")
+    add_byte("Unknown+55")
+    add_unicode_str("UnknownStr")
 elif f == 3:
-    AddInt("Unknown")
+    add_int("Unknown")
 elif f == 4:
-    AddLong("Unknown")
+    add_long("Unknown")
 elif f == 5:
-    AddLong("Unknown")
-    AddInt("Unknown")
+    add_long("Unknown")
+    add_int("Unknown")
 elif f == 7:
-    AddLong("Unknown")
-    AddInt("Unknown")
+    add_long("Unknown")
+    add_int("Unknown")
 elif f == 8:
-    AddInt("Unknown+9")
+    add_int("Unknown+9")
 elif f == 9: # useVoucher
-    AddInt("ItemId")
-    AddInt("Amount")
+    add_int("ItemId")
+    add_int("Amount")
 elif f == 14:
-    AddShort("Unknown+9")
+    add_short("Unknown+9")
 elif f == 15:
-    count = AddShort("count")
+    count = add_short("count")
     for i in range(count):
         with Node("Hair " + str(i)):
-            id = AddInt("ItemId")
-            AddLong("ItemUid")
-            AddInt("Unknown+23")
-            AddLong("CreationTime")
-            DecodeEquipColor()
-            AddInt("AppearanceFlag")
-            AddField("Back Hair Position", 4 * 7)
-            AddField("Front Hair Position", 4 * 7)
+            id = add_int("ItemId")
+            add_long("ItemUid")
+            add_int("Unknown+23")
+            add_long("CreationTime")
+            decode_equip_color()
+            add_int("AppearanceFlag")
+            add_field("Back Hair Position", 4 * 7)
+            add_field("Front Hair Position", 4 * 7)
 elif f == 16: # Saved Hair
-    AddLong("HairUid")
-    AddLong("SaveUid")
-    AddByte("Index?")
-    AddLong("Timesaved")
+    add_long("HairUid")
+    add_long("SaveUid")
+    add_byte("Index?")
+    add_long("Timesaved")
 elif f == 18: # delete hair
-    AddLong("SaveUid")
+    add_long("SaveUid")
 elif f == 20:
-    AddByte("Unknown")
-    AddShort("Unknown")
+    add_byte("Unknown")
+    add_short("Unknown")

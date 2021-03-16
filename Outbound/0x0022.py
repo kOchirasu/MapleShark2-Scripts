@@ -1,7 +1,7 @@
 from script_api import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 1: # Start Talking
-    AddInt("ObjectId?")
+    add_int("ObjectId?")
 elif f == 2:
-    AddInt("Unknown")
+    add_int("Unknown")

@@ -1,7 +1,7 @@
 from script_api import *
 from common import *
 
-AddInt("ObjectId")
-count = AddByte("Count")
+add_int("ObjectId")
+count = add_byte("Count")
 for i in range(count):
-    DecodeSyncState()
+    decode_sync_state()

@@ -1,5 +1,5 @@
 from script_api import *
 
-AddInt("PetObjectId")
-AddInt("UserObjectId")
-AddInt("TamingPoint")
+add_int("PetObjectId")
+add_int("UserObjectId")
+add_int("TamingPoint")

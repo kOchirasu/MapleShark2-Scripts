@@ -1,425 +1,425 @@
 from script_api import *
 
-def DecodeCoordF(str):
+def decode_coordF(str):
     with Node(str + "CoordF"):
-        AddFloat("X")
-        AddFloat("Y")
-        AddFloat("Z")
+        add_float("X")
+        add_float("Y")
+        add_float("Z")
 
-def DecodeCoordS(str):
+def decode_coordS(str):
     with Node(str + "CoordS"):
-        AddShort("X")
-        AddShort("Y")
-        AddShort("Z")
+        add_short("X")
+        add_short("Y")
+        add_short("Z")
 
-def DecodeEquipColor():
+def decode_equip_color():
     with Node("EquipColor"):
-        AddInt("Color1")
-        AddInt("Color2")
-        AddInt("Color3")
-        AddInt("ColorIndex")
+        add_int("Color1")
+        add_int("Color2")
+        add_int("Color3")
+        add_int("ColorIndex")
 
-def DecodeSkinColor():
+def decode_skin_color():
     with Node("SkinColor"):
-        AddInt("Color1")
-        AddInt("Color2")
+        add_int("Color1")
+        add_int("Color2")
 
-def DecodeUgcData():
+def decode_ugc_data():
     with Node("UgcData"):
-        AddLong("Unknown")
-        AddUnicodeString("UUID")
-        AddUnicodeString("ItemName")
-        AddByte("Unknown")
-        AddInt("Unknown")
-        AddLong("AccountId")
-        AddLong("CharacterId")
-        AddUnicodeString("CharacterName")
-        AddLong("CreationTime")
-        AddUnicodeString("UGC Url")
-        AddByte("Unknown")
+        add_long("Unknown")
+        add_unicode_str("UUID")
+        add_unicode_str("ItemName")
+        add_byte("Unknown")
+        add_int("Unknown")
+        add_long("AccountId")
+        add_long("CharacterId")
+        add_unicode_str("CharacterName")
+        add_long("CreationTime")
+        add_unicode_str("UGC Url")
+        add_byte("Unknown")
 
-def DecodeSyncState():
+def decode_sync_state():
     with Node("SyncState", True):
-        AddByte("Animation1")
-        AddByte("Animation2")
-        flag = AddByte("Flag")
+        add_byte("Animation1")
+        add_byte("Animation2")
+        flag = add_byte("Flag")
         if (flag & 1) == 1: ## bit-1
-            AddInt("Unknown")
-            AddShort("Unknown")
-        DecodeCoordS("Position")
-        AddShort("Rotation")
-        u = AddByte("Unknown")
+            add_int("Unknown")
+            add_short("Unknown")
+        decode_coordS("Position")
+        add_short("Rotation")
+        u = add_byte("Unknown")
         # if u < 0???
         if u > 127:
-            AddFloat("Unknown")
-            AddFloat("Unknown")
-        DecodeCoordS("")
-        AddByte("Unknown")
-        AddShort("CoordS / 10")
-        AddShort("CoordS / 1000")
+            add_float("Unknown")
+            add_float("Unknown")
+        decode_coordS("")
+        add_byte("Unknown")
+        add_short("CoordS / 10")
+        add_short("CoordS / 1000")
         if (flag & 2) == 2: ## bit-2
-            DecodeCoordF("Unknown")
-            AddUnicodeString("UnknownStr")
+            decode_coordF("Unknown")
+            add_unicode_str("UnknownStr")
         if (flag & 4) == 4: ## bit-3
-            AddInt("Unknown")
-            AddUnicodeString("UnknownStr")
+            add_int("Unknown")
+            add_unicode_str("UnknownStr")
         if (flag & 8) == 8: ## bit-4
-            AddUnicodeString("AnimationString?")
+            add_unicode_str("AnimationString?")
         if (flag & 16) == 16: ## bit-5
-            AddInt("Unknown")
-            AddUnicodeString("UnknownStr")
+            add_int("Unknown")
+            add_unicode_str("UnknownStr")
         if (flag & 32) == 32: ## bit-6
-            AddInt("Unknown")
-            AddInt("Unknown")
-            AddByte("Unknown")
-            DecodeCoordF("Unknown")
-            DecodeCoordF("Unknown")
-        AddInt("Unknown")
+            add_int("Unknown")
+            add_int("Unknown")
+            add_byte("Unknown")
+            decode_coordF("Unknown")
+            decode_coordF("Unknown")
+        add_int("Unknown")
 
-def DecodeItem(id):
+def decode_item(id):
     with Node("Item: " + str(id)):
-        AddInt("Amount")
-        AddInt("Unknown")
-        AddInt("Unknown")
-        AddLong("CreationTime")
-        AddLong("ExpiryTime")
-        AddLong("Unknown")
-        AddInt("TimesChangedAttribute")
-        AddInt("RemainingUses")
-        AddByte("IsLocked")
-        AddLong("UnlockTime")
-        AddShort("GlamorForges")
-        AddBool("Unknown")
-        AddInt("Unknown")
-        DecodeEquipColor()
-        AddInt("Unknown")
+        add_int("Amount")
+        add_int("Unknown")
+        add_int("Unknown")
+        add_long("CreationTime")
+        add_long("ExpiryTime")
+        add_long("Unknown")
+        add_int("TimesChangedAttribute")
+        add_int("RemainingUses")
+        add_byte("IsLocked")
+        add_long("UnlockTime")
+        add_short("GlamorForges")
+        add_bool("Unknown")
+        add_int("Unknown")
+        decode_equip_coloror()
+        add_int("Unknown")
         # Item positioning
         if id / 100000 == 113:
-            AddField("Cap Position", 13 * 4)
+            add_field("Cap Position", 13 * 4)
         elif id / 100000 == 102:
-            AddField("Back Hair Position", 4 * 7)
-            AddField("Front Hair Position", 4 * 7)
+            add_field("Back Hair Position", 4 * 7)
+            add_field("Front Hair Position", 4 * 7)
         elif id / 100000 == 104:
-            AddField("Cosmetic Position", 4 * 4)
-        AddByte("Unknown")
+            add_field("Cosmetic Position", 4 * 4)
+        add_byte("Unknown")
         with Node("Stats"):
             for i in range(9):
                 with Node("Iteration " + str(i)):
-                    count = AddShort("count")
+                    count = add_short("count")
                     for j in range(count):
-                        DecodeStatOption(j)
-                    count = AddShort("count")
+                        decode_stat_option(j)
+                    count = add_short("count")
                     for j in range(count):
-                        DecodeBonusOption(j)
-                    AddInt("Unknown")
+                        decode_bonus_option(j)
+                    add_int("Unknown")
         # Sub
-        AddInt("Enchants")
-        AddInt("EnchantExp")
-        AddBool("EnchantBasedChargeExp")
-        AddLong("Unknown+191")
-        AddInt("Unknown+199")
-        AddInt("Unknown+203")
-        AddBool("CanRepackage")
-        AddInt("EnchantCharges")
+        add_int("Enchants")
+        add_int("EnchantExp")
+        add_bool("EnchantBasedChargeExp")
+        add_long("Unknown+191")
+        add_int("Unknown+199")
+        add_int("Unknown+203")
+        add_bool("CanRepackage")
+        add_int("EnchantCharges")
 
         with Node("general stat diff"):
-            count = AddByte("Count")
+            count = add_byte("Count")
             for e in range(count):
-                AddInt("stat index")
-                AddInt("int diff")
-                AddFloat("float diff")
+                add_int("stat index")
+                add_int("int diff")
+                add_float("float diff")
         # EndSub
         #Sub
-        AddInt("???")
+        add_int("???")
         with Node("stat diff"):
-            count = AddInt("Count")
+            count = add_int("Count")
             for i in range(count):
-                DecodeStatOption(j)
+                decode_stat_option(j)
         with Node("bonus stat diff"):
-            count = AddInt("Count")
+            count = add_int("Count")
             for i in range(count):
-                DecodeBonusOption(j)
+                decode_bonus_option(j)
         # EndSub
 
         #Testing UGC
         if id == 11400608 or id == 11500523 or id == 11600035:
             with Node("UGC", True):
-                DecodeUgcData()
-                AddField("Unknown", 50)
+                decode_ugc_data()
+                add_field("Unknown", 50)
 
         # Pet
         if id / 100000 == 600 or id / 100000 == 610 or id / 100000 == 611 or id / 100000 == 629:
             with Node("Pet", True):
-                AddUnicodeString("PetName")
-                AddLong("PetExp")
-                AddInt("Unknown")
-                AddInt("PetLevel")
-                AddByte("Unknown")
+                add_unicode_str("PetName")
+                add_long("PetExp")
+                add_int("Unknown")
+                add_int("PetLevel")
+                add_byte("Unknown")
 
         # Music Score
         if id / 100000 == 351:
             with Node("MusicScore", True):
-                AddInt("MusicId")
-                AddInt("Instrument")
-                AddUnicodeString("ScoreTitle")
-                AddUnicodeString("Author")
-                AddInt("Unknown (1)")
-                AddLong("AuthorCharacterId")
-                AddField("Unknown", 17)
+                add_int("MusicId")
+                add_int("Instrument")
+                add_unicode_str("ScoreTitle")
+                add_unicode_str("Author")
+                add_int("Unknown (1)")
+                add_long("AuthorCharacterId")
+                add_field("Unknown", 17)
 
         # Badge
         if id / 1000000 == 70:
             with Node("Badge", True):
-                AddByte("Unknown")
-                AddByte("Unknown")
-                AddUnicodeString("BadgeIdStr")
+                add_byte("Unknown")
+                add_byte("Unknown")
+                add_unicode_str("BadgeIdStr")
                 if id == 70100000: ## PetSkinBadge
-                    AddInt("PetSkinId")
+                    add_int("PetSkinId")
                 elif id == 70100001: ## Transparency
-                    AddBool("Headgear")
-                    AddBool("Eyewear")
-                    AddBool("Top")
-                    AddBool("Bottom")
-                    AddBool("Cape")
-                    AddBool("Earrings")
-                    AddBool("Face")
-                    AddBool("Gloves")
-                    AddBool("Unknown")
-                    AddBool("Shoes")
+                    add_bool("Headgear")
+                    add_bool("Eyewear")
+                    add_bool("Top")
+                    add_bool("Bottom")
+                    add_bool("Cape")
+                    add_bool("Earrings")
+                    add_bool("Face")
+                    add_bool("Gloves")
+                    add_bool("Unknown")
+                    add_bool("Shoes")
 
-        AddInt("TransferFlag")
-        AddByte("???")
-        AddInt("remaining trades")
-        AddInt("???")
-        AddByte("???")
-        AddByte("???")
-        f = AddByte("IsBound")
+        add_int("TransferFlag")
+        add_byte("???")
+        add_int("remaining trades")
+        add_int("???")
+        add_byte("???")
+        add_byte("???")
+        f = add_byte("IsBound")
         if f != 0:
-            AddLong("BoundToCharId")
-            AddUnicodeString("BoundToName")
-        DecodeGemSockets()
-        b = AddLong("PairedCharacterId")
+            add_long("BoundToCharId")
+            add_unicode_str("BoundToName")
+        decode_gem_sockets()
+        b = add_long("PairedCharacterId")
         if b != 0:
-            AddUnicodeString("PairedName")
-            AddByte("Unknown")
-        AddLong("???")
-        AddUnicodeString("Unknown")
+            add_unicode_str("PairedName")
+            add_byte("Unknown")
+        add_long("???")
+        add_unicode_str("Unknown")
 
-def DecodeStatOption(index):
+def decode_stat_option(index):
     with Node("StatOption " + str(index)):
-        AddShort("StatType")
-        AddInt("IntegerValue")
-        AddFloat("FloatValue")
-    EndNode(False)
+        add_short("StatType")
+        add_int("IntegerValue")
+        add_float("FloatValue")
+    end_node(False)
 
-def DecodeBonusOption(index):
+def decode_bonus_option(index):
     with Node("BonusOption " + str(index)):
-        AddShort("StatType")
-        AddFloat("FloatValue")
-        AddFloat("FloatValue")
-    EndNode(False)
+        add_short("StatType")
+        add_float("FloatValue")
+        add_float("FloatValue")
+    end_node(False)
 
-def DecodePlayer():
+def decode_player():
     with Node("PlayerInfo"):
-        AddLong("AccountId")
-        AddLong("CharacterId")
-        AddUnicodeString("Name")
-        AddByte("Gender") # 0 = male, 1 = female
-        AddByte("Unknown")
-        AddLong("Unknown")
+        add_long("AccountId")
+        add_long("CharacterId")
+        add_unicode_str("Name")
+        add_byte("Gender") # 0 = male, 1 = female
+        add_byte("Unknown")
+        add_long("Unknown")
 
-        AddInt("Unknown")
-        AddInt("MapId")
-        AddInt("InstanceMapId") # Guess
-        AddInt("MapInstanceId") # Guess
-        AddShort("Level")
-        AddShort("Unknown")
-        AddInt("JobGroupId")
-        AddInt("JobId")
-        AddInt("CurrentHp")
-        AddInt("MaxHp")
-        AddShort("Unknown")
+        add_int("Unknown")
+        add_int("MapId")
+        add_int("InstanceMapId") # Guess
+        add_int("MapInstanceId") # Guess
+        add_short("Level")
+        add_short("Unknown")
+        add_int("JobGroupId")
+        add_int("JobId")
+        add_int("CurrentHp")
+        add_int("MaxHp")
+        add_short("Unknown")
 
-        AddLong("Unknown")
-        AddLong("StorageAccessTime")
-        AddLong("DoctorAccessTime")
-        AddInt("OutsideMapId")
-        DecodeCoordF("OutsidePosition")
-        AddInt("GearScore")
-        DecodeSkinColor()
-        AddLong("CreationTime")
+        add_long("Unknown")
+        add_long("StorageAccessTime")
+        add_long("DoctorAccessTime")
+        add_int("OutsideMapId")
+        decode_coordF("OutsidePosition")
+        add_int("GearScore")
+        decode_skin_color()
+        add_long("CreationTime")
         with Node("Trophy"):
             for i in range(3):
-                AddInt("Count")
-        AddLong("GuildUid")
-        AddUnicodeString("Guild")
-        AddUnicodeString("Motto")
-        AddUnicodeString("Profile URL")
+                add_int("Count")
+        add_long("GuildUid")
+        add_unicode_str("Guild")
+        add_unicode_str("Motto")
+        add_unicode_str("Profile URL")
 
         # CharacterListClubParser
         with Node("Clubs"):
-            count = AddByte("count")
+            count = add_byte("count")
             for i in range(count):
-                b = AddByte("club")
+                b = add_byte("club")
                 if b == 1:
-                    AddLong("clubUid")
-                    AddUnicodeString("Club Name")
+                    add_long("clubUid")
+                    add_unicode_str("Club Name")
 
-        AddByte("Unknown")
+        add_byte("Unknown")
         with Node("LifeSkills"):
-            AddInt("Fishing???")
-            AddInt("Fishing")
-            AddInt("Instrument")
-            AddInt("Mining")
-            AddInt("Foraging")
-            AddInt("Ranching")
-            AddInt("Farming")
-            AddInt("Smithing")
-            AddInt("Handicrafts")
-            AddInt("Alchemy")
-            AddInt("Cooking")
-            AddInt("PetTaming")
+            add_int("Fishing???")
+            add_int("Fishing")
+            add_int("Instrument")
+            add_int("Mining")
+            add_int("Foraging")
+            add_int("Ranching")
+            add_int("Farming")
+            add_int("Smithing")
+            add_int("Handicrafts")
+            add_int("Alchemy")
+            add_int("Cooking")
+            add_int("PetTaming")
 
-        AddUnicodeString("UnknownStr")
-        AddLong("BypassKeyRelated")
-        AddLong("Unknown")
-        AddLong("Unknown")
+        add_unicode_str("UnknownStr")
+        add_long("BypassKeyRelated")
+        add_long("Unknown")
+        add_long("Unknown")
 
         with Node("countA"):
-            count = AddInt("countA")
+            count = add_int("countA")
             for i in range(count):
-                AddLong("Unknown")
+                add_long("Unknown")
 
-        AddByte("Unknown")
-        AddBool("Unknown")
-        AddLong("Unknown")
-        AddInt("Unknown")
-        AddInt("Unknown")
-        AddLong("UnknownTimestamp")
-        AddInt("PrestigeLevel")
-        AddLong("UnknownTimestamp")
+        add_byte("Unknown")
+        add_bool("Unknown")
+        add_long("Unknown")
+        add_int("Unknown")
+        add_int("Unknown")
+        add_long("UnknownTimestamp")
+        add_int("PrestigeLevel")
+        add_long("UnknownTimestamp")
 
-        count = AddInt("countB")
+        count = add_int("countB")
         for i in range(count):
-            AddLong("Unknown")
-        count = AddInt("countC")
+            add_long("Unknown")
+        count = add_int("countC")
         for i in range(count):
-            AddLong("Unknown")
+            add_long("Unknown")
 
-        AddShort("Unknown")
-        AddLong("Unknown")
+        add_short("Unknown")
+        add_long("Unknown")
 
-def DecodeNpcStats():
+def decode_npc_stats():
     with Node("NpcStats"):
-        c = AddByte("Stats Flag?") # 0x35
+        c = add_byte("Stats Flag?") # 0x35
         if c == 1:
-            v = AddByte("Value")
+            v = add_byte("Value")
             if v == 4:
-                AddLong("Unknown")
-                AddLong("Unknown")
-                AddLong("Unknown")
+                add_long("Unknown")
+                add_long("Unknown")
+                add_long("Unknown")
             else:
-                AddInt("Unknown")
-                AddInt("Unknown")
-                AddInt("Unknown")
+                add_int("Unknown")
+                add_int("Unknown")
+                add_int("Unknown")
         else:
-            AddLong("Unknown")
-            AddInt("Unknown")
-            AddLong("Unknown")
-            AddInt("Unknown")
-            AddLong("Unknown")
-            AddInt("Unknown")
+            add_long("Unknown")
+            add_int("Unknown")
+            add_long("Unknown")
+            add_int("Unknown")
+            add_long("Unknown")
+            add_int("Unknown")
 
-def DecodeSkillTree():
-    AddInt("JobId")
-    AddByte("Unknown (1)")
-    AddInt("JobGroupId")
+def decode_skill_tree():
+    add_int("JobId")
+    add_byte("Unknown (1)")
+    add_int("JobGroupId")
     with Node("Skills"):
         for i in range(2):
             skillType = "Active Skills" if i == 0 else "Passive Skills"
             with Node(skillType, True):
-                count = AddByte("Count")
+                count = add_byte("Count")
                 for j in range(count):
-                    StartNode("Skill " + str(j))
-                    AddBool("NewlyEnabled")
-                    b = AddBool("Enabled")
-                    AddInt("SkillId")
-                    AddInt("Skill Points")
-                    AddBool("Unknown (0)")
-                    EndNode(b)
-    AddByte("Unknown")
-    AddByte("Unknown")
+                    start_node("Skill " + str(j))
+                    add_bool("NewlyEnabled")
+                    b = add_bool("Enabled")
+                    add_int("SkillId")
+                    add_int("Skill Points")
+                    add_bool("Unknown (0)")
+                    end_node(b)
+    add_byte("Unknown")
+    add_byte("Unknown")
 
-def DecodeGemSockets():
-    AddByte("MaxSockets")
-    count = AddByte("TotalSockets")
+def decode_gem_sockets():
+    add_byte("MaxSockets")
+    count = add_byte("TotalSockets")
     for i in range(count):
-        isUnlocked = AddBool("unlocked socket")
+        isUnlocked = add_bool("unlocked socket")
         if isUnlocked:
-            DecodeGemstone()
+            decode_gemstone()
 
-def DecodeGemstone():
+def decode_gemstone():
     with Node("Gemstone"):
-        AddInt("GemstoneItemId")
-        isBound = AddBool("Bound")
+        add_int("GemstoneItemId")
+        isBound = add_bool("Bound")
         if isBound:
-            AddLong("CharacterId")
-            AddUnicodeString("Name")
-        b = AddBool("UnknownFlag")
+            add_long("CharacterId")
+            add_unicode_str("Name")
+        b = add_bool("UnknownFlag")
         if b:
-            AddByte("Unknown")
-            AddLong("Unknown")
+            add_byte("Unknown")
+            add_long("Unknown")
 
-def DecodeMaid():
-    AddLong("MaidUid?")
-    AddLong("ItemUid")
-    AddLong("Timestamp")
-    AddLong("Timestamp")
-    AddLong("AccountId")
-    AddInt("MaidId") # 50800017
-    AddInt("NpcId") # 11000785
-    AddBool("IsDeployed")
-    AddInt("Mood")
-    AddInt("Level")
-    AddInt("Closeness")
-    AddLong("ExpirationTimestamp")
-    count2 = AddInt("count")
+def decode_maid():
+    add_long("MaidUid?")
+    add_long("ItemUid")
+    add_long("Timestamp")
+    add_long("Timestamp")
+    add_long("AccountId")
+    add_int("MaidId") # 50800017
+    add_int("NpcId") # 11000785
+    add_bool("IsDeployed")
+    add_int("Mood")
+    add_int("Level")
+    add_int("Closeness")
+    add_long("ExpirationTimestamp")
+    count2 = add_int("count")
     for j in range(count2):
-        AddLong("Unknown")
+        add_long("Unknown")
     # Diff sub
-    AddUnicodeString("UnknownStr")
-    AddUnicodeString("UnknownStr")
-    AddUnicodeString("UnknownStr")
-    AddUnicodeString("UnknownStr")
-    AddUnicodeString("UnknownStr")
-    AddUnicodeString("UnknownStr")
-    AddUnicodeString("UnknownStr")
-    AddUnicodeString("UnknownStr")
-    AddUnicodeString("UnknownStr")
-    AddUnicodeString("UnknownStr")
-    AddUnicodeString("UnknownStr")
-    AddUnicodeString("UnknownStr")
-    AddUnicodeString("UnknownStr")
+    add_unicode_str("UnknownStr")
+    add_unicode_str("UnknownStr")
+    add_unicode_str("UnknownStr")
+    add_unicode_str("UnknownStr")
+    add_unicode_str("UnknownStr")
+    add_unicode_str("UnknownStr")
+    add_unicode_str("UnknownStr")
+    add_unicode_str("UnknownStr")
+    add_unicode_str("UnknownStr")
+    add_unicode_str("UnknownStr")
+    add_unicode_str("UnknownStr")
+    add_unicode_str("UnknownStr")
+    add_unicode_str("UnknownStr")
 
-def DecodeAdditionalEffect():
-    with Node("AdditionalEffect", True):
-        AddInt("StartServerTick")
-        AddInt("EndServerTick")
-        AddInt("SkillId")
-        AddShort("SkillLevel")
-        AddInt("Unknown") # 1
-        AddByte("Unknown") # 1
+def decode_additional_effect():
+    with Node("add_itionalEffect", True):
+        add_int("StartServerTick")
+        add_int("EndServerTick")
+        add_int("SkillId")
+        add_short("SkillLevel")
+        add_int("Unknown") # 1
+        add_byte("Unknown") # 1
 
-def DecodeGuildInviteInfo():  # CGuildInviteInfo
+def decode_guild_invite_info():  # CGuildInviteInfo
     with Node("GuildInviteInfo", True):
-        AddLong("GuildUid")
-        AddUnicodeString("GuildName")
-        AddUnicodeString("UnknownStr")
-        AddUnicodeString("LeaderName")
-        AddUnicodeString("RequesterName")
+        add_long("GuildUid")
+        add_unicode_str("GuildName")
+        add_unicode_str("UnknownStr")
+        add_unicode_str("LeaderName")
+        add_unicode_str("RequesterName")
 
-def DecodeGuildRank():
+def decode_guild_rank():
     with Node("GuildRank"):
-        AddByte("Index")
-        AddUnicodeString("Name")
-        AddInt("PermissionFlags?")
+        add_byte("Index")
+        add_unicode_str("Name")
+        add_int("PermissionFlags?")

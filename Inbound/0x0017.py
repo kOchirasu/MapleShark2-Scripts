@@ -1,113 +1,113 @@
 from script_api import *
 from common import *
 
-AddInt("ObjectId")
-DecodePlayer()
-DecodeSkillTree()
-DecodeCoordF("")
-DecodeCoordF("")
-AddByte("Unknown+473")
+add_int("ObjectId")
+decode_player()
+decode_skill_tree()
+decode_coordF("")
+decode_coordF("")
+add_byte("Unknown+473")
 with Node("Stats"):
-    count = AddByte("StatsCount")
+    count = add_byte("StatsCount")
     if count == 35:
         for i in range(3):
-            AddLong("Health")
-            AddInt("AttackSpeed")
-            AddInt("MovementSpeed")
-            AddInt("MountMovementSpeed")
-            AddInt("JumpHeight")
+            add_long("Health")
+            add_int("AttackSpeed")
+            add_int("MovementSpeed")
+            add_int("MountMovementSpeed")
+            add_int("JumpHeight")
     else:
         for i in range(count):
-            statType = AddByte("StatType")
+            statType = add_byte("StatType")
             for j in range(3):
                 if statType == 4: # Use long for HP
-                    AddLong("HP")
+                    add_long("HP")
                 else:
-                    AddInt("StatType:" + str(statType))
+                    add_int("StatType:" + str(statType))
 
-AddByte("Unknown+475")
-AddByte("Unknown+476")
-AddInt("Unknown+477")
-AddLong("Unknown+481")
-AddLong("Unknown+489")
+add_byte("Unknown+475")
+add_byte("Unknown+476")
+add_int("Unknown+477")
+add_long("Unknown+481")
+add_long("Unknown+489")
 with Node("UgcNode"):
-    flag = AddBool("Flag")
+    flag = add_bool("Flag")
     if flag:
-        DecodeUgcData()
+        decode_ugc_data()
 
-AddInt("Unknown+498")
-DecodeSkinColor()
+add_int("Unknown+498")
+decode_skin_color()
 
-AddUnicodeString("Profile Url")
+add_unicode_str("Profile Url")
 with Node("Mount"):
-    flag = AddBool("IsOnMount")
+    flag = add_bool("IsOnMount")
     if flag:
-        AddByte("Unknown") # 1
-        AddInt("MountId")
-        AddInt("MountObjectId")
-        AddByte("Unknown") # ??
+        add_byte("Unknown") # 1
+        add_int("MountId")
+        add_int("MountObjectId")
+        add_byte("Unknown") # ??
 
-AddInt("Unknown+513")
-AddLong("Timestamp")
-AddInt("Weekly Architect Score")
-AddInt("Architect Score")
+add_int("Unknown+513")
+add_long("Timestamp")
+add_int("Weekly Architect Score")
+add_int("Architect Score")
 
-flag = AddBool("Flag")
+flag = add_bool("Flag")
 if flag:
     with Node("Buffer 1"):
-        size = AddInt("BufferSize")
-        AddField("Buffer", size)
-    AddByte("Separator?")
+        size = add_int("BufferSize")
+        add_field("Buffer", size)
+    add_byte("Separator?")
     with Node("Buffer 2"):
-        size = AddInt("BufferSize")
-        AddField("Buffer", size)
-    AddByte("Separator?")
+        size = add_int("BufferSize")
+        add_field("Buffer", size)
+    add_byte("Separator?")
     with Node("Buffer 3"):
-        size = AddInt("BufferSize")
-        AddField("Buffer", size)
+        size = add_int("BufferSize")
+        add_field("Buffer", size)
 
-    with Node("AdditionalEffects"):
-        count = AddShort("Count")
+    with Node("add_itionalEffects"):
+        count = add_short("Count")
         for i in range(count):
             with Node("Passive buff " + str(i), True):
-                AddInt("UserObjectId")
-                AddInt("Unknown+778")
-                AddInt("UserObjectId")
-                DecodeAdditionalEffect()
-                AddLong("AdditionalEffect2")
+                add_int("UserObjectId")
+                add_int("Unknown+778")
+                add_int("UserObjectId")
+                decode_additional_effect()
+                add_long("add_itionalEffect2")
     
     with Node("Node", True):
-        AddInt("SkillBookRelated1")
-        AddInt("SkillBookRelated2")
+        add_int("SkillBookRelated1")
+        add_int("SkillBookRelated2")
     
-    AddByte("Unknown+860")
+    add_byte("Unknown+860")
     with Node("Node", True):
-        AddInt("Unknown+861")
-        AddByte("Unknown+865")
-        AddByte("Unknown+866")
+        add_int("Unknown+861")
+        add_byte("Unknown+865")
+        add_byte("Unknown+866")
     
-    AddInt("TitleId")
+    add_int("TitleId")
     with Node("Node", True):
-        AddShort("Unknown+871")
-        AddByte("Unknown+873")
+        add_short("Unknown+871")
+        add_byte("Unknown+873")
     
-    AddInt("Unknown+874")
-    b = AddBool("HasPet")
+    add_int("Unknown+874")
+    b = add_bool("HasPet")
     if b:
         with Node("FieldPet"):
-            id = AddInt("PetItemId")
-            AddLong("PetUid")
-            AddInt("PetLevel")
-            DecodeItem(id)
+            id = add_int("PetItemId")
+            add_long("PetUid")
+            add_int("PetLevel")
+            decode_item(id)
         
-    AddLong("PremiumExpirationTime")
-    AddInt("unknown -1") # 724497??
-    AddByte("Unknown+891")
-    AddInt("Unknown+892")
-    count = AddInt("count")
+    add_long("PremiumExpirationTime")
+    add_int("unknown -1") # 724497??
+    add_byte("Unknown+891")
+    add_int("Unknown+892")
+    count = add_int("count")
     for i in range(count):
-        AddInt("Unknown")
-        AddString("Unknown")
-    AddShort("Unknown+900")
+        add_int("Unknown")
+        add_str("Unknown")
+    add_short("Unknown+900")
 else:
-    AddInt("Unknown")
+    add_int("Unknown")

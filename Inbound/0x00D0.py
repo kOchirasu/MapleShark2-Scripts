@@ -1,33 +1,33 @@
 from script_api import *
 from common import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 
 if f == 0: # Store item
-    id = AddInt("Id")
-    AddLong("Uid")
-    AddShort("Slot")
-    AddInt("Rarity")
-    AddUnicodeString("UnknownStr")
-    DecodeItem(id)
+    id = add_int("Id")
+    add_long("Uid")
+    add_short("Slot")
+    add_int("Rarity")
+    add_unicode_str("UnknownStr")
+    decode_item(id)
 elif f == 1: # Remove item
-    AddLong("ItemUid")
+    add_long("ItemUid")
 elif f == 2: # Update amount
-    AddLong("ItemUid")
-    AddInt("Amount")
+    add_long("ItemUid")
+    add_int("Amount")
 elif f == 3: # move item
-    AddLong("SrcItemUid")
-    AddShort("SrcSlot")
-    AddLong("DstItemUid")
-    AddShort("DstSlot")
+    add_long("SrcItemUid")
+    add_short("SrcSlot")
+    add_long("DstItemUid")
+    add_short("DstSlot")
 elif f == 4:
-    count = AddShort("Count")
+    count = add_short("Count")
     for i in range(count):
         with Node("Item " + str(i)):
-            id = AddInt("Id")
-            AddLong("Uid")
-            AddShort("Slot")
-            AddInt("Rarity")
-            DecodeItem(id)
+            id = add_int("Id")
+            add_long("Uid")
+            add_short("Slot")
+            add_int("Rarity")
+            decode_item(id)
 elif f == 6: # Start item inventory list
     pass

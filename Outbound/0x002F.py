@@ -1,10 +1,10 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 7:
-    AddField("UserSkipped")
+    add_field("UserSkipped")
 elif f == 10: # using computer
-    AddInt("CubeId") # 130304 when FunctionCubeName=4_130304
+    add_int("CubeId") # 130304 when FunctionCubeName=4_130304
 elif f == 12: # save script computer
-    AddInt("CubeId")
-    AddString("scriptxml")
+    add_int("CubeId")
+    add_str("scriptxml")

@@ -1,4 +1,4 @@
 from script_api import *
 
-AddInt("Unknown")
-AddInt("Unknown")
+add_int("Unknown")
+add_int("Unknown")

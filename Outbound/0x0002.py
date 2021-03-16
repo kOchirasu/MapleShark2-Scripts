@@ -1,8 +1,8 @@
 from script_api import *
 
 # First packet sent on handshake in some cases
-AddByte("function") # 0
-count = AddInt("Unknown")
+add_byte("function") # 0
+count = add_int("Unknown")
 for i in range(count):
-    AddUnicodeString("UnknownStr")
-    AddLong("Unknown")
+    add_unicode_str("UnknownStr")
+    add_long("Unknown")

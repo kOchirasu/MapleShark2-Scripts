@@ -1,49 +1,49 @@
 from script_api import *
 
-def DecodeMesoMarketEntry():
+def decode_meso_market_entry():
     with Node("Entry"):
-        AddLong("ListingUid")
-        AddLong("MesoAmount")
-        AddLong("Cost")
-        AddLong("TimeListed")
-        AddLong("TimeExpires")
-        AddBool("IsOwnListing") # self?
+        add_long("ListingUid")
+        add_long("MesoAmount")
+        add_long("Cost")
+        add_long("TimeListed")
+        add_long("TimeExpires")
+        add_bool("IsOwnListing") # self?
 
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 0:
-    AddInt("ErrorCode")
+    add_int("ErrorCode")
 elif f == 1: # load market
-    AddFloat("UnknownF") # 0
-    AddFloat("UnknownF") # 0.2
-    AddLong("Cost")
-    AddInt("MaxListings?")
-    AddInt("MaxListings?")
-    AddInt("WeeklyLimit")
-    AddInt("Unknown") # 2? (order by?)
-    AddInt("AveragePrice")
-    AddInt("MaxListingsShown")
-    AddInt("Unknown") # 1000
+    add_float("UnknownF") # 0
+    add_float("UnknownF") # 0.2
+    add_long("Cost")
+    add_int("MaxListings?")
+    add_int("MaxListings?")
+    add_int("WeeklyLimit")
+    add_int("Unknown") # 2? (order by?)
+    add_int("AveragePrice")
+    add_int("MaxListingsShown")
+    add_int("Unknown") # 1000
 elif f == 2: # load stats
-    AddInt("daily listed")
-    AddInt("monthly purchased")
+    add_int("daily listed")
+    add_int("monthly purchased")
 elif f == 4: #  my listings
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
-        AddLong("ListingUid")
-        DecodeMesoMarketEntry()
+        add_long("ListingUid")
+        decode_meso_market_entry()
     pass # none
 elif f == 5: # list
-    DecodeMesoMarketEntry()
-    AddInt("Unknown")
+    decode_meso_market_entry()
+    add_int("Unknown")
 elif f == 6: # cancel
-    AddInt("Unknown") # 0
-    AddLong("ListingUid")
+    add_int("Unknown") # 0
+    add_long("ListingUid")
 elif f == 7: # search results
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
-        DecodeMesoMarketEntry()
+        decode_meso_market_entry()
 elif f == 8:
-    AddInt("Unknown")
-    AddLong("Unknown")
-    AddInt("Unknown")
+    add_int("Unknown")
+    add_long("Unknown")
+    add_int("Unknown")

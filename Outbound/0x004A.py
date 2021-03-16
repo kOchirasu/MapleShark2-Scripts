@@ -1,27 +1,27 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 0: # request trade
-    AddLong("CharacterId")
+    add_long("CharacterId")
 elif f == 2: # got trade request
-    AddLong("CharacterId")
+    add_long("CharacterId")
 elif f == 3: # accept trade
-    AddLong("CharacterId")
+    add_long("CharacterId")
 elif f == 4: # decline trade
-    AddLong("CharacterId")
+    add_long("CharacterId")
 elif f == 5:
-    AddLong("Unknown")
+    add_long("Unknown")
 elif f == 7: # cancel trade
     pass # none
 elif f == 8: # Add item
-    AddLong("ItemUid")
-    AddInt("Amount")
-    AddInt("Slot")
+    add_long("ItemUid")
+    add_int("Amount")
+    add_int("Slot")
 elif f == 9: # Remove item
-    AddLong("ItemUid")
-    AddInt("Slot")
+    add_long("ItemUid")
+    add_int("Slot")
 elif f == 10: # Set mesos
-    AddLong("Mesos")
+    add_long("Mesos")
 elif f == 11: # finalize trade
     pass # none
 elif f == 13: # confirm finalize trade

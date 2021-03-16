@@ -1,6 +1,6 @@
 from script_api import *
 
 # Request pickup for meso objects
-count = AddByte("Count")
+count = add_byte("Count")
 for i in range(count):
-    AddInt("ObjectId")
+    add_int("ObjectId")

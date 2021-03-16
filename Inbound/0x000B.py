@@ -1,11 +1,11 @@
 from script_api import *
 
 
-AddByte("Unknown (1)")
-AddInt("Unknown (1)")
-AddUnicodeString("Server Name")
-AddByte("Unknown (4)")
-count = AddShort("count")
+add_byte("Unknown (1)")
+add_int("Unknown (1)")
+add_unicode_str("Server Name")
+add_byte("Unknown (4)")
+count = add_short("count")
 for i in range(count):
-    AddUnicodeString("IPAddress")
-    AddShort("Port")
+    add_unicode_str("IPAddress")
+    add_short("Port")

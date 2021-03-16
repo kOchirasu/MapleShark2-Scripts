@@ -1,5 +1,5 @@
 from script_api import *
 
-AddInt("CameraId")
-AddBool("Enabled")
-AddInt("FocusObjectId")
+add_int("CameraId")
+add_bool("Enabled")
+add_int("FocusObjectId")

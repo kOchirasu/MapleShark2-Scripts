@@ -1,25 +1,25 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 
 if f == 2: # request
-    AddUnicodeString("Name")
-    AddUnicodeString("Message")
+    add_unicode_str("Name")
+    add_unicode_str("Message")
 elif f == 3: # accept
-    AddLong("EntryUid")
+    add_long("EntryUid")
 elif f == 4: # decline
-    AddLong("EntryUid")
+    add_long("EntryUid")
 elif f == 5: # block
-    AddLong("EntryUid")
-    AddUnicodeString("Name")
-    AddUnicodeString("BlockReason")
+    add_long("EntryUid")
+    add_unicode_str("Name")
+    add_unicode_str("BlockReason")
 elif f == 6: # unblock
-    AddLong("EntryUid")
+    add_long("EntryUid")
 elif f == 7: # remove friend
-    AddLong("EntryUid")
+    add_long("EntryUid")
 elif f == 10: # update block msg
-    AddLong("EntryUid")
-    AddUnicodeString("Name")
-    AddUnicodeString("BlockReason")
+    add_long("EntryUid")
+    add_unicode_str("Name")
+    add_unicode_str("BlockReason")
 elif f == 17: # cancel friend request
-    AddLong("EntryUid")
+    add_long("EntryUid")

@@ -1,76 +1,76 @@
 from script_api import *
 from common import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 5:
     # Start enchanting?
-    enchantType = AddShort("EnchantType") # 1 = Ophelia, 2 = Peachy
+    enchantType = add_short("EnchantType") # 1 = Ophelia, 2 = Peachy
     # Some condition or else: stop here
-    AddLong("ItemUid")
-    count = AddByte("RequiredItemCount")
+    add_long("ItemUid")
+    count = add_byte("RequiredItemCount")
     for i in range(count):
         with Node("RequiredItem"):
-            AddInt("Unknown")
-            AddInt("RequiredItem (DiffId)") # 100 = crytal frag, 101 = onyx, 102 = chaos
-            AddInt("Amount")
+            add_int("Unknown")
+            add_int("RequiredItem (DiffId)") # 100 = crytal frag, 101 = onyx, 102 = chaos
+            add_int("Amount")
         
-    AddShort("Unknown")
+    add_short("Unknown")
 
-    count = AddInt("Count")
+    count = add_int("Count")
     for i in range(count):
-        DecodeStatOption(i)
+        decode_stat_option(i)
 
     if enchantType == 1:
-        AddFloat("SuccessRate") # 100
-        AddFloat("Unknown")
-        AddFloat("Unknown")
-        AddFloat("Unknown")
-        AddFloat("Unknown")
-        AddLong("Unknown")
-        AddLong("Unknown")
-        AddByte("Unknown")
+        add_float("SuccessRate") # 100
+        add_float("Unknown")
+        add_float("Unknown")
+        add_float("Unknown")
+        add_float("Unknown")
+        add_long("Unknown")
+        add_long("Unknown")
+        add_byte("Unknown")
     # Required item copies
     if enchantType == 1 or enchantType == 2:
-        AddInt("ItemId")
-        AddShort("Rarity")
-        AddInt("Amount")
+        add_int("ItemId")
+        add_short("Rarity")
+        add_int("Amount")
 elif f == 6: # This is sent with peachy
-    AddLong("ItemUid")
-    AddInt("Unknown") # progress related for peachy?
+    add_long("ItemUid")
+    add_int("Unknown") # progress related for peachy?
 elif f == 7:
-    AddInt("Unknown")
-    AddInt("Unknown")
-    count = AddInt("Count")
+    add_int("Unknown")
+    add_int("Unknown")
+    count = add_int("Count")
     for i in range(count):
-        AddLong("Unknown")
-    AddFloat("Unknown")
-    AddFloat("Unknown")
-    AddFloat("Unknown")
-    AddFloat("Unknown")
-    AddFloat("Unknown")
+        add_long("Unknown")
+    add_float("Unknown")
+    add_float("Unknown")
+    add_float("Unknown")
+    add_float("Unknown")
+    add_float("Unknown")
 elif f == 8:
-    AddInt("Unknown")
-    count = AddInt("Count")
+    add_int("Unknown")
+    count = add_int("Count")
     for i in range(count):
-        AddLong("Unknown")
+        add_long("Unknown")
 elif f == 9:
     pass # Some AAErr
 elif f == 10:
-    AddLong("ItemUid")
-    DecodeItem(0) # Don't know ItemId
+    add_long("ItemUid")
+    decode_item(0) # Don't know ItemId
     # Bonus from enchanting (e.g. 2% def)
-    count = AddInt("Count")
+    count = add_int("Count")
     for i in range(count):
-        DecodeStatOption(i)
+        decode_stat_option(i)
 elif f == 11:
-    AddLong("ItemUid")
-    DecodeItem(0) # Don't know ItemId
+    add_long("ItemUid")
+    decode_item(0) # Don't know ItemId
 
-    AddInt("Unknown")
-    AddInt("Unknown")
-    AddLong("Unknown")
-    AddInt("Unknown")
+    add_int("Unknown")
+    add_int("Unknown")
+    add_long("Unknown")
+    add_int("Unknown")
 elif f == 12:
-    AddShort("Unknown")
+    add_short("Unknown")
 elif f == 15:
-    AddLong("ItemUid")
+    add_long("ItemUid")

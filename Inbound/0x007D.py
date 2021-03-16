@@ -1,37 +1,37 @@
 from script_api import *
 from common import *
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 0: # load
-    AddInt("ObjectId")
-    AddLong("DollUid")
-    AddInt("DollItemId")
-    DecodeCoordF("Position")
-    DecodeCoordF("Rotation")
-    AddBool("HasITems")
-    count = AddInt("count")
+    add_int("ObjectId")
+    add_long("DollUid")
+    add_int("DollItemId")
+    decode_coordF("Position")
+    decode_coordF("Rotation")
+    add_bool("HasITems")
+    count = add_int("count")
     for i in range(count):
         with Node("Item " + str(i)):
-            id = AddInt("ItemId")
-            AddLong("ItemUid")
-            AddUnicodeString("slot")
-            AddInt("rarity")
-            DecodeItem(id)
+            id = add_int("ItemId")
+            add_long("ItemUid")
+            add_unicode_str("slot")
+            add_int("rarity")
+            decode_item(id)
 elif f == 1: # remove
-    AddInt("ObjectId")
+    add_int("ObjectId")
 elif f == 6: # put item on doll
-    AddLong("DollUid")
-    id = AddInt("ItemId")
-    AddLong("ItemUid")
-    AddUnicodeString("slot")
-    AddInt("rarity")
-    DecodeItem(id)
+    add_long("DollUid")
+    id = add_int("ItemId")
+    add_long("ItemUid")
+    add_unicode_str("slot")
+    add_int("rarity")
+    decode_item(id)
 elif f == 7: # remove item
-    AddLong("ItemUid")
-    AddUnicodeString("Slot")
+    add_long("ItemUid")
+    add_unicode_str("Slot")
 elif f == 8:
     # Feature 233 locked
-    AddLong("Unknown")
-    AddInt("Unknown") # n - 23
+    add_long("Unknown")
+    add_int("Unknown") # n - 23
 elif f == 11:
-    AddInt("ErrorCode")
+    add_int("ErrorCode")

@@ -1,9 +1,9 @@
 from script_api import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 
 if f == 4: # request maid craft item
-    AddInt("RecipeId")
-    AddLong("RecipeUid")
+    add_int("RecipeId")
+    add_long("RecipeUid")
 elif f == 10: # cancel craft
-    AddLong("RecipeUid")
+    add_long("RecipeUid")

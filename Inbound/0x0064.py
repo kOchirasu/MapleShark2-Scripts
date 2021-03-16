@@ -1,12 +1,12 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 0:
-    count = AddInt("Count")
+    count = add_int("Count")
     for i in range(count):
-        AddLong("Unknown")
-        AddInt("BanType?")
-        AddLong("AccountId")
-        AddUnicodeString("BlockReason")
-        AddLong("StartDate")
-        AddLong("EndDatei")
+        add_long("Unknown")
+        add_int("BanType?")
+        add_long("AccountId")
+        add_unicode_str("BlockReason")
+        add_long("StartDate")
+        add_long("EndDatei")

@@ -1,7 +1,7 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 0: # create pet badge
-    AddLong("PetItemUid")
-    AddLong("BadgeItemUid")
-    AddInt("PetItemId")
+    add_long("PetItemUid")
+    add_long("BadgeItemUid")
+    add_int("PetItemId")

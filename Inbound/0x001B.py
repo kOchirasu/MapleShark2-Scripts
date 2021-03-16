@@ -1,49 +1,49 @@
 from script_api import *
 
-def AddExpReward(i):
+def add_exp_reward(i):
     with Node("ExpReward " + str(i)):
-        AddByte("Type") # 1 = meso, 2 = exp, 3 = prestige
-        AddInt("Amount")
+        add_byte("Type") # 1 = meso, 2 = exp, 3 = prestige
+        add_int("Amount")
 
-def AddItemReward(i):
+def add_item_reward(i):
     with Node("RewardItem " + str(i)):
-        AddInt("ItemId")
-        AddInt("Amount")
-        AddInt("Rarity")
-        AddByte("")
-        AddByte("")
-        AddByte("")
+        add_int("ItemId")
+        add_int("Amount")
+        add_int("Rarity")
+        add_byte("")
+        add_byte("")
+        add_byte("")
 
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 0: # dungeon reward
-    AddByte("Unknown")
-    AddInt("DungeonId")
-    AddByte("Unknown")
-    AddInt("Time? (s)")
-    AddInt("Score?")
-    AddInt("MaxScore?")
-    AddByte("Unknown")
-    AddByte("Unknown")
-    AddByte("Unknown")
-    AddByte("Unknown")
-    a = AddInt("RewardCount")
+    add_byte("Unknown")
+    add_int("DungeonId")
+    add_byte("Unknown")
+    add_int("Time? (s)")
+    add_int("Score?")
+    add_int("MaxScore?")
+    add_byte("Unknown")
+    add_byte("Unknown")
+    add_byte("Unknown")
+    add_byte("Unknown")
+    a = add_int("RewardCount")
     for i in range(a):
-        AddExpReward(i)
-    b = AddInt("RewardItemCount")
+        add_exp_reward(i)
+    b = add_int("RewardItemCount")
     for i in range(b):
-        AddItemReward(i)
-    c = AddInt("ExtraRewardCount")
+        add_item_reward(i)
+    c = add_int("ExtraRewardCount")
     for i in range(c):
-        AddExpReward(i)
-    d = AddInt("ExtraRewardItemCount")
+        add_exp_reward(i)
+    d = add_int("ExtraRewardItemCount")
     for i in range(d):
-        AddItemReward(i)
+        add_item_reward(i)
 elif f == 1: # minigame reward
-    AddInt("ClearedRounds")
-    AddInt("LastRound")
-    AddInt("FirstRound")
-    AddExpReward(0)
-    count = AddInt("RewardCount")
+    add_int("ClearedRounds")
+    add_int("LastRound")
+    add_int("FirstRound")
+    add_exp_reward(0)
+    count = add_int("RewardCount")
     for i in range(count):
-        AddItemReward(i)
+        add_item_reward(i)

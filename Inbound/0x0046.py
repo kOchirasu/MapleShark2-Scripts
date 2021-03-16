@@ -1,18 +1,18 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 
 if f == 0:
-    AddInt("TotalAttributePoints")
-    count = AddInt("count")
+    add_int("TotalAttributePoints")
+    count = add_int("count")
     for i in range(count):
         with Node("Attribute " + str(i), True):
-            AddInt("AttributeType")
-            AddInt("AllocatedPoints")
+            add_int("AttributeType")
+            add_int("AllocatedPoints")
 elif f == 1:
-    AddInt("TotalAttributePoints")
-    count = AddInt("count")
+    add_int("TotalAttributePoints")
+    count = add_int("count")
     for i in range(count):
         with Node("Source " + str(i), True):
-            AddByte("SourceType")
-            AddInt("Points")
+            add_byte("SourceType")
+            add_int("Points")

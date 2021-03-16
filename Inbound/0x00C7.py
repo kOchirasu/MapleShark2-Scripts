@@ -1,5 +1,5 @@
 from script_api import *
 
-b = AddBool("Unknown")
+b = add_bool("Unknown")
 if b:
-    AddInt("Score")
+    add_int("Score")

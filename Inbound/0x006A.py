@@ -1,19 +1,19 @@
 from script_api import *
 from common import *
 
-def DecodeCubeItemInfo():
+def decode_cube_item_info():
     with Node("CubeItemInfo"):
-        AddInt("ItemId")
-        AddLong("ItemUid")
-        AddLong("Unknown")
-        b = AddBool("IsUgc")
+        add_int("ItemId")
+        add_long("ItemUid")
+        add_long("Unknown")
+        b = add_bool("IsUgc")
         if b:
-            DecodeUgcData()
+            decode_ugc_data()
     
 
 # BROADCASTED
-AddInt("PlayerObjectId")
-b = AddBool("IsStart")
+add_int("PlayerObjectId")
+b = add_bool("IsStart")
 if b:
-    DecodeCubeItemInfo()
-    AddInt("Unknown")
+    decode_cube_item_info()
+    add_int("Unknown")

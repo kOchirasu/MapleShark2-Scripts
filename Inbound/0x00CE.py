@@ -1,65 +1,65 @@
 from script_api import *
 from common import *
 
-def DecodePotionSettings():
+def decode_potion_settings():
     with Node("PotionSettings", True):
-        count = AddByte("Count")
+        count = add_byte("Count")
         for i in range(count):
             with Node("Potion " + str(i), True):
-                AddInt("ThresholdIndex")
-                AddFloat("Threshold")
-                AddInt("ItemId")
+                add_int("ThresholdIndex")
+                add_float("Threshold")
+                add_int("ItemId")
 
-def DecodeLootSettings():
+def decode_loot_settings():
     with Node("LootSettings", True):
-        AddBool("Mesos")
-        AddBool("Merets")
-        AddBool("Other")
-        AddBool("Currency")
-        AddBool("Equipment")
-        AddBool("Consumable")
-        AddBool("Gemstone")
-        AddBool("Dropped")
-        AddInt("MinRarity")
-        AddBool("Enabled")
+        add_bool("Mesos")
+        add_bool("Merets")
+        add_bool("Other")
+        add_bool("Currency")
+        add_bool("Equipment")
+        add_bool("Consumable")
+        add_bool("Gemstone")
+        add_bool("Dropped")
+        add_int("MinRarity")
+        add_bool("Enabled")
 
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 0: # Add
     # BROADCAST
-    AddInt("PlayerObjectId")
-    AddInt("PetObjectId")
-    b = AddBool("Bool")
+    add_int("PlayerObjectId")
+    add_int("PetObjectId")
+    b = add_bool("Bool")
     if b:
-        id = AddInt("PetItemId")
-        AddLong("PetUid")
-        AddInt("Rarity")
-        DecodeItem(id)
-        AddLong("PetUid")
+        id = add_int("PetItemId")
+        add_long("PetUid")
+        add_int("Rarity")
+        decode_item(id)
+        add_long("PetUid")
 elif f == 1: # Remove
     # BROADCAST
-    AddInt("PlayerObjectId")
-    AddLong("PetUid")
+    add_int("PlayerObjectId")
+    add_long("PetUid")
 elif f == 5:
-    AddInt("PlayerObjectId")
-    DecodePotionSettings()
+    add_int("PlayerObjectId")
+    decode_potion_settings()
 elif f == 6:
-    AddInt("PlayerObjectId")
-    DecodeLootSettings()
+    add_int("PlayerObjectId")
+    decode_loot_settings()
 elif f == 7: # load collection
-    count = AddInt("Count")
+    count = add_int("Count")
     for i in range(count):
-        AddInt("PetId")
-        AddShort("PetRarity")
+        add_int("PetId")
+        add_short("PetRarity")
 elif f == 9:
-    AddInt("PlayerObjectId")
-    AddUnicodeString("PetName")
-    AddLong("PetExp")
-    AddInt("Unknown")
-    AddShort("Unknown")
-    AddShort("Unknown")
-    AddShort("Unknown")
-    DecodePotionSettings()
-    DecodeLootSettings()
+    add_int("PlayerObjectId")
+    add_unicode_str("PetName")
+    add_long("PetExp")
+    add_int("Unknown")
+    add_short("Unknown")
+    add_short("Unknown")
+    add_short("Unknown")
+    decode_potion_settings()
+    decode_loot_settings()
 elif f == 20: # use master snare
-    AddInt("ItemId") # Lapis master snare
+    add_int("ItemId") # Lapis master snare

@@ -1,57 +1,57 @@
 from script_api import *
 from common import *
 
-def DecodeListEntry():
-    DecodePlayer()
+def decode_list_entry():
+    decode_player()
 
-    AddUnicodeString("same char profile url")
-    AddLong("???")
+    add_unicode_str("same char profile url")
+    add_long("???")
 
     # This is bugged for some equip types
-    count = AddByte("EQUIPMENT")
+    count = add_byte("EQUIPMENT")
     for j in range(count):
         with Node("Item " + str(j)):
-            id = AddInt("Id")
-            AddLong("Uid")
-            equipType = AddUnicodeString("Type")
-            AddInt("??? ^" + str(equipType))
-            DecodeItem(id)
+            id = add_int("Id")
+            add_long("Uid")
+            equipType = add_unicode_str("Type")
+            add_int("??? ^" + str(equipType))
+            decode_item(id)
 
     with Node("Badges"):
-        count = AddByte("count")
+        count = add_byte("count")
         for j in range(count):
             with Node("Badge " + str(j)):
-                AddByte("???")
-                id = AddInt("ItemId")
-                AddLong("Unknown")
-                AddInt("Unknown")
-                DecodeItem(id)
+                add_byte("???")
+                id = add_int("ItemId")
+                add_long("Unknown")
+                add_int("Unknown")
+                decode_item(id)
 
-    b = AddBool("???")
+    b = add_bool("???")
     if b:
-        AddLong("???")
-        AddLong("???")
-        b = AddBool("flag?")
+        add_long("???")
+        add_long("???")
+        b = add_bool("flag?")
         if b:
-            AddInt("???")
-            AddLong("???")
-            AddUnicodeString("WStrA")
-            AddInt("???")
+            add_int("???")
+            add_long("???")
+            add_unicode_str("WStrA")
+            add_int("???")
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 0:
-    charCount = AddByte("Count")
+    charCount = add_byte("Count")
     for i in range(charCount):
-        DecodeListEntry()
+        decode_list_entry()
 elif f == 1:
-    DecodeListEntry()
+    decode_list_entry()
 elif f == 2: # delete from list
-    AddInt("Unknown")
-    AddLong("characterId")
+    add_int("Unknown")
+    add_long("characterId")
 elif f == 5: # delete pending
-    AddLong("characterId")
-    AddInt("Unknown")
-    AddLong("DeleteTime")
+    add_long("characterId")
+    add_int("Unknown")
+    add_long("DeleteTime")
 elif f == 6: # delete cancel
-    AddLong("characterId")
-    AddInt("Unknown")
+    add_long("characterId")
+    add_int("Unknown")

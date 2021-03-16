@@ -1,13 +1,13 @@
 from script_api import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 
 if f == 0:
-    count = AddShort("Count")
+    count = add_short("Count")
     for i in range(count):
-        AddInt("StampId")
-    count = AddShort("Count")
+        add_int("StampId")
+    count = add_short("Count")
     for i in range(count):
-        AddInt("Unknown")
-        AddInt("-1")
-        AddInt("217538647")
+        add_int("Unknown")
+        add_int("-1")
+        add_int("217538647")

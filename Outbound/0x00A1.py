@@ -1,4 +1,4 @@
 from script_api import *
 
-AddLong("AnvilItemUid")
-AddLong("ItemUid")
+add_long("AnvilItemUid")
+add_long("ItemUid")

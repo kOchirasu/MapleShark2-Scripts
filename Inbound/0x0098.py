@@ -1,24 +1,24 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 
 if f == 1: # confirm put item
-    AddLong("ItemUid")
-    AddShort("slot")
-    AddInt("Amount")
+    add_long("ItemUid")
+    add_short("slot")
+    add_int("Amount")
 elif f == 2: # confirm remove item
-    AddLong("ItemUid")
+    add_long("ItemUid")
 elif f == 3: # dismantle results
-    AddByte("Unknown")
-    count = AddInt("count")
+    add_byte("Unknown")
+    count = add_int("count")
     for i in range(count):
         with Node("Item " + str(i), True):
-            AddInt("ItemId")
-            AddInt("Amount")
+            add_int("ItemId")
+            add_int("Amount")
 elif f == 5: # preview dismantle results
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
         with Node("Item " + str(i), True):
-            AddInt("ItemId")
-            AddInt("amount min")
-            AddInt("amount max")
+            add_int("ItemId")
+            add_int("amount min")
+            add_int("amount max")

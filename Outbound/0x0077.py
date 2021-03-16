@@ -1,14 +1,14 @@
 from script_api import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 
 if f == 1: # use scroll
-    AddLong("ScrollUid")
-    AddLong("EquipUid")
-    AddField("Unknown 9", 9)
-    b = AddBool("UseLock")
+    add_long("ScrollUid")
+    add_long("EquipUid")
+    add_field("Unknown 9", 9)
+    b = add_bool("UseLock")
     if b:
-        AddByte()
-        AddShort()
+        add_byte()
+        add_short()
 elif f == 3: # select new
-    AddLong("EquipUid")
+    add_long("EquipUid")

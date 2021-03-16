@@ -1,4 +1,4 @@
 from script_api import *
 
-AddInt("UserObjectId")
-AddByte("state")
+add_int("UserObjectId")
+add_byte("state")

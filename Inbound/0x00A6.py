@@ -1,9 +1,9 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 
 if f == 6:
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
-        AddInt("Id")
-        AddLong("Timestamp")
+        add_int("Id")
+        add_long("Timestamp")

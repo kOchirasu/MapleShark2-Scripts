@@ -1,21 +1,21 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 0:
-    AddInt("ServerTick")
-    AddLong("Timestamp")
-    AddByte("Unknown")
-    AddInt("Unknown")
-    AddInt("Key")
+    add_int("ServerTick")
+    add_long("Timestamp")
+    add_byte("Unknown")
+    add_int("Unknown")
+    add_int("Key")
 elif f == 1:
-    AddInt("ServerTick")
-    AddLong("Timestamp")
-    AddByte("Unknown")
-    AddInt("Unknown")
+    add_int("ServerTick")
+    add_long("Timestamp")
+    add_byte("Unknown")
+    add_int("Unknown")
 elif f == 2:
-    AddInt("ServerTick")
-    AddLong("Timestamp")
-    AddByte("Unknown")
-    AddInt("Unknown")
+    add_int("ServerTick")
+    add_long("Timestamp")
+    add_byte("Unknown")
+    add_int("Unknown")
 elif f == 3:
-    AddLong("Timestamp")
+    add_long("Timestamp")

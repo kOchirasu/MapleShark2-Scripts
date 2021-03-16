@@ -1,29 +1,29 @@
 from script_api import *
 from common import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 0: # start riding
-    AddInt("PlayerObjectId")
-    mountType = AddByte("type")
-    AddInt("MountId")
-    AddInt("MountObjectId?")
+    add_int("PlayerObjectId")
+    mountType = add_byte("type")
+    add_int("MountId")
+    add_int("MountObjectId?")
     if mountType == 1:
-        AddInt("MountId")
-        AddLong("MountUid")
+        add_int("MountId")
+        add_long("MountUid")
         # UGC Packet data
-        DecodeUgcData()
+        decode_ugc_data()
     elif mountType == 2:
-        AddInt("Unknown+22")
-        AddShort("Unknown+26")
+        add_int("Unknown+22")
+        add_short("Unknown+26")
 elif f == 1: # stop riding
-    AddInt("PlayerObjectId")
-    AddShort("0?")
+    add_int("PlayerObjectId")
+    add_short("0?")
 elif f == 2:
-    AddInt("PlayerObjectId")
-    AddInt("MountId")
-    AddLong("MountUid")
+    add_int("PlayerObjectId")
+    add_int("MountId")
+    add_long("MountUid")
 elif f == 3:
-    AddInt("Unknown+9")
-    AddInt("Unknown+13")
-    AddByte("Unknown+17")
+    add_int("Unknown+9")
+    add_int("Unknown+13")
+    add_byte("Unknown+17")
     # ...

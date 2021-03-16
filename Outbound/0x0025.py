@@ -1,17 +1,17 @@
 from script_api import *
 
 # Request 0x0025 08 (SendJob)
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 8:
     # SendJob load
     pass
 elif f == 9 or f == 11:
-    count = AddInt("Count")
+    count = add_int("Count")
     for i in range(count):
-        StartNode("Skill " + str(i))
-        AddInt("SkillId")
-        AddShort("Skill Points")
-        b = AddBool("Enabled")
-        EndNode(b)
+        start_node("Skill " + str(i))
+        add_int("SkillId")
+        add_short("Skill Points")
+        b = add_bool("Enabled")
+        end_node(b)
 elif f == 10: # Reset skillbook
-    AddInt("Unknown") # 0 = basic, 1 = awakening, 2 = both
+    add_int("Unknown") # 0 = basic, 1 = awakening, 2 = both

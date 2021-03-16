@@ -1,9 +1,9 @@
 from script_api import *
 from common import *
 
-AddShort("Type")
-count = AddByte("segments")
+add_short("Type")
+count = add_byte("segments")
 for i in range(count):
-    DecodeSyncState()
-AddInt("ClientTick")
-AddInt("ServerTick")
+    decode_sync_state()
+add_int("ClientTick")
+add_int("ServerTick")

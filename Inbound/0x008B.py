@@ -1,9 +1,9 @@
 from script_api import *
 
-count = AddInt("count")
+count = add_int("count")
 for i in range(count):
     with Node("Entry " + str(i)):
-        AddInt("Unknown")
-        AddInt("Unknown")
+        add_int("Unknown")
+        add_int("Unknown")
 
-AddByte("Unknown")
+add_byte("Unknown")

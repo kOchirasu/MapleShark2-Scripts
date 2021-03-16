@@ -1,5 +1,5 @@
 from script_api import *
 
-AddInt("Unknown") # 1
-AddByte("Unknown") # 1
-AddUnicodeString("Effect.xml")
+add_int("Unknown") # 1
+add_byte("Unknown") # 1
+add_unicode_str("Effect.xml")

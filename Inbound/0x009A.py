@@ -1,55 +1,55 @@
 from script_api import *
 from common import *
 
-def DecodeBlackMarketEntry():
+def decode_black_market_entry():
     with Node("Entry"):
-        AddLong("ListingUid")
-        AddLong("TimeListed")
-        AddLong("TimeListed")
-        AddLong("TimeExpires")
-        AddInt("Amount")
-        AddInt("Unknown") # 0
-        AddLong("CostPerItem")
-        AddByte("Unknown") # 0
-        AddLong("ItemUid")
-        id = AddInt("ItemId")
-        AddByte("Rarity")
-        AddLong("ListerAccountId")
-        DecodeItem(id)
+        add_long("ListingUid")
+        add_long("TimeListed")
+        add_long("TimeListed")
+        add_long("TimeExpires")
+        add_int("Amount")
+        add_int("Unknown") # 0
+        add_long("CostPerItem")
+        add_byte("Unknown") # 0
+        add_long("ItemUid")
+        id = add_int("ItemId")
+        add_byte("Rarity")
+        add_long("ListerAccountId")
+        decode_item(id)
 
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 0: # item sold out
-    AddByte("Unknown")
-    n = AddInt("ErrorCode")
-    AddLong("ListingUid")
-    AddInt("Unknown") # 0
-    AddInt("Unknown") # 0
+    add_byte("Unknown")
+    n = add_int("ErrorCode")
+    add_long("ListingUid")
+    add_int("Unknown") # 0
+    add_int("Unknown") # 0
 elif f == 1: # my listings
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
-        DecodeBlackMarketEntry()
+        decode_black_market_entry()
 elif f == 2:
-    DecodeBlackMarketEntry()
+    decode_black_market_entry()
 elif f == 3: # remove my listing
-    AddLong("ListingUid")
-    AddByte("Unknown") # 0
+    add_long("ListingUid")
+    add_byte("Unknown") # 0
 elif f == 4:
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
-        DecodeBlackMarketEntry()
+        decode_black_market_entry()
 elif f == 5: # listing purchased
-    AddLong("ListingUid")
-    AddInt("Amount")
+    add_long("ListingUid")
+    add_int("Amount")
 elif f == 6:
-    AddByte("Unknown")
-    AddLong("Unknown")
-    AddLong("Unknown")
+    add_byte("Unknown")
+    add_long("Unknown")
+    add_long("Unknown")
 elif f == 7: # item sold
     pass # none
 elif f == 8: # preview item
-    AddInt("ItemId")
-    AddInt("Rarity")
-    AddLong("ShopPrice")
+    add_int("ItemId")
+    add_int("Rarity")
+    add_long("ShopPrice")
 elif f == 9:
     pass

@@ -1,23 +1,23 @@
 from script_api import *
 
 # SendMastery
-f = AddByte("Function1")
+f = add_byte("Function1")
 
 if f == 0: # mastery exp
-    AddByte("MasteryType")
-    AddInt("CurrentMastery")
-    AddInt("Unknown")
+    add_byte("MasteryType")
+    add_int("CurrentMastery")
+    add_int("Unknown")
 elif f == 1: # claiming rank reward
-    AddInt("RewardId")
-    count = AddInt("count")
+    add_int("RewardId")
+    count = add_int("count")
     for i in range(count):
-        AddInt("ItemId")
-        AddShort("Rarity")
+        add_int("ItemId")
+        add_short("Rarity")
 elif f == 2: # craft result
-    AddShort("MasteryType")
-    count = AddInt("count")
+    add_short("MasteryType")
+    count = add_int("count")
     for i in range(count):
-        AddInt("ItemId") # Reward from craft item
-        AddShort("Rarity")
+        add_int("ItemId") # Reward from craft item
+        add_short("Rarity")
 elif f == 3: # error code?
-    AddShort("Unknown")
+    add_short("Unknown")

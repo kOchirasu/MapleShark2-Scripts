@@ -1,5 +1,5 @@
 from script_api import *
 from common import *
 
-AddLong("ItemUid")
-DecodeItem(0)
+add_long("ItemUid")
+decode_item(0)

@@ -1,8 +1,8 @@
 from script_api import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 0:
-    AddInt("CurrentMapId")
-    AddInt("PortalId")
-    AddField("Unknown", 10)
-    AddUnicodeString("Password") # For locked portals
+    add_int("CurrentMapId")
+    add_int("PortalId")
+    add_field("Unknown", 10)
+    add_unicode_str("Password") # For locked portals

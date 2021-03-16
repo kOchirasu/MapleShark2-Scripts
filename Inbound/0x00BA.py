@@ -1,4 +1,4 @@
 from script_api import *
 
-AddInt("count")
-AddInt("max")
+add_int("count")
+add_int("max")

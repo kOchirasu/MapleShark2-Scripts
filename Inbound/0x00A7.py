@@ -1,22 +1,22 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 0:
     pass
 elif f == 1:
-    AddInt("Unknown")
+    add_int("Unknown")
 elif f == 2:
-    AddInt("Unknown")
+    add_int("Unknown")
 elif f == 3:
-    AddByte("Unknown")
-    AddInt("Unknown")
-    AddInt("Unknown")
-    AddInt("Unknown")
+    add_byte("Unknown")
+    add_int("Unknown")
+    add_int("Unknown")
+    add_int("Unknown")
 """for i in range(15):
     with Node("Entry " + str(i), True):
-        AddInt("Id")
-        AddInt("Level")
-        AddInt("Unknown")
-        AddShort("Unknown")
-        AddField("Unknown", 38)
+        add_int("Id")
+        add_int("Level")
+        add_int("Unknown")
+        add_short("Unknown")
+        add_field("Unknown", 38)
 """

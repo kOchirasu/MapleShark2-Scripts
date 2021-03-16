@@ -1,35 +1,35 @@
 from script_api import *
 from common import *
 
-f = AddByte("Function")
-AddInt("PortalId")
+f = add_byte("Function")
+add_int("PortalId")
 if f == 0: # load portal
-    AddBool("Visible")
-    AddBool("Enabled")
-    DecodeCoordF("Position")
-    DecodeCoordF("Rotation")
-    DecodeCoordF("PortalDimension")
-    AddUnicodeString("UnknownStr") # Eff_Com_Portal_E
-    AddInt("TargetMapId")
-    AddInt("ObjectId")
-    AddInt("Unknown")
-    AddBool("MinimapVisible")
-    AddLong("UnknownLongId")
-    AddByte("PortalType")
-    AddInt("StartTick")
-    AddShort("Unknown")
-    AddInt("EndTick")
-    AddBool("Unknown") # locked?
-    AddUnicodeString("PortalOwnerName") # minigame portal
-    AddUnicodeString("UnknownStr")
-    AddUnicodeString("UnknownStr")
+    add_bool("Visible")
+    add_bool("Enabled")
+    decode_coordF("Position")
+    decode_coordF("Rotation")
+    decode_coordF("PortalDimension")
+    add_unicode_str("UnknownStr") # Eff_Com_Portal_E
+    add_int("TargetMapId")
+    add_int("ObjectId")
+    add_int("Unknown")
+    add_bool("MinimapVisible")
+    add_long("UnknownLongId")
+    add_byte("PortalType")
+    add_int("StartTick")
+    add_short("Unknown")
+    add_int("EndTick")
+    add_bool("Unknown") # locked?
+    add_unicode_str("PortalOwnerName") # minigame portal
+    add_unicode_str("UnknownStr")
+    add_unicode_str("UnknownStr")
 elif f == 1: # remove portal
     pass # ??
 elif f == 2: # trigger portal
-    AddBool("Visible")
-    AddBool("Enabled")
-    AddBool("MinimapVisible")
-    AddShort("Unknown")
+    add_bool("Visible")
+    add_bool("Enabled")
+    add_bool("MinimapVisible")
+    add_short("Unknown")
 elif f == 3:
-    DecodeCoordF("Location")
-    DecodeCoordF("Rotation")
+    decode_coordF("Location")
+    decode_coordF("Rotation")

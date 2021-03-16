@@ -1,3 +1,3 @@
 from script_api import *
 
-AddInt("Sequence")
+add_int("Sequence")

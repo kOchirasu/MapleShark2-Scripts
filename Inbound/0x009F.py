@@ -1,10 +1,10 @@
 from script_api import *
 from common import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 
 if f == 0: # add maid
-    AddBool("Unknown") # num here is kinda random
-    DecodeMaid()
+    add_bool("Unknown") # num here is kinda random
+    decode_maid()
 elif f == 1: # Remove maid
-    AddLong("ItemUid")
+    add_long("ItemUid")

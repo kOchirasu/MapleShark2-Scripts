@@ -13,14 +13,14 @@ Client | Server
        < 0xE8 | BypassKey
 """
 
-f = AddByte("function")
+f = add_byte("function")
 
 if f == 1:
-    AddLong("AccountId")
-    AddLong("CharacterId")
-    AddInt("Unknown") # count?
-    AddInt("Unknown")
-    AddUnicodeString("Unknown") # 74-C6-3B-ED-0A-A6-7D-D2-ED-D8-00-00-00-00-E3-23
-    AddInt("Unknown") # count?
-    AddString("SomeKey") # CjhWVm0HAAB2wucC3975500370134093852
-    AddInt("Unknown")
+    add_long("AccountId")
+    add_long("CharacterId")
+    add_int("Unknown") # count?
+    add_int("Unknown")
+    add_unicode_str("Unknown") # 74-C6-3B-ED-0A-A6-7D-D2-ED-D8-00-00-00-00-E3-23
+    add_int("Unknown") # count?
+    add_str("SomeKey") # CjhWVm0HAAB2wucC3975500370134093852
+    add_int("Unknown")

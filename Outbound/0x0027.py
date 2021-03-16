@@ -1,8 +1,8 @@
 from script_api import *
 
-AddString("EntityId")
-AddLong("SkillCastId")
-AddInt("SkillId")
-AddShort("SkillLevel")
-AddByte("Unknown")
-AddByte("Unknown")
+add_str("EntityId")
+add_long("SkillCastId")
+add_int("SkillId")
+add_short("SkillLevel")
+add_byte("Unknown")
+add_byte("Unknown")

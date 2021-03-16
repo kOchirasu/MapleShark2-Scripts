@@ -1,4 +1,4 @@
 from script_api import *
 
-AddInt("ObjectId") # Of player leveling up
-AddInt("Level")
+add_int("ObjectId") # Of player leveling up
+add_int("Level")

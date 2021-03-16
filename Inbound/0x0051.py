@@ -1,21 +1,21 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 0:
-    AddByte("Unknown")
-    AddInt("ServerTick")
-    AddInt("Duration (ms)")
-    AddInt("Unknown")
+    add_byte("Unknown")
+    add_int("ServerTick")
+    add_int("Duration (ms)")
+    add_int("Unknown")
 elif f == 1:
-    AddInt("Unknown")
-    AddInt("Unknown")
-    AddInt("Unknown")
-    AddInt("Unknown")
+    add_int("Unknown")
+    add_int("Unknown")
+    add_int("Unknown")
+    add_int("Unknown")
 elif f == 2:
-    AddByte("Unknown")
-    AddInt("Unknown")
-    AddInt("Unknown")
-    AddInt("Unknown")
+    add_byte("Unknown")
+    add_int("Unknown")
+    add_int("Unknown")
+    add_int("Unknown")
 elif f == 3:
     pass # none
 elif f == 4:

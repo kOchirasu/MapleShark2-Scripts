@@ -1,7 +1,7 @@
 from script_api import *
 
-count = AddByte("Count")
+count = add_byte("Count")
 for i in range(count):
-    AddLong("Unknown")
-    AddInt("Unknown")
-    AddInt("Unknown")
+    add_long("Unknown")
+    add_int("Unknown")
+    add_int("Unknown")

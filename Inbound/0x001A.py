@@ -1,63 +1,63 @@
 from script_api import *
 
-def DecodeDungeonRecordCli():
-    AddInt("DungeonRoomId")
-    AddLong("ClearDate") # no minutes
-    AddByte("Unknown")
-    AddByte("Unknown")
-    AddLong("Unknown")
-    AddByte("Unknown")
-    AddByte("Unknown")
-    AddLong("Unknown")
-    AddInt("Unknown")
-    AddShort("Unknown")
-    AddLong("Unknown")
-    AddShort("Unknown")
-    AddByte("Unknown")
+def decode_dungeon_record_cli():
+    add_int("DungeonRoomId")
+    add_long("ClearDate") # no minutes
+    add_byte("Unknown")
+    add_byte("Unknown")
+    add_long("Unknown")
+    add_byte("Unknown")
+    add_byte("Unknown")
+    add_long("Unknown")
+    add_int("Unknown")
+    add_short("Unknown")
+    add_long("Unknown")
+    add_short("Unknown")
+    add_byte("Unknown")
 
-def DecodeDungeonRankReward():
-    AddInt("DungeonRoomId")
-    AddInt("Unknown")
-    AddLong("Unknown")
+def decode_dungeon_rank_reward():
+    add_int("DungeonRoomId")
+    add_int("Unknown")
+    add_long("Unknown")
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 5:
-    count = AddInt("Count")
+    count = add_int("Count")
     for i in range(count):
         with Node("DungeonRecord " + str(i)):
-            AddInt("DungeonRoomId")
-            DecodeDungeonRecordCli()
+            add_int("DungeonRoomId")
+            decode_dungeon_record_cli()
 elif f == 6: # DungeonRecordCli
-    DecodeDungeonRecordCli()
+    decode_dungeon_record_cli()
 elif f == 7:
-    AddByte("Type")
-    AddInt("Unknown")
+    add_byte("Type")
+    add_int("Unknown")
     # some string notice?
 elif f == 9: # UIDungeonExpenseRewardDialog
-    AddInt("Unknown")
-    AddInt("Unknown")
+    add_int("Unknown")
+    add_int("Unknown")
 elif f == 11: # UIDungeonClosingPhotoDialog
-    AddByte("Unknown")
-    count = AddInt("Count")
+    add_byte("Unknown")
+    count = add_int("Count")
     for i in range(count):
-        AddLong("CharacterId")
-        AddInt("Unknown")
-        AddInt("Unknown")
-        AddInt("Unknown")
+        add_long("CharacterId")
+        add_int("Unknown")
+        add_int("Unknown")
+        add_int("Unknown")
 elif f == 12: # UI related
     pass # none
 elif f == 19: # error
-    AddInt("Type") # 8 = dungeon expired
-    AddInt("Unknown")
-    # server sends additional useless int
+    add_int("Type") # 8 = dungeon expired
+    add_int("Unknown")
+    # server sends add_itional useless int
 elif f == 20:
-    count = AddInt("Count")
+    count = add_int("Count")
     for i in range(count):
         with Node("RankReward " + str(i)):
-            AddInt("DungeonRoomId")
-            DecodeDungeonRankReward()
+            add_int("DungeonRoomId")
+            decode_dungeon_rank_reward()
 elif f == 21: # DungeonRankReward
-    DecodeDungeonRankReward()
+    decode_dungeon_rank_reward()
 elif f == 23:
-    AddLong("Timestamp")
-    AddLong("CharacterId")
+    add_long("Timestamp")
+    add_long("CharacterId")

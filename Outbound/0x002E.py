@@ -1,9 +1,9 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 
 if f == 4: # toggle use function cube
-    AddUnicodeString("FunctionCubeName")
-    AddBool("Using?")
+    add_unicode_str("FunctionCubeName")
+    add_bool("Using?")
 elif f == 6: # finish using computer
-    AddUnicodeString("FunctionCubeName")
+    add_unicode_str("FunctionCubeName")

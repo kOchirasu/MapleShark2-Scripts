@@ -1,19 +1,19 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 
 if f == 0:
-    f2 = AddByte("function2")
+    f2 = add_byte("function2")
     if f2 == 0:
-        AddUnicodeString("Log")
-        AddUnicodeString("Log")
+        add_unicode_str("Log")
+        add_unicode_str("Log")
     elif f2 == 1: # sent every ~5 min by client
-        count = AddByte("count") # fps, memory, latency metrics
+        count = add_byte("count") # fps, memory, latency metrics
         for i in range(count):
             with Node("Entry " + str(i), True):
-                AddString("Type")
-                AddFloat("Average")
-                AddFloat("StandardDeviation")
-                AddInt("DataPoints")
-                AddFloat("Min")
-                AddFloat("Max")
+                add_str("Type")
+                add_float("Average")
+                add_float("StandardDeviation")
+                add_int("DataPoints")
+                add_float("Min")
+                add_float("Max")

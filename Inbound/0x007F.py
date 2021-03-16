@@ -1,25 +1,25 @@
 from script_api import *
 
-def DecodeType1():
-    AddInt("CubeCount")
-    AddInt("Unknown")
-    b = AddBool("HasUgcDetails")
+def decode_type1():
+    add_int("CubeCount")
+    add_int("Unknown")
+    b = add_bool("HasUgcDetails")
     if b:
-        accountId = AddLong("AccountId?")
-        AddUnicodeString("HomeName")
-        AddUnicodeString("HomeMessage")
-        AddByte("Unknown")
-        AddInt("WeelkyArchitectScore")
-        AddInt("TotalArchitectScore")
-        AddInt("PlotId")
-        AddInt("PlotMapId")
-        AddByte("Unknown")
-        AddByte("AreaDimension")
-        AddByte("HeightDimension")
+        accountId = add_long("AccountId?")
+        add_unicode_str("HomeName")
+        add_unicode_str("HomeMessage")
+        add_byte("Unknown")
+        add_int("WeelkyArchitectScore")
+        add_int("TotalArchitectScore")
+        add_int("PlotId")
+        add_int("PlotMapId")
+        add_byte("Unknown")
+        add_byte("AreaDimension")
+        add_byte("HeightDimension")
         with Node("InteriorSettings", True):
-            AddByte("Background")
-            AddByte("Lighting")
-            AddByte("Camera")
+            add_byte("Background")
+            add_byte("Lighting")
+            add_byte("Camera")
         
         with Node("HomePermissions", True):
             # 0 - Jumping
@@ -31,32 +31,32 @@ def DecodeType1():
             # 6 - Air Mounts
             # 7
             # 8
-            count = AddByte("Count")
+            count = add_byte("Count")
             for i in range(count):
-                StartNode("Permission " + str(i))
-                n = AddBool("IsConfigured")
+                start_node("Permission " + str(i))
+                n = add_bool("IsConfigured")
                 if n:
                     # 0 - Allow None
                     # 1 - Allow Me
                     # 2 - Allow My Party
-                    AddByte("Value")
-                EndNode(n)
+                    add_byte("Value")
+                end_node(n)
         
         with Node("DesignNode", True):
             if accountId != 0: # Another unknown condition
-                count = AddByte("Count")
+                count = add_byte("Count")
                 for i in range(count):
                     with ("SavedDesign " + str(i)): # UGCMapDesignInfo
-                        AddInt("SaveSlot")
-                        AddUnicodeString("Name")
-                        AddLong("SaveTime")
+                        add_int("SaveSlot")
+                        add_unicode_str("Name")
+                        add_long("SaveTime")
 
-                count = AddByte("Count")
+                count = add_byte("Count")
                 for i in range(count):
                     with Node("UGCMapBlueprintInfo " + str(i)):
-                        AddInt("Unknown")
-                        AddUnicodeString("UnknownStr")
-                        AddLong("Unknown")
+                        add_int("Unknown")
+                        add_unicode_str("UnknownStr")
+                        add_long("Unknown")
         
 
-DecodeType1()
+decode_type1()

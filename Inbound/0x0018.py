@@ -1,3 +1,3 @@
 from script_api import *
 
-AddInt("ObjectId")
+add_int("ObjectId")

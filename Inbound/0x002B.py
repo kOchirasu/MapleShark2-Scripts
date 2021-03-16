@@ -1,20 +1,20 @@
 from script_api import *
 from common import *
 
-AddInt("ObjectId")
-id = AddInt("ItemId")
-AddInt("Amount")
-b = AddBool("Flag")
+add_int("ObjectId")
+id = add_int("ItemId")
+add_int("Amount")
+b = add_bool("Flag")
 if b:
-    AddLong("Uid")
-DecodeCoordF("")
-AddInt("LooterObjectId")
-AddInt("Unknown")
-AddByte("Unknown")
-AddInt("Rarity")
-AddShort("Unknown")
-AddByte("Unknown")
-AddByte("Unknown")
+    add_long("Uid")
+decode_coordF("")
+add_int("LooterObjectId")
+add_int("Unknown")
+add_byte("Unknown")
+add_int("Rarity")
+add_short("Unknown")
+add_byte("Unknown")
+add_byte("Unknown")
 # No info for mesos...
 if id != 90000001:
-    DecodeItem(id)
+    decode_item(id)

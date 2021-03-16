@@ -1,6 +1,6 @@
 from script_api import *
 
-f = AddByte("Constant")
+f = add_byte("Constant")
 if f == 31:
-    AddInt("Unknown") # 120
-    AddInt("Unknown") # 60
+    add_int("Unknown") # 120
+    add_int("Unknown") # 60

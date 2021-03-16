@@ -1,49 +1,49 @@
 from script_api import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 1:
     with Node("ChangeTitle", True):
-        AddInt("ObjectId")
-        AddInt("TitleId")
+        add_int("ObjectId")
+        add_int("TitleId")
     
 elif f == 2 or f == 4: # List unlocked titles?
-    count = AddInt("Count")
+    count = add_int("Count")
     for i in range(count):
-        AddInt("TitleId " + str(i))
+        add_int("TitleId " + str(i))
 elif f == 3 or f == 9:
-    count = AddInt("Count")
+    count = add_int("Count")
     for i in range(count):
         with Node("Entry " + str(i), True):
-            AddInt("Unknown")
-            AddByte("Unknown")
+            add_int("Unknown")
+            add_byte("Unknown")
 elif f == 8: # life skills / recipes
-    count = AddInt("Mining/Foraging Count")
+    count = add_int("Mining/Foraging Count")
     for i in range(count):
         with Node("Entry " + str(i), True):
-            AddInt("MasteryRecipe")
-            AddInt("Mastery")
-    count = AddInt("Ranching/Farming Count")
+            add_int("MasteryRecipe")
+            add_int("Mastery")
+    count = add_int("Ranching/Farming Count")
     for i in range(count):
         with Node("Entry " + str(i), True):
-            AddInt("MasteryRecipe")
-            AddInt("Unknown")
+            add_int("MasteryRecipe")
+            add_int("Unknown")
 elif f == 10:
-    count = AddInt("Count")
+    count = add_int("Count")
     for i in range(count):
         with Node("Entry " + str(i), True):
-            AddShort("entry#")
-            AddInt("Unknown")
+            add_short("entry#")
+            add_int("Unknown")
 elif f == 11:
-    AddShort("Unknown")
-    AddInt("Unknown")
+    add_short("Unknown")
+    add_int("Unknown")
 elif f == 12:
-    count = AddInt("Count")
+    count = add_int("Count")
     for i in range(count):
         with Node("Entry " + str(i), True):
-            AddInt("Unknown")
-            AddLong("Timestamp")
+            add_int("Unknown")
+            add_long("Timestamp")
 elif f == 13:
-    AddInt("Unknown")
-    AddLong("Unknown")
+    add_int("Unknown")
+    add_long("Unknown")
 else:
-    AddInt("Unknown")
+    add_int("Unknown")

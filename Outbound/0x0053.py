@@ -1,42 +1,42 @@
 from script_api import *
 
-AddUnicodeString("Name")
-AddUnicodeString("Message")
+add_unicode_str("Name")
+add_unicode_str("Message")
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 0: # reporting player
-    AddInt("Unknown") # 1
+    add_int("Unknown") # 1
 elif f == 1: # reporting chat
-    AddInt("Unknown")
-    AddUnicodeString("UnknownStr")
+    add_int("Unknown")
+    add_unicode_str("UnknownStr")
 elif f == 2: # reporting poster
-    AddInt("Unknown")
-    AddLong("Unknown")
-    AddUnicodeString("UnknownStr")
+    add_int("Unknown")
+    add_long("Unknown")
+    add_unicode_str("UnknownStr")
 elif f == 3: # reporting design item
-    AddInt("Unknown")
-    AddLong("Unknown")
+    add_int("Unknown")
+    add_long("Unknown")
 elif f == 4: # reporting real estate item (house)
-    AddInt("Bit-flag of reasons")
-    AddLong("PlayerId")
-    AddInt("Unknown") # 0
-    AddInt("Unknown") #0
+    add_int("Bit-flag of reasons")
+    add_long("PlayerId")
+    add_int("Unknown") # 0
+    add_int("Unknown") #0
 elif f == 7: # reporting pet
-    AddInt("Unknown")
+    add_int("Unknown")
 
 """
-AddByte("Unknown")
-AddByte("Unknown")
-AddLong("Unknown")
-AddLong("Unknown")
-AddUnicodeString("UnknownStr")
-AddUnicodeString("UnknownStr")
-AddLong("Unknown")
-AddString("UnknownStr")
-AddUnicodeString("UnknownStr")
-AddLong("Unknown")
-AddLong("Unknown")
-AddString("UnknownStr")
-AddInt("Unknown")
-AddLong("Unknown")
+add_byte("Unknown")
+add_byte("Unknown")
+add_long("Unknown")
+add_long("Unknown")
+add_unicode_str("UnknownStr")
+add_unicode_str("UnknownStr")
+add_long("Unknown")
+add_str("UnknownStr")
+add_unicode_str("UnknownStr")
+add_long("Unknown")
+add_long("Unknown")
+add_str("UnknownStr")
+add_int("Unknown")
+add_long("Unknown")
 """

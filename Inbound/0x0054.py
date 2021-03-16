@@ -2,162 +2,162 @@ from script_api import *
 from common import *
 
 def sub_5B9350():
-    AddLong("Unknown")
-    AddInt("Unknown")
-    AddInt("Unknown")
-    AddInt("Unknown")
-    AddUnicodeString("UnknownStr")
-    AddByte("Unknown")
-    AddInt("Unknown")
-    AddInt("Unknown")
-    AddLong("Unknown")
-    AddUnicodeString("UnknownStr")
-    AddLong("Unknown")
+    add_long("Unknown")
+    add_int("Unknown")
+    add_int("Unknown")
+    add_int("Unknown")
+    add_unicode_str("UnknownStr")
+    add_byte("Unknown")
+    add_int("Unknown")
+    add_int("Unknown")
+    add_long("Unknown")
+    add_unicode_str("UnknownStr")
+    add_long("Unknown")
 
-def DecodeUnknownInfo():
-    count = AddInt("Count")
+def decode_unknown_info():
+    count = add_int("Count")
     for j in range(count):
         with Node("Entry " + str(j)):
-            AddInt("Unknown")
-            AddByte("Unknown")
+            add_int("Unknown")
+            add_byte("Unknown")
 
-def DecodeMatchPartyRecruit():
+def decode_match_party_recruit():
     with Node("PartyListing", True):
-        AddLong("PartyId")
-        AddInt("SomeId") # increments somewhat
-        AddInt("Unknown")
-        AddInt("Unknown")
-        AddUnicodeString("PartyName")
-        AddBool("IsPublic")
-        AddInt("MemberCount")
-        AddInt("MaxMembers")
-        AddLong("LeaderAccountId")
-        AddLong("LeaderCharacterId")
-        AddUnicodeString("LeaderName")
-        AddLong("CreationTime")
+        add_long("PartyId")
+        add_int("SomeId") # increments somewhat
+        add_int("Unknown")
+        add_int("Unknown")
+        add_unicode_str("PartyName")
+        add_bool("IsPublic")
+        add_int("MemberCount")
+        add_int("MaxMembers")
+        add_long("LeaderAccountId")
+        add_long("LeaderCharacterId")
+        add_unicode_str("LeaderName")
+        add_long("CreationTime")
     
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 0:
-    AddByte("Type")
-    AddUnicodeString("name")
+    add_byte("Type")
+    add_unicode_str("name")
 elif f == 2: # joined party #1
-    DecodePlayer()
-    DecodeUnknownInfo()
+    decode_player()
+    decode_unknown_info()
 elif f == 3: # left party (BROADCAST)
-    AddLong("CharacterId")
-    AddBool("Unknown")
+    add_long("CharacterId")
+    add_bool("Unknown")
 elif f == 4: # kicked from party
-    AddLong("CharacterId")
+    add_long("CharacterId")
 elif f == 5:
-    DecodePlayer()
+    decode_player()
 elif f == 6:
-    AddLong("Unknown")
+    add_long("Unknown")
 elif f == 7: # left party 2 (OTHERS)
     pass # None
 elif f == 8: # become leader
-    AddLong("CharacterId")
+    add_long("CharacterId")
 elif f == 9: # load party
-    AddBool("offline")
-    AddInt("partyId")
-    AddLong("LeaderUid")
-    count = AddByte("count")
+    add_bool("offline")
+    add_int("partyId")
+    add_long("LeaderUid")
+    count = add_byte("count")
     for i in range(count):
         with Node("Member " + str(i)):
-            AddBool("Unknown")
-            DecodePlayer()
-            DecodeUnknownInfo()
-    AddBool("Unknown")
-    AddInt("DungeonId?")
-    AddBool("Unknown")
-    b = AddBool("IsPartyListed")
+            add_bool("Unknown")
+            decode_player()
+            decode_unknown_info()
+    add_bool("Unknown")
+    add_int("DungeonId?")
+    add_bool("Unknown")
+    b = add_bool("IsPartyListed")
     if b:
-        DecodeMatchPartyRecruit()
+        decode_match_party_recruit()
 elif f == 11: # party request
-    AddUnicodeString("name")
-    AddInt("partyId")
+    add_unicode_str("name")
+    add_int("partyId")
 elif f == 12:
-    AddLong("CharacterId")
-    DecodePlayer()
-    DecodeUnknownInfo()
+    add_long("CharacterId")
+    decode_player()
+    decode_unknown_info()
 elif f == 13: # same 12 (updating party player)
-    AddLong("CharacterId")
-    DecodePlayer()
-    DecodeUnknownInfo()
+    add_long("CharacterId")
+    decode_player()
+    decode_unknown_info()
 elif f == 14:
-    AddLong("CharacterId")
-    DecodeUnknownInfo()
+    add_long("CharacterId")
+    decode_unknown_info()
 elif f == 15:
-    AddLong("Unknown")
-    AddInt("Unknown")
+    add_long("Unknown")
+    add_int("Unknown")
 elif f == 18:
-    AddLong("Unknown")
-    AddByte("Unknown")
+    add_long("Unknown")
+    add_byte("Unknown")
 elif f == 19: # joined party #3
-    AddLong("CharacterId")
-    AddLong("AccountId")
-    AddInt("Hp")
-    AddInt("Hp")
-    AddShort("Unknown")
+    add_long("CharacterId")
+    add_long("AccountId")
+    add_int("Hp")
+    add_int("Hp")
+    add_short("Unknown")
 elif f == 20: # notice
-    AddUnicodeString("str_const") # s_party_vote_expired|s_field_enteracne_party_notify_reset_dungeon|s_party_vote_rejected_kick_user
-    AddUnicodeString("str_const") # Field_Enterance_Reset_Dungeon
-    AddUnicodeString("Unknown")
+    add_unicode_str("str_const") # s_party_vote_expired|s_field_enteracne_party_notify_reset_dungeon|s_party_vote_rejected_kick_user
+    add_unicode_str("str_const") # Field_Enterance_Reset_Dungeon
+    add_unicode_str("Unknown")
 elif f == 21:
-    b = AddBool("Unknown")
-    AddInt("Unknown")
+    b = add_bool("Unknown")
+    add_int("Unknown")
     if b:
-        AddInt("Unknown")
-        count = AddInt("count")
+        add_int("Unknown")
+        count = add_int("count")
         for i in range(count):
-            AddUnicodeString("UnknownStr")
+            add_unicode_str("UnknownStr")
     else:
-        AddUnicodeString("UnknownStr")
-    AddUnicodeString("UnknownStr")
+        add_unicode_str("UnknownStr")
+    add_unicode_str("UnknownStr")
 elif f == 25: # dungeon reset
-    AddBool("startedDungeon")
-    AddInt("DungeonId?")
+    add_bool("startedDungeon")
+    add_int("DungeonId?")
 elif f == 26: # party finder
     # true = listed, false = cancel listing
-    b = AddBool("IsListed")
+    b = add_bool("IsListed")
     if b:
-        DecodeMatchPartyRecruit()
+        decode_match_party_recruit()
 elif f == 30: # search party/search party cancel
     # 1->1, 2->8, 3->11, 4->5, default->0 (sub_437040)
-    AddByte("Type")
-    b = AddBool("StartSearch") # false = cancel
-    AddBool("Unknown") # must be true
-    AddByte("Unknown")
+    add_byte("Type")
+    b = add_bool("StartSearch") # false = cancel
+    add_bool("Unknown") # must be true
+    add_byte("Unknown")
 elif f == 31:
-    AddLong("Unknown")
+    add_long("Unknown")
 elif f == 35:
-    AddLong("Unknown")
+    add_long("Unknown")
 elif f == 37:
-    AddLong("Unknown")
-    AddUnicodeString("UnknownStr")
+    add_long("Unknown")
+    add_unicode_str("UnknownStr")
 elif f == 40:
     # This value is used as (x / 1000 + 1)
-    AddInt("Unknown")
+    add_int("Unknown")
 elif f == 44: # IGN wants to join your party
-    AddUnicodeString("name")
+    add_unicode_str("name")
 elif f == 47: # start ready check
-    AddBool("Unknown") # vote kick = 1
-    AddInt("ReadyCheckConst(34)") # 36 = vote kick
-    AddLong("timestamp now")
-    count = AddInt("PartyCount")
+    add_bool("Unknown") # vote kick = 1
+    add_int("ReadyCheckConst(34)") # 36 = vote kick
+    add_long("timestamp now")
+    count = add_int("PartyCount")
     for i in range(count):
-        AddLong("CharacterId " + str(i))
-    count = AddInt("ReadyCount")
+        add_long("CharacterId " + str(i))
+    count = add_int("ReadyCount")
     for i in range(count):
-        AddLong("CharacterId " + str(i))
-    count = AddInt("NotReadyCount")
+        add_long("CharacterId " + str(i))
+    count = add_int("NotReadyCount")
     for i in range(count):
-        AddLong("CharacterId " + str(i))
+        add_long("CharacterId " + str(i))
 elif f == 48: # not ready
-    AddLong("CharacterId")
-    AddBool("IsReady")
+    add_long("CharacterId")
+    add_bool("IsReady")
 elif f == 49: # ready check expired/completed
     pass # none
 elif f == 54: # search party/search party cancel
-    b = AddBool("StartSearch") # false = cancel
-    AddBool("Unknown") # must be true
+    b = add_bool("StartSearch") # false = cancel
+    add_bool("Unknown") # must be true

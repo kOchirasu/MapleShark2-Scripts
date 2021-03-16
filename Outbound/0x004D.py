@@ -1,14 +1,14 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 1: # create group
-    AddUnicodeString("Unknown")
+    add_unicode_str("Unknown")
 elif f == 2: # invite player
-    AddUnicodeString("UserName")
-    AddInt("GroupChatId")
+    add_unicode_str("UserName")
+    add_int("GroupChatId")
 elif f == 4: # leave group
-    AddInt("GroupChatId")
-    AddBool("Unknown") # 0
+    add_int("GroupChatId")
+    add_bool("Unknown") # 0
 elif f == 10: # message group
-    AddUnicodeString("Message")
-    AddInt("GroupChatId")
+    add_unicode_str("Message")
+    add_int("GroupChatId")

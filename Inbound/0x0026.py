@@ -1,4 +1,4 @@
 from script_api import *
 
-AddInt("UserObjectId")
-AddLong("ItemUid")
+add_int("UserObjectId")
+add_long("ItemUid")

@@ -1,12 +1,12 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 
 if f == 1: # open ui
     pass # none
 elif f == 2: # claim reward
-    AddInt("RewardId?")
+    add_int("RewardId?")
 elif f == 3: # open purchase
     pass # none
 elif f == 4: # buy premium
-    AddInt("OptionId")
+    add_int("OptionId")

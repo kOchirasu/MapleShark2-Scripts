@@ -1,35 +1,35 @@
 from script_api import *
 
-def DecodeFunctionCube():
-    AddUnicodeString("FunctionCubeName")
-    AddInt("State?")
-    AddByte("Unknown") # 0/1
+def decode_function_cube():
+    add_unicode_str("FunctionCubeName")
+    add_int("State?")
+    add_byte("Unknown") # 0/1
 
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 2: # load
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
-        DecodeFunctionCube()
+        decode_function_cube()
 elif f == 3: # update function cube
-    DecodeFunctionCube()
+    decode_function_cube()
 elif f == 5: # manual use function cube
-    AddLong("CharacterId")
-    AddUnicodeString("FunctionCubeName")
-    AddByte("Using (On/Off)")
+    add_long("CharacterId")
+    add_unicode_str("FunctionCubeName")
+    add_byte("Using (On/Off)")
 elif f == 8: # harvest chicken
-    AddLong("CharacterId?")
-    AddUnicodeString("FunctionCubeName")
-    AddLong("TimestampNow")
-    AddInt("Amount?")
+    add_long("CharacterId?")
+    add_unicode_str("FunctionCubeName")
+    add_long("TimestampNow")
+    add_int("Amount?")
 elif f == 9:
-    AddLong("Unknown")
-    AddUnicodeString("UnknownStr")
-    AddLong("Unknown")
+    add_long("Unknown")
+    add_unicode_str("UnknownStr")
+    add_long("Unknown")
 elif f == 10 or f == 11 or f == 13:
-    AddLong("Unknown")
-    AddUnicodeString("UnknownStr")
+    add_long("Unknown")
+    add_unicode_str("UnknownStr")
 elif f == 12:
-    AddLong("Unknown")
-    AddUnicodeString("UnknownStr")
-    AddInt("Unknown")
+    add_long("Unknown")
+    add_unicode_str("UnknownStr")
+    add_int("Unknown")

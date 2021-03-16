@@ -1,3 +1,3 @@
 from script_api import *
 
-AddLong("CharacterId")
+add_long("CharacterId")

@@ -1,4 +1,4 @@
 from script_api import *
 
-AddInt("ObjectId")
-AddUnicodeString("Motto")
+add_int("ObjectId")
+add_unicode_str("Motto")

@@ -1,58 +1,58 @@
 from script_api import *
 from common import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 
 if f == 0: # add
-    AddLong("Unknown")
+    add_long("Unknown")
     # some condition
-    id = AddInt("itemId")
-    AddLong("itemUid")
-    AddShort("Slot")
-    AddInt("rarity")
-    DecodeItem(id)
+    id = add_int("itemId")
+    add_long("itemUid")
+    add_short("Slot")
+    add_int("rarity")
+    decode_item(id)
 elif f == 1: # remove all
-    AddLong("Unknown")
-    AddLong("ItemUid")
+    add_long("Unknown")
+    add_long("ItemUid")
 elif f == 2: # move item
-    AddLong("Unknown")
-    AddLong("uid")
-    AddShort("srcSlot")
-    AddLong("uid")
-    AddShort("dstSlot")
+    add_long("Unknown")
+    add_long("uid")
+    add_short("srcSlot")
+    add_long("uid")
+    add_short("dstSlot")
 elif f == 3: # update mesos (start loading after 13)
-    AddLong("Mesos") # 0
+    add_long("Mesos") # 0
 elif f == 4: # start loading after 3
-    AddLong("Unknown") # 0
-    AddShort("MaxSlots")
+    add_long("Unknown") # 0
+    add_short("MaxSlots")
 elif f == 5: # load items after 4
-    AddLong("Unknown")
-    count = AddShort("Count")
+    add_long("Unknown")
+    count = add_short("Count")
     for i in range(count):
         with Node("Item " + str(i)):
-            id = AddInt("itemId")
-            AddLong("itemUid")
-            AddShort("Slot")
-            AddInt("rarity")
-            DecodeItem(id)
+            id = add_int("itemId")
+            add_long("itemUid")
+            add_short("Slot")
+            add_int("rarity")
+            decode_item(id)
 elif f == 7 or f == 8: # sort update
-    AddLong("Unknown")
-    count = AddShort("Count")
+    add_long("Unknown")
+    count = add_short("Count")
     for i in range(count):
         with Node("Item " + str(i)):
-            id = AddInt("itemId")
-            AddLong("itemUid")
-            AddShort("Slot")
-            AddInt("rarity")
-            DecodeItem(id)
+            id = add_int("itemId")
+            add_long("itemUid")
+            add_short("Slot")
+            add_int("rarity")
+            decode_item(id)
 elif f == 9: # remove some
-    AddLong("Unknown")
+    add_long("Unknown")
     # some condition
-    AddLong("ItemUid")
-    AddInt("remaining")
+    add_long("ItemUid")
+    add_int("remaining")
 elif f == 11: # reset, response to 0x0C also sent before sort update
     pass # none
 elif f == 13: # Start loading after 11
-    AddInt("Unknown") # 0
+    add_int("Unknown") # 0
 elif f == 14 or f == 16:
     pass

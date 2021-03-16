@@ -1,10 +1,10 @@
 from script_api import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 0:
-    count = AddInt("Count")
+    count = add_int("Count")
     for i in range(count):
         with Node("Emote " + str(i)):
-            AddInt("Unk")
-            AddInt("Unk")
-            AddLong("Unk")
+            add_int("Unk")
+            add_int("Unk")
+            add_long("Unk")

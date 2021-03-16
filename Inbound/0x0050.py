@@ -1,15 +1,15 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 1:
     count = 1
 else:
-    count = AddInt("count")
+    count = add_int("count")
 
 for i in range(count):
     with Node("Breakable " + str(i), True):
-        AddString("EntityId")
-        AddByte("Unknown") # 2
-        AddByte("Visible?") # 1
-        AddInt("Unknown")
-        AddInt("ServerTick")
+        add_str("EntityId")
+        add_byte("Unknown") # 2
+        add_byte("Visible?") # 1
+        add_int("Unknown")
+        add_int("ServerTick")

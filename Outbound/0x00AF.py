@@ -1,29 +1,29 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 
 if f == 1: # equip
-    AddInt("EquipSlot")
-    AddLong("ItemUid")
+    add_int("EquipSlot")
+    add_long("ItemUid")
 elif f == 2: # unequip
-    AddInt("EquipSlot")
+    add_int("EquipSlot")
 elif f == 3: # stage upgrade
-    AddLong("ItemUid") # 0 while equipped
-    AddInt("ItemId")
-    AddInt("EquipSlot")
+    add_long("ItemUid") # 0 while equipped
+    add_int("ItemId")
+    add_int("EquipSlot")
 elif f == 4: # stage upgrade catalysts
-    AddLong("TargetItemUid") # 0 while equipped
-    AddInt("TargetItemId")
-    AddInt("TargetEquipSlot")
-    AddInt("CatalystAmount")
+    add_long("TargetItemUid") # 0 while equipped
+    add_int("TargetItemId")
+    add_int("TargetEquipSlot")
+    add_int("CatalystAmount")
 elif f == 5: # upgrade (Target is the lapenshard being upgraded)
-    AddLong("TargetItemUid") # 0 while equipped
-    AddInt("TargetItemId")
-    AddInt("TargetEquipSlot")
-    count = AddInt("count")
+    add_long("TargetItemUid") # 0 while equipped
+    add_int("TargetItemId")
+    add_int("TargetEquipSlot")
+    count = add_int("count")
     for i in range(count):
         with Node("catalyst", True):
-            AddLong("CatalystItemUid")
-            AddInt("CatalystAmount")
+            add_long("CatalystItemUid")
+            add_int("CatalystAmount")
 elif f == 6:
-    AddInt("Unknown")
+    add_int("Unknown")

@@ -1,14 +1,14 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 2: # put on item
-    AddLong("ItemUid")
-    AddLong("AccountUid")
-    AddUnicodeString("Slot")
+    add_long("ItemUid")
+    add_long("AccountUid")
+    add_unicode_str("Slot")
 elif f == 3: # swap outfits
-    AddLong("DollUid")
+    add_long("DollUid")
 elif f == 7: # remove item
-    AddLong("ItemUid")
-    AddUnicodeString("Slot")
+    add_long("ItemUid")
+    add_unicode_str("Slot")
 elif f == 10: # remove doll
-    AddLong("DollUid")
+    add_long("DollUid")

@@ -1,4 +1,4 @@
 from script_api import *
 
-AddLong("ItemUid")
-AddUnicodeString("Data")
+add_long("ItemUid")
+add_unicode_str("Data")

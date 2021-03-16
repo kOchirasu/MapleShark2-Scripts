@@ -3,7 +3,7 @@ from common import *
 
 # Request 0x0025 08 (SendJob)
 # Response This packet
-AddInt("ObjectId")
-f = AddByte("function") # 2 for awakening?
+add_int("ObjectId")
+f = add_byte("function") # 2 for awakening?
 if f != 0:
-    DecodeSkillTree()
+    decode_skill_tree()

@@ -1,29 +1,29 @@
 from script_api import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 
 if f == 0: # deposit
-    AddLong("Unknown")
-    AddLong("itemUid")
-    AddShort("Slot")
-    AddInt("amount")
+    add_long("Unknown")
+    add_long("itemUid")
+    add_short("Slot")
+    add_int("amount")
 elif f == 1: # withdraw
-    AddLong("Unknown")
-    AddLong("ItemUid")
-    AddShort("slot")
-    AddInt("amount")
+    add_long("Unknown")
+    add_long("ItemUid")
+    add_short("slot")
+    add_int("amount")
 elif f == 2: # move item
-    AddLong("Unknown")
-    AddLong("uid")
-    AddShort("dstSlot")
+    add_long("Unknown")
+    add_long("uid")
+    add_short("dstSlot")
 elif f == 3: # update mesos (start loading after 13)
-    AddLong("Unknown")
-    AddBool("deposit")
-    AddLong("Mesos")
+    add_long("Unknown")
+    add_bool("deposit")
+    add_long("Mesos")
 elif f == 4: # start loading after 3
-    AddLong("Unknown") # 0
-    AddShort("MaxSlots")
+    add_long("Unknown") # 0
+    add_short("MaxSlots")
 elif f == 6: # Expand slots
-    AddLong("Unknown") # 0
+    add_long("Unknown") # 0
 elif f == 8: # sort update
-    AddLong("Unknown")
+    add_long("Unknown")

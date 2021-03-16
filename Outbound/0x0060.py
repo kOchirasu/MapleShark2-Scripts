@@ -1,40 +1,40 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 
 if f == 1: # open market
     pass # none
 elif f == 2: # list item
-    AddLong("ItemUid")
-    AddLong("CostPerItem")
-    AddInt("Amount")
+    add_long("ItemUid")
+    add_long("CostPerItem")
+    add_int("Amount")
 elif f == 3: # remove listing
-    AddLong("ListingUid")
+    add_long("ListingUid")
 elif f == 4: # search market
-    AddInt("Type?")
-    AddInt("SubType?")
-    AddInt("MinLevel")
-    AddInt("MaxLevel")
-    AddInt("Job")
-    AddInt("MinRarity")
-    AddInt("MinEnchant")
-    AddInt("MaxEnchant")
-    AddByte("MinSocket")
-    AddByte("MaxSocket")
-    AddUnicodeString("Search Term")
-    AddInt("Unknown")
-    AddByte("OrderBy") # Level(11 asc, 12 desc),Price(21 asc, 22 desc)
-    AddByte("Unknown")
-    AddInt("Unknown")
-    AddInt("Unknown")
-    AddByte("Unknown") # Has bonus attributes
-    AddByte("Unknown") # 1?
+    add_int("Type?")
+    add_int("SubType?")
+    add_int("MinLevel")
+    add_int("MaxLevel")
+    add_int("Job")
+    add_int("MinRarity")
+    add_int("MinEnchant")
+    add_int("MaxEnchant")
+    add_byte("MinSocket")
+    add_byte("MaxSocket")
+    add_unicode_str("Search Term")
+    add_int("Unknown")
+    add_byte("OrderBy") # Level(11 asc, 12 desc),Price(21 asc, 22 desc)
+    add_byte("Unknown")
+    add_int("Unknown")
+    add_int("Unknown")
+    add_byte("Unknown") # Has bonus attributes
+    add_byte("Unknown") # 1?
     for i in range(3):
-        AddInt("BonusAttrType")
-        AddInt("BonusAttrValue")
+        add_int("BonusAttrType")
+        add_int("BonusAttrValue")
 elif f == 5: # buy item
-    AddLong("ListingUid")
-    AddInt("Amount")
+    add_long("ListingUid")
+    add_int("Amount")
 elif f == 8: # stage list item
-    AddInt("ItemId")
-    AddInt("Rarity")
+    add_int("ItemId")
+    add_int("Rarity")

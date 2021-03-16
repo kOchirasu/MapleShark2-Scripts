@@ -1,5 +1,5 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 0:
-    AddInt("DungeonId")
+    add_int("DungeonId")

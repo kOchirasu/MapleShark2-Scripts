@@ -1,13 +1,13 @@
 from script_api import *
 
-flag = AddByte("Flag")
+flag = add_byte("Flag")
 if flag == 0:
-    AddInt("IPAddress")
-    AddShort("Port")
-    AddInt("TokenA")
-    AddInt("TokenB")
-    AddInt("Map")
+    add_int("IPAddress")
+    add_short("Port")
+    add_int("TokenA")
+    add_int("TokenB")
+    add_int("Map")
 else:
-    AddUnicodeString("StrW")
+    add_unicode_str("StrW")
 if flag == 49:
     ParseLong("[2]")

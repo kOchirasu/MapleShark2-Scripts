@@ -1,17 +1,17 @@
 from script_api import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 
 if f == 0: # list party
-    AddUnicodeString("PartyName")
-    AddBool("IsPublic")
-    AddInt("MaxMembers")
+    add_unicode_str("PartyName")
+    add_bool("IsPublic")
+    add_int("MaxMembers")
 elif f == 1: # cancel listing
     pass # none
 elif f == 2: # load listings
-    AddInt("Unknown")
-    AddInt("Unknown")
-    AddByte("PartyType")
-    AddUnicodeString("UnknownStr")
-    AddInt("PageNumber")
-    AddInt("Unknown")
+    add_int("Unknown")
+    add_int("Unknown")
+    add_byte("PartyType")
+    add_unicode_str("UnknownStr")
+    add_int("PageNumber")
+    add_int("Unknown")

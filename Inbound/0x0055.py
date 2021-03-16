@@ -1,92 +1,92 @@
 from script_api import *
 from common import *
 
-f = AddByte("function")
+f = add_byte("function")
 
 if f == 0: # load mail
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
         with Node("MailEntry " + str(i), True):
-            n = AddByte("UnknownNum") # 102
-            AddLong("MailUid") # 59030013
-            AddLong("SenderCharacterId") # SomeUid
+            n = add_byte("UnknownNum") # 102
+            add_long("MailUid") # 59030013
+            add_long("SenderCharacterId") # SomeUid
             # <ms2><v key="s_blackmarket_mail_to_sender" /></ms2>
-            AddUnicodeString("SenderName")
+            add_unicode_str("SenderName")
             # <ms2><v key="s_blackmarket_mail_to_buyer_title" /></ms2>
-            AddUnicodeString("MailTitle")
+            add_unicode_str("MailTitle")
             # <ms2><v key="s_blackmarket_mail_to_buyer_content" /></ms2>
-            AddUnicodeString("MailContent")
+            add_unicode_str("MailContent")
             # <ms2><v item="30000235" ></v></ms2>
-            AddUnicodeString("MetadataKey")
+            add_unicode_str("MetadataKey")
             # Purchase 10 for 60 total, 6 each
             # <ms2><v item="30000235" ></v><v str="10" ></v><v money="60" ></v><v money="6" ></v></ms2>
-            AddUnicodeString("MetadataValue")
+            add_unicode_str("MetadataValue")
             if n == 200: # CMailAdItem
-                adCount = AddByte("AdCount")
+                adCount = add_byte("AdCount")
                 for j in range(adCount):
-                    AddInt("Unknown")
-                    AddInt("Unknown")
-                    AddInt("Unknown")
-                    AddInt("Unknown")
-                    AddLong("Unknown")
-                    AddLong("Unknown")
-                    AddLong("Unknown")
-                AddUnicodeString("UnknownStr")
-                AddLong("Unknown")
-                AddByte("Unknown")
+                    add_int("Unknown")
+                    add_int("Unknown")
+                    add_int("Unknown")
+                    add_int("Unknown")
+                    add_long("Unknown")
+                    add_long("Unknown")
+                    add_long("Unknown")
+                add_unicode_str("UnknownStr")
+                add_long("Unknown")
+                add_byte("Unknown")
             else: # CMailAttachItem
-                itemCount = AddByte("ItemCount")
+                itemCount = add_byte("ItemCount")
                 for j in range(itemCount):
                     with Node("AttachedItem " + str(j)):
-                        id = AddInt("ItemId")
-                        AddLong("ItemUid")
-                        AddByte("Unknown")
-                        AddInt("Rarity")
-                        AddInt("Amount")
-                        AddLong("Unknown")
-                        AddInt("Unknown")
-                        AddLong("Unknown")
-                        DecodeItem(id)
-            AddLong("Unknown")
-            AddLong("Unknown")
-            AddLong("Unknown")
-            AddLong("Unknown")
-            AddLong("Unknown")
-            AddLong("Unknown")
-            count2 = AddByte("Count")
+                        id = add_int("ItemId")
+                        add_long("ItemUid")
+                        add_byte("Unknown")
+                        add_int("Rarity")
+                        add_int("Amount")
+                        add_long("Unknown")
+                        add_int("Unknown")
+                        add_long("Unknown")
+                        decode_item(id)
+            add_long("Unknown")
+            add_long("Unknown")
+            add_long("Unknown")
+            add_long("Unknown")
+            add_long("Unknown")
+            add_long("Unknown")
+            count2 = add_byte("Count")
             for j in range(count2):
-                AddByte("Unknown")
-                AddByte("Unknown")
-                AddLong("Unknown")
-                AddLong("Unknown")
-            AddLong("ViewedTime")
-            AddLong("ExpiryTime")
-            AddLong("SentTime")
-            AddUnicodeString("UnknownStr")
+                add_byte("Unknown")
+                add_byte("Unknown")
+                add_long("Unknown")
+                add_long("Unknown")
+            add_long("ViewedTime")
+            add_long("ExpiryTime")
+            add_long("SentTime")
+            add_unicode_str("UnknownStr")
 elif f == 1: # send custom mail confirm
-    AddLong("MailUid")
+    add_long("MailUid")
 elif f == 2: # mark mail viewed
-    AddLong("MailUid")
-    AddLong("ViewedTime") # Now
+    add_long("MailUid")
+    add_long("ViewedTime") # Now
 elif f == 3: # error
-    AddLong("Unknown")
+    add_long("Unknown")
 elif f == 10: # collecting mail #1
-    AddLong("MailUid")
-    AddByte("Unknown") # 1
-    AddByte("Unknown") # 0
-    AddLong("CollectTime")
+    add_long("MailUid")
+    add_byte("Unknown") # 1
+    add_byte("Unknown") # 0
+    add_long("CollectTime")
 elif f == 11: # collecting mail #2
-    AddLong("MailUid")
-    AddLong("ViewedTime")
+    add_long("MailUid")
+    add_long("ViewedTime")
 elif f == 12:
-    AddLong("Unknown")
-    AddLong("Unknown")
+    add_long("Unknown")
+    add_long("Unknown")
 elif f == 13: # delete mail
-    AddLong("MailUid")
+    add_long("MailUid")
 elif f == 14: # receive mail
-    AddInt("UnreadMailCount")
-    AddBool("Unknown") # 1
-    AddInt("Unknown")
+    add_int("UnreadMailCount")
+    add_bool("Unknown") # 1
+    add_int("Unknown")
 elif f == 15:
     pass # none
 elif f == 16: # start list
@@ -94,13 +94,13 @@ elif f == 16: # start list
 elif f == 17: # end list
     pass # none
 elif f == 20: # switch (error)
-    AddByte("Unknown") # used in default case
-    AddByte("ErrorCode")
+    add_byte("Unknown") # used in default case
+    add_byte("ErrorCode")
 elif f == 22:
-    AddUnicodeString("UnknownStr")
-    AddByte("Unknown")
-    AddInt("Unknown")
-    AddByte("Unknown")
-    AddInt("Unknown")
-    AddString("UnknownStrA")
-    AddUnicodeString("UnknownStr")
+    add_unicode_str("UnknownStr")
+    add_byte("Unknown")
+    add_int("Unknown")
+    add_byte("Unknown")
+    add_int("Unknown")
+    add_str("UnknownStrA")
+    add_unicode_str("UnknownStr")

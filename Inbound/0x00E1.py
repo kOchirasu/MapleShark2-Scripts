@@ -1,12 +1,12 @@
 from script_api import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 
 if f == 0:
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
-        AddInt("Unknown")
-    AddLong("Unknown")
-    AddInt("Unknown")
+        add_int("Unknown")
+    add_long("Unknown")
+    add_int("Unknown")
 elif f == 1:
-    AddInt("Unknown")
+    add_int("Unknown")

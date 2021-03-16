@@ -1,9 +1,9 @@
 from script_api import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 0: # world boss spawn map
-    AddInt("BossMonsterId")
-    AddInt("MapId")
-    AddShort("Channel?")
-    AddLong("Timestamp")
-    AddBool("Alive?") # 1
+    add_int("BossMonsterId")
+    add_int("MapId")
+    add_short("Channel?")
+    add_long("Timestamp")
+    add_bool("Alive?") # 1

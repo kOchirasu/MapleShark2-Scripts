@@ -1,4 +1,4 @@
 from script_api import *
 
-AddLong("SkillUseUid") # Same as the skill that's being cancelled
-AddInt("ObjectId")
+add_long("SkillUseUid") # Same as the skill that's being cancelled
+add_int("ObjectId")

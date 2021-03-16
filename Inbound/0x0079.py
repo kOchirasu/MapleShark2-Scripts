@@ -1,3 +1,3 @@
 from script_api import *
 
-AddString("EntityId")
+add_str("EntityId")

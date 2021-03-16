@@ -1,55 +1,55 @@
 from script_api import *
 from common import *
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 0: # create group #1
-    AddInt("GroupChatId")
-    count = AddByte("count")
+    add_int("GroupChatId")
+    count = add_byte("count")
     for i in range(count):
-        t = AddByte("Type?")
+        t = add_byte("Type?")
         if t == 1 or t ==2:
-            DecodePlayer()
+            decode_player()
 elif f == 1: # create group #2
-    AddInt("GroupChatId")
+    add_int("GroupChatId")
 elif f == 2: # invite #1
-    AddUnicodeString("InviteSender")
-    AddUnicodeString("InvitedPlayer")
-    AddInt("GroupChatId")
+    add_unicode_str("InviteSender")
+    add_unicode_str("InvitedPlayer")
+    add_int("GroupChatId")
 elif f == 3: # receive invite
-    AddUnicodeString("InviteSender")
-    AddUnicodeString("InvitedPlayer")
-    AddInt("GroupChatId")
+    add_unicode_str("InviteSender")
+    add_unicode_str("InvitedPlayer")
+    add_int("GroupChatId")
 elif f == 4: # left group (self)
-    AddInt("GroupChatId")
+    add_int("GroupChatId")
 elif f == 6: # invite #2
-    AddInt("Unknown")
-    AddUnicodeString("OwnerName")
-    t = AddByte("Type?")
+    add_int("Unknown")
+    add_unicode_str("OwnerName")
+    t = add_byte("Type?")
     if t == 1 or t ==2:
-        DecodePlayer()
+        decode_player()
 elif f == 7: # player left group (others)
-    AddInt("GroupChatId")
-    AddByte("Unknown")
-    AddUnicodeString("Name")
+    add_int("GroupChatId")
+    add_byte("Unknown")
+    add_unicode_str("Name")
 elif f == 8:
-    AddInt("GroupChatId")
-    AddUnicodeString("Unknown")
+    add_int("GroupChatId")
+    add_unicode_str("Unknown")
 elif f == 9:
-    AddInt("GroupChatId")
-    AddUnicodeString("Unknown")
+    add_int("GroupChatId")
+    add_unicode_str("Unknown")
 elif f == 10: # message group
-    AddInt("GroupChatId")
-    AddUnicodeString("UserName")
-    AddUnicodeString("Message")
+    add_int("GroupChatId")
+    add_unicode_str("UserName")
+    add_unicode_str("Message")
 elif f == 11:
-    AddInt("GroupChatId")
-    AddUnicodeString("Unknown")
+    add_int("GroupChatId")
+    add_unicode_str("Unknown")
 elif f == 12:
-    AddInt("GroupChatId")
-    AddUnicodeString("Unknown")
-    AddUnicodeString("Unknown")
+    add_int("GroupChatId")
+    add_unicode_str("Unknown")
+    add_unicode_str("Unknown")
 elif f == 13:
-    AddByte("Unknown")
-    AddInt("GroupChatId")
-    AddUnicodeString("Unknown")
-    AddUnicodeString("Unknown")
+    add_byte("Unknown")
+    add_int("GroupChatId")
+    add_unicode_str("Unknown")
+    add_unicode_str("Unknown")

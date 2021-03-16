@@ -1,11 +1,11 @@
 from script_api import *
 
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 17:
-    AddUnicodeString("Endpoint 1")
-    AddUnicodeString("Endpoint 2")
-    AddUnicodeString("Locale")
-    AddByte("const")
+    add_unicode_str("Endpoint 1")
+    add_unicode_str("Endpoint 2")
+    add_unicode_str("Locale")
+    add_byte("const")
 elif f == 22:
-    AddInt("const")
+    add_int("const")

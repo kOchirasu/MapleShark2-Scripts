@@ -1,11 +1,11 @@
 from script_api import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 
 if f == 0:
-    count = AddShort("count")
+    count = add_short("count")
     for i in range(count):
         with Node("Entry " + str(i)):
-            AddInt("Index+1000")
-            AddInt("QuestId?") # Some id
-            AddLong("Timestamp") # Intervals of 5min (spawn time?)
+            add_int("Index+1000")
+            add_int("QuestId?") # Some id
+            add_long("Timestamp") # Intervals of 5min (spawn time?)

@@ -1,20 +1,20 @@
 from script_api import *
 from common import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 0: # Start (broadcast)
-    n = AddShort("Unknown+9")
-    AddInt("ObjectId")
-    AddLong("CharacterId")
-    DecodeCoordF("Position")
-    DecodeCoordF("Rotation?")
+    n = add_short("Unknown+9")
+    add_int("ObjectId")
+    add_long("CharacterId")
+    decode_coordF("Position")
+    decode_coordF("Rotation?")
     if n == 0:
-        AddLong("Unknown")    # 1
+        add_long("Unknown")    # 1
 elif f == 1: # End (broadcast)
-    AddInt("GuideObjectId")
-    AddLong("CharacterId")
+    add_int("GuideObjectId")
+    add_long("CharacterId")
 elif f == 2: #sync (broadcast others)
-    AddInt("GuideObjectId")
-    count = AddByte("segments")
+    add_int("GuideObjectId")
+    count = add_byte("segments")
     for i in range(count):
-        DecodeSyncState()
+        decode_sync_state()

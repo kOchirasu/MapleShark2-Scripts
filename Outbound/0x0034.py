@@ -1,3 +1,3 @@
 from script_api import *
 
-AddFloat("Height") # Fall height?
+add_float("Height") # Fall height?

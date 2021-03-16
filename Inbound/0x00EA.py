@@ -1,20 +1,20 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 0:
-    AddUnicodeString("Unknown")
-    AddInt("Unknown")
+    add_unicode_str("Unknown")
+    add_int("Unknown")
 elif f == 1:
-    AddInt("NpcObjectId")
-    AddUnicodeString("Unknown")
+    add_int("NpcObjectId")
+    add_unicode_str("Unknown")
 elif f == 2:
-    AddInt("NpcObjectId")
-    AddUnicodeString("Unknown")
+    add_int("NpcObjectId")
+    add_unicode_str("Unknown")
 elif f == 3:
-    AddByte("Unknown")
-    AddInt("duration")
-    AddString("Unknown")
-    AddString("illust")
-    AddString("sound")
-    AddString("Unknown")
-    AddUnicodeString("message")
+    add_byte("Unknown")
+    add_int("duration")
+    add_str("Unknown")
+    add_str("illust")
+    add_str("sound")
+    add_str("Unknown")
+    add_unicode_str("message")

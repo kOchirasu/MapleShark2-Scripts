@@ -1,3 +1,3 @@
 from script_api import *
 
-AddInt("NpcObjectId")
+add_int("NpcObjectId")

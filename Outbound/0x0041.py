@@ -1,16 +1,16 @@
 from script_api import *
 from common import *
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 0:
-    AddByte("type")
-    AddInt("MountId")
-    AddLong("Unknown") # 0
-    AddLong("MountUid")
-    DecodeUgcData()
+    add_byte("type")
+    add_int("MountId")
+    add_long("Unknown") # 0
+    add_long("MountUid")
+    decode_ugc_data()
 elif f == 1:
-    AddShort("Unknown") # 0
+    add_short("Unknown") # 0
 elif f == 2:
-    AddInt("PlayerObjectId")
-    AddInt("MountId")
-    AddLong("MountUid")
+    add_int("PlayerObjectId")
+    add_int("MountId")
+    add_long("MountUid")

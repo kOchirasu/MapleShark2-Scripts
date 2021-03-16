@@ -1,24 +1,24 @@
 from script_api import *
 
-f = AddByte("function")
+f = add_byte("function")
 if f == 0:
-    AddInt("SkillRank")
-    AddLong("ActiveSkillTabId")
-    count = AddInt("SkillTabsCount")
+    add_int("SkillRank")
+    add_long("ActiveSkillTabId")
+    count = add_int("SkillTabsCount")
     for i in range(count):
         with Node("SkillTab " + str(i), True):
-            AddLong("SkillTabId")
-            AddUnicodeString("SkillTabName")
-            skillCount = AddInt("count")
+            add_long("SkillTabId")
+            add_unicode_str("SkillTabName")
+            skillCount = add_int("count")
             for j in range(skillCount):
-                AddInt("SkillId")
-                AddInt("SkillPoints")
+                add_int("SkillId")
+                add_int("SkillPoints")
 elif f == 1:
-    AddLong("SavedSkillTabId")
-    AddLong("SavingTabId") # TabId to save
-    AddInt("SkillRank")
+    add_long("SavedSkillTabId")
+    add_long("SavingTabId") # TabId to save
+    add_int("SkillRank")
 elif f == 2:
     # Change skill tab name response
-    AddLong("SkillTabId")
-    AddUnicodeString("SkillTabName")
-    AddByte("Unknown")
+    add_long("SkillTabId")
+    add_unicode_str("SkillTabName")
+    add_byte("Unknown")

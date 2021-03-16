@@ -1,7 +1,7 @@
 from script_api import *
 from common import *
 
-f = AddByte("function")
+f = add_byte("function")
 
 # socket Transfer
 if f == 13: # 0x0D
@@ -9,44 +9,44 @@ if f == 13: # 0x0D
     pass
 # Manage
 elif f == 9: # put on gem
-    AddLong("EquipUid")
-    #AddLong("GemstoneUid") # This uid here becomes changed from actual gem uid
-    AddByte("SocketSlot")
-    b = AddBool("flag")
+    add_long("EquipUid")
+    #add_long("GemstoneUid") # This uid here becomes changed from actual gem uid
+    add_byte("SocketSlot")
+    b = add_bool("flag")
     if b:
-        DecodeGemstone()
+        decode_gemstone()
 elif f == 11: # 0x0B remove gem
-    AddLong("EquipUid")
-    AddByte("SocketSlot")
+    add_long("EquipUid")
+    add_byte("SocketSlot")
 #case 18: # 0x12
 # Upgrade
 elif f == 5: # upgrade gem
-    AddLong("ItemUid")
-    AddByte("Unknown")
-    AddBool("Unknown") # 1
-    AddByte("rarity?") # 4
-    AddLong("GemstoneUid")
-    b = AddBool("Success")
+    add_long("ItemUid")
+    add_byte("Unknown")
+    add_bool("Unknown") # 1
+    add_byte("rarity?") # 4
+    add_long("GemstoneUid")
+    b = add_bool("Success")
     if b:
-        DecodeGemstone()
+        decode_gemstone()
 elif f == 7: # response put gem in upgrade ui
-    AddLong("EquipUid") # If gemstone is on an equip, else: 0
-    AddByte("Equipped") # 255 = not equipped, 1 = equipped?
-    AddLong("GemstoneUid")
-    AddFloat("SuccessRate")
+    add_long("EquipUid") # If gemstone is on an equip, else: 0
+    add_byte("Equipped") # 255 = not equipped, 1 = equipped?
+    add_long("GemstoneUid")
+    add_float("SuccessRate")
 #case 18: # 0x12
 # socket unlock
 elif f == 1:
-    b = AddBool("Unknown")
-    AddLong("Unknown")
+    b = add_bool("Unknown")
+    add_long("Unknown")
     if b:
-        AddByte("Unknown")
-        DecodeGemSockets()
-        b = AddBool("Unknown")
+        add_byte("Unknown")
+        decode_gem_sockets()
+        b = add_bool("Unknown")
         if b:
             pass
 elif f == 3: # response put acc in unlock socket ui
-    AddLong("Unknown")
-    AddByte("Unknown") # FF
-    AddLong("EquipUid")
-    AddFloat("SuccessRate")
+    add_long("Unknown")
+    add_byte("Unknown") # FF
+    add_long("EquipUid")
+    add_float("SuccessRate")

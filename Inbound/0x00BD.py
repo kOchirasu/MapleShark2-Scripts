@@ -1,31 +1,31 @@
 from script_api import *
 
-def DecodeMatchPartyRecruit():
+def decode_match_party_recruit():
     with Node("PartyListing", True):
-        AddLong("PartyId")
-        AddInt("SomeId") # increments somewhat
-        AddInt("Unknown")
-        AddInt("Unknown")
-        AddUnicodeString("PartyName")
-        AddBool("IsPublic")
-        AddInt("MemberCount")
-        AddInt("MaxMembers")
-        AddLong("LeaderAccountId")
-        AddLong("LeaderCharacterId")
-        AddUnicodeString("LeaderName")
-        AddLong("CreationTime")
+        add_long("PartyId")
+        add_int("SomeId") # increments somewhat
+        add_int("Unknown")
+        add_int("Unknown")
+        add_unicode_str("PartyName")
+        add_bool("IsPublic")
+        add_int("MemberCount")
+        add_int("MaxMembers")
+        add_long("LeaderAccountId")
+        add_long("LeaderCharacterId")
+        add_unicode_str("LeaderName")
+        add_long("CreationTime")
 
-f = AddByte("Function")
+f = add_byte("Function")
 if f == 0: # create listing
-    DecodeMatchPartyRecruit()
+    decode_match_party_recruit()
 elif f == 1: # cancel listing
-    AddLong("PartyId")
+    add_long("PartyId")
 elif f == 2: # load listings
-    count = AddInt("count")
+    count = add_int("count")
     for i in range(count):
-        b = AddBool("IsListed")
+        b = add_bool("IsListed")
         if b:
-            DecodeMatchPartyRecruit()
+            decode_match_party_recruit()
 elif f == 4: # error notice
-    AddByte("Type")
-    AddInt("code")
+    add_byte("Type")
+    add_int("code")
