@@ -234,7 +234,7 @@ def decode_player():
         add_int("MapInstanceId") # Guess
         add_short("Level")
         add_short("Unknown")
-        add_int("JobGroupId")
+        add_int("JobCode")
         add_int("JobId")
         add_int("CurrentHp")
         add_int("MaxHp")
@@ -281,7 +281,7 @@ def decode_player():
             add_int("PetTaming")
 
         add_unicode_str("UnknownStr")
-        add_long("BypassKeyRelated")
+        add_long("SessionId")
         add_long("Unknown")
         add_long("Unknown")
 

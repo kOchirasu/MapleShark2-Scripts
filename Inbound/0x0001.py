@@ -1,3 +1,4 @@
+''' REQUEST_VERSION '''
 from script_api import *
 
 

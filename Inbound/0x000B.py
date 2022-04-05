@@ -1,7 +1,8 @@
+''' SERVER_LIST (incomplete - virtual calls?) '''
 from script_api import *
 
 
-add_byte("Unknown (1)")
+add_bool("success")
 add_int("Unknown (1)")
 add_unicode_str("Server Name")
 add_byte("Unknown (4)")
