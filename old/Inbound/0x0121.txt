@@ -1,9 +1,0 @@
-using (ScriptAPI) {
-    f = AddByte("Function");
-
-    switch ((int)f) {
-        case 0: // add maid
-            AddInt("SomeId"); // 10000003
-            AddLong("Timestamp"); // 12:55
-    }
-}

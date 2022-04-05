@@ -1,4 +1,0 @@
-using (ScriptAPI) {
-    AddLong("ItemUid");
-    DecodeItem(0);
-}

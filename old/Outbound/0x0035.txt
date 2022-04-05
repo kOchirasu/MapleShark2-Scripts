@@ -1,9 +1,0 @@
-using (ScriptAPI) {
-    AddShort("Type");
-    count = AddByte("segments");    
-    for (i = 0; i < count; i++) {
-        DecodeSyncState();
-    }
-    AddInt("ClientTick");
-    AddInt("ServerTick");
-}

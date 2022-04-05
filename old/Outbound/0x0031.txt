@@ -1,6 +1,0 @@
-using (ScriptAPI) {
-    f = AddByte("Function");
-    if (f == 11 || f == 12) { // 11 = start, 12 = finish?
-        AddString("InteractName");
-    }
-}

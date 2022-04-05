@@ -1,8 +1,0 @@
-using (ScriptAPI) {
-    f = AddByte("Function");
-    if (f == 1) { // Start Talking
-        AddInt("ObjectId?");
-    } else if (f == 2) {
-        AddInt("Unknown");
-    }
-}

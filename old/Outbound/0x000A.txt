@@ -1,5 +1,0 @@
-
-using (ScriptAPI) {
-    AddInt("Heartbeat copy");
-    AddInt("Heartbeat new");
-}

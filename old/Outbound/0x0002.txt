@@ -1,9 +1,0 @@
-// First packet sent on handshake in some cases
-using (ScriptAPI) {
-    AddByte("function"); // 0
-    count = AddInt("Unknown");
-    for (i = 0; i < count; i++) {
-        AddUnicodeString("UnknownStr");
-        AddLong("Unknown");
-    }
-}
