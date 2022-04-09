@@ -1,3 +1,4 @@
+''' SKILL_POINT (TODO: Verify) '''
 from script_api import *
 
 add_int("TotalPoints") # Extra points (Rank1+Rank2)

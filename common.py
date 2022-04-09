@@ -412,6 +412,10 @@ def decode_additional_effect():
         add_int("Count")
         add_bool("Enabled")
 
+def decode_additional_effect2():
+    with Node("additionalEffect2", True):
+        add_long("additionalEffect2")
+
 def decode_guild_invite_info():  # CGuildInviteInfo
     with Node("GuildInviteInfo", True):
         add_long("GuildUid")

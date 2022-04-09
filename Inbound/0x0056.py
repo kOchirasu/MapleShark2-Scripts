@@ -38,7 +38,7 @@ for i in range(count):
         add_int("EffectObjectId")
         add_int("NpcObjectId")
         decode_additional_effect()
-        add_long("add_itionalEffectRelated") # 0
+        decode_additional_effect2()
 
 add_long("ItemUid") # From PetNpc
 add_byte("Npc+6384")
