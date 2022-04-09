@@ -1,20 +1,25 @@
+''' FURNISHING_STORAGE '''
 from script_api import *
 from common import *
 
 f = add_byte("Function")
-if f == 2: # opening furnishing box
+if f == 1: # start list
+    pass
+elif f == 2: # count
     add_int("storage count")
-elif f == 3:
+elif f == 3: # add
     id = add_int("ItemId")
     add_long("ItemUid")
     add_byte("rarity")
-    add_int("Index")
+    add_int("slot")
     decode_item(id)
-elif f == 4:
+elif f == 4: # remove
     add_long("ItemUid")
-elif f == 5: # opening furnishing box
-    add_long("ItemUid")
-    add_int("Count")
-elif f == 7: # opening furnishing box
+elif f == 5: # purchase
     add_long("ItemUid")
     add_int("Count")
+elif f == 7: # update
+    add_long("ItemUid")
+    add_int("Count")
+elif f == 8: # end list
+    pass # noop actually

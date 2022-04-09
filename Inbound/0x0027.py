@@ -1,11 +1,10 @@
-''' ITEM_PUT_ON '''
+''' ITEM_SKIN_PUT_OFF '''
 from script_api import *
 from common import *
 
 add_int("UserObjectId")
 id = add_int("ItemId")
 add_long("ItemUid")
-add_unicode_str("EquipSlot")
-add_int("Rarity")
-add_byte("Unknown") # 0, 1, 2, rest invalid
+add_long("Rarity")
+add_long("Slot")
 decode_item(id)
