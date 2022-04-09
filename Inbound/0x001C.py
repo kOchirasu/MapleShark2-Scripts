@@ -1,3 +1,4 @@
+''' USER_SYNC '''
 from script_api import *
 from common import *
 

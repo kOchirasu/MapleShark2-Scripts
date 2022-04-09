@@ -1,3 +1,4 @@
+''' USER_CHAT '''
 from script_api import *
 
 add_long("AccountId")

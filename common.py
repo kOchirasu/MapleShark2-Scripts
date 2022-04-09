@@ -40,21 +40,21 @@ def decode_ugc_data():
 
 def decode_sync_state():
     with Node("SyncState", True):
-        add_byte("Animation1")
-        add_byte("Animation2")
+        add_byte("state")
+        add_byte("Animation2") # Assert(n <= 178)
         flag = add_byte("Flag")
         if (flag & 1) == 1: ## bit-1
             add_int("Unknown")
             add_short("Unknown")
         decode_coordS("Position")
         add_short("Rotation")
-        u = add_byte("Unknown")
+        u = add_byte("Animation3")
         # if u < 0???
         if u > 127:
             add_float("Unknown")
             add_float("Unknown")
         decode_coordS("")
-        add_byte("Unknown")
+        add_byte("Unknown") # Assert(n < 18)
         add_short("CoordS / 10")
         add_short("CoordS / 1000")
         if (flag & 2) == 2: ## bit-2
@@ -91,7 +91,7 @@ def decode_item(id):
         add_short("GlamorForges")
         add_bool("Unknown")
         add_int("Unknown")
-        decode_equip_coloror()
+        decode_equip_color()
         add_int("Unknown")
         # Item positioning
         if id / 100000 == 113:
@@ -222,7 +222,7 @@ def decode_bonus_option(index):
 def decode_player():
     with Node("PlayerInfo"):
         add_long("AccountId")
-        add_long("CharacterId")
+        add_long("PlayerId")
         add_unicode_str("Name")
         add_byte("Gender") # 0 = male, 1 = female
         add_byte("Unknown")
@@ -252,15 +252,15 @@ def decode_player():
             for i in range(3):
                 add_int("Count")
         add_long("GuildUid")
-        add_unicode_str("Guild")
+        add_unicode_str("GuildName")
         add_unicode_str("Motto")
-        add_unicode_str("Profile URL")
+        add_unicode_str("ProfileUrl")
 
         # CharacterListClubParser
         with Node("Clubs"):
             count = add_byte("count")
             for i in range(count):
-                b = add_byte("club")
+                b = add_byte("hasClub")
                 if b == 1:
                     add_long("clubUid")
                     add_unicode_str("Club Name")
@@ -280,10 +280,11 @@ def decode_player():
             add_int("Cooking")
             add_int("PetTaming")
 
-        add_unicode_str("UnknownStr")
-        add_long("SessionId")
-        add_long("Unknown")
-        add_long("Unknown")
+        with Node("player->field_278->Decode()"):
+            add_unicode_str("UnknownStr")
+            add_long("SessionId")
+            add_long("Unknown")
+            add_long("Unknown")
 
         with Node("countA"):
             count = add_int("countA")
@@ -295,10 +296,11 @@ def decode_player():
         add_long("Unknown")
         add_int("Unknown")
         add_int("Unknown")
-        add_long("UnknownTimestamp")
+        add_long("TimestampNow?")
         add_int("PrestigeLevel")
-        add_long("UnknownTimestamp")
+        add_long("LoginTimestamp?")
 
+        # these are both related?
         count = add_int("countB")
         for i in range(count):
             add_long("Unknown")
@@ -402,13 +404,13 @@ def decode_maid():
     add_unicode_str("UnknownStr")
 
 def decode_additional_effect():
-    with Node("add_itionalEffect", True):
+    with Node("additionalEffect", True):
         add_int("StartServerTick")
         add_int("EndServerTick")
         add_int("SkillId")
         add_short("SkillLevel")
-        add_int("Unknown") # 1
-        add_byte("Unknown") # 1
+        add_int("Count")
+        add_bool("Enabled")
 
 def decode_guild_invite_info():  # CGuildInviteInfo
     with Node("GuildInviteInfo", True):

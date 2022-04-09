@@ -149,13 +149,13 @@ elif f == 22:
     count = add_int("count")
     for i in range(count):
         add_int("PlayerObjectId")
-    # add_itional/Etc/Eff_Target_Select_Keep.xml
+    # additional/Etc/Eff_Target_Select_Keep.xml
     add_unicode_str("TargetEffect")
 elif f == 23:
     count = add_int("count")
     for i in range(count):
         add_int("PlayerObjectId")
-    # add_itional/Etc/Eff_Target_Select_Keep.xml
+    # additional/Etc/Eff_Target_Select_Keep.xml
     add_unicode_str("TargetEffect")
 elif f == 24: # remove above effects?
     pass # none

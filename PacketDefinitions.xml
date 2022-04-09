@@ -66,7 +66,7 @@
       <Outbound>true</Outbound>
       <Opcode>11</Opcode>
       <Name>RequestTimeSync</Name>
-      <Ignore>false</Ignore>
+      <Ignore>true</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
@@ -108,7 +108,7 @@
       <Outbound>true</Outbound>
       <Opcode>18</Opcode>
       <Name>SendUserSync</Name>
-      <Ignore>false</Ignore>
+      <Ignore>true</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
@@ -1056,7 +1056,7 @@
       <Outbound>false</Outbound>
       <Opcode>17</Opcode>
       <Name>SendResponseTimeSync</Name>
-      <Ignore>false</Ignore>
+      <Ignore>true</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
@@ -2064,7 +2064,7 @@
       <Outbound>false</Outbound>
       <Opcode>186</Opcode>
       <Name>SendCharMaxCount</Name>
-      <Ignore>false</Ignore>
+      <Ignore>true</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
@@ -2334,7 +2334,7 @@
       <Outbound>false</Outbound>
       <Opcode>232</Opcode>
       <Name>BypassKey</Name>
-      <Ignore>false</Ignore>
+      <Ignore>true</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
@@ -2533,6 +2533,12 @@
       <Opcode>298</Opcode>
       <Name>Wedding</Name>
       <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
+      <Opcode>306</Opcode>
+      <Name />
+      <Ignore>true</Ignore>
     </Definition>
   </Definitions>
 </DefinitionConfig>
