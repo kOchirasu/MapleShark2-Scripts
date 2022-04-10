@@ -103,53 +103,47 @@ def decode_item(id):
             add_field("Cosmetic Position", 4 * 4)
         add_byte("Unknown")
         with Node("Stats"):
-            count = add_short("ConstantBasicStatCount")
-            for i in range(count):
-                with Node("Constant Stat" + str(i)):
-                    for j in range(count):
-                        decode_stat_option(j)
-            count = add_short("ConstantSpecialStatCount")
-            for i in range(count):
-                with Node("Constant Stat" + str(i)):
-                    for j in range(count):
-                        decode_stat_option(j)
+            with Node("Constant Stats"):
+                count = add_short("ConstantBasicStatCount")
+                for i in range(count):
+                    decode_stat_option(i)
+                count = add_short("ConstantSpecialStatCount")
+                for i in range(count):
+                    decode_bonus_option(i)
             add_int("Unknown")
-            count = add_short("StaticBasicStatCount")
-                with Node("Static Stat" + str(i)):
-                    for j in range(count):
-                        decode_stat_option(j)
-            count = add_short("StaticSpecialStatCount")
-                with Node("Static Stat" + str(i)):
-                    for j in range(count):
-                        decode_stat_option(j)
+            with Node("Static Stats"):
+                count = add_short("StaticBasicStatCount")
+                for i in range(count):
+                    decode_stat_option(i)
+                count = add_short("StaticSpecialStatCount")
+                for i in range(count):
+                    decode_bonus_option(i)
             add_int("Unknown")
-            count = add_short("RandonBasicStatCount")
-                with Node("Random Stat" + str(i)):
-                    for j in range(count):
-                        decode_stat_option(j)
-            count = add_short("RandomSpecialStatCount")
-                with Node("Random Stat" + str(i)):
-                    for j in range(count):
-                        decode_stat_option(j)
+            with Node("Random Stats"):
+                count = add_short("RandonBasicStatCount")
+                for i in range(count):
+                    decode_stat_option(i)
+                count = add_short("RandomSpecialStatCount")
+                for i in range(count):
+                    decode_bonus_option(i)
             add_int("Unknown")
-            count = add_short("TitleBasicStatCount")
-                with Node("Title Stat" + str(i)):
-                    for j in range(count):
-                        decode_stat_option(j)
-            count = add_short("TitleSpecialStatCount")
-                with Node("Title Stat" + str(i)):
-                    for j in range(count):
-                        decode_stat_option(j)
+            with Node("Title Stats"):
+                count = add_short("TitleBasicStatCount")
+                for i in range(count):
+                    decode_stat_option(j)
+                count = add_short("TitleSpecialStatCount")
+                for i in range(count):
+                    decode_bonus_option(i)
             add_int("Unknown")
             for i in range(5):
-                with Node("Iteration " + str(i)):
+                with Node("Empowerment Stats " + str(i)):
                     count = add_short("EmpowermentBasicStatCount")
                     for j in range(count):
                         decode_stat_option(j)
                     count = add_short("EmpowermentSpecialStatCount")
                     for j in range(count):
                         decode_bonus_option(j)
-                    add_int("Unknown")
+                add_int("Unknown")
         # Sub
         add_int("Enchants")
         add_int("EnchantExp")
@@ -163,18 +157,20 @@ def decode_item(id):
         with Node("EnchantStats"):
             count = add_byte("EnchantStatCount")
             for e in range(count):
-                decode_stat_option(e)
+                add_int("StatType")
+                add_int("IntegerValue")
+                add_float("FloatValue")
         # EndSub
         #Sub
         add_int("LimitBreakLevel")
         with Node("LimitBreakBasicStat"):
             count = add_int("LimitBreakBasicStatCount")
             for i in range(count):
-                decode_stat_option(j)
+                decode_stat_option(i)
         with Node("LimitBreakSpecialStat"):
             count = add_int("LimitBreakSpecialStatCount")
             for i in range(count):
-                decode_bonus_option(j)
+                decode_bonus_option(i)
         # EndSub
 
         #Testing UGC
