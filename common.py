@@ -103,15 +103,47 @@ def decode_item(id):
             add_field("Cosmetic Position", 4 * 4)
         add_byte("Unknown")
         with Node("Stats"):
-            for i in range(9):
-                with Node("Iteration " + str(i)):
-                    count = add_short("count")
+            with Node("Constant Stats"):
+                count = add_short("ConstantBasicStatCount")
+                for i in range(count):
+                    decode_stat_option(i)
+                count = add_short("ConstantSpecialStatCount")
+                for i in range(count):
+                    decode_bonus_option(i)
+            add_int("Unknown")
+            with Node("Static Stats"):
+                count = add_short("StaticBasicStatCount")
+                for i in range(count):
+                    decode_stat_option(i)
+                count = add_short("StaticSpecialStatCount")
+                for i in range(count):
+                    decode_bonus_option(i)
+            add_int("Unknown")
+            with Node("Random Stats"):
+                count = add_short("RandonBasicStatCount")
+                for i in range(count):
+                    decode_stat_option(i)
+                count = add_short("RandomSpecialStatCount")
+                for i in range(count):
+                    decode_bonus_option(i)
+            add_int("Unknown")
+            with Node("Title Stats"):
+                count = add_short("TitleBasicStatCount")
+                for i in range(count):
+                    decode_stat_option(j)
+                count = add_short("TitleSpecialStatCount")
+                for i in range(count):
+                    decode_bonus_option(i)
+            add_int("Unknown")
+            for i in range(5):
+                with Node("Empowerment Stats " + str(i)):
+                    count = add_short("EmpowermentBasicStatCount")
                     for j in range(count):
                         decode_stat_option(j)
-                    count = add_short("count")
+                    count = add_short("EmpowermentSpecialStatCount")
                     for j in range(count):
                         decode_bonus_option(j)
-                    add_int("Unknown")
+                add_int("Unknown")
         # Sub
         add_int("Enchants")
         add_int("EnchantExp")
@@ -122,23 +154,23 @@ def decode_item(id):
         add_bool("CanRepackage")
         add_int("EnchantCharges")
 
-        with Node("general stat diff"):
-            count = add_byte("Count")
+        with Node("EnchantStats"):
+            count = add_byte("EnchantStatCount")
             for e in range(count):
-                add_int("stat index")
-                add_int("int diff")
-                add_float("float diff")
+                add_int("StatType")
+                add_int("IntegerValue")
+                add_float("FloatValue")
         # EndSub
         #Sub
-        add_int("???")
-        with Node("stat diff"):
-            count = add_int("Count")
+        add_int("LimitBreakLevel")
+        with Node("LimitBreakBasicStat"):
+            count = add_int("LimitBreakBasicStatCount")
             for i in range(count):
-                decode_stat_option(j)
-        with Node("bonus stat diff"):
-            count = add_int("Count")
+                decode_stat_option(i)
+        with Node("LimitBreakSpecialStat"):
+            count = add_int("LimitBreakSpecialStatCount")
             for i in range(count):
-                decode_bonus_option(j)
+                decode_bonus_option(i)
         # EndSub
 
         #Testing UGC
@@ -159,13 +191,14 @@ def decode_item(id):
         # Music Score
         if id / 100000 == 351:
             with Node("MusicScore", True):
-                add_int("MusicId")
+                add_int("ScoreLength")
                 add_int("Instrument")
                 add_unicode_str("ScoreTitle")
                 add_unicode_str("Author")
                 add_int("Unknown (1)")
                 add_long("AuthorCharacterId")
-                add_field("Unknown", 17)
+                add_byte("IsLocked")
+                add_field("Unknown", 16)
 
         # Badge
         if id / 1000000 == 70:
@@ -190,7 +223,7 @@ def decode_item(id):
         add_int("TransferFlag")
         add_byte("???")
         add_int("remaining trades")
-        add_int("???")
+        add_int("Remaining Repackage Count")
         add_byte("???")
         add_byte("???")
         f = add_byte("IsBound")
@@ -233,7 +266,7 @@ def decode_player():
         add_int("InstanceMapId") # Guess
         add_int("MapInstanceId") # Guess
         add_short("Level")
-        add_short("Unknown")
+        add_short("ChannelId")
         add_int("JobCode")
         add_int("JobId")
         add_int("CurrentHp")
@@ -428,4 +461,4 @@ def decode_guild_rank():
     with Node("GuildRank"):
         add_byte("Index")
         add_unicode_str("Name")
-        add_int("PermissionFlags?")
+        add_int("PermissionFlags")
