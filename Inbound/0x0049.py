@@ -1,3 +1,4 @@
+''' FIELD_PORTAL '''
 from script_api import *
 from common import *
 
@@ -9,7 +10,7 @@ if f == 0: # load portal
     decode_coordF("Position")
     decode_coordF("Rotation")
     decode_coordF("PortalDimension")
-    add_unicode_str("UnknownStr") # Eff_Com_Portal_E
+    add_unicode_str("Model") # Eff_Com_Portal_E
     add_int("TargetMapId")
     add_int("ObjectId")
     add_int("Unknown")
@@ -24,12 +25,12 @@ if f == 0: # load portal
     add_unicode_str("UnknownStr")
     add_unicode_str("UnknownStr")
 elif f == 1: # remove portal
-    pass # ??
+    pass
 elif f == 2: # trigger portal
     add_bool("Visible")
     add_bool("Enabled")
     add_bool("MinimapVisible")
     add_short("Unknown")
 elif f == 3:
-    decode_coordF("Location")
+    decode_coordF("Position")
     decode_coordF("Rotation")
