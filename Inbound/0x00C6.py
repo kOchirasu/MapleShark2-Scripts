@@ -15,22 +15,25 @@ from script_api import *
 # 04 01 01 00 00 00 F6 FC 12 00 81 96 98 00 19 00 00 00 40 1F 00 00 01 00
 
 f = add_byte("Function")
-if f == 0:
+if f == 0: # prepare fishing
     add_long("RodItemUid")
-elif f == 3:
+elif f == 1: # stop fishing
+    pass
+elif f == 2: # notice
+    add_short("NoticeId")
+elif f == 3: # increase mastery
     add_int("FishId")
-    add_int("Unknown") # 2
-    add_short("Unknown") # 2 (1)
-    add_short("Unknown") # 21 (1)
-elif f == 4:
+    add_int("ExpGained") # 2
+    add_int("Mastery Type")
+elif f == 4: # load fishing tiles
     add_byte("Unknown")
-    count = add_int("Count")
+    count = add_int("Tile Count")
     for i in range(count):
-        with Node("Entry " + str(i)):
-            add_int("Unknown")
+        with Node("Tile " + str(i)):
+            add_int("CoordB")
             add_int("Unknown") # 10000001
             add_int("Unknown") # 25
-            add_int("Unknown") # 8000 (15000)
+            add_int("FishingTime") # 15000 - reducedTime (from rods/bait)
             add_short("Unknown") # 1
 elif f == 5: # Caught item
     count = add_int("Count")
@@ -46,7 +49,7 @@ elif f == 7: # Load fising book
             add_int("Total Caught")
             add_int("Total Prized Fish")
             add_int("Largest Fish Size")
-elif f == 8:
+elif f == 8: # caught fish
     add_int("FishId")
     add_int("FishSize")
     b = add_byte("Success") # Update log on success
@@ -56,7 +59,6 @@ elif f == 8:
         add_int("Total Caught")
         add_int("Total Prized Fish")
         add_int("Largest Fish Size")
-
-elif f == 9:
-    add_byte("1?")
+elif f == 9: # start fishing
+    add_byte("FishingGameBool")
     add_int("ServerTicks")

@@ -10,7 +10,7 @@ def decode_club():
     add_byte("Unknown") # 1
     add_int("Unknown")
     add_int("Unknown")
-    add_long("Unknown")
+    add_long("LastNameChangeTimestamp")
     count = add_byte("count")
     for i in range(count):
         decode_club_member()
@@ -19,11 +19,11 @@ def decode_club_member():
     with Node("ClubMember"):
         t = add_byte("Type")
         if t == 2:
-            add_long("Unknown")
+            add_long("ClubUid")
             decode_club_member_player()
-            add_long("Unknown")
-            add_long("Unknown")
-            add_byte("Unknown")
+            add_long("JoinTimestamp")
+            add_long("LastLogTimestamp")
+            add_byte("Online")
         else:
             add_long("Unknown")
             # sub
@@ -47,7 +47,7 @@ def decode_club_member_player():
         add_unicode_str("ProfileUrl")
         add_int("PlotMapId")
         add_int("PlotId") # 41
-        add_int("Unknown")
+        add_int("ApartmentNumber")
         add_long("PlotExpiration")
         for i in range(3):
             add_int("Trophy")
@@ -95,22 +95,22 @@ elif f == 12:
 elif f == 13: # set club buff (sent to leader only)
     add_long("ClubUid")
     add_int("BuffId")
-    add_int("Unknown") # 1
+    add_int("BuffLevel") # 1
 elif f == 15: # declined invite(75), club created (0)
     add_long("ClubUid")
-    add_int("Unknown") # 75?
+    add_int("ResponseId") # if == 0, accept. if == 75, reject. if 100 = pending 
     add_unicode_str("PlayerName")
-elif f == 16:
+elif f == 16: # disband club
     add_long("ClubUid")
-    add_unicode_str("UnknownStr")
+    add_unicode_str("LeaderName")
     add_int("Unknown") # if == 207 display some notice
 elif f == 17: # %s has accepted %s's invite to the club
     add_long("ClubUid")
-    add_unicode_str("LeaderName?")
+    add_unicode_str("LeaderName")
     decode_club_member()
-elif f == 18:
+elif f == 18: # club member leave notice
     add_long("ClubUid")
-    add_unicode_str("UnknownStr")
+    add_unicode_str("PlayerName") 
 elif f == 19:
     add_long("ClubUid")
     add_unicode_str("UnknownStr")
@@ -118,33 +118,34 @@ elif f == 20: # club member log off
     add_long("ClubUid")
     add_unicode_str("PlayerName")
     add_long("Timestamp")
-elif f == 21:
+elif f == 21: # assign new club leader
     add_long("ClubUid")
-    add_unicode_str("UnknownStr")
-    add_unicode_str("UnknownStr")
+    add_unicode_str("PreviousLeaderName")
+    add_unicode_str("NewLeaderName")
     add_byte("Unknown")
 elif f == 22: # set club buff (sent to all)
     add_long("ClubUid")
     add_int("BuffId")
     add_int("Unknown") # 1
-elif f == 23:
+elif f == 23: # update member location
     add_long("ClubUid")
-    add_unicode_str("UnknownStr")
+    add_unicode_str("PlayerName")
+    add_int("MapId")
 elif f == 24: # update club member
     add_long("ClubUid")
     add_unicode_str("MemberName")
     decode_club_member_player()
-elif f == 25:
+elif f == 25: # club member log in
     add_long("ClubUid")
-    add_unicode_str("UnknownStr")
+    add_unicode_str("PlayerName")
 elif f == 26: # change name
     add_long("ClubUid")
     add_unicode_str("ClubName")
     add_long("Timestamp")
-elif f == 27:
-    add_long("Unknown")
-    add_unicode_str("UnknownStr")
-    add_unicode_str("UnknownStr")
+elif f == 27: # update club member's name
+    add_long("CharacterId")
+    add_unicode_str("PreviousName")
+    add_unicode_str("NewName")
 elif f == 28:
     add_long("ClubUid")
     add_unicode_str("UnknownStr")
