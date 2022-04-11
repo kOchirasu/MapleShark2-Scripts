@@ -1,5 +1,6 @@
 from script_api import *
 from common import *
+from stats import *
 
 add_int("ObjectId")
 add_int("NpcId")
@@ -10,25 +11,7 @@ decode_coordF("Rotation")
 #add_str("npcstring")
 
 # If valid NpcId
-with Node("Stats"):
-    c = add_byte("Stats Flag") # 0x23
-    if c == 1:
-        v = add_byte("StatType")
-        if v == 4: # Hp uses longs
-            add_long("TotalHp")
-            add_long("MinHp")
-            add_long("MaxHp")
-        else:
-            add_int("TotalStat")
-            add_int("MinStat")
-            add_int("MaxStat")
-    else:
-        add_long("TotalHp")
-        add_int("TotalAtkSpd")
-        add_long("MinHp")
-        add_int("MinAtkSpd")
-        add_long("MaxHp")
-        add_int("MaxAtkSpd")
+decode_npc_stats()
 
 add_bool("IsDead")
 count = add_short("Count")

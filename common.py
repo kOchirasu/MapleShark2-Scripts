@@ -344,27 +344,6 @@ def decode_player():
         add_short("Unknown")
         add_long("Unknown")
 
-def decode_npc_stats():
-    with Node("NpcStats"):
-        c = add_byte("Stats Flag?") # 0x35
-        if c == 1:
-            v = add_byte("Value")
-            if v == 4:
-                add_long("Unknown")
-                add_long("Unknown")
-                add_long("Unknown")
-            else:
-                add_int("Unknown")
-                add_int("Unknown")
-                add_int("Unknown")
-        else:
-            add_long("Unknown")
-            add_int("Unknown")
-            add_long("Unknown")
-            add_int("Unknown")
-            add_long("Unknown")
-            add_int("Unknown")
-
 def decode_skill_tree():
     add_int("JobId")
     add_byte("Unknown (1)")
