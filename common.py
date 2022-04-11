@@ -38,10 +38,10 @@ def decode_ugc_data():
         add_unicode_str("UGC Url")
         add_byte("Unknown")
 
-def decode_sync_state():
-    with Node("SyncState", True):
+def decode_state_sync():
+    with Node("StateSync", True):
         add_byte("state")
-        add_byte("Animation2") # Assert(n <= 178)
+        add_byte("subState") # Assert(n <= 178)
         flag = add_byte("Flag")
         if (flag & 1) == 1: ## bit-1
             add_int("Unknown")
@@ -415,7 +415,7 @@ def decode_maid():
     add_unicode_str("UnknownStr")
     add_unicode_str("UnknownStr")
 
-def decode_additional_effect():
+def decode_additional_effect1():
     with Node("additionalEffect", True):
         add_int("StartServerTick")
         add_int("EndServerTick")

@@ -7,6 +7,6 @@ add_int("ClientTicks")
 count = add_byte("segments")
 for i in range(count):
     with Node("Segment " + str(i), True):
-        decode_sync_state()
+        decode_state_sync()
         add_int("ClientTicks")
         add_int("ServerTick")

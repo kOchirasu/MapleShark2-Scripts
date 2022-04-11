@@ -17,4 +17,4 @@ elif f == 2: #sync (broadcast others)
     add_int("GuideObjectId")
     count = add_byte("segments")
     for i in range(count):
-        decode_sync_state()
+        decode_state_sync()

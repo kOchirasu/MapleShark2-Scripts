@@ -1,3 +1,4 @@
+''' FIELD_ADD_NPC '''
 from script_api import *
 from common import *
 from stats import *
@@ -7,8 +8,10 @@ add_int("NpcId")
 decode_coordF("Position")
 decode_coordF("Rotation")
 
-# Dummy (not friendly and class >= 3)
-#add_str("npcstring")
+# if (not friendly and class >= 3)
+'''
+add_str("npcstring")
+'''
 
 # If valid NpcId
 decode_npc_stats()
@@ -16,49 +19,31 @@ decode_npc_stats()
 add_bool("IsDead")
 count = add_short("Count")
 for i in range(count):
-    with Node("node " + str(i)):
-        add_int("NpcObjectId")
-        add_int("EffectObjectId")
-        add_int("NpcObjectId")
-        decode_additional_effect()
+    with Node("buff " + str(i)):
+        add_int("TargetObjectId")
+        add_int("BuffObjectId")
+        add_int("OwnerObjectId")
+        decode_additional_effect1()
         decode_additional_effect2()
 
 add_long("ItemUid") # From PetNpc
-add_byte("Npc+6384")
-add_int("NpcLevel")
-add_int("Npc+1610")
+add_byte("CNpc+18F0")
+add_int("NpcLevel") # technically level is a short, so this is just padded with "00 00"
+add_int("CNpc+1928")
 
-# Dummy (not friendly and class >= 3)
-"""add_unicode_str("UnknownStr")
+# if (not friendly and class >= 3)
+'''
+add_unicode_str("effect string")
 count = add_int("Count")
 for i in range(count):
     add_int("SkillId")
     add_short("SkillLevel")
-add_int("Unknown")"""
+add_int("CNpc+197C")
+'''
 
-# Some flag condition on npc xml data
-# add_long("Npc+1620")
+# if (Npc has hiddenhpadd)
+'''
+add_long("HiddenHpAdd")
+'''
 
-add_bool("Npc+6536")
-
-"""
-# add_str("ConditionedStrA")
-# UnknownClassCall(packet)
-add_byte("Unknown")
-add_long("Unknown")
-add_byte("Unknown")
-add_int("Unknown")
-add_int("Unknown")
-# Condition
-add_str("UnknownStr")
-count = add_int("count")
-for i in range(count):
-    add_int("Unknown")
-    add_short("Unknown")
-add_int("Unknown")
-# EndCondition
-# Condition
-add_long("Unknown")
-# EndCondition
-add_byte("Unknown")
-"""
+add_bool("Npc+1988")

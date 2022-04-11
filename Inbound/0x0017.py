@@ -91,7 +91,7 @@ with Node("Buffs"):
             add_int("TargetObjectId")
             add_int("AffectedObjectId")
             add_int("OwnerObjectId")
-            decode_additional_effect()
+            decode_additional_effect1()
             decode_additional_effect2()
 
 with Node("sub_BF6440", True):
