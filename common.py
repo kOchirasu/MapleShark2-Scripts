@@ -24,7 +24,7 @@ def decode_skin_color():
         add_int("Color1")
         add_int("Color2")
 
-def decode_ugc_data():
+def decode_ugc_data(): # CUgcItemLook
     with Node("UgcData"):
         add_long("Unknown")
         add_unicode_str("UUID")
@@ -37,6 +37,27 @@ def decode_ugc_data():
         add_long("CreationTime")
         add_unicode_str("UGC Url")
         add_byte("Unknown")
+
+def decode_blueprint(): # BlueprintItemData
+    with Node("Blueprint"):
+        add_long("unknown")
+        add_int("Unknown")
+        add_int("Unknown")
+        add_int("Unknown")
+        add_long("unknown")
+        add_int("Unknown")
+        add_long("unknown")
+        add_long("unknown")
+        add_unicode_str("unknown")
+
+def decode_cube_item_info():
+    with Node("CubeItemInfo"):
+        add_int("ItemId")
+        add_long("ItemUid")
+        add_long("Unknown")
+        b = add_bool("IsUgc")
+        if b:
+            decode_ugc_data()
 
 def decode_state_sync():
     with Node("StateSync", True):
@@ -186,7 +207,7 @@ def decode_item(id):
         if id == 11400608 or id == 11500523 or id == 11600035:
             with Node("UGC", True):
                 decode_ugc_data()
-                add_field("Unknown", 50)
+                decode_blueprint()
 
         # Pet
         if id / 100000 == 600 or id / 100000 == 610 or id / 100000 == 611 or id / 100000 == 629:
