@@ -1,3 +1,4 @@
+''' ACHIEVE '''
 from script_api import *
 
 def decode_achieve_details():
@@ -18,7 +19,7 @@ if f == 1: # Load
     for i in range(count):
         with Node("Achievment " + str(i)):
             add_int("Id")
-            add_int("ss")
+            add_int("unknown")
             decode_achieve_details()
 elif f == 2: # Update?
     add_int("Id")
