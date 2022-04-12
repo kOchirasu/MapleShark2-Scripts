@@ -220,15 +220,7 @@ elif f == 20: # notice
     add_unicode_str("str_const") # Field_Enterance_Reset_Dungeon
     add_unicode_str("Unknown")
 elif f == 21:
-    b = add_bool("Unknown")
-    add_int("Unknown")
-    if b:
-        add_int("Unknown")
-        count = add_int("count")
-        for i in range(count):
-            add_unicode_str("UnknownStr")
-    else:
-        add_unicode_str("UnknownStr")
+    decode_interface_text()
     add_unicode_str("UnknownStr") # effect
 elif f == 25: # dungeon reset
     b = add_bool("startedDungeon")

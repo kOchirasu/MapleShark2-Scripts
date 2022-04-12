@@ -1,15 +1,29 @@
+from re import T
 from script_api import *
 from common import *
 
 f = add_byte("Function")
 if f == 0: # Start (broadcast)
-    n = add_short("Unknown+9")
+    t = add_short("type")
     add_int("ObjectId")
     add_long("CharacterId")
     decode_coordF("Position")
     decode_coordF("Rotation?")
-    if n == 0:
-        add_long("Unknown")    # 1
+    if t == 0: # CConstructionGuideObject
+        add_long("Unknown")
+    elif t == 1: # CFishingGuideObject
+        pass
+    elif t == 3 : # CSkillMagicControlGuide
+        add_long("Unknown")
+        add_int("Unknown")
+        add_short("Unknown")
+        add_byte("Unknown")
+        add_byte("Unknown")
+        add_int("Unknown")
+        count = add_byte("count")
+        for i in range(count):
+            add_long("unknown") # CTargetRecord
+            add_byte("unknown") # not sure
 elif f == 1: # End (broadcast)
     add_int("GuideObjectId")
     add_long("CharacterId")

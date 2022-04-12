@@ -469,3 +469,15 @@ def decode_guild_rank():
         add_byte("Index")
         add_unicode_str("Name")
         add_int("PermissionFlags")
+
+def decode_interface_text(): # sub_641140
+    with Node("StringInterface"):
+        b = add_bool("Unknown")
+        add_int("Unknown")
+        if b:
+            add_int("Unknown")
+            count = add_int("count")
+            for i in range(count):
+                add_unicode_str("UnknownStr")
+        else:
+            add_unicode_str("message")

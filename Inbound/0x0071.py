@@ -1,3 +1,4 @@
+''' KEY_TABLE '''
 from script_api import *
 
 def decode_key_binds():
@@ -27,8 +28,8 @@ def decode_hotbars():
 f = add_byte("Function")
 if f == 0: # Keyboard
     isDefault = add_byte("IsDefault")
-    if isDefault == 1: # DefaultKey
-        pass
+    if isDefault == 1:
+        pass # ./Data/Xml/Table/default/DefaultKey.xml
     else:
         decode_key_binds()
         decode_hotbars()

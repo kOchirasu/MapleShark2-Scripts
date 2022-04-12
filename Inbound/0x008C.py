@@ -330,11 +330,13 @@ elif f == 26: # setting notice
     add_byte("Notice")
     add_unicode_str("NoticeMessage")
 elif f == 27:
+    decode_interface_text()
     add_unicode_str("UnknownStr")
 elif f == 28:
     add_unicode_str("UnknownStr")
     add_int("Unknown")
 elif f == 29: # update rank
+    decode_interface_text()
     b = add_bool("Unknown")
     add_int("Unknown")
     if not b:

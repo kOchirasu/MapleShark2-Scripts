@@ -1,7 +1,7 @@
 ''' MASSIVE_EVENT '''
 from script_api import *
 
-def decode_event_text():
+def decode_interface_text():
     b = add_bool("multiString")
     add_int("unknown")
     if b:
@@ -30,21 +30,21 @@ elif f == 2: # banner ui
     add_int("m_duration")
 elif f == 3: # ui event introduce
     # implicit: m_subType: 6
-    decode_event_text()
+    decode_interface_text()
     add_int("m_duration")
 elif f == 4:
     # implicit: m_subType: 8
-    decode_event_text()
+    decode_interface_text()
     add_int("m_stepNum")
     add_int("Count") # multiplied by 1000 and added to time
     add_int("m_unknown") # 1
 elif f == 5:
     # implicit: m_subType: 2
-    decode_event_text()
+    decode_interface_text()
     add_int("m_duration")
 elif f == 6:
     # implicit: m_subType: 1
-    decode_event_text()
+    decode_interface_text()
     add_int("m_duration")
 elif f == 7: # start round popup
     add_int("round")
