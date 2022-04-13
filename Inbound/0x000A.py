@@ -1,7 +1,7 @@
 ''' LOGIN_RESULT '''
 from script_api import *
 
-code = add_byte("code") # 0x00 = success, 0x07 = restricted, 0x19 = timed out
+code = add_byte("code")
 add_int("Unknown")
 add_unicode_str("BanReason")
 add_long("AccountId")
