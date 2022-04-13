@@ -2,12 +2,12 @@
 from script_api import *
 
 f = add_byte("function")
-if f == 1: # start cinematic?
-    add_bool("id") # true ? 0x620001D : 0x6200041
+if f == 1: # hide/display ui
+    add_bool("hideUi") # true ? 0x620001D : 0x6200041
 elif f == 2:
     pass # none
 elif f == 3: # setCinematic
-    add_int("Unknown")
+    add_int("type")
     add_unicode_str("UnknownStr")
     add_unicode_str("UnknownStr")
 elif f == 4: # setSkip
@@ -17,18 +17,18 @@ elif f == 4: # setSkip
     elif t == 2:
         pass # 2 = $s_cutscene_skip_state
     add_str("skipState")
-elif f == 5: # setSkip
+elif f == 5: # start scene skip
     pass # none
-elif f == 6: # UICutSceneCinematic::CinematicTalk
-    add_int("Unknown")
-    add_str("Unknown")
-    add_unicode_str("Unknown")
-    add_int("unknown")
-    add_byte("unknown")
+elif f == 6: # conversation, UICutSceneCinematic::CinematicTalk
+    add_int("npcId")
+    add_str("illustrationId")
+    add_unicode_str("stringId")
+    add_int("delay")
+    add_byte("alignFlag") # 0 = top, 1 = center, 2= bottom, 4 = left, 8 = right
 elif f == 7: # hideScript
     pass # none
 elif f == 8: # add baloon talk
-    add_byte("Unknown") # 0 (1=from NPC AI?)
+    add_bool("isNpcId") # 0 (1=from NPC AI?)
     add_int("ObjectId") # from spawnPointId
     add_unicode_str("message")
     add_int("duration")
@@ -46,7 +46,7 @@ elif f == 10: # show caption
     add_float("offsetRateY") # offsetRatioY
     add_float("scale") # captionScale
 elif f == 11: # setOpening
-    add_unicode_str("Unknown")
+    add_unicode_str("scriptString")
     add_bool("Unknown")
 elif f == 12: # setIntro
     add_unicode_str("Unknown")

@@ -11,8 +11,9 @@ def decode_cost():
 
 def decode_shop():
     with Node("Shop", True):
+        add_byte("BeautyCategory") # 1 = Standard, 2 = Special, 3 = Dye, 4 = Save
         add_int("ShopId")
-        add_int("Unknown+14") # 1-Hair, 3-Face, 4-Skin, 5-Dye
+        add_int("BeautyType") # 1-Hair, 3-Face, 4-Skin, 5-Dye
         add_int("VoucherItemId")
         add_bool("UseCustomCurrency")
         add_int("CurrencyId")
@@ -24,8 +25,7 @@ def decode_shop():
 
 f = add_byte("Function")
 # UIBeautyShopDialog
-if f == 0:
-    add_byte("Unknown+9")
+if f == 0: # load beauty shop
     decode_shop()
     add_byte("Unknown+54")
     add_byte("Unknown+55")
@@ -33,13 +33,12 @@ if f == 0:
     for i in range(count):
         with Node("CBeautyShopItem " + str(i)):
             add_int("CosmeticId")
-            add_bool("IsNew")
-            add_short("Unknown+63") # 0
+            add_byte("ShopItemBanner") # 1 = New, 2 = Event, 3 = Half Price, 4 = Special
+            add_short("RequiredLevel") # 0
             add_int("AchievmentId")
             add_byte("AchievementRank")
             decode_cost()
-elif f == 1:
-    add_byte("Unknown+9")
+elif f == 1: # load dye shop
     decode_shop()
     add_byte("Unknown+54")
     add_byte("Unknown+55")
@@ -79,10 +78,10 @@ elif f == 8:
 elif f == 9: # useVoucher
     add_int("ItemId")
     add_int("Amount")
-elif f == 11:
-    add_int("SomeItemId")
-    add_int("SomeItemId")
-elif f == 12:
+elif f == 11: # random hair option
+    add_int("PreviousHairItemId")
+    add_int("NewHairItemId")
+elif f == 12: # choose random hair
     message = add_int("message")
     b = add_bool("success")
     if message == 0:
@@ -99,17 +98,16 @@ elif f == 16 or f == 17:
 
 
 # UIBeautyShopStyleDialog
-if f == 2:
-    add_byte("Unknown+9")
+if f == 2: # load save shop
     decode_shop()
     add_byte("Unknown+54")
     add_byte("Unknown+55")
     add_unicode_str("UnknownStr")
-elif f == 13:
+elif f == 13: # initialize saved hairs ?
     pass # payback related?
-elif f == 14:
-    add_short("Unknown")
-elif f == 15:
+elif f == 14: # load saved hair count
+    add_short("Haircount")
+elif f == 15: # load saved hairs
     count = add_short("count")
     for i in range(count):
         with Node("Hair " + str(i)):
@@ -128,8 +126,8 @@ elif f == 16 or f == 17: # save hair
     add_long("Timesaved")
 elif f == 18: # delete hair: s_beauty_msg_complete_remove_saved_hair_style
     add_long("SaveUid")
-elif f == 20: # s_beauty_msg_complete_extend_style_slot
+elif f == 20: # load save window: s_beauty_msg_complete_extend_style_slot
     add_byte("Unknown")
     add_short("Unknown")
-elif f == 21:
+elif f == 21: # change to saved hair
     pass # s_beauty_msg_complete_apply_saved_style

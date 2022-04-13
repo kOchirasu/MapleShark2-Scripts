@@ -23,9 +23,10 @@ def decode_mail_attach_item():
     decode_item(id)
 
 def decode_mail_info():
-    type = add_byte("type") # 102
+    type = add_byte("type") # 1 = player, 101 = system, 102 = black market sale
+    # 104 = black market listing cancel, 106 = meso market
     add_long("MailUid") # 59030013
-    add_long("SenderCharacterId") # SomeUid
+    add_long("SenderCharacterId")
     # <ms2><v key="s_blackmarket_mail_to_sender" /></ms2>
     add_unicode_str("SenderName")
     # <ms2><v key="s_blackmarket_mail_to_buyer_title" /></ms2>
@@ -50,11 +51,11 @@ def decode_mail_info():
         for j in range(itemCount):
             with Node("AttachedItem " + str(j)):
                 decode_mail_attach_item()
+    add_long("Mesos")
+    add_long("LastPurchaseTimestamp?")
+    add_long("BlueMerets")
     add_long("Unknown")
-    add_long("Unknown")
-    add_long("Unknown")
-    add_long("Unknown")
-    add_long("Unknown")
+    add_long("RedMerets")
     add_long("Unknown")
 
     # sub_45E8C0
@@ -99,7 +100,7 @@ elif f == 10: # collecting mail #1
     # below is only used if above is true
     add_byte("Unknown") # 0, assert(<= 4)
     add_long("CollectTime")
-elif f == 11: # collecting mail #2
+elif f == 11: # update read time
     add_long("MailUid")
     add_long("ViewedTime")
 elif f == 12:
@@ -109,10 +110,10 @@ elif f == 13: # delete mail
     add_long("MailUid")
 elif f == 14: # receive mail
     add_int("UnreadMailCount")
-    add_bool("Unknown") # 1
+    add_bool("Alert") # 1
     add_int("count")
     # s_notify_mail_recieve
-elif f == 15:
+elif f == 15: # expire notification
     pass # s_mail_period_item_include, s_mail_period_item_include_chat
 elif f == 16: # start list
     pass # none
