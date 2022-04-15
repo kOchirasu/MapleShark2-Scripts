@@ -119,27 +119,27 @@ elif f == 18: #load banners
         b = add_bool("unknown")
         if b:
             decode_ugc_banner_rolling_image()
-    count = add_int("count2")
+    count = add_int("count")
     for i in range(count):
         bannerId = add_long("Banner id")
         with Node("Banner " + str(bannerId)):
             active = add_byte("Active")
             if active:
                 decode_ugc_banner_post()
-    count3 = add_int("count3")
-    for i in range(count3):
+    count = add_int("count")
+    for i in range(count):
         bannerId = add_long("Banner id")
         with Node("Banner " + str(bannerId)):
             hours = add_int("Hour count")
             for j in range(hours):
                 with Node("Hour " + str(j)):
                     decode_ugc_hour_post()
-elif f == 20: #init ugc creation
+elif f == 20:  # CUgcPreReserve
     add_long("Banner id")
     hours = add_int("Hours")
     for i in range(hours):
         decode_ugc_reserve(i)
-elif f == 21:
+elif f == 21:  # CUgcGetCostTable
     count = add_int("count")
     for i in range(count):
         add_long("unknown")
