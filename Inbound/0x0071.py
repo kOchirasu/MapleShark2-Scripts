@@ -33,7 +33,7 @@ if f == 0: # Keyboard
     else:
         decode_key_binds()
         decode_hotbars()
-elif f == 7:
+elif f == 7: # load hotbars
     decode_hotbars()
 elif f == 9: # AskKeyboardOrMouse
     pass

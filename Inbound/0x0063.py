@@ -21,7 +21,7 @@ def decode_buddy():
         add_long("Timestamp")
         add_unicode_str("ProfileUrl")
         add_unicode_str("Motto")
-        add_unicode_str("Unknown")
+        add_unicode_str("BlockReason")
         add_int("Unknown")
         add_int("Unknown")
         add_int("Unknown")
@@ -69,29 +69,29 @@ elif f == 2: # Request friend
     add_unicode_str("Name")
     add_unicode_str("Message")
     # s_buddy_request_to_somebody
-elif f == 3:
+elif f == 3: # accept request
     add_byte("error")
     add_long("EntryUid")
     add_long("CharacterId")
     add_long("AccountId")
     add_unicode_str("Name")
     # s_buddy_add_somebody
-elif f == 4:
+elif f == 4: # decline request
     add_byte("error")
     add_long("EntryUid")
     # s_buddy_decline_request_from_somebody
-elif f == 5: # Remove Entry
+elif f == 5: # block
     message = add_byte("error")
     buddy_error_message(message)
     add_long("EntryUid")
     add_unicode_str("Name")
     add_unicode_str("Message")
     # s_buddy_ban_somebody
-elif f == 6:
+elif f == 6: #unblock
     add_byte("error")
     add_long("EntryUid")
     # s_buddy_del_somebody_from_banlist
-elif f == 7:
+elif f == 7: # remove from buddy list
     add_byte("error")
     add_long("EntryUid")
     add_long("CharacterId")
@@ -104,26 +104,26 @@ elif f == 8: # Update buddy map/online
     add_byte("error")
     add_long("EntryUid")
     decode_buddy()
-elif f == 9: # blocking, request friend
+elif f == 9: # add to buddy list
     add_byte("error")
     add_long("EntryUid")
     decode_buddy()
-elif f == 10: # Remove Entry
+elif f == 10: # edit block reason
     message = add_byte("error")
     buddy_error_message(message)
     add_long("EntryUid")
     add_unicode_str("Name")
     add_unicode_str("Message")
     # s_buddy_ban_memo_complete
-elif f == 11: # block 1
+elif f == 11: # accept request notification
     add_long("EntryUid") # uid of the block entry
     # s_buddy_add_somebody
-elif f == 12:
+elif f == 12: # block notification
     message = add_byte("error")
     buddy_error_message(message)
     add_unicode_str("Name")
     # s_buddy_err_max_block
-elif f == 13:
+elif f == 13: 
     add_int("unknown")
     add_unicode_str("name")
     add_unicode_str("action") # "approved", "declined", "removed"
@@ -131,7 +131,7 @@ elif f == 13:
     # "approved" -> s_buddy_add_somebody
     # "declined" -> s_buddy_refused_request_from_somebody
     # "removed" -> s_buddy_del_somebody_from_list
-elif f == 14:
+elif f == 14: # login/logout notification
     add_bool("offline")
     add_long("EntryUid")
     add_unicode_str("Name")
@@ -144,7 +144,7 @@ elif f == 17: # cancel friend request
     # s_buddy_cancel_request
 elif f == 18:
     pass # s_ban_check_err_any
-elif f == 19:
+elif f == 19: # end load
     add_int("FriendCount")
 elif f == 20:
     pass

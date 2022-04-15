@@ -20,7 +20,7 @@ elif f == 2:
     result = add_bool("result")
     if result == 0:
         add_int("PlotId")
-        add_int("Unknown")
+        add_int("ApartmentNumber")
         add_unicode_str("HomeName")
         add_long("PlotExpiration")
         add_long("OwnerAccountId")
@@ -32,7 +32,7 @@ elif f == 5: # forfeit plot
     result = add_bool("result")
     if result == 0:
         add_int("PlotId")
-        add_int("Unknown")
+        add_int("ApartmentNumber")
         add_bool("Unknown")
     error_handler(result)
 elif f == 7: # complete forfeit plot
@@ -122,7 +122,7 @@ elif f == 20: # load home
     add_int("MapId") # Private Residence (62000000)
     add_int("PlotMapId")
     add_int("PlotId")
-    add_int("Unknown")
+    add_int("ApartmentNumber")
     add_unicode_str("HouseName")
     add_long("Plot Expiration")
     add_long("LastUpdated")
@@ -135,12 +135,12 @@ elif f == 21: # Set plot name
     else:
         add_long("OwnerAccountId")
         add_int("PlotId")
-        add_int("Unknown")
+        add_int("ApartmentNumber")
         add_unicode_str("HomeName")
 elif f == 22: # Buy/extend/forfeit plot
     # SaleStateData
     add_int("PlotId")
-    add_int("Unknown")
+    add_int("ApartmentNumber")
     add_byte("state") # 1
     add_long("ExpirationTime")
 elif f == 25: # confirm thumbs up (can't vote anymore)
