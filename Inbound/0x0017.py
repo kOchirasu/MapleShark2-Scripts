@@ -103,7 +103,7 @@ add_byte("MyPC+2228")
 with Node("sub_5F1C30", True):
     add_int("MyPC+C")
     add_byte("MyPC+10")
-    add_byte("MyPC+24")
+    add_byte("MyPC+20")
 
 add_int("TitleId")
 with Node("Insignia", True):
