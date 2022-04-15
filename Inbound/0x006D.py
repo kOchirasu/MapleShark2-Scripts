@@ -46,33 +46,24 @@ def decode_ugc_banner_post(): # CUgcBannerPost
             add_byte("unk")
             add_byte("unk")
         add_long("Banner id")
-        count = add_byte("Hour count")
+        count = add_byte("Hours")
         for i in range(count):
-            with Node("CUgcBannerPostReserve " + str(i)):
-                add_long("uuid")
-                add_int("2")
-                add_long("Banner id")
-                add_int("Date")
-                add_int("Hour")
-                add_long("0")
+            decode_ugc_reserve(i)
         add_unicode_str("UGC url")
+
+def decode_ugc_reserve(i):
+    with Node("CUgcBannerPostReserve " + str(i)):
+        add_long("uuid")
+        add_int("2")
+        add_long("Banner id")
+        add_int("Date")
+        add_int("Hour")
+        add_long("0")
 
 def decode_ugc_hour_post():
     add_long("Date + Hour")
     add_unicode_str("Character name")
     add_byte("Reserved")
-
-def decode_ugc_reserve(): # CUgcBannerReserve
-    add_long("Banner id")
-    hours = add_int("Hour count")
-    for x in range(hours):
-        with Node("Hour " + str(x)):
-            add_long("Uid")
-            add_int("1")
-            add_long("Banner ID")
-            add_int("Date")
-            add_int("Hour")
-            add_long("unk")
 
 f = add_byte("Function")
 if f == 0:
@@ -102,8 +93,8 @@ elif f == 7:
 elif f == 8: #update banner
     add_long("Banner id")
     hours = add_int("Hours")
-    for x in range(hours):
-        with Node("Hour " + str(x)):
+    for i in range(hours):
+        with Node("Hour " + str(i)):
             decode_ugc_hour_post()
 elif f == 11:
     add_int("unknown")
@@ -129,17 +120,25 @@ elif f == 18: #load banners
         if b:
             decode_ugc_banner_rolling_image()
     count = add_int("count2")
-    for x in range(count):
+    for i in range(count):
         bannerId = add_long("Banner id")
         with Node("Banner " + str(bannerId)):
             active = add_byte("Active")
             if active:
                 decode_ugc_banner_post()
     count3 = add_int("count3")
-    for x in range(count3):
-        decode_ugc_reserve()
+    for i in range(count3):
+        bannerId = add_long("Banner id")
+        with Node("Banner " + str(bannerId)):
+            hours = add_int("Hour count")
+            for j in range(hours):
+                with Node("Hour " + str(j)):
+                    decode_ugc_hour_post()
 elif f == 20: #init ugc creation
-    decode_ugc_reserve()
+    add_long("Banner id")
+    hours = add_int("Hours")
+    for i in range(hours):
+        decode_ugc_reserve(i)
 elif f == 21:
     count = add_int("count")
     for i in range(count):

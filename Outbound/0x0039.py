@@ -1,17 +1,15 @@
 '''UGC'''
 from script_api import *
 
-def decode_ugc_reserve():  # CUgcBannerReserve
-    add_long("Banner id")
-    hours = add_int("Hour count")
-    for x in range(hours):
-        with Node("Hour " + str(x)):
-            add_long("Uid")
-            add_int("1")
-            add_long("Banner ID")
-            add_int("Date")
-            add_int("Hour")
-            add_long("unk")
+
+def decode_ugc_reserve(i):
+    with Node("CUgcBannerPostReserve " + str(i)):
+        add_long("uuid")
+        add_int("2")
+        add_long("Banner id")
+        add_int("Date")
+        add_int("Hour")
+        add_long("0")
 
 def decode_ugc_info():
     type = add_byte("UGC Type")
@@ -39,7 +37,10 @@ if f == 1: #create ugc
         add_long("Cost")
         add_bool("Use voucher")
     elif type == 3: #banners
-        decode_ugc_reserve()
+        add_long("Banner id")
+        hours = add_byte("Hours")
+        for i in range(hours):
+            decode_ugc_reserve(i)
 elif f == 3: #confirmation (?)
     type = decode_ugc_info()
     add_int("Unk")
@@ -49,4 +50,7 @@ elif f == 3: #confirmation (?)
 elif f == 18: #load banners
     add_int("Map id")
 elif f == 19: #reserve banner
-    decode_ugc_reserve()
+    add_long("Banner id")
+    hours = add_int("Hours")
+    for i in range(hours):
+        decode_ugc_reserve(i)
