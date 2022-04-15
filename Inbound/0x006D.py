@@ -137,12 +137,7 @@ elif f == 18: #load banners
                 decode_ugc_banner_post()
     count3 = add_int("count3")
     for x in range(count3):
-        bannerId = add_long("Banner id")
-        with Node("Banner " + str(bannerId)):
-            hours = add_int("Hour count")
-            for z in range(hours):
-                with Node("Hour " + str(z)):
-                    decode_ugc_hour_post()
+        decode_ugc_reserve()
 elif f == 20: #init ugc creation
     decode_ugc_reserve()
 elif f == 21:
