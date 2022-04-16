@@ -1,6 +1,6 @@
 ''' ITEM_TITLE '''
-from common import *
 from script_api import *
+from item import *
 
 add_long("itemUid")
 add_int("unknown")

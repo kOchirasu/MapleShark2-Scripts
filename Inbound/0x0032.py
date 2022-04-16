@@ -1,6 +1,6 @@
 ''' BEAUTY '''
 from script_api import *
-from common import *
+from item import *
 
 def decode_cost():
     with Node("TShopPaymentAttr", True):
@@ -110,15 +110,11 @@ elif f == 14: # load saved hair count
 elif f == 15: # load saved hairs
     count = add_short("count")
     for i in range(count):
-        with Node("Hair " + str(i)):
-            id = add_int("ItemId")
-            add_long("ItemUid")
-            add_int("slot")
-            add_long("CreationTime")
-            decode_equip_color()
-            add_int("AppearanceFlag")
-            add_field("Back Hair Position", 4 * 7)
-            add_field("Front Hair Position", 4 * 7)
+        id = add_int("ItemId")
+        add_long("ItemUid")
+        add_int("slot")
+        add_long("CreationTime")
+        decode_item_extra_data(id)
 elif f == 16 or f == 17: # save hair
     add_long("HairUid")
     add_long("SaveUid")

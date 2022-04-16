@@ -1,6 +1,6 @@
 ''' SHOP '''
 from script_api import *
-from common import *
+from item import *
 
 def decode_buy_period():
     b = add_bool("Unknown")

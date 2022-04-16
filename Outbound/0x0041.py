@@ -1,5 +1,5 @@
 from script_api import *
-from common import *
+from item import *
 
 f = add_byte("Function")
 if f == 0:
@@ -7,7 +7,7 @@ if f == 0:
     add_int("MountId")
     add_long("Unknown") # 0
     add_long("MountUid")
-    decode_ugc_data()
+    decode_ugc_item_look()
 elif f == 1:
     add_short("Unknown") # 0
 elif f == 2:

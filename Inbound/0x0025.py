@@ -1,6 +1,6 @@
 ''' ITEM_PUT_ON '''
 from script_api import *
-from common import *
+from item import *
 
 add_int("UserObjectId")
 id = add_int("ItemId")

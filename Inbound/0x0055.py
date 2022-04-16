@@ -1,6 +1,6 @@
 ''' MAIL '''
 from script_api import *
-from common import *
+from item import *
 
 def decode_mail_ad_item(): # sub_005B6670
     add_int("Unknown")

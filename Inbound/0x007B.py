@@ -1,5 +1,5 @@
 from script_api import *
-from common import *
+from item import *
 
 f = add_byte("Function")
 if f == 0: # start riding
@@ -11,7 +11,7 @@ if f == 0: # start riding
         add_int("MountId")
         add_long("MountUid")
         # UGC Packet data
-        decode_ugc_data()
+        decode_ugc_item_look()
     elif mountType == 2:
         add_int("Unknown+22")
         add_short("Unknown+26")

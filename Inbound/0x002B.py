@@ -1,6 +1,6 @@
 ''' FIELD_ADD_ITEM '''
 from script_api import *
-from common import *
+from item import *
 
 add_int("ObjectId")
 id = add_int("ItemId")

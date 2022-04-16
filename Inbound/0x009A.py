@@ -1,5 +1,5 @@
 from script_api import *
-from common import *
+from item import *
 
 def decode_black_market_entry():
     with Node("Entry"):

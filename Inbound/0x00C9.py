@@ -1,5 +1,5 @@
 from script_api import *
-from common import *
+from item import *
 
 f = add_byte("Function")
 if f == 0: # improvise start response

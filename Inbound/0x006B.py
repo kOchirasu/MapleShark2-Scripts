@@ -1,6 +1,6 @@
 ''' RESPONSE_CUBE '''
 from script_api import *
-from common import *
+from item import *
 
 def error_handler(code): # sub_9EF4B0
     if code == 34:
@@ -303,7 +303,7 @@ elif f == 62:
 elif f == 63: # BlueprintItemData
     add_byte("Unknown")
     add_long("ItemUid")
-    decode_blueprint()
+    decode_blueprint_item_data()
 elif f == 64:
     result = add_bool("result")
     if result:

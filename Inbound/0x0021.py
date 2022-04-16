@@ -1,6 +1,6 @@
 ''' ITEM_INVENTORY '''
 from script_api import *
-from common import *
+from item import *
 
 f = add_byte("function")
 if f == 0:

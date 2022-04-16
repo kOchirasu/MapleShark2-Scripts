@@ -1,6 +1,6 @@
 ''' NPC_TALK (NOTE: this one is too complicated to get accurate) '''
 from script_api import *
-from common import *
+from item import *
 
 # distractor (this is a guess)
 def decode_script_content():

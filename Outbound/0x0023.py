@@ -1,5 +1,5 @@
 from script_api import *
-from common import *
+from item import *
 
 f = add_byte("Function")
 if f == 0: # load shop
@@ -9,21 +9,14 @@ elif f == 3: # new beauty
     add_byte("Index?")
     add_byte("UseVoucher") # sub_821610
     add_int("BeautyItemShopId")
-    # Might not be hair here
-    decode_equip_color()
-    add_int("AppearanceFlag")
-    add_field("Back Hair Position", 4 * 7)
-    add_field("Front Hair Position", 4 * 7)
+    decode_item_extra_data(HAIR_ID)
 elif f == 4: 
     add_long("Unknown")
 elif f == 5: # change hair/eyes color
     add_byte("Index?") # Since it's hair color, no style here?
     add_byte("UseVoucher") # sub_821610
     add_long("HairUid")
-    decode_equip_color()
-    add_int("AppearanceFlag")
-    add_field("Back Hair Position", 4 * 7)
-    add_field("Front Hair Position", 4 * 7)
+    decode_item_extra_data(HAIR_ID)
 elif f == 6: # change skin color
     add_byte("Index?")
     decode_skin_color()
@@ -48,8 +41,7 @@ elif f == 22: # gear dye
             add_bool("UseVoucher")
             add_field("Unknown", 13)
             add_long("ItemUid")
-            add_int("ItemId")
-            decode_equip_color()
-            add_int("AppearanceFlag")
+            id = add_int("ItemId")
+            decode_item_extra_data(id)
 elif f == 23: # use beauty voucher
     add_long("itemUid")

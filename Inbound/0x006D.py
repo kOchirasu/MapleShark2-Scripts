@@ -1,6 +1,6 @@
 ''' UGC '''
 from script_api import *
-from common import *
+from item import *
 
 def decode_ugc_item(): # CUgcItemProxy
     with Node("CUgcItemProxy"):
@@ -103,11 +103,11 @@ elif f == 11:
 elif f == 13 or f == 14 or f == 15:
     add_int("unknown")
     decode_ugc_item()
-    decode_ugc_data()
+    decode_ugc_item_look()
 elif f == 16:
     add_int("unknown")
     decode_ugc_blueprint_image()
-    decode_ugc_data()
+    decode_ugc_item_look()
 elif f == 17:
     add_unicode_str("Endpoint 1")
     add_unicode_str("Endpoint 2")

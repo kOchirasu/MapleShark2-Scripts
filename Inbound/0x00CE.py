@@ -1,5 +1,5 @@
 from script_api import *
-from common import *
+from item import *
 
 def decode_potion_settings():
     with Node("PotionSettings", True):

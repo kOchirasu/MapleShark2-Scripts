@@ -1,6 +1,6 @@
 ''' CHARACTER_LIST '''
 from script_api import *
-from common import *
+from item import *
 
 def delete_message(message):
     if message == 0:

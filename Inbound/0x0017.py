@@ -1,6 +1,6 @@
 ''' FIELD_ADD_USER '''
 from script_api import *
-from common import *
+from item import *
 
 add_int("ObjectId")
 decode_player()
@@ -30,14 +30,7 @@ add_bool("InBattle")
 
 with Node("gameObject_vtbl+572 virtual call"):
     add_byte("Unknown")
-    with Node("CubeItemInfo"):
-        add_int("unknown")
-        add_long("unknown")
-        add_long("unknown")
-        isUgc = add_bool("isUgc")
-        if isUgc:
-            decode_ugc_data()
-
+    decode_cube_item_info()
     add_int("Unknown")
 
 decode_skin_color()
@@ -52,7 +45,7 @@ with Node("Mount"):
     elif mode == 1: # RideOnActionUseItem
         add_int("ItemId")
         add_long("ItemUid")
-        decode_ugc_data()
+        decode_ugc_item_look()
     elif mode == 2: # RideOnActionAdditionalEffect
         add_int("ItemId")
         add_short("unknown")

@@ -1,5 +1,5 @@
 from script_api import *
-from common import *
+from item import *
 
 add_long("CharacterId")
 b = add_bool("Bool")
