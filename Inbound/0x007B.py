@@ -6,7 +6,7 @@ if f == 0: # start riding
     add_int("PlayerObjectId")
     mountType = add_byte("type")
     add_int("MountId")
-    add_int("MountObjectId?")
+    add_int("MountObjectId")
     if mountType == 1:
         add_int("MountId")
         add_long("MountUid")

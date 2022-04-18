@@ -104,7 +104,7 @@ def decode_item_limitbreak(): # sub_0066F520
 
 def decode_ugc_item_look(): # CUgcItemLook
     with Node("CUgcItemLook"):
-        add_long("Unknown")
+        add_long("Uid")
         add_unicode_str("UUID")
         add_unicode_str("ItemName")
         add_byte("Unknown")

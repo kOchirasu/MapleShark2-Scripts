@@ -58,11 +58,11 @@ def decode_guild_member_player():
         add_short("Level")
         add_int("GearScore")
         add_int("MapId")
-        add_short("Unknown+151") # 0
+        add_short("Channel ID")
         add_unicode_str("MemberProfileUrl")
         add_int("PlotMapId")
         add_int("PlotId") # 41?
-        add_int("Unknown+163")
+        add_int("ApartmentNumber")
         add_long("PlotExpiration") # By default, but can change...
         for i in range(3):
             add_int("Trophy")
@@ -164,7 +164,6 @@ def decode_guild_bank_entry():
         add_bool("Unknown")
         add_bool("Unknown")
 
-
 # Guild
 f = add_byte("Function")
 if f == 0:
@@ -186,7 +185,7 @@ if f == 0:
     add_int("Unknown+69")
     add_int("Unknown+73")
     add_int("Unknown+77")
-    add_int("Unknown+81")
+    add_int("TotalTrophies")
     add_byte("Unknown+85") # 1
     add_int("GuildFocus") # bit-flags
     add_int("GuildExp")
@@ -217,10 +216,9 @@ if f == 0:
             with Node("GuildEvent " + str(i)):
                 add_int("Index")
                 add_int("Unknown") # 0
-        
+    add_int("Guild House Rank")
+    add_int("Guild House Theme")
     with Node("GuildPosters"):
-        add_int("Unknown+131")
-        add_int("Unknown+135")
         count = add_int("Count")
         for i in range(count):
             with Node("Poster " + str(i)):
@@ -228,14 +226,14 @@ if f == 0:
                 add_unicode_str("PosterUrl")
                 add_long("OwnerCharacterId")
                 add_unicode_str("OwnerName")
-            
+
     with Node("GuildNpcs"):
         count = add_byte("Count")
         for i in range(count):
             with Node("GuildNpc " + str(i)):
                 add_int("ServiceType")
                 add_int("Level")
-        
+
     with Node("GuildNpcShopProducts"):
         if add_bool("Flag"):
             count = add_short("Count")
@@ -250,12 +248,12 @@ if f == 0:
                         add_byte("Unknown")
                         add_int("Unknown")
                         add_int("Unknown")
-    
+
     with Node("GuildBank"):
         count = add_int("count")
         for i in range(count):
             decode_guild_bank_entry()
-    
+
     add_int("Unknown+149")
     add_unicode_str("UnknownStr+153")
     add_long("Unknown+155")

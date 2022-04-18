@@ -28,7 +28,7 @@ if f == 1: #create ugc
     add_int("Unk")
     add_short("Unk")
     add_short("-256")
-    if type == 1 or type == 2: # item and furniture
+    if type == 1 or type == 2 or type == 7: # item, furniture and mount
         add_long("Uid")
         add_int("Item ID")
         add_int("Amount")
