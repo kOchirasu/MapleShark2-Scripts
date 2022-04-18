@@ -10,6 +10,7 @@ def decode_ugc_item(): # CUgcItemProxy
         add_unicode_str("Item Name")
         add_byte("const 1")
         add_long("Item Sale Price")
+        add_bool("unknown")
 
 def decode_ugc_blueprint_image(): # CUgcBlueprintImageProxy
     with Node("CUgcBlueprintImageProxy"):
@@ -103,7 +104,6 @@ elif f == 11:
 elif f == 13 or f == 14 or f == 15:
     add_int("Player Object ID")
     decode_ugc_item()
-    add_byte("unknown")
     decode_ugc_item_look()
 elif f == 16:
     add_int("unknown")
