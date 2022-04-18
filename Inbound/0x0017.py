@@ -36,26 +36,28 @@ with Node("gameObject_vtbl+572 virtual call"):
 decode_skin_color()
 
 add_unicode_str("Profile Url")
-with Node("Mount"):
-    mode = add_byte("RideMode")
-    add_int("MountId")
-    add_int("MountObjectId")
-    if mode == 0: # RideOnAction
-        pass
-    elif mode == 1: # RideOnActionUseItem
-        add_int("ItemId")
-        add_long("ItemUid")
-        decode_ugc_item_look()
-    elif mode == 2: # RideOnActionAdditionalEffect
-        add_int("ItemId")
-        add_short("unknown")
-    elif mode == 3: # RideOnActionHideAndSeek
-        pass
+inMount = add_bool("In Mount")
+if inMount:
+    with Node("Mount"):
+        mode = add_byte("RideMode")
+        add_int("MountId")
+        add_int("MountObjectId")
+        if mode == 0: # RideOnAction
+            pass
+        elif mode == 1: # RideOnActionUseItem
+            add_int("ItemId")
+            add_long("ItemUid")
+            decode_ugc_item_look()
+        elif mode == 2: # RideOnActionAdditionalEffect
+            add_int("ItemId")
+            add_short("unknown")
+        elif mode == 3: # RideOnActionHideAndSeek
+            pass
 
-    count = add_byte("count")
-    for i in range(count):
-        add_int("unknown")
-        add_byte("unknown")
+        count = add_byte("count")
+        for i in range(count):
+            add_int("unknown")
+            add_byte("unknown")
 
 add_int("MyPC+21AC")
 add_long("Timestamp")
