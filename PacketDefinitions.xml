@@ -5,7 +5,7 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>0</Opcode>
-      <Name>Null</Name>
+      <Name>NULL</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -16,8 +16,14 @@
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
+      <Opcode>2</Opcode>
+      <Name>Patch</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
       <Opcode>3</Opcode>
-      <Name>RespondLogin</Name>
+      <Name>ResponseLogin</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -41,13 +47,13 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>7</Opcode>
-      <Name>Reconnect7</Name>
+      <Name>ReconnectUnk</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>8</Opcode>
-      <Name>Reconnect8</Name>
+      <Name>FinalizeReconnect</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -66,7 +72,7 @@
       <Outbound>true</Outbound>
       <Opcode>11</Opcode>
       <Name>RequestTimeSync</Name>
-      <Ignore>true</Ignore>
+      <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
@@ -101,19 +107,19 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>17</Opcode>
-      <Name>SendUserChat</Name>
+      <Name>UserChat</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>18</Opcode>
-      <Name>SendUserSync</Name>
-      <Ignore>true</Ignore>
+      <Name>UserSync</Name>
+      <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>19</Opcode>
-      <Name>SendEmotion</Name>
+      <Name>Emotion</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -131,7 +137,7 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>22</Opcode>
-      <Name>RequestItemEquipment</Name>
+      <Name>ItemEquip</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -155,7 +161,7 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>26</Opcode>
-      <Name>SendItemExtraData</Name>
+      <Name>ItemExtraData</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -167,43 +173,43 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>29</Opcode>
-      <Name>RequestMoneyPickup</Name>
+      <Name>RequestMesoPickup</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>30</Opcode>
-      <Name>RequestCharacterInfo</Name>
+      <Name>CharacterInfo</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>31</Opcode>
-      <Name>SendRevival</Name>
+      <Name>Revival</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>32</Opcode>
-      <Name>SendSkill</Name>
+      <Name>Skill</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>33</Opcode>
-      <Name>SendStateSkill</Name>
+      <Name>StateSkill</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>34</Opcode>
-      <Name>SendNpcTalk</Name>
+      <Name>NpcTalk</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>35</Opcode>
-      <Name>SendBeauty</Name>
+      <Name>Beauty</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -215,103 +221,103 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>37</Opcode>
-      <Name>SendJob</Name>
+      <Name>Job</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>38</Opcode>
-      <Name>SendVibrate</Name>
+      <Name>Vibrate</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>39</Opcode>
-      <Name>SendBreakable</Name>
+      <Name>Breakable</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>40</Opcode>
-      <Name>SendShop</Name>
+      <Name>Shop</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>41</Opcode>
-      <Name>SendQuest</Name>
+      <Name>Quest</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>42</Opcode>
-      <Name>SendTombstone</Name>
+      <Name>Tombstone</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>43</Opcode>
-      <Name>SendRoomDungeon</Name>
+      <Name>RoomDungeon</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>44</Opcode>
-      <Name>SendParty</Name>
+      <Name>Party</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>45</Opcode>
-      <Name>SendMail</Name>
+      <Name>Mail</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>46</Opcode>
-      <Name>SendFunctionCube</Name>
+      <Name>FunctionCube</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>47</Opcode>
-      <Name>SendTrigger</Name>
+      <Name>Trigger</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>48</Opcode>
-      <Name>SendBuddy</Name>
+      <Name>Buddy</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>49</Opcode>
-      <Name>SendInteractObject</Name>
+      <Name>InteractObject</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>50</Opcode>
-      <Name>SendInteractNpc</Name>
+      <Name>InteractNpc</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>51</Opcode>
-      <Name>SendStateComsumeEp</Name>
+      <Name>StateConsumeEp</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>52</Opcode>
-      <Name>SendStateFallDamage</Name>
+      <Name>StateFallDamage</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>53</Opcode>
-      <Name>SendGuideObjectSync</Name>
+      <Name>GuideObjectSync</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -335,25 +341,25 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>57</Opcode>
-      <Name>SendUgc</Name>
+      <Name>UGC</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>58</Opcode>
-      <Name>SendMeretMarket</Name>
+      <Name>MeretMarket</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>59</Opcode>
-      <Name>SendKeyTable</Name>
+      <Name>KeyTable</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>60</Opcode>
-      <Name>SendChannel</Name>
+      <Name>Channel</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -365,7 +371,7 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>62</Opcode>
-      <Name>SendMyInfo</Name>
+      <Name>MyInfo</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -377,7 +383,7 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>64</Opcode>
-      <Name>SendItemFusion</Name>
+      <Name>ItemFusion</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -389,37 +395,37 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>66</Opcode>
-      <Name>SendRideSync</Name>
+      <Name>RideSync</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>67</Opcode>
-      <Name>SendFittingDoll</Name>
+      <Name>FittingDoll</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>68</Opcode>
-      <Name>SendBonusGame</Name>
+      <Name>BonusGame</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>69</Opcode>
-      <Name>SendResolvePenalty</Name>
+      <Name>ResolvePenalty</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>70</Opcode>
-      <Name>SendTakeBoat</Name>
+      <Name>TakeBoat</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>71</Opcode>
-      <Name>SendAchieve</Name>
+      <Name>Achieve</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -437,13 +443,13 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>74</Opcode>
-      <Name>SendTradeEx</Name>
+      <Name>Trade</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>75</Opcode>
-      <Name>RequestWorldMap</Name>
+      <Name>RequestWorldmap</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -497,13 +503,13 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>84</Opcode>
-      <Name>RequestMarketInventory</Name>
+      <Name>FurnishingStorage</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>85</Opcode>
-      <Name>RequestMoveEventField</Name>
+      <Name>RequestMoveEventfield</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -515,13 +521,13 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>87</Opcode>
-      <Name>SendDpsMode</Name>
+      <Name>DpsMode</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>88</Opcode>
-      <Name>SendGuideRecord</Name>
+      <Name>GuideRecord</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -539,13 +545,13 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>91</Opcode>
-      <Name>RequestItemBreak</Name>
+      <Name>ItemDismantle</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>92</Opcode>
-      <Name>SendRideConsumeEp</Name>
+      <Name>RideConsumeEp</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -575,19 +581,19 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>97</Opcode>
-      <Name>SendGamble</Name>
+      <Name>Gamble</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>98</Opcode>
-      <Name>SendPvp</Name>
+      <Name>PVP</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>99</Opcode>
-      <Name>SendMaid</Name>
+      <Name>Maid</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -623,7 +629,7 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>105</Opcode>
-      <Name>RequestManufacturer</Name>
+      <Name>MaidCraftItem</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -635,13 +641,13 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>107</Opcode>
-      <Name>SendCash</Name>
+      <Name>Cash</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>108</Opcode>
-      <Name>SendNametagSymbol</Name>
+      <Name>Nametag</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -701,19 +707,19 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>118</Opcode>
-      <Name>ItemRemakeOption</Name>
+      <Name>ChangeAttributes</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>119</Opcode>
-      <Name>ItemRemakeOptionScroll</Name>
+      <Name>ChangeAttributesScroll</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>120</Opcode>
-      <Name>ItemEnchantTransform</Name>
+      <Name>TransferEnchant</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -743,7 +749,7 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>125</Opcode>
-      <Name>BanWord</Name>
+      <Name>Banword</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -767,7 +773,7 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>129</Opcode>
-      <Name>SendState</Name>
+      <Name>State</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -797,13 +803,13 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>134</Opcode>
-      <Name>EnterEventField</Name>
+      <Name>EnterEventfield</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>135</Opcode>
-      <Name>SendCardReverseGame</Name>
+      <Name>CardReverseGame</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -838,6 +844,18 @@
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
+      <Opcode>141</Opcode>
+      <Name>ItemRepack</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>142</Opcode>
+      <Name>DiceGame</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
       <Opcode>143</Opcode>
       <Name>PremiumClub</Name>
       <Ignore>false</Ignore>
@@ -851,13 +869,13 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>147</Opcode>
-      <Name>LifeSkills</Name>
+      <Name>Mastery</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>148</Opcode>
-      <Name>SendConstructShop</Name>
+      <Name>ConstructShop</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -868,20 +886,80 @@
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
+      <Opcode>151</Opcode>
+      <Name>NexonArena</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>152</Opcode>
+      <Name>EventReward</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>153</Opcode>
+      <Name>NameChange</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
       <Opcode>154</Opcode>
-      <Name>StatPoint</Name>
+      <Name>AttributePoint</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>155</Opcode>
-      <Name>SendItemRepeat</Name>
+      <Name>ItemRepeat</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>156</Opcode>
+      <Name>ItemExchangeScroll</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>157</Opcode>
+      <Name>RequestTutorialItem</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>158</Opcode>
+      <Name>DungeonReward</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>159</Opcode>
+      <Name>ItemBillboard</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>160</Opcode>
+      <Name>TreasureMap</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>161</Opcode>
+      <Name>ItemExtractionScroll</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>162</Opcode>
+      <Name>Mentor</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>163</Opcode>
-      <Name>SkillBookTree</Name>
+      <Name>RequestSkillBookTree</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -893,7 +971,19 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>165</Opcode>
-      <Name>PairedBadgeRelated?</Name>
+      <Name>BuddyBadge</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>166</Opcode>
+      <Name>SyncWorld</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>167</Opcode>
+      <Name>BirthdayCard</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -905,31 +995,73 @@
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>169</Opcode>
-      <Name>MicroGame</Name>
+      <Name>Microgame</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>170</Opcode>
+      <Name>StateReact</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>171</Opcode>
+      <Name>TreeWatering</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>172</Opcode>
+      <Name>Survival</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>173</Opcode>
+      <Name>SpectateMushtopia</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>174</Opcode>
-      <Name>AdventureLevel</Name>
+      <Name>Prestige</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>175</Opcode>
-      <Name>ItemLapenshard</Name>
+      <Name>Lapenshard</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>176</Opcode>
+      <Name>UGD</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>177</Opcode>
+      <Name>WorldChampion</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
       <Opcode>178</Opcode>
-      <Name>ResponseServerEnter</Name>
+      <Name>ServerEnter</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
-      <Opcode>180</Opcode>
-      <Name>WinActivate</Name>
+      <Opcode>179</Opcode>
+      <Name>MinimapPing</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>181</Opcode>
+      <Name>MsgBox</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -946,8 +1078,44 @@
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
+      <Opcode>184</Opcode>
+      <Name>SidePopup</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>185</Opcode>
+      <Name>Messenger</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>186</Opcode>
+      <Name>WebScreenshot</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
       <Opcode>187</Opcode>
       <Name>FileHash</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>188</Opcode>
+      <Name>Wedding</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>189</Opcode>
+      <Name>WeddingBillboard</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>true</Outbound>
+      <Opcode>190</Opcode>
+      <Name>LimitBreak</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -971,7 +1139,7 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>3</Opcode>
-      <Name>Unknown3</Name>
+      <Name>ResponseLogin</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -995,13 +1163,13 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>7</Opcode>
-      <Name>Reconnect7</Name>
+      <Name>ReconnectUnk</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>8</Opcode>
-      <Name>Reconnect8</Name>
+      <Name>FinalizeReconnect</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -1013,50 +1181,50 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>10</Opcode>
-      <Name>SendLoginResult</Name>
+      <Name>LoginResult</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>11</Opcode>
-      <Name>SendServerList</Name>
+      <Name>ServerList</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>12</Opcode>
-      <Name>SendCharacterList</Name>
+      <Name>CharacterList</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>13</Opcode>
-      <Name>SendMoveResult</Name>
+      <Name>MoveResult</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>14</Opcode>
-      <Name>SendLoginToGame</Name>
+      <Name>LoginToGame</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>15</Opcode>
-      <Name>SendGameToLogin</Name>
+      <Name>GameToLogin</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>16</Opcode>
-      <Name>SendGameToGame</Name>
+      <Name>GameToGame</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>17</Opcode>
-      <Name>SendResponseTimeSync</Name>
-      <Ignore>true</Ignore>
+      <Name>ResponseTimeSync</Name>
+      <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
@@ -1073,13 +1241,13 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>20</Opcode>
-      <Name>SendSyncNumber</Name>
+      <Name>SyncNumber</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>21</Opcode>
-      <Name>SendServerEnter</Name>
+      <Name>ServerEnter</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -1091,13 +1259,13 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>23</Opcode>
-      <Name>SendFieldAddUser</Name>
+      <Name>FieldAddUser</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>24</Opcode>
-      <Name>SendFieldRemoveUser</Name>
+      <Name>FieldRemoveUser</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -1109,13 +1277,13 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>26</Opcode>
-      <Name>SendRoomDungeon</Name>
+      <Name>RoomDungeon</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>27</Opcode>
-      <Name>DungeonResult</Name>
+      <Name>DungeonReward</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -1127,37 +1295,37 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>29</Opcode>
-      <Name>SendUserChat</Name>
+      <Name>UserChat</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>30</Opcode>
-      <Name>SendUserChatItemLink</Name>
+      <Name>MessengerBrowser</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>31</Opcode>
-      <Name>SendEmotion</Name>
+      <Name>Emotion</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>32</Opcode>
-      <Name>SendItemPutOnOrOff</Name>
+      <Name>ItemPutOnOrOff</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>33</Opcode>
-      <Name>SendItemInventory</Name>
+      <Name>ItemInventory</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>34</Opcode>
-      <Name>SendItemStore</Name>
+      <Name>StorageInventory</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -1175,145 +1343,145 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>37</Opcode>
-      <Name>ResponseItemPutOn</Name>
+      <Name>ItemPutOn</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>38</Opcode>
-      <Name>ResponseItemPutOff</Name>
+      <Name>ItemPutOff</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>39</Opcode>
-      <Name>UnknownItem1</Name>
+      <Name>ItemSkinPutOn</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>40</Opcode>
-      <Name>UnknownItem2</Name>
+      <Name>ItemSkinPutOff</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>41</Opcode>
-      <Name>ResponseItemDrop</Name>
+      <Name>ItemDrop</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>42</Opcode>
-      <Name>SendItemExtraData</Name>
+      <Name>ItemUpdate</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>43</Opcode>
-      <Name>SendFieldAddItem</Name>
+      <Name>FieldAddItem</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>44</Opcode>
-      <Name>SendFieldRemoveItem</Name>
+      <Name>FieldRemoveItem</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>45</Opcode>
-      <Name>SendFieldPickupItem</Name>
+      <Name>FieldPickupItem</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>46</Opcode>
-      <Name>SendFieldMutateItem</Name>
+      <Name>FieldMutateItem</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>47</Opcode>
-      <Name>SendStat</Name>
+      <Name>Stat</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>48</Opcode>
-      <Name>SendUserBattle</Name>
+      <Name>UserBattle</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>49</Opcode>
-      <Name>SendUserSkinColor</Name>
+      <Name>UserSkinColor</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>50</Opcode>
-      <Name>SendBeauty</Name>
+      <Name>Beauty</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>51</Opcode>
-      <Name>SendAdventurerBar</Name>
+      <Name>AdventurerBar</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>52</Opcode>
-      <Name>SendRevivalConfirm</Name>
+      <Name>RevivalConfirm</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>53</Opcode>
-      <Name>SendRevival</Name>
+      <Name>Revival</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>54</Opcode>
-      <Name>ReviveCount</Name>
+      <Name>RevivalCount</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>55</Opcode>
-      <Name>SendUserState</Name>
+      <Name>UserState</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>56</Opcode>
-      <Name>SendExpUp</Name>
+      <Name>ExpUp</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>57</Opcode>
-      <Name>SendLevelUp</Name>
+      <Name>LevelUp</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>58</Opcode>
-      <Name>SendMoney</Name>
+      <Name>Meso</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>59</Opcode>
-      <Name>SendMeret</Name>
+      <Name>Meret</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>60</Opcode>
-      <Name>SendMoneyToken</Name>
+      <Name>CurrencyToken</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -1373,67 +1541,67 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>70</Opcode>
-      <Name>StatPoint</Name>
+      <Name>AttributePoint</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>71</Opcode>
-      <Name>ResponseCharacterCreate</Name>
+      <Name>CharacterCreate</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>72</Opcode>
-      <Name>SendBuff</Name>
+      <Name>Buff</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>73</Opcode>
-      <Name>SendFieldPortal</Name>
+      <Name>FieldPortal</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>74</Opcode>
-      <Name>SendJob</Name>
+      <Name>Job</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>75</Opcode>
-      <Name>SendNpcMonologue</Name>
+      <Name>NpcMonologue</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>76</Opcode>
-      <Name>SendNpcTalk</Name>
+      <Name>NpcTalk</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>77</Opcode>
-      <Name>SendRegionSkill</Name>
+      <Name>RegionSkill</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>78</Opcode>
-      <Name>SendFunctionCube</Name>
+      <Name>FunctionCube</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>79</Opcode>
-      <Name>SendTrigger</Name>
+      <Name>Trigger</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>80</Opcode>
-      <Name>SendBreakable</Name>
+      <Name>Breakable</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -1445,67 +1613,67 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>82</Opcode>
-      <Name>SendShop</Name>
+      <Name>Shop</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>83</Opcode>
-      <Name>SendQuest</Name>
+      <Name>Quest</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>84</Opcode>
-      <Name>SendParty</Name>
+      <Name>Party</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>85</Opcode>
-      <Name>SendMail</Name>
+      <Name>Mail</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>86</Opcode>
-      <Name>SendFieldAddNpc</Name>
+      <Name>FieldAddNpc</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>87</Opcode>
-      <Name>SendFieldRemoveNpc</Name>
+      <Name>FieldRemoveNpc</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>88</Opcode>
-      <Name>SendFieldDeadNpc</Name>
+      <Name>FieldDeadNpc</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>89</Opcode>
-      <Name>SendNpcControl</Name>
+      <Name>NpcControl</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>90</Opcode>
-      <Name>SendInteractNpc</Name>
+      <Name>InteractNpc</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>91</Opcode>
-      <Name>SendFieldAddPet</Name>
+      <Name>FieldAddPet</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>92</Opcode>
-      <Name>SendFieldRemovePet</Name>
+      <Name>FieldRemovePet</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -1517,79 +1685,79 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>94</Opcode>
-      <Name>SendTombstone</Name>
+      <Name>Tombstone</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>95</Opcode>
-      <Name>SendAchieve</Name>
+      <Name>Achieve</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>96</Opcode>
-      <Name>SendUserMoveByPortal</Name>
+      <Name>UserMoveByPortal</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>97</Opcode>
-      <Name>SendItemTitle</Name>
+      <Name>ItemTitle</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>98</Opcode>
-      <Name>SendMassiveEvent</Name>
+      <Name>MassiveEvent</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>99</Opcode>
-      <Name>SendBuddy</Name>
+      <Name>Buddy</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>100</Opcode>
-      <Name>SendAdminBlock</Name>
+      <Name>AdminBlock</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>101</Opcode>
-      <Name>SendIntractObject</Name>
+      <Name>InteractObject</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>102</Opcode>
-      <Name>SendStateConsumeEP</Name>
+      <Name>StateConsumeEp</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>103</Opcode>
-      <Name>SendStateFallDamage</Name>
+      <Name>StateFallDamage</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>104</Opcode>
-      <Name>SendCinematic</Name>
+      <Name>Cinematic</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>105</Opcode>
-      <Name>SendAdmin</Name>
+      <Name>Admin</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>106</Opcode>
-      <Name>ResponseSetCraftMode</Name>
+      <Name>SetCraftMode</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -1601,55 +1769,49 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>108</Opcode>
-      <Name>SendCubes</Name>
+      <Name>LoadCubes</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>109</Opcode>
-      <Name>SendUGC</Name>
+      <Name>Ugc</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>110</Opcode>
-      <Name>SendMeretMarket</Name>
+      <Name>MeretMarket</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>111</Opcode>
-      <Name>SendContentShutdown</Name>
+      <Name>Gvg</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>112</Opcode>
-      <Name>SendGuideObject</Name>
+      <Name>GuideObject</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>113</Opcode>
-      <Name>SendKeyTable</Name>
+      <Name>KeyTable</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>114</Opcode>
-      <Name>SendFollowNpc</Name>
+      <Name>FollowNpc</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>115</Opcode>
-      <Name>SendNotice</Name>
-      <Ignore>false</Ignore>
-    </Definition>
-    <Definition>
-      <Outbound>false</Outbound>
-      <Opcode>116</Opcode>
-      <Name>RelocateWorld</Name>
+      <Name>Notice</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -1660,32 +1822,38 @@
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
+      <Opcode>116</Opcode>
+      <Name>RelocateWorld</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
       <Opcode>118</Opcode>
-      <Name>SendItemFusion</Name>
+      <Name>ItemFusion</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>119</Opcode>
-      <Name>SendVibrate</Name>
+      <Name>Vibrate</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>120</Opcode>
-      <Name>SendHideVibrate</Name>
+      <Name>HideVibrate</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>121</Opcode>
-      <Name>SendShowVibrate</Name>
+      <Name>ShowVibrate</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>122</Opcode>
-      <Name>SendCharacterInfo</Name>
+      <Name>CharacterInfo</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -1697,25 +1865,25 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>124</Opcode>
-      <Name>SendRideSync</Name>
+      <Name>RideSync</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>125</Opcode>
-      <Name>SendFittingDoll</Name>
+      <Name>FittingDoll</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>126</Opcode>
-      <Name>SendBonusGame</Name>
+      <Name>BonusGame</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>127</Opcode>
-      <Name>ResponseLoadUGCMap</Name>
+      <Name>LoadUgcMap</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -1733,61 +1901,61 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>130</Opcode>
-      <Name>SendTaxi</Name>
+      <Name>Taxi</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>131</Opcode>
-      <Name>SendFindFields</Name>
+      <Name>FindFields</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>132</Opcode>
-      <Name>SendTradeEx</Name>
+      <Name>Trade</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>133</Opcode>
-      <Name>SendInvincibleEffect</Name>
+      <Name>InvincibleEffect</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>134</Opcode>
-      <Name>SendWorldMap</Name>
+      <Name>Worldmap</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>135</Opcode>
-      <Name>SendMoveEventField</Name>
+      <Name>MoveEventfield</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>136</Opcode>
-      <Name>SendDPSStat</Name>
+      <Name>DpsStat</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>137</Opcode>
-      <Name>SendDebugMode</Name>
+      <Name>DebugMode</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>138</Opcode>
-      <Name>SendStoryBook</Name>
+      <Name>StoryBook</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>139</Opcode>
-      <Name>SendGuideRecord</Name>
+      <Name>GuideRecord</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -1817,31 +1985,31 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>144</Opcode>
-      <Name>SendAppendMessageCommon</Name>
+      <Name>AppendMessageCommon</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>145</Opcode>
-      <Name>SendAppendMessageString</Name>
+      <Name>AppendMessageString</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>146</Opcode>
-      <Name>SendAppendMessageKillBoss</Name>
+      <Name>AppendMessageKillBoss</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>147</Opcode>
-      <Name>SendAppendClientLog</Name>
+      <Name>AppendClientLog</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>148</Opcode>
-      <Name>SendAppendMessageFieldBossAssistBonus</Name>
+      <Name>AppendMessageAssistBonus</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -1853,25 +2021,25 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>150</Opcode>
-      <Name>SendUIText</Name>
+      <Name>UiText</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>151</Opcode>
-      <Name>SendPlayNpcSound</Name>
+      <Name>PlayNpcSound</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>152</Opcode>
-      <Name>SendItemBreak</Name>
+      <Name>ItemDismantle</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>153</Opcode>
-      <Name>SendItemEnchant</Name>
+      <Name>ItemEnchant</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -1889,31 +2057,31 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>156</Opcode>
-      <Name>SendTeamPvp</Name>
+      <Name>TeamPvp</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>157</Opcode>
-      <Name>SendWebOpen</Name>
+      <Name>WebOpen</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>158</Opcode>
-      <Name>SendGamble</Name>
+      <Name>Gamble</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>159</Opcode>
-      <Name>SendFieldMaid</Name>
+      <Name>FieldMaid</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>160</Opcode>
-      <Name>SendUserMaid</Name>
+      <Name>UserMaid</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -1937,13 +2105,13 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>164</Opcode>
-      <Name>SendAutoRevive</Name>
+      <Name>AutoRevive</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>165</Opcode>
-      <Name>SendPlayerKillNotice</Name>
+      <Name>PlayerKillNotice</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -1955,13 +2123,13 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>167</Opcode>
-      <Name>PCBangBonus</Name>
+      <Name>PcBangBonus</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>168</Opcode>
-      <Name>SendDead</Name>
+      <Name>DeadUser</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -1973,55 +2141,49 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>170</Opcode>
-      <Name>SendUserEnv</Name>
+      <Name>UserEnv</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>171</Opcode>
-      <Name>SendMaidCraftItem</Name>
+      <Name>MaidCraftItem</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>172</Opcode>
-      <Name>ResponseEnterUGCMapResult</Name>
+      <Name>EnterUgcMap</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>173</Opcode>
-      <Name>ResponseItemUse</Name>
+      <Name>ItemUse</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>175</Opcode>
-      <Name>SendCash</Name>
+      <Name>Cash</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>176</Opcode>
-      <Name>SendMyInfo</Name>
-      <Ignore>false</Ignore>
-    </Definition>
-    <Definition>
-      <Outbound>false</Outbound>
-      <Opcode>177</Opcode>
-      <Name>SendSession</Name>
+      <Name>MyInfo</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>178</Opcode>
-      <Name>SendWorldShareInfo</Name>
+      <Name>WorldShareInfo</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>179</Opcode>
-      <Name>SendNameTagSymbol</Name>
+      <Name>Nametag</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -2033,7 +2195,7 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>181</Opcode>
-      <Name>SendBannerList</Name>
+      <Name>BannerList</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -2045,37 +2207,37 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>183</Opcode>
-      <Name>SetPCBang</Name>
+      <Name>SetPcbang</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>184</Opcode>
-      <Name>SendPvp</Name>
+      <Name>Pvp</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>185</Opcode>
-      <Name>SendHomeCommand</Name>
+      <Name>HomeCommand</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>186</Opcode>
-      <Name>SendCharMaxCount</Name>
-      <Ignore>true</Ignore>
+      <Name>CharMaxCount</Name>
+      <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>187</Opcode>
-      <Name>FinalizeServerEnter</Name>
+      <Name>World</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>188</Opcode>
-      <Name>SendDropItemGetMessage</Name>
+      <Name>ItemDropNotice</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -2147,7 +2309,7 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>200</Opcode>
-      <Name>SendNPSInfo</Name>
+      <Name>NpsInfo</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -2159,13 +2321,13 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>202</Opcode>
-      <Name>ItemRemakeOption</Name>
+      <Name>ChangeAttributes</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>203</Opcode>
-      <Name>ItemRemakeOptionScroll</Name>
+      <Name>ChangeAttributesScroll</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -2189,13 +2351,13 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>207</Opcode>
-      <Name>SendMastery</Name>
+      <Name>Mastery</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>208</Opcode>
-      <Name>SendPetInventory</Name>
+      <Name>PetInventory</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -2207,7 +2369,7 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>210</Opcode>
-      <Name>AAErr</Name>
+      <Name>AaErr</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -2219,7 +2381,7 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>212</Opcode>
-      <Name>BanWord</Name>
+      <Name>Banword</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -2267,25 +2429,25 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>220</Opcode>
-      <Name>SendCardReverseGame</Name>
+      <Name>CardReverseGame</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>221</Opcode>
-      <Name>SendItemLock</Name>
+      <Name>ItemLock</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>222</Opcode>
-      <Name>SendHomeBank</Name>
+      <Name>HomeBank</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>223</Opcode>
-      <Name>SendHomeDoctor</Name>
+      <Name>HomeDoctor</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -2334,12 +2496,12 @@
       <Outbound>false</Outbound>
       <Opcode>232</Opcode>
       <Name>BypassKey</Name>
-      <Ignore>true</Ignore>
+      <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>235</Opcode>
-      <Name>SendLocalCamera</Name>
+      <Name>LocalCamera</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -2363,7 +2525,7 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>241</Opcode>
-      <Name>SendResetCamera</Name>
+      <Name>ResetCamera</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -2375,13 +2537,13 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>243</Opcode>
-      <Name>SendOneTimeEffect</Name>
+      <Name>OneTimeEffect</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>244</Opcode>
-      <Name>SetCamera</Name>
+      <Name>CameraInterpolation</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -2393,7 +2555,7 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>247</Opcode>
-      <Name>Fireworks</Name>
+      <Name>ItemScript</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -2404,14 +2566,38 @@
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
+      <Opcode>249</Opcode>
+      <Name>EventReward</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
+      <Opcode>250</Opcode>
+      <Name>HomeInvite</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
+      <Opcode>251</Opcode>
+      <Name>TaskEvent</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
       <Opcode>253</Opcode>
       <Name>DungeonReviveCount</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
+      <Opcode>256</Opcode>
+      <Name>ChangeBackground</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
       <Opcode>257</Opcode>
-      <Name>DungeonRecord</Name>
+      <Name>RoomStageDungeon</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -2422,20 +2608,50 @@
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
+      <Opcode>260</Opcode>
+      <Name>BuddyEmote</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
       <Opcode>261</Opcode>
-      <Name>ItemRelated_(Picked_up_instanced_item)</Name>
+      <Name>BindItem</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>262</Opcode>
-      <Name>ItemEnchantTransform</Name>
+      <Name>TransferEnchant</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
+      <Opcode>263</Opcode>
+      <Name>AdBalloon</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>264</Opcode>
-      <Name>SendGMCommand</Name>
+      <Name>GmCommand</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
+      <Opcode>265</Opcode>
+      <Name>GlamourAnvil</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
+      <Opcode>266</Opcode>
+      <Name>PetSkinBadge</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
+      <Opcode>267</Opcode>
+      <Name>DungeonHelp</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -2452,8 +2668,20 @@
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
-      <Opcode>271</Opcode>
-      <Name>BuddyEmote</Name>
+      <Opcode>272</Opcode>
+      <Name>BuddyBadge</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
+      <Opcode>274</Opcode>
+      <Name>SyncWorld</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
+      <Opcode>275</Opcode>
+      <Name>BirthdayCard</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -2465,7 +2693,13 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>278</Opcode>
-      <Name>MicroGame</Name>
+      <Name>Microgame</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
+      <Opcode>279</Opcode>
+      <Name>Reactor</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -2476,20 +2710,44 @@
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
+      <Opcode>281</Opcode>
+      <Name>MeretUse</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
+      <Opcode>282</Opcode>
+      <Name>HalloweenEvent</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
       <Opcode>283</Opcode>
       <Name>Survival</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
+      <Opcode>284</Opcode>
+      <Name>SpectateMushtopia</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
       <Opcode>285</Opcode>
-      <Name>ItemLapenshard</Name>
+      <Name>Lapenshard</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>286</Opcode>
-      <Name>PrestigeLevel</Name>
+      <Name>Prestige</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
+      <Opcode>287</Opcode>
+      <Name>Ugd</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -2507,13 +2765,25 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>291</Opcode>
-      <Name>NO</Name>
+      <Name>MinimapPing</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
+      <Opcode>292</Opcode>
+      <Name>MsgBox</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>293</Opcode>
       <Name>Wardrobe</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
+      <Opcode>294</Opcode>
+      <Name>DynamicBanword</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -2525,7 +2795,7 @@
     <Definition>
       <Outbound>false</Outbound>
       <Opcode>296</Opcode>
-      <Name>DungeonReward</Name>
+      <Name>ChatStamp</Name>
       <Ignore>false</Ignore>
     </Definition>
     <Definition>
@@ -2536,9 +2806,27 @@
     </Definition>
     <Definition>
       <Outbound>false</Outbound>
-      <Opcode>306</Opcode>
-      <Name />
-      <Ignore>true</Ignore>
+      <Opcode>300</Opcode>
+      <Name>WeddingBillboard</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
+      <Opcode>301</Opcode>
+      <Name>HideAndSeek</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
+      <Opcode>302</Opcode>
+      <Name>MessengerBrowserStamp</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
+      <Opcode>304</Opcode>
+      <Name>LimitBreak</Name>
+      <Ignore>false</Ignore>
     </Definition>
   </Definitions>
 </DefinitionConfig>

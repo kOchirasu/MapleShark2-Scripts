@@ -16,4 +16,4 @@ if b:
     with Node("CMultiServerChannel", True):
         count = add_short("count")
         for i in range(count):
-            add_int("channel")
+            add_short("channel")

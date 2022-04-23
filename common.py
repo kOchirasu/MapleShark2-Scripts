@@ -61,10 +61,10 @@ def decode_player():
         add_long("PlayerId")
         add_unicode_str("Name")
         add_byte("Gender") # 0 = male, 1 = female
-        add_byte("Unknown")
-        add_long("Unknown")
+        add_byte("Player+78")
+        add_long("Player+18")
 
-        add_int("Unknown")
+        add_int("Player+20")
         add_int("MapId")
         add_int("InstanceMapId") # Guess
         add_int("MapInstanceId") # Guess
@@ -74,9 +74,8 @@ def decode_player():
         add_int("JobId")
         add_int("CurrentHp")
         add_int("MaxHp")
-        add_short("Unknown")
-
-        add_long("Unknown")
+        add_short("Player+4C")
+        add_long("Player+50")
         add_long("StorageAccessTime")
         add_long("DoctorAccessTime")
         add_int("OutsideMapId")
@@ -101,7 +100,7 @@ def decode_player():
                     add_long("clubUid")
                     add_unicode_str("Club Name")
 
-        add_byte("Unknown")
+        add_byte("Player+24") # PCBang something
         with Node("LifeSkills"):
             add_int("Fishing???")
             add_int("Fishing")
@@ -127,11 +126,11 @@ def decode_player():
             for i in range(count):
                 add_long("Unknown")
 
-        add_byte("Unknown")
-        add_bool("Unknown")
-        add_long("Unknown")
-        add_int("Unknown")
-        add_int("Unknown")
+        add_byte("Player+178") # Mentor something
+        add_bool("Player+17C")
+        add_long("Birthday")
+        add_int("Player+188") # SuperWorldChat something
+        add_int("Player+18C") # Pet something
         add_long("TimestampNow?")
         add_int("PrestigeLevel")
         add_long("LoginTimestamp?")
@@ -139,13 +138,13 @@ def decode_player():
         # these are both related?
         count = add_int("countB")
         for i in range(count):
-            add_long("Unknown")
+            add_long("Player+1B0")
         count = add_int("countC")
         for i in range(count):
-            add_long("Unknown")
+            add_long("Player_1C8")
 
-        add_short("Unknown")
-        add_long("Unknown")
+        add_short("Player+1A0") # Survival something
+        add_long("Player+88")
 
 def decode_skill_tree():
     add_int("JobId")

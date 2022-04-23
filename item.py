@@ -144,7 +144,7 @@ def decode_blueprint_item_data(): # BlueprintItemData
 def decode_badge(id):
     with Node("Badge"):
         add_byte("Unknown")
-        add_byte("Unknown")
+        add_byte("BadgeType")
         add_unicode_str("BadgeIdStr")
         if id == 70100000: ## PetSkinBadge
             add_int("PetSkinId")
