@@ -6,6 +6,24 @@ CAP_ID = 11300000
 HAIR_ID = 10200000
 DECAL_ID = 10400000
 
+TEMPLATE_ITEM_IDS = [
+    11050005, 11050006, 11300041, 11300042, 11300043, 11300044, 11300045, 11300046, 11300155, 11300156, 
+    11300157, 11300158, 11300697, 11300698, 11300699, 11300700, 11400024, 11400025, 11400026, 11400027, 
+    11400080, 11400081, 11400082, 11400083, 11400120, 11400121, 11400418, 11400419, 11400550, 11400551, 
+    11400607, 11400608, 11401077, 11401078, 11500024, 11500025, 11500026, 11500027, 11500081, 11500082, 
+    11500338, 11500339, 11500522, 11500523, 11500971, 11500972, 11600034, 11600035, 11700048, 11700049, 
+    11700173, 11700174, 11850005, 11850008, 11850180, 12200016, 12200017, 12200092, 12200093, 12200327, 
+    12200328, 12200331, 12200332, 13000070, 13100203, 13100319, 13200198, 13200314, 13300197, 13300310, 
+    13400196, 13400309, 14000162, 14000272, 14100171, 14100284, 15000202, 15000315, 15100194, 15100310, 
+    15200201, 15200314, 15300197, 15300310, 15400112, 15400296, 15500509, 15600509, 15600532, 50100189, 
+    50100385, 50200381, 50200382, 50200398, 50200399, 50200440, 50200486, 50200487, 50200488, 50200489, 
+    50200490, 50200649, 50200700, 50200701, 50200702, 50200703, 50200738, 50200739, 50200740, 50200741, 
+    50200742, 50200743, 50200744, 50200745, 50200746, 50200747, 50200748, 50200749, 50200750, 50200751, 
+    50200752, 50200753, 50200754, 50200755, 50200756, 50200787, 50200878, 50200879, 50200880, 50200881, 
+    50200882, 50200883, 50200884, 50200885, 50400088, 50400089, 50400228, 50600045, 50600054, 50600060, 
+    50600066, 50600072, 50600078, 50600084, 50600089, 50600090, 50600278]
+BLUEPRINT_ITEM_ID = 35200000
+
 
 def decode_equip_color():
     with Node("EquipColor"):
@@ -16,53 +34,53 @@ def decode_equip_color():
         add_int("Unknown")
 
 def decode_item_extra_data(id):
-    decode_equip_color()
-    # Item positioning
-    if id / 100000 == 113:
-        with Node("Cap"):
-            decode_coordF("Position1")
-            decode_coordF("Position2")
-            decode_coordF("Position3")
-            decode_coordF("Position4")
-            add_float("Unknown")
-    elif id / 100000 == 102:
-        with Node("Hair"):
-            add_float("BackLength")
-            decode_coordF("BackPosition1")
-            decode_coordF("BackPosition2")
-            add_float("FrontLength")
-            decode_coordF("FrontPosition1")
-            decode_coordF("FrontPosition2")
-    elif id / 100000 == 104:
-        with Node("Decal"):
-            add_float("Position1")
-            add_float("Position2")
-            add_float("Position3")
-            add_float("Position4")
+    with Node("ItemExtraData"):
+        decode_equip_color()
+        # Item positioning
+        if id / 100000 == 113:
+            with Node("Cap"):
+                decode_coordF("Position1")
+                decode_coordF("Position2")
+                decode_coordF("Position3")
+                decode_coordF("Position4")
+                add_float("Unknown")
+        elif id / 100000 == 102:
+            with Node("Hair"):
+                add_float("BackLength")
+                decode_coordF("BackPosition1")
+                decode_coordF("BackPosition2")
+                add_float("FrontLength")
+                decode_coordF("FrontPosition1")
+                decode_coordF("FrontPosition2")
+        elif id / 100000 == 104:
+            with Node("Decal"):
+                add_float("Position1")
+                add_float("Position2")
+                add_float("Position3")
+                add_float("Position4")
 
 def decode_stat_option(index): # StatOption
     with Node("StatOption " + str(index)):
-        add_short("StatType")
         add_int("IntegerValue")
         add_float("FloatValue")
 
 def decode_special_option(index): # SpecialOption
     with Node("SpecialOption " + str(index)):
-        add_short("StatType")
         add_float("FloatValue")
         add_float("FloatValue")
 
 def decode_item_stats(): # sub_00562910
-    add_bool("Unknown")
-    
-    with Node("Stats", True): # this is actually a loop range(9)
+    with Node("Stats"):
+        add_bool("Unknown")
         for i in {"Constant", "Static", "Random", "Title"}:
             with Node(i + "Stats"):
                 count = add_short(i + "StatOptionCount")
                 for j in range(count):
+                    add_short("StatType")
                     decode_stat_option(j)
                 count = add_short(i + "SpecialOptionCount")
                 for j in range(count):
+                    add_short("StatType")
                     decode_special_option(j)
             add_int("Unknown")
 
@@ -70,37 +88,44 @@ def decode_item_stats(): # sub_00562910
             with Node("Empowerment Stats " + str(i)):
                 count = add_short("EmpowermentStatOptionCount")
                 for j in range(count):
+                    add_short("StatType")
                     decode_stat_option(j)
                 count = add_short("EmpowermentSpecialOptionCount")
                 for j in range(count):
+                    add_short("StatType")
                     decode_special_option(j)
             add_int("Unknown")
 
 def decode_item_enchant(): # sub_0054C2B0
-    add_int("Enchants")
-    add_int("EnchantExp")
-    add_byte("EnchantBasedChargeExp")
-    add_long("Unknown")
-    add_int("Unknown")
-    add_int("Unknown")
-    add_bool("CanRepackage")
-    add_int("EnchantCharges")
+    with Node("ItemEnchant", True):
+        add_int("Enchants")
+        add_int("EnchantExp")
+        add_byte("EnchantBasedChargeExp")
+        add_long("Unknown")
+        add_int("Unknown")
+        add_int("Unknown")
+        add_bool("CanRepackage")
+        add_int("EnchantCharges")
 
-    with Node("EnchantStats"):
-        count = add_byte("EnchantStatCount")
-        for i in range(count):
-            decode_stat_option(i)
+        with Node("EnchantStats"):
+            count = add_byte("EnchantStatCount")
+            for i in range(count):
+                add_int("StatType")
+                decode_stat_option(i)
 
 def decode_item_limitbreak(): # sub_0066F520
-    add_int("LimitBreakLevel")
-    with Node("LimitBreakStatOption"):
-        count = add_int("LimitBreakStatOptionCount")
-        for i in range(count):
-            decode_stat_option(i)
-    with Node("LimitBreakSpecialOption"):
-        count = add_int("LimitBreakSpecialOptionCount")
-        for i in range(count):
-            decode_special_option(i)
+    with Node("LimitBreak", True):
+        add_int("LimitBreakLevel")
+        with Node("LimitBreakStatOption"):
+            count = add_int("LimitBreakStatOptionCount")
+            for i in range(count):
+                add_short("StatType")
+                decode_stat_option(i)
+        with Node("LimitBreakSpecialOption"):
+            count = add_int("LimitBreakSpecialOptionCount")
+            for i in range(count):
+                add_short("StatType")
+                decode_special_option(i)
 
 def decode_ugc_item_look(): # CUgcItemLook
     with Node("CUgcItemLook"):
@@ -246,8 +271,7 @@ def decode_item(id):
         decode_item_enchant()
         decode_item_limitbreak()
 
-        #Testing UGC
-        if id == 11400608 or id == 11500523 or id == 11600035:
+        if id in TEMPLATE_ITEM_IDS or id == BLUEPRINT_ITEM_ID:
             decode_ugc_item_look()
             decode_blueprint_item_data()
         # Pet

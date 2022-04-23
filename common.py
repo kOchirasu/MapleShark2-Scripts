@@ -58,7 +58,7 @@ def decode_state_sync():
 def decode_player():
     with Node("PlayerInfo"):
         add_long("AccountId")
-        add_long("PlayerId")
+        add_long("CharacterId")
         add_unicode_str("Name")
         add_byte("Gender") # 0 = male, 1 = female
         add_byte("Player+78")

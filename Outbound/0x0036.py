@@ -1,5 +1,5 @@
 from script_api import *
-from common import *
+from item import *
     
 
 add_byte("function") # this is also 0/1 but it's redundant

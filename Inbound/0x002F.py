@@ -15,8 +15,10 @@ elif count == 35:
         for i in range(35):
             with Node("Stat " + str(i)):
                 decode_stat(i)
-    else:
+    elif remaining() == 48:
         decode_player_delta_stats()
+    elif remaining() == 36:
+        decode_npc_delta_stats()
 else:
     if remaining() > 36: # (8+4) * 3
         for i in range(count):

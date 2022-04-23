@@ -1,6 +1,6 @@
 ''' SET_CRAFT_MODE '''
 from script_api import *
-from common import *
+from item import *
 
 # BROADCASTED
 add_int("PlayerObjectId")

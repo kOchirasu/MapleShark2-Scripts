@@ -18,6 +18,7 @@ if f == 5:
 
     count = add_int("Count")
     for i in range(count):
+        add_short("StatType")
         decode_stat_option(i)
 
     if enchantType == 1:
@@ -61,6 +62,7 @@ elif f == 10:
     # Bonus from enchanting (e.g. 2% def)
     count = add_int("Count")
     for i in range(count):
+        add_short("StatType")
         decode_stat_option(i)
 elif f == 11:
     add_long("ItemUid")

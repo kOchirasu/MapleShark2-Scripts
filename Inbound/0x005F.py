@@ -10,7 +10,7 @@ def decode_achieve_details():
     add_long("TrackerTotalCount")
     count2 = add_int("Count")
     for j in range(count2):
-        add_int("Grade " + (j + 1))
+        add_int("Grade " + str(j + 1))
         add_long("DateAchieved")
 
 f = add_byte("Function")
