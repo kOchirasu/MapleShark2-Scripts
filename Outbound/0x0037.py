@@ -63,6 +63,8 @@ elif f == 45: # decrease height
 elif f == 46: # save house
     add_int("Slot")
     add_unicode_str("SaveName")
+elif f == 47: # load layout
+    add_int("index")
 elif f == 48: # confirm load save
     add_int("slot")
 elif f == 49: # kick from house

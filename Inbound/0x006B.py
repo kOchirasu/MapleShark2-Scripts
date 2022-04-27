@@ -50,14 +50,14 @@ elif f == 9 or f == 24 or f == 40 or f == 41: # set password?
         add_long("OwnerAccountId")
     error_handler(result)
 elif f == 10: # confirm place cube
-    error = add_bool("error")
+    error = add_byte("Send Only Player ObjectId") # Also error code
+    add_int("OwnerObjectId")
     add_int("UserObjectId")
-    if error: # This is sent first, item is removed from warehouse
-        add_int("UserObjectId")
+    if error >= 1: # If 44: Can't place here
+        pass
         # s_ugcmap_lift_error_msg
     else: # Then this is sent to place the block
-        add_int("UserObjectId")
-        add_int("Unknown") # Amount?
+        add_int("Plot Number")
         add_int("Unknown")
         add_int("CoordB")
         add_long("Uid")
@@ -71,32 +71,32 @@ elif f == 10: # confirm place cube
             add_byte("Unknown")
 elif f == 12: # Remove cube (clearing map)
     error = add_bool("error")
+    add_int("OwnerObjectId")
     add_int("UserObjectId")
     if error:
-        add_int("UserObjectId")
+        pass
         # s_ugcmap_lift_error_msg
     else:
-        add_int("UserObjectId")
         add_int("CoordB")
         add_bool("Unknown") # 0
 elif f == 14: # rotate
     error = add_bool("error")
+    add_int("OwnerObjectId")
     add_int("UserObjectId")
     if error:
-        add_int("UserObjectId")
+        pass
         # s_ugcmap_lift_error_msg
     else:
-        add_int("UserObjectId")
         add_int("CoordB")
         add_float("Rotation")
 elif f == 15: # replace cube (also used for loading save map)
     error = add_bool("error")
+    add_int("OwnerObjectId")
     add_int("UserObjectId")
     if error:
-        add_int("UserObjectId")
+        pass
         # s_ugcmap_lift_error_msg
     else:
-        add_int("UserObjectId")
         add_int("CoordB")
         add_long("Uid")
         decode_cube_item_info()
@@ -200,9 +200,9 @@ elif f == 39: # design rank reward
     add_long("Timestamp")
     add_long("Interior Desgin Rank")
     add_long("Interior Design Score")
-    count = add_int("count")
+    count = add_int("Reward Count")
     for i in range(count):
-        add_int("Unknown") # dword_1BF80D0
+        add_int("Reward " + str(i)) # dword_1BF80D0
 elif f == 42: # set permission #1
     add_byte("PermissionType")
     add_byte("PermissionSetting")
