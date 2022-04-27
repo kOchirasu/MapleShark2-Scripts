@@ -53,7 +53,7 @@ elif f == 10: # confirm place cube
     error = add_byte("Send Only Player ObjectId") # Also error code
     add_int("OwnerObjectId")
     add_int("UserObjectId")
-    if error == 44 or error == 1: # If 44: Can't place here
+    if error >= 1: # If 44: Can't place here
         pass
         # s_ugcmap_lift_error_msg
     else: # Then this is sent to place the block
