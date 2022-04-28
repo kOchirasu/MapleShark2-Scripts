@@ -28,7 +28,7 @@ elif type == 10: # MentorToken
 elif type == 11: # MenteeToken
     if deduct > 0:
         pass # s_msg_take_mentee_token
-elif type == 12: # StartPoint
+elif type == 12: # StarPoint
     if deduct > 0:
         pass # s_msg_take_star_point
 elif type == 13: # MesoToken

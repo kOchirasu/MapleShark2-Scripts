@@ -34,7 +34,7 @@ def decode_list_entry():
     decode_player()
 
     add_unicode_str("same char profile url")
-    add_long("???")
+    add_long("delete time")
 
     # This is bugged for some equip types
     count = add_byte("EQUIPMENT")

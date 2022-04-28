@@ -1,3 +1,4 @@
+''' REQUEST_FIELD_ENTER '''
 from script_api import *
 from common import *
 

@@ -10,7 +10,7 @@ decode_coordF("Rotation")
 
 # if (not friendly and class >= 3)
 '''
-add_str("npcstring")
+add_str("kfm") # 23000088_B_Pinkbean
 '''
 
 # If valid NpcId

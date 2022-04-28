@@ -2828,5 +2828,29 @@
       <Name>LimitBreak</Name>
       <Ignore>false</Ignore>
     </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
+      <Opcode>306</Opcode>
+      <Name>Init_0x05</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
+      <Opcode>240</Opcode>
+      <Name>InGameRank</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
+      <Opcode>245</Opcode>
+      <Name>TimeScale</Name>
+      <Ignore>false</Ignore>
+    </Definition>
+    <Definition>
+      <Outbound>false</Outbound>
+      <Opcode>234</Opcode>
+      <Name>NpcNotice</Name>
+      <Ignore>false</Ignore>
+    </Definition>
   </Definitions>
 </DefinitionConfig>
