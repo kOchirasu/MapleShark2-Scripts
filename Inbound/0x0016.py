@@ -11,6 +11,6 @@ if message == 0: # OK
     add_int("Unknown")
     decode_coordF("Position")
     decode_coordF("Rotation")
-    add_int("Unknown")
+    add_int("Unknown") # Same value in ResponseFieldEnter
 
 # some reference to the same error messages in MOVE_RESULT

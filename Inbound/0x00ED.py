@@ -3,7 +3,6 @@ from script_api import *
 f = add_byte("function")
 
 if f == 0: # activate premium
-    add_int("UserObjectId")
     add_long("Premium expiration")
 elif f == 1: # daily rewards
     m = add_int("flag?")

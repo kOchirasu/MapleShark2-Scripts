@@ -36,15 +36,16 @@ def decode_equip_color():
 def decode_item_extra_data(id):
     with Node("ItemExtraData"):
         decode_equip_color()
+        add_field(str(id // 100000))
         # Item positioning
-        if id / 100000 == 113:
+        if id // 100000 == 113:
             with Node("Cap"):
                 decode_coordF("Position1")
                 decode_coordF("Position2")
                 decode_coordF("Position3")
                 decode_coordF("Position4")
                 add_float("Unknown")
-        elif id / 100000 == 102:
+        elif id // 100000 == 102:
             with Node("Hair"):
                 add_float("BackLength")
                 decode_coordF("BackPosition1")
@@ -52,7 +53,7 @@ def decode_item_extra_data(id):
                 add_float("FrontLength")
                 decode_coordF("FrontPosition1")
                 decode_coordF("FrontPosition2")
-        elif id / 100000 == 104:
+        elif id // 100000 == 104:
             with Node("Decal"):
                 add_float("Position1")
                 add_float("Position2")
@@ -275,13 +276,13 @@ def decode_item(id):
             decode_ugc_item_look()
             decode_blueprint_item_data()
         # Pet
-        if id / 100000 == 600 or id / 100000 == 610 or id / 100000 == 611 or id / 100000 == 629:
+        if id // 100000 == 600 or id // 100000 == 610 or id // 100000 == 611 or id // 100000 == 629:
             decode_item_pet()
         # Music Score
-        if id / 100000 == 351:
+        if id // 100000 == 351:
             decode_item_music_score()
         # Badge
-        if id / 1000000 == 70:
+        if id // 1000000 == 70:
             decode_badge(id)
 
         decode_item_transfer()

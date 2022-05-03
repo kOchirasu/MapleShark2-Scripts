@@ -1,6 +1,6 @@
 ''' FURNISHING_INVENTORY '''
 from script_api import *
-from common import *
+from item import *
 
 f = add_byte("function")
 if f == 0: # start list
@@ -11,7 +11,7 @@ elif f == 1:
     add_long("Unknown")
     b = add_bool("IsTemplate")
     if b:
-        decode_ugc_data()
+        decode_ugc_item_look()
 elif f == 2: # Remove
     add_long("ItemUid")
 elif f == 3: # Update

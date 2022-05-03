@@ -92,9 +92,9 @@ def decode_player():
         add_unicode_str("ProfileUrl")
 
         # CharacterListClubParser
+        count = add_byte("count")
         with Node("Clubs"):
-            count = add_byte("count")
-            for i in range(count):
+            for _ in range(count):
                 b = add_byte("hasClub")
                 if b == 1:
                     add_long("clubUid")
@@ -148,23 +148,20 @@ def decode_player():
 
 def decode_skill_tree():
     add_int("JobId")
-    add_byte("Unknown (1)")
-    add_int("JobGroupId")
+    add_byte("Count")
+    add_int("JobCode")
     with Node("Skills"):
-        for i in range(2):
-            skillType = "Active Skills" if i == 0 else "Passive Skills"
-            with Node(skillType, True):
+        for i in ["Active", "Passive", "Special", "Consumable"]:
+            with Node(i, True):
                 count = add_byte("Count")
                 for j in range(count):
                     start_node("Skill " + str(j))
-                    add_bool("NewlyEnabled")
+                    add_bool("Notify")
                     b = add_bool("Enabled")
                     add_int("SkillId")
-                    add_int("Skill Points")
+                    add_int("Level")
                     add_bool("Unknown (0)")
                     end_node(b)
-    add_byte("Unknown")
-    add_byte("Unknown")
 
 def decode_maid():
     add_long("MaidUid?")

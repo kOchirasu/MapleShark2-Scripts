@@ -8,5 +8,6 @@ if message == 0: # OK
     add_short("Port")
     add_int("MapId")
     add_byte("Unknown")
+    add_int("Unknown")
 
 # some reference to the same error messages in MOVE_RESULT

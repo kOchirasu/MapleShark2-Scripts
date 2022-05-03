@@ -4,7 +4,7 @@ from script_api import *
 # SendServerEnter
 add_int("PlayerObjectId")
 add_long("PlayerId")
-add_short("Unknown") # related to s_msg_chatting_changechannel
+add_short("Channel") # related to s_msg_chatting_changechannel
 add_long("Exp")
 add_long("RestExp")
 add_long("Mesos")
