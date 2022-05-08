@@ -72,7 +72,7 @@
       <Outbound>true</Outbound>
       <Opcode>11</Opcode>
       <Name>RequestTimeSync</Name>
-      <Ignore>false</Ignore>
+      <Ignore>true</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
@@ -114,7 +114,7 @@
       <Outbound>true</Outbound>
       <Opcode>18</Opcode>
       <Name>UserSync</Name>
-      <Ignore>false</Ignore>
+      <Ignore>true</Ignore>
     </Definition>
     <Definition>
       <Outbound>true</Outbound>
@@ -1224,7 +1224,7 @@
       <Outbound>false</Outbound>
       <Opcode>17</Opcode>
       <Name>ResponseTimeSync</Name>
-      <Ignore>false</Ignore>
+      <Ignore>true</Ignore>
     </Definition>
     <Definition>
       <Outbound>false</Outbound>

@@ -25,7 +25,6 @@ elif f == 8:
     add_long("ItemUid")
     add_int("Amount")
     add_unicode_str("SlotType")
-    # more...
 elif f == 7:
     count = add_short("count")
     for i in range(count):
@@ -44,6 +43,8 @@ elif f == 10: # sub_C4FDD0
             add_short("slot")
             add_int("rarity")
             decode_item(id)
+elif f == 12:
+    pass # s_msg_expand_inven_complete
 if f == 13: # Start inventory?
     add_int("???")
 elif f == 14:
@@ -61,13 +62,13 @@ elif f == 15: # Error
     elif message == 31:
         pass # s_err_cannot_destroy_petitem_hasitem
     elif message == 34:
-        pass # related to case 14
+        pass # s_cannot_charge_merat
     elif message == 35:
         pass # s_item_err_puton_invalid_binding
     elif message == 36:
         pass # s_item_err_use_invalid_binding
     elif message == 37:
-        pass # s_item_err_Invalid_slot_codi
+        pass # s_item_err_Invalid_slot
     elif message == 38:
         pass # s_item_err_not_active_tab
     elif message == 40:
@@ -81,3 +82,4 @@ elif f == 15: # Error
     '''
 elif f == 16:
     add_long("uid")
+    decode_item(0)

@@ -11,7 +11,7 @@ if b:
 decode_coordF("position")
 add_int("ownerObjectId")
 add_int("Unknown")
-add_byte("Unknown")
+add_byte("Unknown") # 2 for dropped items
 add_int("Rarity")
 add_short("Unknown")
 add_bool("Unknown")

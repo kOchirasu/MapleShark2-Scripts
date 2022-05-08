@@ -32,9 +32,9 @@ def decode_state_sync():
         if u > 127:
             add_float("Unknown")
             add_float("Unknown")
-        decode_coordS("")
+        decode_coordS("Speed")
         add_byte("Unknown") # Assert(n < 18)
-        add_short("CoordS / 10")
+        add_short("Rotation2 CoordS / 10")
         add_short("CoordS / 1000")
         if (flag & 2) == 2: ## bit-2
             decode_coordF("Unknown")

@@ -1,3 +1,4 @@
+''' WORLD_MAP '''
 from script_api import *
 
 def decode_world_boss():

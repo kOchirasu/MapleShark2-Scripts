@@ -5,3 +5,10 @@ b = add_bool("picked up")
 add_int("ObjectId")
 if b:
     add_int("ObjectId") # object id of the player who picked up
+
+'''
+if IsMeso:
+    add_long("amount")
+elif IsStamina:
+    add_int("amount")
+'''

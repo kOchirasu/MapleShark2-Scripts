@@ -1,3 +1,4 @@
+''' PROXY_GAME_OBJ '''
 from script_api import *
 from common import *
 
@@ -19,12 +20,12 @@ if f == 3: # Spawn player
     add_int("ApartmentNumber")
     add_unicode_str("HomeName")
     add_int("GearScore")
-    add_short("CProxyGameObject+94")
+    add_short("State")
 
     # sub_45D8F0
     for i in range(3):
         add_int("Trophies")
-if f == 4 or f == 7 or f == 10: # Remove object
+if f == 4 or f == 7 or f == 10: # Remove Player/Npc/Pet
     add_int("ObjectId")
 elif f == 5: # Update
     add_int("ObjectId")
@@ -43,18 +44,18 @@ elif f == 5: # Update
     if (flags & 32) != 0:
         add_int("gearScore")
     if (flags & 64) != 0:
-        add_short("CProxyGameObject+94")
+        add_short("State")
 elif f == 6:
     add_int("ObjectId")
     add_int("NpcId")
     add_byte("CProxyGameObject+3C")
     add_int("CProxyGameObject+50") # Counter
     decode_coordF("Position")
-elif f == 8 or f == 11: # Movement?
+elif f == 8 or f == 11: # Move Npc/Pet
     add_int("ObjectId")
     add_byte("CProxyGameObject+3C")
     decode_coordF("Position")
-elif f == 9:
+elif f == 9: # Pet
     add_int("ObjectId")
     add_int("PetId?")
     add_int("NpcId")
