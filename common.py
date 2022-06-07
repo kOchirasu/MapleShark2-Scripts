@@ -223,12 +223,12 @@ def decode_guild_rank():
 
 def decode_interface_text(): # sub_641140
     with Node("StringInterface"):
-        b = add_bool("Unknown")
-        add_int("Unknown")
+        b = add_bool("LocalizedString") # Use string code instead of message
+        add_int("Unknown") # b ? 1 : 0
         if b:
-            add_int("Unknown")
+            add_int("StringCode")
             count = add_int("count")
             for i in range(count):
-                add_unicode_str("UnknownStr")
+                add_unicode_str("Argument")
         else:
             add_unicode_str("message")

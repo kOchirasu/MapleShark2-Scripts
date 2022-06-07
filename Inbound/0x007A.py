@@ -42,11 +42,11 @@ if b:
         
         with Node("UnknownFloatBlock1"):
             for i in range(180):
-                prev = add_float("UnknownFloat " + str(i) + "|" + (i % 60))
+                prev = add_float("UnknownFloat " + str(i) + "|" + str(i % 60))
         
         with Node("UnknownFloatBlock2"):
             for i in range(180):
-                prev = add_float("UnknownFloat " + str(i) + "|" + (i % 60))
+                prev = add_float("UnknownFloat " + str(i) + "|" + str(i % 60))
         
         add_unicode_str("ProfileUrl")
         add_unicode_str("Motto")

@@ -2,20 +2,21 @@ from script_api import *
 
 def decode_stat(statType):
     if statType == 4: # Hp
-        add_long("TotalHp")
-        add_long("MinHp")
-        add_long("MaxHp")
+        total = add_long("TotalHp")
+        base = add_long("BaseHp")
+        current = add_long("CurrentHp")
     else:
-        add_int("StatTotal")
-        add_int("StatMin")
-        add_int("StatMax")
+        total = add_int("StatTotal")
+        base = add_int("StatBase")
+        current = add_int("StatCurrent")
+    return total != current
 
 def decode_specific_stat():
     statType = add_byte("StatType")
     decode_stat(statType)
 
 def decode_player_delta_stats():
-    for i in {"Total", "Min", "Max"}:
+    for i in {"Total", "Base", "Current"}:
         with Node(i, True):
             add_long("Health")
             add_int("AtkSpd")
@@ -24,7 +25,7 @@ def decode_player_delta_stats():
             add_int("JumpHeight")
 
 def decode_npc_delta_stats():
-    for i in {"Total", "Min", "Max"}:
+    for i in {"Total", "Base", "Current"}:
         with Node(i, True):
             add_long("Health")
             add_int("AtkSpd")

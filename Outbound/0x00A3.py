@@ -21,3 +21,6 @@ elif f == 2:
     # Rename skill tab
     add_long("SkillTabId")
     add_unicode_str("SkillTabName")
+elif f == 4: # Add skill tab
+    add_int("const") # 20272
+    add_bool("unknown")

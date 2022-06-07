@@ -16,7 +16,7 @@ if IsMintNotice(flag): # Mint notice
 
 if f == 4:
     if not IsMintNotice(flag) and showMessage(flag):
-        add_int("some id?")
+        add_int("duration")
 elif f == 5:
     if flag == 0x40: # CMsgBoxData exactly
         pass # RequestQuit
@@ -25,16 +25,16 @@ elif f == 5:
 B A 9 8 7 6 5 4 3 2 1
 ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^
 | | | | | | | | | | |--Chat:setGmMessage
-| | | | | | | | | |----Ignored
-| | | | | | | | |------
-| | | | | | | |--------Ignored if some condition and set...
+| | | | | | | | | |----
+| | | | | | | | |------Warning (red popup message)
+| | | | | | | |--------Ignored if some condition and set?
 | | | | | | |----------Mint
 | | | | | |------------
 | | | | |--------------CMsgBoxData
 | | | |----------------CMsgBoxData + s_msg_disconnect_kickuser
 | | |------------------
-| |--------------------showMessage, MessengerData::TalkLog
-|----------------------Chat:appendWarningMessage2
+| |--------------------showMessage, MessengerData::TalkLog (large permanent red message...)
+|----------------------Chat:appendWarningMessage2 (banner warning message)
 
 ChatTypes (these are hardcoded so you can't control here)
 1  appendWarningMessage

@@ -2,7 +2,12 @@ from script_api import *
 
 # Request 0x0025 08 (SendJob)
 f = add_byte("Function")
-if f == 8:
+if f == 7:
+    add_int("Unknown")
+    add_long("Unknown")
+    add_int("Unknown")
+    add_short("Unknown")
+elif f == 8:
     # SendJob load
     pass
 elif f == 9 or f == 11:

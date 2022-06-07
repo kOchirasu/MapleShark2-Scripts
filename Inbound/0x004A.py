@@ -16,7 +16,9 @@ elif f == 1 or f == 2:
         pass # UIChangeJobEffect
 elif f == 7:
     decode_skill_tree()
-    # UIRewardNotify
+    # UISkillBookTreeDialog
+elif f == 8: # load
+    decode_skill_tree()
 elif f == 9 or f == 10 or f == 11:
     ''' These are all handled the same by the client?
     9 = Update
@@ -25,8 +27,6 @@ elif f == 9 or f == 10 or f == 11:
     '''
     decode_skill_tree()
     # UIGameMenuDialog
-elif f == 8: # load
-    decode_skill_tree()
 else: # error, this is function 3 basically
     message = add_byte("message")
     '''
