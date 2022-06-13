@@ -46,12 +46,15 @@ elif f == 22: # gear dye
     count = add_byte("count")
     for i in range(count):
         with Node("Item " + str(i)):
-            add_short("Quantity")
-            add_bool("UseVoucher")
-            add_field("Unknown", 13)
-            add_long("ItemUid")
-            id = add_int("ItemId")
-            decode_item_extra_data(id)
+            b = add_bool("isValid")
+            if b:
+                add_byte("unknown")
+                add_bool("UseVoucher")
+                add_byte("unknown")
+                add_int("unknown")
+                add_long("unknown")
+                add_long("ItemUid")
+                id = add_int("ItemId")
+                decode_item_extra_data(id)
 elif f == 23: # use beauty voucher
-    add_int("unknown")
     add_long("itemUid")

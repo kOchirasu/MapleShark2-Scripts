@@ -4,9 +4,9 @@ from item import *
 
 # distractor (this is a guess)
 def decode_script_content():
-    add_unicode_str("text")
-    add_unicode_str("goto") # As ASCII
-    add_unicode_str("gotoFail") # As ASCII
+    add_unicode_str("text") # $script:0608144010002148$
+    add_unicode_str("voiceID") # As ASCII
+    add_unicode_str("illust") # As ASCII
 
 def decode_cinematic_content():
     decode_script_content()
@@ -72,8 +72,8 @@ elif f == 3: # action
             decode_item(id)
     elif f == 6: # RewardNotify (Exp)
         add_long("Exp")
-    elif f == 7: # RewardNotify
-        add_long("field_64")
+    elif f == 7: # RewardNotify (Meso)
+        add_long("Meso")
     elif f == 8: # adds this value to dialog option
         add_int("AddOption")
     elif f == 9:

@@ -74,8 +74,11 @@ def decode_game_event_cli(event): # virtual call +16
         add_int("unknown")
         add_unicode_str("unknown")
     elif event == "TrafficOptimizer": # GameEventTrafficOptimizerCli
-        add_int("unknown")
-        add_field("force_add", 28) # this wasn't seen in IDA
+        with Node("sub_827520"):
+            add_int("unknown")
+            for i in range(7):
+                add_int("unknown " + str(i))
+            pass
     elif event == "DungeonRoomShutdown": # GameEventDungeonRoomShutdown
         pass
     elif event == "DungeonOpenPeriod": # GameEventDungeonOpenPeriod
@@ -423,16 +426,16 @@ if f == 0:
         with Node("Entry " + str(i)):
             event = add_unicode_str("event")
             decode_game_event_cli(event)
-elif f == 1:
+elif f == 1: # NotifyGameEventChanged
     count = add_int("count")
     for i in range(count):
         event = add_unicode_str("event")
         decode_game_event_cli(event)
-elif f == 2:
+elif f == 2: # NotifyGameEventChanged
     count = add_int("count")
     for i in range(count):
         add_int("unknown")
-elif f == 3:
+elif f == 3: # NotifyGameEventChanged
     count = add_int("count")
     for i in range(count):
         with Node("Entry " + str(i)):

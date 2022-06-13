@@ -56,7 +56,7 @@ elif f == 7:
 elif f == 8:
     message = add_int("message")
     if message == 2:
-        pass # sub_D32A00 has random different errors
+        pass # sub_D32A00 has errors related to lack currency
     elif message == 12:
         pass # STYLESHOP: s_beauty_msg_error_style_slot_extend_max
     elif message == 11: 
@@ -124,6 +124,6 @@ elif f == 18: # delete hair: s_beauty_msg_complete_remove_saved_hair_style
     add_long("SaveUid")
 elif f == 20: # load save window: s_beauty_msg_complete_extend_style_slot
     add_byte("Unknown")
-    add_short("Unknown")
+    add_short("addSlots")
 elif f == 21: # change to saved hair
     pass # s_beauty_msg_complete_apply_saved_style
