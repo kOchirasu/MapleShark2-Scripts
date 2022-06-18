@@ -11,7 +11,7 @@ def sub_45CF80():
         add_bool("unknown")
         add_bool("unknown")
 
-def decode_game_event_cli(event): # virtual call +16
+def decode_game_event_cli(event: str): # virtual call +16
     if event == "SaleChat": # GameEventSaleChat
         pass
     elif event == "SAHotTime": # GameEventSAHotTime

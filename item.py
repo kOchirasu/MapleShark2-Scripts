@@ -33,7 +33,7 @@ def decode_equip_color():
         add_int("ColorIndex")
         add_int("Unknown")
 
-def decode_item_extra_data(id):
+def decode_item_extra_data(id: int):
     with Node("ItemExtraData"):
         decode_equip_color()
         add_field(str(id // 100000))
@@ -60,12 +60,12 @@ def decode_item_extra_data(id):
                 add_float("Position3")
                 add_float("Position4")
 
-def decode_stat_option(index): # StatOption
+def decode_stat_option(index: int): # StatOption
     with Node("StatOption " + str(index)):
         add_int("IntegerValue")
         add_float("FloatValue")
 
-def decode_special_option(index): # SpecialOption
+def decode_special_option(index: int): # SpecialOption
     with Node("SpecialOption " + str(index)):
         add_float("FloatValue")
         add_float("FloatValue")
@@ -167,7 +167,7 @@ def decode_blueprint_item_data(): # BlueprintItemData
         add_long("unknown")
         add_unicode_str("unknown")
 
-def decode_badge(id):
+def decode_badge(id: int):
     with Node("Badge"):
         add_byte("Unknown")
         add_byte("BadgeType")
@@ -251,7 +251,7 @@ def decode_item_binding():
     add_long("BoundToCharId")
     add_unicode_str("BoundToName")
 
-def decode_item(id):
+def decode_item(id: int):
     with Node("Item: " + str(id)):
         add_int("Amount")
         add_int("Unknown")

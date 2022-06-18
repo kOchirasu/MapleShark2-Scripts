@@ -2,7 +2,7 @@
 from script_api import *
 from common import *
 
-def decode_interact_object(type):
+def decode_interact_object(type: int):
     if type == 1: # CInteractMeshObject
         pass # nullsub
     elif type == 2: # CInteractTelescopeObject

@@ -2,7 +2,7 @@
 from script_api import *
 from item import *
 
-def delete_message(message):
+def delete_message(message: int):
     if message == 0:
         pass # requestDelete
     elif message == 1:

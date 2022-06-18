@@ -1,6 +1,6 @@
 from script_api import *
 
-def decode_field_property_info(t):
+def decode_field_property_info(t: int):
     if t == 1: # Gravity
         add_float("Unknown")
     elif t == 2: # Concert (queenstown)

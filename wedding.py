@@ -1,7 +1,7 @@
 ''' shared WEDDING structs '''
 from script_api import *
 
-def wedding_error(message):
+def wedding_error(message: int):
     if message == 19:
         pass # s_wedding_result_err_wedding_block_age_to
     elif message == 20:

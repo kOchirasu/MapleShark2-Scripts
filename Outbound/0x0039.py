@@ -2,8 +2,8 @@
 from script_api import *
 
 
-def decode_ugc_reserve(i):
-    with Node("CUgcBannerPostReserve " + str(i)):
+def decode_ugc_reserve(n: int):
+    with Node("CUgcBannerPostReserve " + str(n)):
         add_long("uuid")
         add_int("2")
         add_long("Banner id")
