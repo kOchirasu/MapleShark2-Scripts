@@ -2,7 +2,7 @@
 from script_api import *
 from item import *
 
-def error_handler(code): # sub_9EF4B0
+def error_handler(code: int): # sub_9EF4B0
     if code == 34:
         pass # s_err_lack_merat_ask. s_cannot_charge_merat if MeratMarketClosing|Feature_296
     elif code != 1:

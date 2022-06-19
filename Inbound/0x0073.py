@@ -2,10 +2,10 @@
 from script_api import *
 from common import *
 
-def IsMintNotice(flag):
+def IsMintNotice(flag: int):
     return flag & 0x10 != 0 # 00010000
 
-def showMessage(flag):
+def showMessage(flag: int):
     return flag & 0x200 != 0 # 001000000000
 
 f = add_byte("function")

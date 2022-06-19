@@ -1,12 +1,12 @@
 ''' DUNGEON_REWARD '''
 from script_api import *
 
-def add_value_reward(i):
+def add_value_reward(i: int):
     with Node("ValueReward " + str(i)):
         add_byte("Type") # 1 = meso, 2 = exp, 3 = prestige
         add_int("Amount")
 
-def add_item_reward(i):
+def add_item_reward(i: int):
     with Node("ItemEntity " + str(i)):
         add_int("ItemId")
         add_int("Amount")
@@ -15,7 +15,7 @@ def add_item_reward(i):
         add_byte("")
         add_byte("")
 
-def add_reward(type):
+def add_reward(type: str):
     with Node(type):
         count = add_int("RewardCount")
         for i in range(count):

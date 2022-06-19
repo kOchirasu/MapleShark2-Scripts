@@ -23,3 +23,5 @@ elif f == 10: # update block msg
     add_unicode_str("BlockReason")
 elif f == 17: # cancel friend request
     add_long("EntryUid")
+elif f == 20:
+    add_int("unknown") # bool? (CGameOptionPtr+284 != 0)
