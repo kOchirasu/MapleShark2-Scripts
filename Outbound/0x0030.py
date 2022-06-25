@@ -12,7 +12,7 @@ elif f == 4: # decline
 elif f == 5: # block
     add_long("EntryUid")
     add_unicode_str("Name")
-    add_unicode_str("BlockReason")
+    add_unicode_str("Message")
 elif f == 6: # unblock
     add_long("EntryUid")
 elif f == 7: # remove friend
@@ -20,8 +20,8 @@ elif f == 7: # remove friend
 elif f == 10: # update block msg
     add_long("EntryUid")
     add_unicode_str("Name")
-    add_unicode_str("BlockReason")
+    add_unicode_str("Message")
 elif f == 17: # cancel friend request
     add_long("EntryUid")
-elif f == 20:
+elif f == 20: # Sent when recv BUDDY Op 20
     add_int("unknown") # bool? (CGameOptionPtr+284 != 0)

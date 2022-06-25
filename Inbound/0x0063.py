@@ -101,12 +101,8 @@ elif f == 7: # remove from buddy list
     # s_buddy_cancel_request_from_somebody
     # s_buddy_del_somebody_from_list
 elif f == 8: # Update buddy map/online
-    add_byte("error")
-    add_long("EntryUid")
     decode_buddy()
 elif f == 9: # add to buddy list
-    add_byte("error")
-    add_long("EntryUid")
     decode_buddy()
 elif f == 10: # edit block reason
     message = add_byte("error")
@@ -120,11 +116,11 @@ elif f == 11: # accept request notification
     # s_buddy_add_somebody
 elif f == 12: # block notification
     message = add_byte("error")
-    buddy_error_message(message)
+    # 10 -> s_buddy_err_max_block
+    # else -> s_buddy_ban_somebody
     add_unicode_str("Name")
-    # s_buddy_err_max_block
 elif f == 13: 
-    add_int("unknown")
+    add_int("unknown") # 1 = error
     add_unicode_str("name")
     add_unicode_str("action") # "approved", "declined", "removed"
     add_long("unknown")
@@ -147,5 +143,5 @@ elif f == 18:
 elif f == 19: # end load
     add_int("FriendCount")
 elif f == 20:
-    pass
+    pass # SendPacket Buddy(Op 20 [CGameOptionPtr + 284 != 0 (4)])
 # assert(f <= 20)

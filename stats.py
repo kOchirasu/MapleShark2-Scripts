@@ -1,6 +1,6 @@
 from script_api import *
 
-def decode_stat(statType):
+def decode_stat(statType: int):
     if statType == 4: # Hp
         total = add_long("TotalHp")
         base = add_long("BaseHp")

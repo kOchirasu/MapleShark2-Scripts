@@ -1,12 +1,12 @@
 from script_api import *
 
-def decode_coordF(str):
+def decode_coordF(str: str):
     with Node(str + "CoordF"):
         add_float("X")
         add_float("Y")
         add_float("Z")
 
-def decode_coordS(str):
+def decode_coordS(str: str):
     with Node(str + "CoordS"):
         add_short("X")
         add_short("Y")

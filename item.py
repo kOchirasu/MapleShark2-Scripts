@@ -236,10 +236,10 @@ def decode_gemstone():
         if isBound:
             decode_item_binding()
         # TSocketGemStoneLock
-        b = add_bool("UnknownFlag")
+        b = add_bool("IsLocked")
         if b:
-            add_byte("Unknown")
-            add_long("Unknown")
+            add_bool("IsLocked")
+            add_long("UnlockTime")
 
 def decode_item_couple_info():
     b = add_long("PairedCharacterId")
