@@ -5,8 +5,8 @@ from common import *
 f = add_byte("Function")
 if f == 3: # Spawn player
     add_int("ObjectId")
-    add_long("AccountId")
-    add_long("CharacterId")
+    add_long("CharacterID")
+    add_long("AccountID")
     add_unicode_str("Name")
     add_unicode_str("Profile Url")
     add_unicode_str("Motto")
