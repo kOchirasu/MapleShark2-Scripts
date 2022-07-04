@@ -105,14 +105,14 @@ with Node("Insignia", True):
     add_short("InsigniaId")
     add_byte("InsigniaValue")
 
-add_int("MyPC+1636")
+add_int("Pet object id")
 
 b = add_bool("HasPet")
 if b:
     with Node("FieldPet"):
         id = add_int("PetItemId")
         add_long("PetUid")
-        add_int("PetLevel")
+        add_int("PetRarity")
         decode_item(id)
 
 add_long("PremiumExpirationTime")
