@@ -5,6 +5,7 @@ from common import *
 CAP_ID = 11300000
 HAIR_ID = 10200000
 DECAL_ID = 10400000
+PET_ID = 60000000
 
 TEMPLATE_ITEM_IDS = [
     11050005, 11050006, 11300041, 11300042, 11300043, 11300044, 11300045, 11300046, 11300155, 11300156, 
@@ -210,7 +211,7 @@ def decode_item_pet():
 def decode_item_transfer():
     with Node("Transfer"):
         add_int("TransferFlag")
-        add_bool("Unknown")
+        add_bool("MailReceived")
         add_int("Remaining Trades")
         add_int("Remaining Repackage Count")
         add_byte("Unknown")

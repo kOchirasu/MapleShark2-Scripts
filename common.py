@@ -158,9 +158,11 @@ def decode_skill_tree():
                     start_node("Skill " + str(j))
                     add_bool("Notify")
                     b = add_bool("Enabled")
-                    add_int("SkillId")
+                    skillId = add_int("SkillId")
                     add_int("Level")
-                    add_bool("Unknown (0)")
+                    notify = add_bool("Unknown (0)")
+                    if notify:
+                        raise Exception(f"Job skill {skillId} has flag set!")
                     end_node(b)
 
 def decode_maid():

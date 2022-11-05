@@ -5,11 +5,11 @@ f = add_byte("function")
 if f == 1: # hide/display ui
     add_bool("hideUi") # true ? 0x620001D : 0x6200041
 elif f == 2:
-    pass # none
+    pass # hideScript, hideDirect (m_bgInstance, m_document)
 elif f == 3: # setCinematic
     add_int("type")
-    add_unicode_str("UnknownStr")
-    add_unicode_str("UnknownStr")
+    add_unicode_str("scriptString")
+    add_unicode_str("UnknownStr") # unused?
 elif f == 4: # setSkip
     t = add_byte("type")
     if t == 1:
@@ -30,12 +30,12 @@ elif f == 7: # hideScript
 elif f == 8: # add baloon talk
     add_bool("isNpcId") # 0 (1=from NPC AI?)
     add_int("ObjectId") # from spawnPointId
-    add_unicode_str("message")
+    add_unicode_str("scriptString")
     add_int("duration")
     add_int("delay")
     # UICutSceneCinematic::BalloonGroup, UICutSceneCinematic::BalloonTalk
 elif f == 9:
-    add_int("Unknown")
+    add_int("ObjectId")
 elif f == 10: # show caption
     add_unicode_str("type") # captionType
     add_unicode_str("title") # captionStr1
@@ -47,6 +47,6 @@ elif f == 10: # show caption
     add_float("scale") # captionScale
 elif f == 11: # setOpening
     add_unicode_str("scriptString")
-    add_bool("Unknown")
+    add_bool("Unknown") # passed to setOpening
 elif f == 12: # setIntro
-    add_unicode_str("Unknown")
+    add_unicode_str("scriptString")

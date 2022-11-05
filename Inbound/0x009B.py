@@ -32,7 +32,6 @@ elif f == 4: #  my listings
     for i in range(count):
         add_long("ListingUid")
         decode_meso_market_entry()
-    pass # none
 elif f == 5: # list
     decode_meso_market_entry()
     add_int("Unknown")

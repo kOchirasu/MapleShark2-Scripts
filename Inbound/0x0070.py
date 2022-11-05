@@ -1,4 +1,4 @@
-from re import T
+''' GUIDE_OBJECT '''
 from script_api import *
 from common import *
 

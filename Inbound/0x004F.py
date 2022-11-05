@@ -48,8 +48,16 @@ def decode_trigger_object():
     '''TriggerObjectCamera'''
     end_node(False)
 
+def decode_pvp_dialog():
+    add_long("Team1")
+    add_int("Team1")
+    add_int("Team1")
+    add_byte("Team1")
+    add_long("Team2")
+    add_int("Team2")
+    add_int("Team2")
+    add_byte("Team2")
 
-# Guild
 f = add_byte("Function")
 if f == 2: # load
     count = add_int("count")
@@ -68,38 +76,38 @@ elif f == 8: # display some notice ui
     n = add_byte("Unknown")
     with Node("type " + str(n), True):
         if n == 1: # GuideManager(21 - Design)
-            add_int("Unknown")
+            add_int("eventId")
         elif n == 2: # UIGuideEvent - showSummary
             add_int("EntityID")
             add_int("textID")
             add_int("durationTime")
         elif n == 3: # UIGuideEvent - hideSummary
-            add_int("Unknown")
+            add_int("EntityID")
         elif n == 4: # UICutSceneMovie (Start)
             add_str("fileName")
             add_int("movieID")
         elif n == 5: # UICutSceneMovie (Skip)
             add_int("movieID")
-        elif n == 7: # StateTriggerEmotionData
+        elif n == 7: # StateTriggerEmotionData (sequence)
             count = add_int("count")
             for i in range(count):
-                add_unicode_str("UnknownStr")
-        elif n == 8: # StateTriggerEmotionData
-            add_byte("Unknown")
-            add_int("Unknown")
-            add_unicode_str("UnknownStr")
+                add_unicode_str("SequenceName")
+        elif n == 8: # StateTriggerEmotionData (Loop)
+            add_byte("loop")
+            add_int("duration")
+            add_unicode_str("SequenceName")
         elif n == 9: # TextureAnimation
             add_int("ObjectId")
             add_unicode_str("UnknownStr")
         elif n == 10:
-            decode_coordS("Unknown")
-            add_bool("Unknown")
+            decode_coordS("rotation")
+            add_bool("rotateXY")
         elif n == 11:
             decode_coordS("Unknown")
             add_bool("Unknown")
         elif n == 12: # UI: TypingGameDialog
-            add_int("Unknown")
-            add_int("Unknown")
+            add_int("digits")
+            add_int("duration")
 elif f == 11: # load script computer
     add_str("UnknownStr") # script xml
     # <?xml version="1.0" encoding="utf-8"?><ms2><state name="NewState1" posX="0" posY="0" /></ms2>
@@ -164,9 +172,17 @@ elif f == 21:
     u = add_int("Unknown")
     if u == 0:
         pass # s_user_trigger_msg_rollback
-elif f == 22 or f == 23 or f == 24:
+elif f == 22:
     count = add_int("count")
     for i in range(count):
         add_int("PlayerObjectId")
     # additional/Etc/Eff_Target_Select_Keep.xml
     add_unicode_str("TargetEffect")
+elif f == 23:
+    count = add_int("count")
+    for i in range(count):
+        add_int("PlayerObjectId")
+    # additional/Etc/Eff_Target_Select_Keep.xml
+    add_unicode_str("TargetEffect")
+elif f == 24:
+    pass

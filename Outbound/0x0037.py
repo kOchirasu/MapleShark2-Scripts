@@ -70,11 +70,11 @@ elif f == 48: # confirm load save
 elif f == 49: # kick from house
     pass # none
 elif f == 51: # change background
-    add_byte("Index")
+    add_byte("Background")
 elif f == 52: # change lighting
-    add_byte("Index")
+    add_byte("Lighting")
 elif f == 54: # change camera
-    add_byte("Index")
+    add_byte("Camera")
 elif f == 64: # save blueprint
     add_int("Slot")
     add_unicode_str("SaveName")

@@ -26,19 +26,19 @@ def decode_field_property_info(t: int):
     elif t == 7: # Weather
         add_byte("Unknown")
     elif t == 8: # AmbientLight
-        with Node("Node"):
-            add_byte("Unknown")
-            add_byte("Unknown")
-            add_byte("Unknown")
+        with Node("Color"):
+            add_byte("Red")
+            add_byte("Green")
+            add_byte("Blue")
     elif t == 9: # DirectionalLight
-        with Node("Node"):
-            add_byte("Unknown")
-            add_byte("Unknown")
-            add_byte("Unknown")
-        with Node("Node"):
-            add_byte("Unknown")
-            add_byte("Unknown")
-            add_byte("Unknown")
+        with Node("DiffuseColor"):
+            add_byte("Red")
+            add_byte("Green")
+            add_byte("Blue")
+        with Node("SpecularColor"):
+            add_byte("Red")
+            add_byte("Green")
+            add_byte("Blue")
     elif t == 10: # Enables "Local Camera"
         add_bool("IsEnabled?")
     elif t == 11: # Enables "FreeCamera/Take a Screenshot"
@@ -55,4 +55,4 @@ elif f == 1:
     t = add_byte("type")
     decode_field_property_info(t)
 elif f == 2:
-    add_byte("Unknown")
+    add_byte("type")

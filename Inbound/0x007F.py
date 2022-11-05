@@ -13,7 +13,7 @@ def decode_type1():
         add_int("TotalArchitectScore")
         add_int("PlotId")
         add_int("PlotMapId")
-        add_byte("Unknown")
+        add_byte("Unknown") # 0
         add_byte("AreaDimension")
         add_byte("HeightDimension")
         with Node("InteriorSettings", True):
@@ -29,14 +29,14 @@ def decode_type1():
             # 4 - Potion Use
             # 5 - Ground Mounts
             # 6 - Air Mounts
-            # 7
-            # 8
+            # 7 - Pvp
+            # 8 - Unknown
             count = add_byte("Count")
             for i in range(count):
                 start_node("Permission " + str(i))
                 n = add_bool("IsConfigured")
                 if n:
-                    # 0 - Allow None
+                    # 0 - Allow None / Pvp
                     # 1 - Allow Me
                     # 2 - Allow My Party
                     add_byte("Value")

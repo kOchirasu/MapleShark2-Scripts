@@ -1,3 +1,4 @@
+''' CLUB '''
 from script_api import *
 
 def decode_club_packet_invite():

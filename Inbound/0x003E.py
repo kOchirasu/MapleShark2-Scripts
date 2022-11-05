@@ -13,21 +13,23 @@ if f == 0:
     add_byte("AttackPoint")
     decode_coordS("ImpactPosition")
     decode_coordF("ImpactDirection")
-    add_byte("Unknown")
+    add_byte("Unknown") # For skill:10600211 only
     add_int("ServerTick")
     count = add_byte("TargetCount")
     for i in range(count):
         with Node("Target " + str(i)):
             add_long("Unknown")
-            add_int("AttackCounter")
-            add_int("OwnerObjectId")
+            add_long("SkillTargetId")
+            #add_int("AttackCounter")
+            #add_int("OwnerObjectId")
             add_int("TargetObjectId")
             add_byte("State")
             add_byte("SubState")
 elif f == 1:
     add_long("SkillCastId")
-    add_int("AttackCounter")
-    add_int("OwnerObjectId")
+    add_long("SkillTargetId")
+    #add_int("AttackCounter")
+    #add_int("OwnerObjectId")
     add_int("OwnerObjectId")
     add_int("SkillId")
     add_short("SkillLevel")
@@ -53,9 +55,10 @@ elif f == 4: # healing
     add_int("OwnerObjectId")
     add_int("TargetObjectId")
     add_int("Tick") # Some kind of counter
-    add_long("HpAmount")
+    add_int("HpAmount")
     add_int("SpAmount")
-    add_byte("EpAmount")
+    add_int("EpAmount")
+    add_bool("Visible")
 elif f == 5: # region skill
     add_long("SkillCastId") # 0 since this is from field
     add_int("UserObjectId")
@@ -92,9 +95,9 @@ elif f == 7:
         add_int("Unknown")
 elif f == 8:
     add_long("SkillCastId")
-    b = add_bool("Unknown")
+    b = add_bool("HasTarget")
     if b:
+        add_int("SkillId")
+        add_short("SkillLevel")
         add_int("Unknown")
-        add_short("Unknown")
-        add_int("Unknown")
-        add_int("Unknown")
+        add_int("NpcId")

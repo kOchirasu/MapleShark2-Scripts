@@ -1,3 +1,4 @@
+''' ITEM_DISMANTLE '''
 from script_api import *
 
 f = add_byte("function")

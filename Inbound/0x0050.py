@@ -10,7 +10,7 @@ else:
 for i in range(count):
     with Node("Breakable " + str(i), True):
         add_str("EntityId")
-        add_byte("Unknown") # 2
+        add_byte("State") # 2,3,4,5,6
         add_bool("IsVisible")
-        add_int("Unknown")
-        add_int("ServerTick")
+        add_int("DurationTick")
+        add_int("SpawnTick")

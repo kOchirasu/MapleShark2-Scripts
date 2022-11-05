@@ -15,8 +15,8 @@ def decode_interact_object(type: int):
     elif type == 5: # CInteractDisplayImage
         pass # nullsub
     elif type == 6: # CInteractGatheringObject
-        add_short("unknown")
-        add_int("unknown")
+        add_short("GatherResult") # 8 = failure
+        add_int("Count") # decrease daily amount by
     elif type == 7: # CInteractGuildPosterObject
         pass # nullsub
     elif type == 8: # CInteractBillBoardObject
@@ -28,7 +28,7 @@ def decode_interact_object(type: int):
 f = add_byte("function")
 if f == 4:
     add_str("EntityId")
-    add_bool("CInteract[5]") # 0 <- visible?
+    add_byte("State") # CInteract[5]
     add_byte("InteractType")
 elif f == 5: # after interacting, despawn?
     add_str("EntityId")
@@ -36,40 +36,40 @@ elif f == 5: # after interacting, despawn?
     decode_interact_object(t)
 elif f == 6:
     add_int("InteractId")
-    add_bool("CInteract[5]") # 0 <- visible?
+    add_byte("State") # CInteract[5]
 elif f == 7:
-    add_bool("CInteract[5]") # 0 <- visible?
+    add_byte("State") # CInteract[5]
 elif f == 8:
     count = add_int("count")
     for i in range(count):
         with Node("Interact " + str(i)):
             add_str("EntityId")
-            add_bool("CInteract[5]") # 0 <- visible?
-            b = add_byte("InteractType")
-            if b == 6: # CInteractGatheringObject
+            add_byte("State") # CInteract[5]
+            t = add_byte("InteractType")
+            if t == 6: # CInteractGatheringObject
                 add_int("Unknown")
 elif f == 9:
     add_str("Name") # EventCreate_982795
-    add_bool("CInteract[5]") # 0 <- visible?
+    add_byte("State") # CInteract[5]
     add_byte("InteractType") # see decode_interact_object
     add_int("InteractObjectId") # Gamebryo:resource_id:188
     decode_coordF("Position") # Gamebryo:resource_id:82
     decode_coordF("Rotation") # Gamebryo:resource_id:157
     add_unicode_str("InteractXmlType") # MS2InteractActor,MS2InteractMesh
-    add_unicode_str("Gamebryo:resource_id:45") # interaction_chestA_02 <- urn:gamebryo-animation:
-    add_unicode_str("Gamebryo:resource_id:200") # Opened_A/Interaction_advertisement_A01
-    add_unicode_str("Gamebryo:resource_id:74") # Idle_A/Interaction_advertisement_A01
-    add_float("Gamebryo:resource_id:45")
+    add_unicode_str("KfmAsset, Gamebryo:resource_id:45") # interaction_chestA_02 <- urn:gamebryo-animation:
+    add_unicode_str("Gamebryo:resource_id:200") # Opened_A/Interaction_advertisement_A01(reactable)
+    add_unicode_str("Gamebryo:resource_id:74") # Idle_A/Interaction_advertisement_A01(normal)
+    add_float("Scale, Gamebryo:resource_id:45")
     add_bool("Gamebryo:resource_id:243")
     # Some other conditional cases
-    # if (CInteractBillBoardObject)
     '''
-    add_long("Unknown")
-    add_unicode_str("OwnerIgn")
+    if (CInteractBillBoardObject):
+        add_long("OwnerCharacterId")
+        add_unicode_str("OwnerName")
     '''
 elif f == 10:
-    add_str("Unknown")
-    add_unicode_str("Unknown") # effect
+    add_str("EntityId")
+    add_unicode_str("EffectStr") # effect
 elif f == 13: # respawn? | gold chest remove #2
     message = add_byte("message")
     add_str("EntityId")
@@ -95,10 +95,10 @@ elif f == 13: # respawn? | gold chest remove #2
         message # s_interact_result_mastery
     '''
 elif f == 14:
-    n = add_short("Unknown")
-    add_int("Unknown")
-    add_int("Unknown")
-    add_unicode_str("Unknown")
-elif f == 15:
+    n = add_short("Unknown") # 1
+    add_int("MapId")
+    add_int("Unknown") # StringTable related
+    add_unicode_str("Unknown") # StringCode
+elif f == 15: # hold interact object
     add_int("ObjectId")
     add_int("ItemId")

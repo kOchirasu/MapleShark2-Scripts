@@ -33,4 +33,4 @@ elif f == 2:
 elif f == 3:
     decode_liftable()
 elif f == 4:
-    add_str("CoordAsHexa")
+    add_str("EntityId") # OR CoordAsHexa

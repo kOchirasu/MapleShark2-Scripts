@@ -16,44 +16,59 @@ if f == 0: # StartSkill
     add_int("ClientTick")
     add_bool("Unknown")
     add_long("Unknown")
-    b = add_bool("flag")
+    b = add_bool("IsHoldSkill") # HoldSkill
     if b:
         add_int("Unknown")
         add_unicode_str("Unknown")
 elif f == 1: # Attacking?
     t = add_byte("AttackType")
-    add_long("SkillUseUid")
     if t == 0:
+        add_long("SkillUseUid")
         add_byte("AttackPoint")
         decode_coordF("Position")
         decode_coordF("Direction")
         count = add_byte("count")
-        add_int("Unknown")
+        add_int("HoldCount")
         for i in range(count):
-            with Node("Npc " + str(i), True):
-                add_int("AttackCounter") # increments by 1 per attack
-                add_int("UserObjectId")
-                add_int("NpcObjectId")
-                add_short("AnimationFrame?")
+            with Node("Target " + str(i), True):
+                add_long("SkillTargetUid")
+                #add_int("AttackCounter") # increments by 1 per attack
+                #add_int("CasterId")
+                add_int("TargetId")
+                add_byte("Index")
+                while True:
+                    b = add_bool("HasNextChain")
+                    if not b:
+                        break
+                    with Node("TargetChain", True):
+                        add_long("SkillTargetUid")
+                        #add_int("AttackCounter")
+                        #add_int("CasterId")
+                        add_int("ChainTargetId")
+                        add_byte("Index")
+                        add_byte("unk2")
     elif t == 1:
-        add_int("AttackCounter")
-        add_int("UserObjectId")
-        decode_coordF("Position")
-        decode_coordF("ImpactPosition")
-        decode_coordF("Direction")
+        add_long("SkillUseUid")
+        add_long("SkillTargetUid")
+        #add_int("AttackCounter")
+        #add_int("CasterId")
+        decode_coordF("ImpactPosition1")
+        decode_coordF("ImpactPosition2")
+        decode_coordF("Direction|Rotation")
         add_byte("AttackPoint")
         count = add_byte("count")
         add_int("Unknown")
         for i in range(count):
-            with Node("Npc " + str(i), True):
-                add_int("NpcObjectId")
+            with Node("Target " + str(i), True):
+                add_int("TargetObjectId")
                 add_byte("Unknown")
     elif t == 2:
-        add_byte("Unknown")
+        add_long("SkillUseUid")
+        add_byte("AttackPoint")
         add_int("Unknown")
         add_int("Unknown")
-        decode_coordF("Position")
-        decode_coordF("Rotation")
+        decode_coordF("CastPosition")
+        decode_coordF("CastRotation")
 elif f == 2: # charge skill
     add_long("SkillUseUid")
     add_int("SkillId")
@@ -63,8 +78,8 @@ elif f == 2: # charge skill
     decode_coordF("Direction")
     decode_coordF("Rotation")
     decode_coordF("Unknown")
-    add_byte("Unknown")
-    add_byte("Unknown")
+    add_bool("IsCharge")
+    add_bool("IsRelease")
     add_int("Unknown")
 elif f == 3: # charging skill
     add_long("SkillUseUid")

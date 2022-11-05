@@ -47,6 +47,10 @@ elif f == 3: #confirmation (?)
     add_long("UGC Uid")
     add_unicode_str("UGC Guid")
     add_short("-255")
+elif f == 11:
+    add_unicode_str("unknown")
+elif f == 12:
+    add_unicode_str("unknown")
 elif f == 18: #load banners
     add_int("Map id")
 elif f == 19: #reserve banner

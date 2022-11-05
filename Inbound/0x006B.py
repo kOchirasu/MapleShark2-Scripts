@@ -16,7 +16,7 @@ if f == 0:
 elif f == 1: # confirm hold cube
     add_int("PlayerObjectId")
     decode_cube_item_info()
-elif f == 2:
+elif f == 2: # buy plot
     result = add_bool("result")
     if result == 0:
         add_int("PlotId")
@@ -65,7 +65,7 @@ elif f == 10: # confirm place cube
         add_bool("UnknownB")
         add_float("Rotation")
         add_int("Unknown")
-        b = add_bool("UnknownB")
+        b = add_bool("IsBound")
         if b:
             add_unicode_str("UnknownStr")
             add_byte("Unknown")
@@ -239,49 +239,49 @@ elif f == 51: # change background
     if result:
         error_handler(result)
     else:
-        add_byte("Index")
+        add_byte("Background")
 elif f == 52: # change lighting
     result = add_bool("result")
     if result:
         error_handler(result)
     else:
-        add_byte("Index")
-elif f == 53: # related to 56
-    add_long("Unknown")
-    add_long("Unknown")
-    add_long("Unknown")
-    add_long("Unknown")
+        add_byte("Lighting")
+elif f == 53: # Grant building permissions
+    add_long("grantAccountId")
+    add_long("ownerAccountId")
+    add_long("MesoLimit")
+    add_long("MeretLimit")
 elif f == 54: # change camera
     result = add_bool("result")
     if result:
         error_handler(result)
     else:
-        add_byte("Index")
-elif f == 55:
+        add_byte("Camera")
+elif f == 55: # load warehouse item
     add_short("Unknown")
     count = add_int("count")
     for i in range(count):
-        add_int("Unknown")
-        add_int("Unknown")
-elif f == 56: # related to 53
+        add_int("ItemId")
+        add_int("Amount")
+elif f == 56: # Set Budget
     result = add_bool("result")
     if result:
         error_handler(result)
     else:
-        add_long("Unknown")
-        add_long("Unknown")
-elif f == 57: # related to 59
+        add_long("MesoLimit")
+        add_long("MeretLimit")
+elif f == 57: # add build permission
     result = add_bool("result")
     if result:
         error_handler(result)
     else:
-        add_long("Unknown")
-elif f == 58:
+        add_long("AccountId") # of target
+elif f == 58: # remove build permission
     result = add_bool("result")
     if result:
         error_handler(result)
     else:
-        add_long("Unknown")
+        add_long("AccountId") # of target
 elif f == 59: # related to 57
     count = add_int("count")
     for i in range(count):
@@ -293,13 +293,13 @@ elif f == 61:
     n = add_byte("Unknown")
     if n == 100:
         add_byte("Unknown")
-elif f == 62:
+elif f == 62: # update dimensions
     result = add_bool("result")
     if result:
         error_handler(result)
     else:
-        add_byte("Unknown")
-        add_byte("Unknown")
+        add_byte("Area")
+        add_byte("Height")
 elif f == 63: # BlueprintItemData
     add_byte("Unknown")
     add_long("ItemUid")
