@@ -1,3 +1,4 @@
+''' FIELD_PROPERTY '''
 from script_api import *
 
 def decode_field_property_info(t: int):

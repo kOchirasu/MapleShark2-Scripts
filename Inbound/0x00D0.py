@@ -1,8 +1,8 @@
+''' PET_INVENTORY '''
 from script_api import *
 from item import *
 
 f = add_byte("Function")
-
 if f == 0: # Store item
     id = add_int("Id")
     add_long("Uid")

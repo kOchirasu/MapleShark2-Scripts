@@ -136,8 +136,14 @@ elif f == 8: # accept invite
 elif f == 9: # club invite declined
     add_long("ClubUid")
     add_unicode_str("PlayerName")
-    add_byte("Unknown") # 0
-    add_byte("Unknown") # 1
+    add_bool("Accepted")
+    code = add_byte("code") # 1
+    if code == 2:
+        pass # s_club_join_reject_logout
+    elif code == 3:
+        pass # s_club_join_reject_timeout
+    else: # 1
+        pass # s_club_join_reject_invite
 elif f == 10: # leave club
     add_long("ClubUid")
     # s_club_leave

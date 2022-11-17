@@ -299,3 +299,13 @@ def decode_cube_item_info():
         b = add_bool("IsUgc")
         if b:
             decode_ugc_item_look()
+
+def decode_item_entity():
+    with Node("ItemEntity"):
+        add_int("ItemId")
+        add_short("Rarity")
+        add_int("Amount")
+        add_bool("Unknown")
+        add_bool("Unknown")
+        add_bool("Unknown")
+        add_bool("Unknown")
